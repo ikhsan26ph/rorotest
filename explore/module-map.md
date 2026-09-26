@@ -221,6 +221,22 @@ Eksplorasi dilakukan pada Operator Pusat dan Operator Cabang Parepare. Semua hal
 
 Temuan akses: akun Cabang dapat membuka langsung form tambah serta halaman edit/setting pada hampir seluruh kelompok Master yang diperiksa. Ini baru membuktikan route dan UI dapat dibuka; otorisasi penyimpanan tidak diuji dalam workflow explore. Bukti dan metadata run berada di `artifacts/explore/20260926-023405-master.json` serta screenshot terkait di `artifacts/screenshots/explore/20260926-023405-master/`.
 
+## Eksplorasi detail Kuota & Jadwal — 26 September 2026
+
+Eksplorasi dilakukan pada `/partner/masterjadwal` dan `/partner/tambahjadwal` untuk Operator Pusat dan Operator Cabang Parepare. Pilihan trayek dan kapal diubah hanya pada state form lokal untuk memunculkan bagian dinamis; tombol Simpan/Selesai tidak ditekan.
+
+| Area | Hasil eksplorasi |
+|---|---|
+| Daftar jadwal | Tabel memuat tanggal buat, trayek, kapal, nomor voyage, kapasitas, status, rute, kelas/golongan/bagasi, kuota internal/eksternal, dan bonus tiket. Saat diperiksa, Pusat melihat 2.242 data dan Cabang Parepare 571 data. |
+| Form awal | Trayek, kapal, call sign, nomor voyage, kapasitas penumpang, serta rute yang dilewati. Call sign dan kapasitas terisi dari kapal dan tampil disabled. |
+| Lookup dinamis | Memanggil `getAlurRuteOld`, `getAlurRute`, `getKapalJadwal`, dan `getKuotaJadwal` setelah pilihan trayek/kapal berubah. Tidak ada request penyimpanan. |
+| Tab Kuota | Distribusi kuota penumpang per kelas dan kendaraan per golongan, masing-masing memiliki Kuota Internal dan Kuota Eksternal; kendaraan juga memiliki Bonus Tiket. Pilihan contoh menampilkan 2 kelas dan 6 golongan. |
+| Tab Jadwal | Status Jadwal, Pelabuhan Asal, Waktu Berangkat (`tgl_etd`), Pelabuhan Tujuan, dan Waktu Tiba (`tgl_eta`). Pilihan status yang terlihat: Jadwal Tampil dan Jadwal Tutup. |
+| Tab Crew List | Menampilkan rute yang dilewati dan instruksi memastikan Crew List telah terisi; terdapat kontrol Selesai yang tidak ditekan. |
+| Perbedaan role | Struktur daftar, form buat, tab, field, dan kontrol yang terlihat sama pada Pusat dan Cabang. Perbedaan data daftar menunjukkan pembatasan lingkup: Cabang hanya melihat subset jadwal Pusat. |
+
+Form buat menampilkan tombol Simpan/Batal pada Kuota dan Jadwal. Akses UI ini belum membuktikan otorisasi backend untuk membuat atau mengubah jadwal karena tidak ada submit. Bukti dan metadata run berada di `artifacts/explore/20260926-024451-schedule-quota.json` serta screenshot terkait di `artifacts/screenshots/explore/20260926-024451-schedule-quota/`.
+
 ## Handoff
 
 Gunakan route hasil UI ini untuk eksplorasi lanjut. Sebelum test detail, buat skenario per modul dari rule dan temuan UI, lalu harvest selector sesuai workflow. Seluruh gap dashboard untuk akun yang tersedia sudah ditutup. Sisa cakupan yang memerlukan input pengguna hanya akun Sub User Pusat di config/env.md. Tidak perlu membuat akun atau mengubah hak akses untuk menyelesaikan eksplorasi akun yang sudah tersedia.
