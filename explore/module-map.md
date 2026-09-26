@@ -281,6 +281,25 @@ Eksplorasi dilakukan untuk Operator Pusat dan Operator Cabang Parepare. Tidak ad
 
 Data yang terlihat mendukung adanya pembatasan lingkup Cabang pada pembatalan langsung, tetapi otorisasi backend untuk membuat atau mengedit pembatalan belum diuji. Aturan denda tetap mengacu pada Master Denda Pembatalan yang sudah dipetakan; tidak ada perubahan setting. Bukti dan metadata run berada di `artifacts/explore/20260926-030656-cancellations.json` serta screenshot terkait di `artifacts/screenshots/explore/20260926-030656-cancellations/`.
 
+## Eksplorasi detail kelompok Laporan — 26 September 2026
+
+Sepuluh laporan dibuka untuk Operator Pusat dan Operator Cabang Parepare. Panel Filter dibuka untuk membaca parameternya, tetapi filter, Reset, aksi detail, dan Export Excel tidak dijalankan.
+
+| Laporan | Kolom utama | Parameter filter |
+|---|---|---|
+| Penjualan Harian | Channel, user operator, tanggal transaksi, jumlah trip/tiket, total penjualan | Tanggal transaksi, channel penjualan, user operator |
+| Pendapatan Penumpang | Kapal/voyage, asal/berangkat, tujuan/tiba, jumlah tiket, pendapatan | Kapal, voyage, asal, tujuan, tanggal berangkat/tiba |
+| Pendapatan Kendaraan | Kapal/voyage, asal/berangkat, tujuan/tiba, jumlah tiket, pendapatan | Kapal, voyage, asal, tujuan, tanggal berangkat/tiba |
+| Rekap Pendapatan Per Trip | Kapal/voyage, asal/berangkat, tujuan/tiba, jumlah, total pendapatan | Kapal, voyage, asal, tujuan, tanggal berangkat/tiba |
+| Pembatalan Tiket | Channel, user operator, tanggal pembatalan, jumlah trip/tiket, total dikembalikan | Tanggal, channel pembatalan, user operator |
+| Rekap Asuransi | Kapal, voyage, rute, jumlah, keberangkatan, total asuransi | Asal, tujuan, kapal, voyage, jumlah, keberangkatan |
+| Pemakaian Saldo | Kapal/voyage, asal/berangkat, tujuan/tiba, jumlah transaksi, pemakaian saldo | Kapal, voyage, asal, tujuan, tanggal berangkat/tiba |
+| Penjualan Harian Agen | Agen, user agen, tanggal transaksi, jumlah trip/tiket, total penjualan | Tanggal transaksi, agen, user agen |
+| Rekap Penjualan Agen | Agen, kapal/voyage, rute/waktu, jumlah, penjualan, komisi | Agen, kapal, voyage, asal, tujuan, tanggal berangkat/tiba |
+| Pembatalan Tiket Agen | Tanggal pembatalan, agen/user, trip, jumlah tiket, total dikembalikan | Tanggal pembatalan, agen, user agen |
+
+Struktur kolom dan filter sama pada Pusat dan Cabang. Data awal banyak yang kosong atau masih menampilkan “Mohon tunggu sebentar” setelah 3 detik karena tabel dimuat melalui endpoint pencarian terpisah. Waktu observasi halaman berkisar ±6,8–19,2 detik pada Pusat dan ±7,6–15,5 detik pada Cabang; Laporan Pembatalan Tiket menjadi yang paling lambat pada run ini. Export Excel terlihat pada Pemakaian Saldo, tetapi tidak dijalankan. Bukti dan metadata run berada di `artifacts/explore/20260926-032736-reports.json` serta screenshot terkait di `artifacts/screenshots/explore/20260926-032736-reports/`.
+
 ## Handoff
 
 Gunakan route hasil UI ini untuk eksplorasi lanjut. Sebelum test detail, buat skenario per modul dari rule dan temuan UI, lalu harvest selector sesuai workflow. Seluruh gap dashboard untuk akun yang tersedia sudah ditutup. Sisa cakupan yang memerlukan input pengguna hanya akun Sub User Pusat di config/env.md. Tidak perlu membuat akun atau mengubah hak akses untuk menyelesaikan eksplorasi akun yang sudah tersedia.
