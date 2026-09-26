@@ -37,7 +37,7 @@ async function loginPartner(browser, roleKeyword) {
   const context = await browser.newContext({ baseURL: baseUrl, viewport: { width: 1440, height: 900 } });
   const page = await context.newPage();
   try {
-    await page.goto('/partner', { waitUntil: 'networkidle' });
+    await page.goto('/partner', { waitUntil: 'domcontentloaded' });
     await page.locator('#username').fill(acct.email);
     await page.locator('#password').fill(acct.password);
     await page.getByRole('button', { name: 'Login', exact: true }).click();

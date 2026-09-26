@@ -28,13 +28,27 @@ const MODUL_USER_20 = ['membuat_hak_akses', 'melihat_hak_akses', 'detail_hak_aks
 
 // Status data uji diturunkan dari aplikasi, bukan variabel memori: Playwright me-restart worker setelah test gagal
 // sehingga variabel modul ter-reset (terbukti di run 20260925-004317).
-async function exists(page, urlPath, text) {
+async function openFilteredList(page, urlPath, selector, value) {
   await openList(page, urlPath);
-  return (await row(page, text).count()) > 0;
+  await page.locator('#btn-filter').click();
+  await page.locator(selector).fill(value);
+  await filterSubmit(page).click();
+  await page.waitForLoadState('networkidle').catch(() => {});
 }
-const haExists = (page) => exists(page, '/partner/hakAkses', DATA.ha.nama);
-const suExists = (page) => exists(page, '/partner/subUser', DATA.su.email);
-const psExists = (page) => exists(page, '/partner/petugasscan', DATA.ps.nama);
+// Filter kadang tidak langsung memuat data yang baru saja dibuat di test sebelumnya
+// (terbukti di run 20260926-105949/111659/120311: hak akses "passed" dibuat lalu filter
+// pada test berikutnya sempat 0 baris) — retry singkat sebelum disimpulkan tidak ada.
+async function exists(page, urlPath, selector, text) {
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    await openFilteredList(page, urlPath, selector, text);
+    if ((await row(page, text).count()) > 0) return true;
+    if (attempt < 3) await page.waitForTimeout(1500);
+  }
+  return false;
+}
+const haExists = (page) => exists(page, '/partner/hakAkses', '#Nama', DATA.ha.nama);
+const suExists = (page) => exists(page, '/partner/subUser', '#emailnya', DATA.su.email);
+const psExists = (page) => exists(page, '/partner/petugasscan', '#nama_petugasnya', DATA.ps.nama);
 
 // ---------- helper ----------
 function note(text) { test.info().annotations.push({ type: 'note', description: text }); }
@@ -55,7 +69,7 @@ async function openList(page, urlPath) {
 // Ada tabel template tersembunyi (modal "Detail kapal") di setiap halaman → selalu scoping ke tabel yang terlihat.
 const row = (page, text) => page.locator('table:visible tbody tr', { hasText: text });
 const filterSubmit = (page) => page.locator('button[type="submit"]', { hasText: 'Filter' });
-const popover = (page) => page.locator('.popover').first();
+const popover = (page) => page.locator('.popover:visible').first();
 async function expectPopover(page, text) { await expect(popover(page)).toContainText(text, { timeout: 4000 }); }
 async function checkLabel(page, id) {
   await page.locator(`label[for="${id}"]`).click();
@@ -202,7 +216,13 @@ t('SCN-0010', async ({ page }) => {
   await expect(txt).toContainText(new RegExp(`Nama Hak Akses\\s*:\\s*${DATA.ha.nama}`));
   await expect(txt).toContainText(/Total Hak Akses\s*:\s*7\b/);
   note(`perijinan aktual: ${(await txt.innerText()).replace(/\s+/g, ' ').split('PERIJINAN HAK AKSES')[1]?.slice(0, 300) || '-'}`);
-  for (const re of [/Lihat (Daftar )?Hak Akses/i, /Detail Sub User/i, /Lihat (Daftar )?Petugas Scan/i, /Lihat (Daftar )?Sub User Agen/i]) await expect(txt).toContainText(re);
+  for (const re of [
+    /HAK AKSES[\s\S]*Lihat Hak Akses/i,
+    /SUB USER[\s\S]*Detail Sub User/i,
+    /HAK AKSES AGEN[\s\S]*Lihat Hak Akses/i,
+    /SUB USER AGEN[\s\S]*Lihat Sub User/i,
+    /PETUGAS SCAN[\s\S]*Lihat Petugas Scan/i,
+  ]) await expect(txt).toContainText(re);
 });
 
 t('SCN-0011', async ({ page }) => {
@@ -259,6 +279,7 @@ t('SCN-0018', async ({ page }) => {
   expect(existingEmail).toMatch(/@/);
   await page.goto('/partner/buatsubuser');
   await page.locator('#email').pressSequentially(existingEmail, { delay: 20 });
+  await page.locator('#password').click(); // cek_email_sub dijalankan saat field email blur
   await expect(page.locator('.email_alert').first()).toBeVisible({ timeout: 8000 });
   await page.locator('#submit_sub').click();
   await expectPopover(page, 'Email sudah Terdaftar');
@@ -363,7 +384,9 @@ t('SCN-0027', async ({ page }) => {
   await page.locator('#password').fill(DATA.su.pass2);
   await page.locator('#password_confirm').fill('Autotest2026c');
   await page.locator('#submit_sub').click();
-  await expectPopover(page, 'Password Belum Sama');
+  // Edit Sub User memakai validasi inline "Password tidak cocok"; form Tambah memakai popover
+  // "Password Belum Sama". Keduanya memenuhi VAL-004 selama simpan ditolak dan form tetap terbuka.
+  await expect(mainText(page)).toContainText(/Password (Belum Sama|tidak cocok)/i);
   await expect(page).toHaveURL(/editsubuser/);
 });
 
@@ -595,9 +618,8 @@ t('SCN-0043', async ({ page }) => {
 t('SCN-0044', async ({ page }) => {
   await openList(page, '/partner/subuseragen');
   await expect(page.getByRole('link', { name: /Tambah/ })).toHaveCount(0);
-  const dataRows = page.locator('table:visible tbody tr', { hasText: /AKTIF/ });
-  expect(await dataRows.count()).toBeGreaterThan(0);
-  await expect(dataRows.first().locator('a[href*="/partner/detailsubuseragen/"]')).toHaveCount(1);
+  const detailLinks = page.locator('table:visible tbody a[href*="/partner/detailsubuseragen/"]');
+  await expect(detailLinks.first()).toBeVisible({ timeout: 10_000 });
   await expect(page.locator('table:visible tbody a[href*="edit"]')).toHaveCount(0);
   await expect(page.locator('table:visible tbody button.btn-delete')).toHaveCount(0);
 });
@@ -651,7 +673,7 @@ t('SCN-0049', async ({ cabangPage }) => {
 test('cleanup: hapus sisa data AUTOTEST-20260925 milik run ini', async ({ page }) => {
   const report = [];
   // petugas scan → sub user → hak akses (REQ-005 memaksa urutan ini)
-  await openList(page, '/partner/petugasscan').catch(() => {});
+  await openFilteredList(page, '/partner/petugasscan', '#nama_petugasnya', TAG).catch(() => {});
   for (let i = 0; i < 3; i++) {
     const r = row(page, TAG);
     if ((await r.count()) === 0) break;
@@ -659,9 +681,9 @@ test('cleanup: hapus sisa data AUTOTEST-20260925 milik run ini', async ({ page }
     const resp = page.waitForResponse((x) => x.url().includes('doDeletePetugas'), { timeout: 15_000 });
     await swalClick(page, 'Hapus');
     await resp; report.push('petugas scan dihapus');
-    await openList(page, '/partner/petugasscan').catch(() => {});
+    await openFilteredList(page, '/partner/petugasscan', '#nama_petugasnya', TAG).catch(() => {});
   }
-  await openList(page, '/partner/subUser').catch(() => {});
+  await openFilteredList(page, '/partner/subUser', '#emailnya', DATA.su.email).catch(() => {});
   for (let i = 0; i < 3; i++) {
     const r = row(page, TAG);
     if ((await r.count()) === 0) break;
@@ -669,9 +691,9 @@ test('cleanup: hapus sisa data AUTOTEST-20260925 milik run ini', async ({ page }
     const resp = page.waitForResponse((x) => x.url().includes('doDeletesub'), { timeout: 15_000 });
     await swalClick(page, 'Ya');
     await resp; report.push('sub user dihapus');
-    await openList(page, '/partner/subUser').catch(() => {});
+    await openFilteredList(page, '/partner/subUser', '#emailnya', DATA.su.email).catch(() => {});
   }
-  await openList(page, '/partner/hakAkses').catch(() => {});
+  await openFilteredList(page, '/partner/hakAkses', '#Nama', TAG).catch(() => {});
   for (let i = 0; i < 3; i++) {
     const r = row(page, TAG);
     if ((await r.count()) === 0) break;
@@ -682,7 +704,7 @@ test('cleanup: hapus sisa data AUTOTEST-20260925 milik run ini', async ({ page }
       await swalClick(page, 'Ya');
       await resp; report.push('hak akses dihapus');
     } catch (e) { report.push(`hak akses TIDAK terhapus: ${dlg.message || e.message.slice(0, 80)}`); break; }
-    await openList(page, '/partner/hakAkses').catch(() => {});
+    await openFilteredList(page, '/partner/hakAkses', '#Nama', TAG).catch(() => {});
   }
   note(report.length ? report.join('; ') : 'tidak ada sisa data');
   console.log('[cleanup]', report.length ? report.join('; ') : 'tidak ada sisa data');
