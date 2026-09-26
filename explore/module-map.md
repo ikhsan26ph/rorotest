@@ -237,6 +237,23 @@ Eksplorasi dilakukan pada `/partner/masterjadwal` dan `/partner/tambahjadwal` un
 
 Form buat menampilkan tombol Simpan/Batal pada Kuota dan Jadwal. Akses UI ini belum membuktikan otorisasi backend untuk membuat atau mengubah jadwal karena tidak ada submit. Bukti dan metadata run berada di `artifacts/explore/20260926-024451-schedule-quota.json` serta screenshot terkait di `artifacts/screenshots/explore/20260926-024451-schedule-quota/`.
 
+## Eksplorasi detail Penjualan & Operasional — 26 September 2026
+
+Eksplorasi dilakukan untuk Operator Pusat dan Operator Cabang Parepare. Semua pemeriksaan bersifat read-only; tidak ada pembayaran, cetak/download, ekspor, persetujuan, pembatalan, boarding, atau pengiriman ke Pelindo.
+
+| Modul | Operator Pusat | Operator Cabang Parepare | Struktur/temuan utama |
+|---|---|---|---|
+| Jual Tiket | Route `/partner/jualtiket` dialihkan ke dashboard dengan pesan tidak memiliki akses | Halaman aktif | Alur 4 tahap: Daftar Jadwal, Isi Data, Pembayaran, Cetak Tiket; filter tanggal, asal/tujuan, dan detail tiket. Pencarian awal memakai lookup `searchpencarian` dan `getVehicle` |
+| Daftar Order | Terbuka | Terbuka | Filter dan tabel ID/status order, kapal/voyage, asal/tujuan, waktu, dan harga; data dimuat async lewat `searchpenjualan` dan masih menampilkan “Mohon tunggu sebentar” setelah observasi awal |
+| Cetak Tiket | Terbuka | Terbuka | Filter, ID order, pembeli, rute, kapal, keberangkatan, jumlah tiket, total, status tercetak, Download E-Tiket, dan Cetak; aksi tidak dijalankan |
+| Persetujuan Tiket | 10 baris pada halaman pertama dari cakupan yang lebih besar | 3 data dalam cakupan cabang | Tanggal, ID pesan, instansi, surat tugas, status, aksi; detail order representatif berhasil dibuka tanpa menjalankan cetak/download |
+| Daftar Piutang | Terbuka | Terbuka | Transaksi, ID pesan, pelanggan, TOP, harga, jatuh tempo, status, dan aksi; data dimuat melalui `searchpiutang` |
+| Manifest | Daftar lintas rute | Daftar didominasi rute Parepare | Detail manifest menampilkan ringkasan penumpang/kendaraan terverifikasi dan belum terverifikasi, tab penumpang/kendaraan/crew, Export Excel, serta Kirim ke Pelindo |
+| Konter Tiket | Form terbuka dan menampilkan jadwal 7 hari | Form terbuka; tidak ada pilihan jadwal pada saat pemeriksaan | Pilih jadwal, kode E-Tiket, nama penumpang/pemilik kendaraan, nomor identitas/polisi/rangka, serta Ajukan Boarding Pass |
+| Data Kendaraan | Daftar lintas rute | Daftar dalam cakupan cabang | Detail trip berisi ID tiket, pemesan, jenis kendaraan, nomor polisi, status, filter, dan Export Data Kendaraan |
+
+Perbedaan akses Jual Tiket terkonfirmasi juga melalui route langsung, bukan hanya status menu. Data Persetujuan, Manifest, Jadwal Konter, dan Data Kendaraan menunjukkan lingkup Cabang lebih sempit daripada Pusat. Bukti dan metadata run berada di `artifacts/explore/20260926-024841-sales-operations.json` serta screenshot terkait di `artifacts/screenshots/explore/20260926-024841-sales-operations/`.
+
 ## Handoff
 
 Gunakan route hasil UI ini untuk eksplorasi lanjut. Sebelum test detail, buat skenario per modul dari rule dan temuan UI, lalu harvest selector sesuai workflow. Seluruh gap dashboard untuk akun yang tersedia sudah ditutup. Sisa cakupan yang memerlukan input pengguna hanya akun Sub User Pusat di config/env.md. Tidak perlu membuat akun atau mengubah hak akses untuk menyelesaikan eksplorasi akun yang sudah tersedia.
