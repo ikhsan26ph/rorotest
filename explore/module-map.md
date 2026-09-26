@@ -7,6 +7,7 @@ Run mulai 24 September 2026 WIB, dilanjutkan 26 September 2026 WIB. Host: https:
 - **Operator Pusat:** login berhasil, 44 route utama/submenu dibuka dan diambil screenshot. Tenant PT. JEMBATAN NUSANTARA.
 - **Cabang / Sub User Cabang:** login berhasil, 45 route utama/submenu dibuka dan diambil screenshot. Nama user Ikhsan Pare, jenis Cabang, kota Parepare, bagian Penjualan, hak akses Akses IK. Identitas dikonfirmasi dari daftar dan detail Sub User milik pusat serta halaman profil setelah login cabang.
 - **Sub User Pusat: blocked untuk login langsung.** Belum ada kredensial akun tersebut di config/env.md. Form pengelolaan sub user sudah diperiksa, tetapi itu bukan verifikasi sesi Sub User Pusat.
+- **Agen:** login berhasil melalui `/agen`; 5 area navigasi dipetakan: Dashboard, Riwayat Saldo, Jual Tiket, Daftar Order, dan Akun Saya.
 - Semua route utama yang tercatat di tabel mengembalikan HTTP 200. Ini membuktikan halaman dapat dibuka, bukan seluruh fungsi bisnis berhasil.
 - Read-only: hanya login/logout, navigasi, pemeriksaan DOM dan screenshot; tidak submit data bisnis, booking, cetak tiket, pembayaran, topup, pembatalan, atau perubahan setting.
 - Apps JN Member, Master Member/Aksi Member, dan Admin SS dikecualikan. Label membership yang terlihat tidak diikuti.
@@ -321,3 +322,19 @@ Gunakan route hasil UI ini untuk eksplorasi lanjut. Sebelum test detail, buat sk
 | U5 | PREFERENCE NOTIF | `/home/preferencenotif`, `/home/settingpreferencenotif` | Detail + form | Setting; Simpan/Batal | Belum | Email & WhatsApp: Notif Pemesanan/Pembayaran Berhasil; tidak disimpan |
 
 Temuan: jadwal `AUTOTEST-20260925-PPBPN-01` (ID detail 2296 di portal user) hanya menawarkan **13 jenis** tiket ke user umum — Dewasa/Anak/Bayi (Ekonomi Lesehan & Lesehan (A)), Gol. II (4), Gol. III-A, III-A(A), III-B(A). Tidak tampil: Gol. IV–VII, Mobil Mewah/Perlakuan Khusus (III-B), bagasi penumpang/kendaraan (operator: 30 jenis). Harga user berbeda dengan operator (mis. Dewasa Ekonomi Lesehan Rp265.500). Perlu dicocokkan dengan dokumen rule — belum verdict.
+
+## Portal Agen (explore 2026-09-26)
+
+- Login resmi berada di `/agen` dengan `#username`, `#password`, dan tombol Login; sesi berhasil menuju dashboard `/agen/beranda_agen`.
+- Akun terverifikasi sebagai Agen aktif di Parepare. Informasi kontak, dokumen, dan rekening hanya diperiksa secara lokal dan tidak disalin ke dokumentasi.
+- Eksplorasi read-only; tidak ada pencarian tiket yang diteruskan menjadi keranjang/order, pembayaran, cetak, top-up, atau perubahan profil.
+
+| # | Modul | Route | Jenis Halaman | Aksi Utama | Ada Dokumen Skenario? | Catatan |
+|---|---|---|---|---|---|---|
+| A1 | Dashboard Agen | `/agen/beranda_agen` | Dashboard/list | Melihat jadwal tersedia dan informasi terkini | Belum | Menampilkan 3 jadwal saat diperiksa; data dimuat melalui `beranda_jadwal_agen` |
+| A2 | Riwayat Saldo | `/agen/agen_riwayat_saldo` | Tabel/list | Filter, Reset | Belum | Saldo akun Rp0 dan tidak ada transaksi saat diperiksa; tabel memuat ID/tanggal, transaksi, kapal/voyage, rute/jadwal, dan nilai saldo |
+| A3 | Jual Tiket | `/agen/jualtiket` | Form/pencarian | Reset, Filter, pilih jadwal dan jumlah tiket | Belum | Alur 4 tahap: Daftar Jadwal, Isi Data, Pembayaran, Cetak Tiket; lookup awal memakai `ceklogin`, `getVehicle`, dan `searchpencarian` |
+| A4 | Daftar Order | `/agen/daftarpenjualan` | Tabel/list | Filter, detail/aksi bila data tersedia | Belum | Tidak ada data order saat diperiksa; tabel memuat ID/status, kapal/voyage, asal/berangkat, tujuan/tiba, dan harga |
+| A5 | Akun Saya | `/agen/profil` | Detail | Melihat profil perusahaan, dokumen, status, dan rekening | Belum | Tidak ditemukan kontrol edit pada sesi ini |
+
+Portal Agen hanya menampilkan lima area di atas; tidak ada menu laporan, manifest, pembatalan, voucher, pengaturan user, atau master pada akun yang diuji. Bukti dan metadata run berada di `artifacts/explore/20260926-034842-agent.json` serta screenshot terkait di `artifacts/screenshots/explore/20260926-034842-agent/`.
