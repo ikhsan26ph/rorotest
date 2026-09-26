@@ -1,6 +1,6 @@
 # Eksplorasi Operator Pusat dan Cabang / Sub User
 
-Run mulai 24 September 2026 WIB, selesai 25 September 2026 WIB. Host: https://jn-rorodemo.prahu-hub.com. Footer UI: 20250211 v1.5.2 — Jembatan Nusantara. Sumber pembanding: Rule RORO v1.5.0.
+Run mulai 24 September 2026 WIB, dilanjutkan 26 September 2026 WIB. Host: https://jn-rorodemo.prahu-hub.com. Footer UI: 20250211 v1.5.2 — Jembatan Nusantara. Sumber pembanding: Rule RORO v1.5.0.
 
 ## Status dan cakupan
 
@@ -183,7 +183,7 @@ Pada Buat Jadwal ditemukan bagian kuota penumpang, kendaraan/bonus, bagasi, sert
 
 | Halaman | Route | Hasil eksplorasi |
 |---|---|---|
-| Lihat Statistik Penjualan Per Channel Tahun 2026 | `/partner/DashboardListPenjualanPerChannel` | Belum terverifikasi: timeout navigasi 20 detik, diulang 30 detik tetap timeout. Bukan verdict bug. |
+| Lihat Statistik Penjualan Per Channel Tahun 2026 | `/partner/DashboardListPenjualanPerChannel` | HTTP 200 pada retry 26 September 2026; sangat lambat: ±43,5 detik cabang dan ±61,5 detik pusat. |
 | Lihat Semua Jadwal Tahun 2026 | `/partner/DashboardListPenjualanPerJadwal` | HTTP 200; [screenshot](../artifacts/screenshots/explore/20260924-operator-cabang/DashboardListPenjualanPerJadwal.png) |
 | Lihat Semua Penjualan Penumpang Tahun 2026 | `/partner/DashboardListPenjualanPenumpang` | HTTP 200; [screenshot](../artifacts/screenshots/explore/20260924-operator-cabang/DashboardListPenjualanPenumpang.png) |
 | Lihat Semua Penjualan Kendaraan Tahun 2026 | `/partner/DashboardListPenjualanKendaraan` | HTTP 200; [screenshot](../artifacts/screenshots/explore/20260924-operator-cabang/DashboardListPenjualanKendaraan.png) |
@@ -192,18 +192,26 @@ Pada Buat Jadwal ditemukan bagian kuota penumpang, kendaraan/bonus, bagasi, sert
 | Lihat Semua Pemberian Tiket Gratis Tahun 2026 | `/partner/getDetailTIketGratis` | HTTP 200; [screenshot](../artifacts/screenshots/explore/20260924-operator-cabang/getDetailTIketGratis.png) |
 | Lihat Semua Pemberian Tiket Pekerja Tahun 2026 | `/partner/getDetailPekerja` | HTTP 200; [screenshot](../artifacts/screenshots/explore/20260924-operator-cabang/getDetailPekerja.png) |
 
-Rincian per jadwal awalnya timeout 20 detik, lalu berhasil pada percobaan ulang. Konten terverifikasi menampilkan Penjualan Per Jadwal Tahun 2026, total 94 jadwal dan ringkasan kuota/penjualan per jadwal. Rincian tahunan pada sesi pusat baru terpetakan tautannya, belum dibuka satu per satu; pemeriksaan rincian di atas berlaku untuk sesi cabang.
+Rincian per jadwal awalnya timeout 20 detik, lalu berhasil pada percobaan ulang. Pada verifikasi lanjutan 26 September 2026, seluruh delapan rincian dashboard berhasil dibuka untuk Operator Pusat dan Cabang dengan HTTP 200. Konten Per Jadwal saat itu menampilkan 265 jadwal untuk pusat dan 95 jadwal untuk cabang. Selain Per Channel, waktu buka berkisar ±4,8–14 detik. Bukti tersimpan di `artifacts/screenshots/explore/20260926-022038-remaining/`.
+
+## Verifikasi lanjutan 26 September 2026
+
+- Delapan rincian dashboard tahunan berhasil dibuka untuk Operator Pusat dan Operator Cabang: Per Channel, Per Jadwal, Penumpang, Kendaraan, Bagasi Penumpang, Bagasi Kendaraan, Tiket Gratis, dan Tiket Pekerja.
+- Per Channel tetap menjadi halaman paling lambat: ±61,5 detik pusat dan ±43,5 detik cabang. Semua route memberi HTTP 200; ini temuan performa, bukan verdict fungsi bisnis.
+- Route tersembunyi `/partner/riwayatsaldo` diuji langsung dalam sesi User Umum. Aplikasi mengalihkan ke `/home/pencarian` dan menampilkan pesan **Anda Tidak Memiliki Akses Ke Halaman Tersebut**. Route tersebut bukan fitur yang dapat digunakan User Umum.
+- Tidak ada aksi tulis, submit form, perubahan data, download, pembayaran, atau pengiriman notifikasi pada run lanjutan ini.
+- Akun Sub User Pusat tetap tidak tersedia di `config/env.md`; login role tersebut belum dapat diverifikasi.
 
 ## Handoff
 
-Gunakan route hasil UI ini untuk eksplorasi lanjut. Sebelum test detail, buat skenario per modul dari rule dan temuan UI, lalu harvest selector sesuai workflow. Sisa cakupan yang memerlukan input pengguna: akun Sub User Pusat di config/env.md. Tidak perlu membuat akun atau mengubah hak akses untuk menyelesaikan eksplorasi akun yang sudah tersedia.
+Gunakan route hasil UI ini untuk eksplorasi lanjut. Sebelum test detail, buat skenario per modul dari rule dan temuan UI, lalu harvest selector sesuai workflow. Seluruh gap dashboard untuk akun yang tersedia sudah ditutup. Sisa cakupan yang memerlukan input pengguna hanya akun Sub User Pusat di config/env.md. Tidak perlu membuat akun atau mengubah hak akses untuk menyelesaikan eksplorasi akun yang sudah tersedia.
 
 
 ## Portal User Umum (explore 2026-09-25)
 
 - Login `/user/login`: `#username`, `#password`, tombol `#login1` → redirect `/home/pencarian`. Helper: `tests/helpers/user-session.js` (guard gagal 2x, `artifacts/.auth/login-failures-user.json`).
 - Akun: pengirim.ph2021@gmail.com (nama profil Muhammad Nur Ikhsan, Surabaya). Nomor WhatsApp profil kosong (`-`).
-- Menu: Order Tiket, Daftar Order, Akun Saya, Preference Notif. Link tersembunyi `/partner/riwayatsaldo` ada di DOM (tidak terlihat) — belum diperiksa.
+- Menu: Order Tiket, Daftar Order, Akun Saya, Preference Notif. Link tersembunyi `/partner/riwayatsaldo` ada di DOM (tidak terlihat); verifikasi 26 September 2026 mengalihkan kembali ke `/home/pencarian` dengan pesan tidak memiliki akses.
 - Eksplorasi read-only; POST yang terjadi hanya lookup (`getVehicle`, `searchbooking`, `searchpencarian`, `checkSchedule`) + `savetmpbooking` (keranjang sementara saat "Pesan", bukan order).
 
 | # | Modul | Route | Jenis Halaman | Aksi Utama | Ada Dokumen Skenario? | Catatan |
