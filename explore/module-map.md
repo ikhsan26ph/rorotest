@@ -202,6 +202,25 @@ Rincian per jadwal awalnya timeout 20 detik, lalu berhasil pada percobaan ulang.
 - Tidak ada aksi tulis, submit form, perubahan data, download, pembayaran, atau pengiriman notifikasi pada run lanjutan ini.
 - Akun Sub User Pusat tetap tidak tersedia di `config/env.md`; login role tersebut belum dapat diverifikasi.
 
+## Eksplorasi detail kelompok Master — 26 September 2026
+
+Eksplorasi dilakukan pada Operator Pusat dan Operator Cabang Parepare. Semua halaman berikut berhasil dibuka dengan HTTP 200 tanpa mengisi atau menyimpan form.
+
+| Modul | Halaman turunan yang diperiksa | Struktur utama yang ditemukan | Hasil akses |
+|---|---|---|---|
+| Master Kelas | `/partner/tambahkelas` | Nama Kelas, tambah baris input, Simpan; form POST `doSaveKelas` | Daftar dan form tambah terbuka pada Pusat dan Cabang |
+| Master Golongan | `/partner/tambahgolongan` | Jenis tiket, nama golongan, golongan kendaraan, bonus tiket, kondisi kendaraan, status aktif | Daftar dan form tambah terbuka pada Pusat dan Cabang |
+| Master Kapal | `/partner/tambahkapal` | Nama kapal, call sign, kapasitas penumpang, kelas yang tersedia | Daftar dan form tambah terbuka pada Pusat dan Cabang |
+| Master Trayek | `/partner/mtrayek_tambah` | Nama trayek, daftar pelabuhan, asal, tujuan, konsumsi penumpang | Daftar dan form tambah terbuka pada Pusat dan Cabang |
+| Master Harga | `/partner/tambahharga` | Trayek, rute, konsumsi penumpang; langkah lanjutan memakai tombol Tambahkan | Daftar dan form awal terbuka pada Pusat dan Cabang |
+| Tarif Pass Pelabuhan | tambah, detail, dan edit | Tarif 3 kategori penumpang dan 12 kategori kendaraan; edit memiliki Simpan/Batal | Tambah, detail, dan edit terbuka pada Pusat dan Cabang |
+| Master Asuransi | detail dan setting | Asuransi JR/JP untuk penumpang dan kendaraan; setting memiliki Simpan/Batal | Detail dan halaman setting terbuka pada Pusat dan Cabang |
+| Master Crew | `/partner/tambahcrew` | Identitas awak, gender, tanggal lahir, buku/kode pelaut, jabatan, PKL, sign-on, kewarganegaraan, sertifikat | Daftar dan form tambah terbuka pada Pusat dan Cabang |
+| Denda Pembatalan | daftar + kontrol Setting | Empat baris aturan; form mengarah ke `do_edit_denda_pembatalan` | Kontrol Setting tampil pada kedua role; tidak diklik karena dapat mengubah setting. Tooltip pembatasan Cabang dari run awal tetap berlaku |
+| Master Informasi | `/partner/informasi_add` | Judul, berlaku sampai, isi informasi, Simpan/Batal | Daftar dan form tambah terbuka pada Pusat dan Cabang; daftar saat diperiksa tidak berisi data |
+
+Temuan akses: akun Cabang dapat membuka langsung form tambah serta halaman edit/setting pada hampir seluruh kelompok Master yang diperiksa. Ini baru membuktikan route dan UI dapat dibuka; otorisasi penyimpanan tidak diuji dalam workflow explore. Bukti dan metadata run berada di `artifacts/explore/20260926-023405-master.json` serta screenshot terkait di `artifacts/screenshots/explore/20260926-023405-master/`.
+
 ## Handoff
 
 Gunakan route hasil UI ini untuk eksplorasi lanjut. Sebelum test detail, buat skenario per modul dari rule dan temuan UI, lalu harvest selector sesuai workflow. Seluruh gap dashboard untuk akun yang tersedia sudah ditutup. Sisa cakupan yang memerlukan input pengguna hanya akun Sub User Pusat di config/env.md. Tidak perlu membuat akun atau mengubah hak akses untuk menyelesaikan eksplorasi akun yang sudah tersedia.
