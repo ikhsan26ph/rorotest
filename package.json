@@ -1,0 +1,15 @@
+{
+ "name": "rorotest",
+ "version": "1.0.0",
+ "description": "Mesin automation testing Sistem Penjualan Tiket Kapal berbasis VS Code + Claude Code + Playwright MCP (browser agent).",
+ "main": "index.js",
+ "scripts": {
+  "test": "bash scripts/run-playwright.sh"
+ },
+ "keywords": [],
+ "author": "",
+ "license": "ISC",
+ "devDependencies": {
+  "@playwright/test": "^1.62.1"
+ }
+}

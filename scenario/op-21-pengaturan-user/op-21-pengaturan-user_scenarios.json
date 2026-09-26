@@ -1,0 +1,929 @@
+{
+  "module": "op-21-pengaturan-user",
+  "generatedAt": "2026-09-25",
+  "scenarios": [
+    {
+      "id": "SCN-0001",
+      "title": "Daftar Hak Akses tampil dengan kolom dan tombol Tambah Hak Akses",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-01",
+      "requirements": [
+        "REQ-018"
+      ],
+      "steps": [
+        "Login sebagai Operator Pusat",
+        "Buka /partner/hakAkses",
+        "Tunggu tabel dirender"
+      ],
+      "expected": [
+        "Header tabel memuat kolom No, Nama Hak Akses, Deskripsi, Total Hak Akses, Aksi",
+        "Tombol/link 'Tambah Hak Akses' terlihat",
+        "Minimal satu baris data tampil dengan format 'N Hak Akses' pada kolom Total"
+      ]
+    },
+    {
+      "id": "SCN-0002",
+      "title": "Simpan Tambah Hak Akses tanpa Nama menampilkan popover \"Masukkan Nama Hak Akses\"",
+      "category": "negative",
+      "priority": "high",
+      "screen": "SCR-02",
+      "requirements": [
+        "VAL-001"
+      ],
+      "steps": [
+        "Buka /partner/buathakakses",
+        "Biarkan Nama kosong, isi Deskripsi",
+        "Klik Simpan (#submit_crew)"
+      ],
+      "expected": [
+        "Popover berteks 'Masukkan Nama Hak Akses' tampil",
+        "Tetap berada di halaman Tambah Hak Akses"
+      ]
+    },
+    {
+      "id": "SCN-0003",
+      "title": "Simpan Tambah Hak Akses tanpa Deskripsi menampilkan popover \"Masukkan Deskripsi Hak Akses\"",
+      "category": "negative",
+      "priority": "medium",
+      "screen": "SCR-02",
+      "requirements": [
+        "VAL-001"
+      ],
+      "steps": [
+        "Buka /partner/buathakakses",
+        "Isi Nama, biarkan Deskripsi kosong",
+        "Klik Simpan"
+      ],
+      "expected": [
+        "Popover berteks 'Masukkan Deskripsi Hak Akses' tampil",
+        "Tetap di halaman Tambah Hak Akses"
+      ]
+    },
+    {
+      "id": "SCN-0004",
+      "title": "Simpan Tambah Hak Akses tanpa akses tercentang menampilkan alert \"Pilih Hak akses minimal 1\"",
+      "category": "negative",
+      "priority": "high",
+      "screen": "SCR-02",
+      "requirements": [
+        "VAL-002"
+      ],
+      "steps": [
+        "Buka /partner/buathakakses",
+        "Isi Nama dan Deskripsi, jangan centang akses apa pun",
+        "Klik Simpan"
+      ],
+      "expected": [
+        "Dialog alert berteks 'Pilih Hak akses minimal 1' muncul",
+        "Data tidak tersimpan, tetap di halaman Tambah"
+      ]
+    },
+    {
+      "id": "SCN-0005",
+      "title": "Centang Modul Jual Tiket otomatis mencentang Lihat Daftar Order dan Lihat Detail Order",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-02",
+      "requirements": [
+        "REQ-002"
+      ],
+      "steps": [
+        "Buka /partner/buathakakses",
+        "Centang 'Modul Jual Tiket (Pilih Semua)' (#modul_jualtiket)"
+      ],
+      "expected": [
+        "Checkbox 'Lihat Daftar Order' (#melihat_daftar_penjualan) tercentang",
+        "Checkbox 'Lihat Detail Order' (#melihat_detail_penjualan) tercentang",
+        "Checkbox 'Jual Tiket' (#melihat_jualtiket) tercentang"
+      ]
+    },
+    {
+      "id": "SCN-0006",
+      "title": "Centang Modul Daftar Piutang otomatis mencentang Lihat Daftar Order dan Lihat Detail Order",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-02",
+      "requirements": [
+        "REQ-003"
+      ],
+      "steps": [
+        "Buka /partner/buathakakses",
+        "Centang 'Modul Daftar Piutang (Pilih Semua)' (#modul_piutang)"
+      ],
+      "expected": [
+        "#melihat_daftar_penjualan tercentang",
+        "#melihat_detail_penjualan tercentang",
+        "#melihat_daftar_piutang tercentang"
+      ]
+    },
+    {
+      "id": "SCN-0007",
+      "title": "Centang Modul Persetujuan Tiket otomatis mencentang Lihat Daftar Order dan Lihat Detail Order",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-02",
+      "requirements": [
+        "REQ-004"
+      ],
+      "steps": [
+        "Buka /partner/buathakakses",
+        "Centang 'Modul Persetujuan Tiket (Pilih Semua)' (#modul_persetujuan_tiket)"
+      ],
+      "expected": [
+        "#melihat_daftar_penjualan tercentang",
+        "#melihat_detail_penjualan tercentang",
+        "#melihat_persetujuan_tiket tercentang"
+      ]
+    },
+    {
+      "id": "SCN-0008",
+      "title": "Centang akses Edit Hak Akses otomatis mempertahankan Lihat Hak Akses tercentang",
+      "category": "edge",
+      "priority": "medium",
+      "screen": "SCR-02",
+      "requirements": [
+        "REQ-001"
+      ],
+      "steps": [
+        "Buka /partner/buathakakses",
+        "Centang 'Edit Hak Akses' (#edit_hak_akses) saja"
+      ],
+      "expected": [
+        "Checkbox 'Lihat Hak Akses' (#melihat_hak_akses) ikut tercentang (field Melihat sebagai tampilan modul)"
+      ],
+      "bugCandidate": "FND-04"
+    },
+    {
+      "id": "SCN-0009",
+      "title": "Buat hak akses AUTOTEST-20260925-HA dengan 7 akses Modul Pengaturan User",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-02",
+      "requirements": [
+        "REQ-018",
+        "AC-01"
+      ],
+      "steps": [
+        "Buka /partner/buathakakses",
+        "Isi Nama 'AUTOTEST-20260925-HA' dan Deskripsi",
+        "Centang: Lihat Hak Akses, Detail Hak Akses, Lihat Sub User, Detail Sub User, Lihat Petugas Scan, Lihat Hak Akses Agen, Lihat Sub User Agen",
+        "Klik Simpan"
+      ],
+      "expected": [
+        "Redirect ke daftar Hak Akses",
+        "Baris 'AUTOTEST-20260925-HA' tampil dengan Total '7 Hak Akses'"
+      ]
+    },
+    {
+      "id": "SCN-0010",
+      "title": "Detail hak akses AUTOTEST-20260925-HA menampilkan nama, deskripsi, total dan perijinan",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-03",
+      "requirements": [
+        "REQ-018"
+      ],
+      "steps": [
+        "Di daftar, klik aksi Lihat pada baris 'AUTOTEST-20260925-HA'"
+      ],
+      "expected": [
+        "Halaman DETAIL HAK AKSES memuat 'Nama Hak Akses : AUTOTEST-20260925-HA'",
+        "'Total Hak Akses : 7'",
+        "Perijinan memuat 'Lihat Hak Akses', 'Detail Sub User', 'Lihat Petugas Scan', 'Lihat Sub User Agen'"
+      ]
+    },
+    {
+      "id": "SCN-0011",
+      "title": "Edit hak akses AUTOTEST-20260925-HA dengan Pilih Semua Modul Pengaturan User menghitung total tanpa checkbox Pilih Semua",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-04",
+      "requirements": [
+        "REQ-018"
+      ],
+      "steps": [
+        "Klik aksi Edit pada baris 'AUTOTEST-20260925-HA'",
+        "Centang 'Modul Pengaturan User (Pilih Semua)' (#modul_user)",
+        "Verifikasi 20 sub-akses modul Pengaturan User tercentang",
+        "Klik Simpan (#update_data)"
+      ],
+      "expected": [
+        "Redirect ke daftar",
+        "Baris 'AUTOTEST-20260925-HA' menampilkan Total '20 Hak Akses' (checkbox Pilih Semua tidak dihitung)"
+      ],
+      "bugCandidate": "FND-08"
+    },
+    {
+      "id": "SCN-0012",
+      "title": "Filter daftar Hak Akses berdasarkan nama lalu Reset",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-01",
+      "requirements": [
+        "VAL-009"
+      ],
+      "steps": [
+        "Buka /partner/hakAkses, klik Filter (#btn-filter)",
+        "Isi Nama Hak Akses 'AUTOTEST-20260925-HA', klik tombol Filter (submit)",
+        "Klik Reset"
+      ],
+      "expected": [
+        "Setelah filter hanya baris 'AUTOTEST-20260925-HA' yang tampil",
+        "Setelah Reset daftar penuh (lebih dari 1 baris) tampil kembali"
+      ]
+    },
+    {
+      "id": "SCN-0013",
+      "title": "Hapus hak akses yang sedang dipakai sub user ditolak",
+      "category": "negative",
+      "priority": "high",
+      "screen": "SCR-01",
+      "requirements": [
+        "REQ-005",
+        "AC-05"
+      ],
+      "steps": [
+        "Pastikan sub user AUTOTEST-20260925-SU memakai hak akses AUTOTEST-20260925-HA",
+        "Di daftar Hak Akses klik aksi Hapus pada baris tersebut"
+      ],
+      "expected": [
+        "Muncul alert 'Tidak bisa hapus! Hak akses sudah digunakan.'",
+        "Baris tetap ada di daftar"
+      ]
+    },
+    {
+      "id": "SCN-0014",
+      "title": "Hapus hak akses AUTOTEST-20260925-HA setelah tidak dipakai berhasil",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-01",
+      "requirements": [
+        "REQ-005",
+        "AC-05"
+      ],
+      "steps": [
+        "Pastikan sub user AUTOTEST-20260925-SU sudah dihapus",
+        "Klik aksi Hapus pada baris hak akses uji",
+        "Klik 'Ya' pada konfirmasi 'Apakah anda yakin ingin hapus hak akses?'"
+      ],
+      "expected": [
+        "Baris hak akses uji hilang dari daftar"
+      ]
+    },
+    {
+      "id": "SCN-0015",
+      "title": "Batal pada konfirmasi hapus hak akses tidak menghapus data",
+      "category": "edge",
+      "priority": "low",
+      "screen": "SCR-01",
+      "requirements": [
+        "REQ-005"
+      ],
+      "steps": [
+        "Klik aksi Hapus pada baris hak akses uji (tidak sedang dipakai)",
+        "Klik 'Batal' pada konfirmasi"
+      ],
+      "expected": [
+        "Konfirmasi tertutup",
+        "Baris hak akses uji tetap ada"
+      ]
+    },
+    {
+      "id": "SCN-0016",
+      "title": "Daftar Sub User tampil dengan kolom, filter, dan tombol Tambah Sub User",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-05",
+      "requirements": [
+        "REQ-019"
+      ],
+      "steps": [
+        "Buka /partner/subUser",
+        "Klik Filter (#btn-filter)"
+      ],
+      "expected": [
+        "Header tabel memuat No, Nama Sub User, Email Sub User, Jenis User, Cabang Kota, Status User, Aksi",
+        "Tombol 'Tambah Sub User' terlihat",
+        "Field filter Nama, Jenis User, Email, Cabang Kota, Status User tampil"
+      ]
+    },
+    {
+      "id": "SCN-0017",
+      "title": "Simpan Tambah Sub User kosong menampilkan popover \"Masukkan email\"",
+      "category": "negative",
+      "priority": "high",
+      "screen": "SCR-06",
+      "requirements": [
+        "VAL-003"
+      ],
+      "steps": [
+        "Buka /partner/buatsubuser",
+        "Klik Simpan (#submit_sub) tanpa mengisi apa pun"
+      ],
+      "expected": [
+        "Popover 'Masukkan email' tampil",
+        "Tetap di halaman Tambah Sub User"
+      ]
+    },
+    {
+      "id": "SCN-0018",
+      "title": "Email sub user yang sudah terdaftar ditolak",
+      "category": "negative",
+      "priority": "high",
+      "screen": "SCR-06",
+      "requirements": [
+        "REQ-010",
+        "AC-04"
+      ],
+      "steps": [
+        "Buka /partner/subUser, ambil email sub user pada baris pertama",
+        "Buka /partner/buatsubuser, ketik email tersebut pada field Email",
+        "Klik Simpan"
+      ],
+      "expected": [
+        "Penanda '.email_alert' tampil setelah pengecekan email",
+        "Popover 'Email sudah Terdaftar' tampil saat Simpan",
+        "Data tidak tersimpan"
+      ]
+    },
+    {
+      "id": "SCN-0019",
+      "title": "Kata sandi tanpa huruf ditolak dengan pesan \"Password Harus Terdiri Dari Huruf & Angka\"",
+      "category": "negative",
+      "priority": "medium",
+      "screen": "SCR-06",
+      "requirements": [
+        "VAL-005"
+      ],
+      "steps": [
+        "Buka /partner/buatsubuser",
+        "Isi Email valid, Kata Sandi '123456'",
+        "Klik Simpan"
+      ],
+      "expected": [
+        "Popover 'Password Harus Terdiri Dari Huruf & Angka' tampil"
+      ]
+    },
+    {
+      "id": "SCN-0020",
+      "title": "Konfirmasi kata sandi berbeda ditolak dengan pesan \"Password Belum Sama\"",
+      "category": "negative",
+      "priority": "medium",
+      "screen": "SCR-06",
+      "requirements": [
+        "VAL-004"
+      ],
+      "steps": [
+        "Buka /partner/buatsubuser",
+        "Isi Email valid, Kata Sandi 'Autotest2026', Konfirmasi 'Autotest2027'",
+        "Klik Simpan"
+      ],
+      "expected": [
+        "Popover 'Password Belum Sama' tampil"
+      ]
+    },
+    {
+      "id": "SCN-0021",
+      "title": "Format email tidak valid ditolak",
+      "category": "negative",
+      "priority": "medium",
+      "screen": "SCR-06",
+      "requirements": [
+        "VAL-007"
+      ],
+      "steps": [
+        "Buka /partner/buatsubuser",
+        "Ketik 'autotest-salah' pada Email",
+        "Klik Simpan"
+      ],
+      "expected": [
+        "Popover 'Masukkan Email dengan benar' (atau 'Penulisan email salah') tampil"
+      ]
+    },
+    {
+      "id": "SCN-0022",
+      "title": "Simpan Tambah Sub User tanpa Jenis User menampilkan pesan \"Pilih Jenis User\"",
+      "category": "negative",
+      "priority": "medium",
+      "screen": "SCR-06",
+      "requirements": [
+        "VAL-003"
+      ],
+      "steps": [
+        "Buka /partner/buatsubuser",
+        "Isi Email, Kata Sandi, Konfirmasi, Nama, Nomor WA; biarkan Jenis User kosong",
+        "Klik Simpan"
+      ],
+      "expected": [
+        "Popover 'Pilih Jenis User' tampil",
+        "Tetap di halaman Tambah Sub User"
+      ],
+      "bugCandidate": "FND-03"
+    },
+    {
+      "id": "SCN-0023",
+      "title": "Jenis User Kantor Cabang mengaktifkan Cabang Kota, Kantor Pusat menonaktifkannya",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-06",
+      "requirements": [
+        "VAL-006",
+        "REQ-007"
+      ],
+      "steps": [
+        "Buka /partner/buatsubuser",
+        "Pilih Jenis User 'Kantor Cabang'",
+        "Pilih Jenis User 'Kantor Pusat'"
+      ],
+      "expected": [
+        "Setelah Kantor Cabang: select Cabang Kota enabled",
+        "Setelah Kantor Pusat: select Cabang Kota disabled"
+      ]
+    },
+    {
+      "id": "SCN-0024",
+      "title": "Buat sub user AUTOTEST-20260925-SU Kantor Pusat dengan hak akses AUTOTEST-20260925-HA",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-06",
+      "requirements": [
+        "REQ-019",
+        "REQ-006",
+        "VAL-003",
+        "AC-03"
+      ],
+      "steps": [
+        "Buka /partner/buatsubuser",
+        "Isi Email autotest-20260925-su@example.com, Kata Sandi & Konfirmasi 'Autotest2026', Nama 'AUTOTEST-20260925-SU', WA 081200000925",
+        "Pilih Jenis User Kantor Pusat, Bagian Staff, Status Aktif",
+        "Pilih Hak Akses 'AUTOTEST-20260925-HA'",
+        "Klik Simpan"
+      ],
+      "expected": [
+        "Redirect ke daftar Sub User",
+        "Baris 'AUTOTEST-20260925-SU' tampil dengan email uji, Jenis User 'Pusat', Cabang Kota '-', Status 'AKTIF'"
+      ]
+    },
+    {
+      "id": "SCN-0025",
+      "title": "Detail sub user AUTOTEST-20260925-SU menampilkan data dan hak akses yang dipilih",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-07",
+      "requirements": [
+        "REQ-019"
+      ],
+      "steps": [
+        "Klik aksi Detail pada baris 'AUTOTEST-20260925-SU'"
+      ],
+      "expected": [
+        "DETAIL SUB USER memuat 'Nama : AUTOTEST-20260925-SU'",
+        "'Jenis User : Pusat'",
+        "'Hak Akses : AUTOTEST-20260925-HA'",
+        "'Status User : AKTIF'"
+      ]
+    },
+    {
+      "id": "SCN-0026",
+      "title": "Ganti kata sandi sub user AUTOTEST-20260925-SU melalui Edit berhasil disimpan",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-08",
+      "requirements": [
+        "REQ-008",
+        "AC-06"
+      ],
+      "steps": [
+        "Klik aksi Edit pada baris 'AUTOTEST-20260925-SU'",
+        "Klik 'Ganti kata sandi' (#ganti_sandi)",
+        "Isi Kata Sandi & Konfirmasi 'Autotest2026b'",
+        "Klik Simpan"
+      ],
+      "expected": [
+        "Setelah klik Ganti kata sandi field sandi aktif (tidak readonly, type password, kosong)",
+        "Redirect ke daftar Sub User tanpa pesan error"
+      ]
+    },
+    {
+      "id": "SCN-0027",
+      "title": "Ganti kata sandi dengan konfirmasi berbeda ditolak",
+      "category": "negative",
+      "priority": "medium",
+      "screen": "SCR-08",
+      "requirements": [
+        "REQ-008",
+        "VAL-004"
+      ],
+      "steps": [
+        "Klik aksi Edit pada baris 'AUTOTEST-20260925-SU'",
+        "Klik 'Ganti kata sandi'",
+        "Isi Kata Sandi 'Autotest2026b', Konfirmasi 'Autotest2026c'",
+        "Klik Simpan"
+      ],
+      "expected": [
+        "Popover 'Password Belum Sama' tampil",
+        "Tetap di halaman Edit Sub User"
+      ]
+    },
+    {
+      "id": "SCN-0028",
+      "title": "Filter daftar Sub User berdasarkan email lalu Reset",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-05",
+      "requirements": [
+        "VAL-009"
+      ],
+      "steps": [
+        "Buka /partner/subUser, klik Filter",
+        "Isi Email 'autotest-20260925-su@example.com', klik tombol Filter (submit)",
+        "Klik Reset"
+      ],
+      "expected": [
+        "Hanya baris 'AUTOTEST-20260925-SU' yang tampil",
+        "Setelah Reset daftar penuh tampil kembali"
+      ]
+    },
+    {
+      "id": "SCN-0029",
+      "title": "Hapus sub user AUTOTEST-20260925-SU berhasil",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-05",
+      "requirements": [
+        "REQ-005"
+      ],
+      "steps": [
+        "Klik aksi Hapus pada baris 'AUTOTEST-20260925-SU'",
+        "Klik 'Ya' pada konfirmasi 'Apakah anda yakin ingin hapus sub user?'"
+      ],
+      "expected": [
+        "Baris 'AUTOTEST-20260925-SU' hilang dari daftar"
+      ]
+    },
+    {
+      "id": "SCN-0030",
+      "title": "Daftar Petugas Scan tampil dengan kolom, tombol Tambah dan Download Scanner",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-09",
+      "requirements": [
+        "REQ-014",
+        "REQ-015"
+      ],
+      "steps": [
+        "Buka /partner/petugasscan"
+      ],
+      "expected": [
+        "Header tabel memuat No, Nama Petugas, Nomor WA, Email Petugas, Cabang Kota, Status User, Aksi",
+        "Tombol 'Tambah Petugas Scan' dan 'Download Scanner' terlihat (Download tidak diklik)"
+      ]
+    },
+    {
+      "id": "SCN-0031",
+      "title": "Simpan Tambah Petugas Scan kosong menampilkan popover \"Masukkan Email\"",
+      "category": "negative",
+      "priority": "high",
+      "screen": "SCR-10",
+      "requirements": [
+        "VAL-008"
+      ],
+      "steps": [
+        "Buka /partner/tambahPetugasScan_",
+        "Klik Simpan (#btn_petugas)"
+      ],
+      "expected": [
+        "Popover 'Masukkan Email' tampil",
+        "Tetap di halaman Buat Petugas Scan"
+      ]
+    },
+    {
+      "id": "SCN-0032",
+      "title": "Nomor WA lebih dari 13 digit ditolak",
+      "category": "negative",
+      "priority": "medium",
+      "screen": "SCR-10",
+      "requirements": [
+        "VAL-008"
+      ],
+      "steps": [
+        "Buka /partner/tambahPetugasScan_",
+        "Isi Email, Sandi, Konfirmasi, Nama, Bagian Staff, WA 14 digit",
+        "Klik Simpan"
+      ],
+      "expected": [
+        "Popover 'Tidak boleh lebih dari 13 angka' tampil"
+      ]
+    },
+    {
+      "id": "SCN-0033",
+      "title": "Tambah Petugas Scan tanpa Cabang Kota ditolak dengan pesan \"Pilih Kota\"",
+      "category": "negative",
+      "priority": "medium",
+      "screen": "SCR-10",
+      "requirements": [
+        "VAL-008",
+        "REQ-013"
+      ],
+      "steps": [
+        "Buka /partner/tambahPetugasScan_",
+        "Isi semua field teks valid, biarkan Cabang Kota kosong",
+        "Klik Simpan"
+      ],
+      "expected": [
+        "Popover 'Pilih Kota' tampil"
+      ]
+    },
+    {
+      "id": "SCN-0034",
+      "title": "Tambah Petugas Scan tanpa Jenis Akses Aplikasi ditolak dengan pesan \"Pilih Akses\"",
+      "category": "negative",
+      "priority": "medium",
+      "screen": "SCR-10",
+      "requirements": [
+        "REQ-014"
+      ],
+      "steps": [
+        "Buka /partner/tambahPetugasScan_",
+        "Isi semua field valid termasuk Cabang Kota, biarkan Jenis Akses Aplikasi kosong",
+        "Klik Simpan"
+      ],
+      "expected": [
+        "Popover 'Pilih Akses' tampil"
+      ]
+    },
+    {
+      "id": "SCN-0035",
+      "title": "Buat petugas scan AUTOTEST-20260925-PS memakai email dan WA sub user AUTOTEST-20260925-SU",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-10",
+      "requirements": [
+        "REQ-012",
+        "REQ-014",
+        "REQ-015",
+        "AC-07"
+      ],
+      "steps": [
+        "Buka /partner/tambahPetugasScan_",
+        "Isi Email autotest-20260925-su@example.com (email sub user uji), Sandi & Konfirmasi 'Autotest2026', Nama 'AUTOTEST-20260925-PS', Bagian Staff, WA 081200000925 (WA sub user uji)",
+        "Pilih Cabang Kota 'Surabaya', Jenis Akses 'Scan Check In' dan 'Scan Boarding', Status Aktif",
+        "Klik Simpan"
+      ],
+      "expected": [
+        "Tidak ada alert 'Email Sudah Ada' (email/WA sub user boleh dipakai petugas scan)",
+        "Redirect ke daftar Petugas Scan",
+        "Baris 'AUTOTEST-20260925-PS' tampil dengan Cabang Kota 'Surabaya' dan Status 'AKTIF'"
+      ]
+    },
+    {
+      "id": "SCN-0036",
+      "title": "Detail petugas scan AUTOTEST-20260925-PS menampilkan jenis akses dan status",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-11",
+      "requirements": [
+        "REQ-014"
+      ],
+      "steps": [
+        "Klik aksi Lihat pada baris 'AUTOTEST-20260925-PS'"
+      ],
+      "expected": [
+        "Halaman DETAIL PETUGAS SCAN memuat nama petugas uji",
+        "'Jenis Akses Aplikasi' memuat 'Scan Check in' dan 'Scan Boarding'",
+        "'Status User' AKTIF"
+      ]
+    },
+    {
+      "id": "SCN-0037",
+      "title": "Edit petugas scan AUTOTEST-20260925-PS menjadi Tidak Aktif tampil di daftar",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-11",
+      "requirements": [
+        "REQ-015"
+      ],
+      "steps": [
+        "Klik aksi Edit pada baris 'AUTOTEST-20260925-PS'",
+        "Ubah Status User menjadi 'Tidak Aktif'",
+        "Klik Simpan"
+      ],
+      "expected": [
+        "Redirect ke daftar Petugas Scan",
+        "Baris 'AUTOTEST-20260925-PS' menampilkan Status 'TIDAK AKTIF'"
+      ]
+    },
+    {
+      "id": "SCN-0038",
+      "title": "Tambah petugas scan dengan email petugas yang sudah ada ditolak \"Email Sudah Ada\"",
+      "category": "negative",
+      "priority": "medium",
+      "screen": "SCR-10",
+      "requirements": [
+        "VAL-008"
+      ],
+      "steps": [
+        "Buka /partner/tambahPetugasScan_",
+        "Isi form valid dengan email petugas uji yang sudah ada (autotest-20260925-su@example.com)",
+        "Klik Simpan"
+      ],
+      "expected": [
+        "Alert 'Email Sudah Ada' muncul",
+        "Tetap di halaman Buat Petugas Scan"
+      ]
+    },
+    {
+      "id": "SCN-0039",
+      "title": "Hapus petugas scan AUTOTEST-20260925-PS berhasil",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-09",
+      "requirements": [
+        "REQ-015"
+      ],
+      "steps": [
+        "Klik aksi Hapus pada baris 'AUTOTEST-20260925-PS'",
+        "Klik 'Hapus' pada konfirmasi 'Hapus?'"
+      ],
+      "expected": [
+        "Baris 'AUTOTEST-20260925-PS' hilang dari daftar"
+      ]
+    },
+    {
+      "id": "SCN-0040",
+      "title": "Daftar Hak Akses Agen hanya menyediakan aksi Lihat",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-12",
+      "requirements": [
+        "REQ-016",
+        "AC-08"
+      ],
+      "steps": [
+        "Buka /partner/hakAksesagen"
+      ],
+      "expected": [
+        "Header tabel memuat No, Nama Agen, Nama Hak Akses, Deskripsi, Total Hak Akses, Aksi",
+        "Setiap baris data hanya punya aksi Lihat (link detailhakaksesagen), tanpa Edit/Hapus"
+      ]
+    },
+    {
+      "id": "SCN-0041",
+      "title": "Operator pusat tidak memiliki tombol Tambah Hak Akses pada Hak Akses Agen",
+      "category": "negative",
+      "priority": "high",
+      "screen": "SCR-12",
+      "requirements": [
+        "REQ-016"
+      ],
+      "steps": [
+        "Login Operator Pusat, buka /partner/hakAksesagen"
+      ],
+      "expected": [
+        "Tidak ada tombol/link 'Tambah Hak Akses' (operator hanya list & detail, P841)"
+      ],
+      "bugCandidate": "FND-01"
+    },
+    {
+      "id": "SCN-0042",
+      "title": "Detail Hak Akses Agen menampilkan agen, nama, total dan perijinan",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-13",
+      "requirements": [
+        "REQ-016"
+      ],
+      "steps": [
+        "Klik aksi Lihat pada baris pertama Hak Akses Agen"
+      ],
+      "expected": [
+        "Halaman DETAIL HAK AKSES AGEN memuat 'Agen :', 'Nama Hak Akses :', 'Total Hak Akses :', dan 'PERIJINAN HAK AKSES'",
+        "Link KEMBALI tersedia"
+      ]
+    },
+    {
+      "id": "SCN-0043",
+      "title": "Filter Nama Agen pada Hak Akses Agen pusat memuat semua agen pusat",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-12",
+      "requirements": [
+        "REQ-016"
+      ],
+      "steps": [
+        "Buka /partner/hakAksesagen, klik Filter"
+      ],
+      "expected": [
+        "Select Nama Agen memuat lebih dari satu agen (mis. RORO COBA, PT. Agen RORO Balikpapan, PT. Integritas Kuasa)"
+      ]
+    },
+    {
+      "id": "SCN-0044",
+      "title": "Daftar Sub User Agen hanya menyediakan aksi Detail tanpa tombol Tambah",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-14",
+      "requirements": [
+        "REQ-017",
+        "AC-08"
+      ],
+      "steps": [
+        "Buka /partner/subuseragen"
+      ],
+      "expected": [
+        "Tidak ada link 'Tambah'",
+        "Baris data hanya punya aksi Detail (link detailsubuseragen), tanpa Edit/Hapus"
+      ]
+    },
+    {
+      "id": "SCN-0045",
+      "title": "Detail Sub User Agen menampilkan nama agen, sub user, hak akses dan status",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-15",
+      "requirements": [
+        "REQ-017"
+      ],
+      "steps": [
+        "Klik aksi Detail pada baris pertama Sub User Agen"
+      ],
+      "expected": [
+        "Halaman DETAIL SUB USER memuat 'Nama Agen :', 'Nama Sub User :', 'Hak Akses :', 'Status User :'"
+      ]
+    },
+    {
+      "id": "SCN-0046",
+      "title": "Cabang: Hak Akses Agen tanpa tombol Tambah dan filter agen hanya agen sekota",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-12",
+      "requirements": [
+        "REQ-016",
+        "AC-09"
+      ],
+      "steps": [
+        "Login Operator Cabang Pare-Pare (Sub User Cabang)",
+        "Buka /partner/hakAksesagen, klik Filter"
+      ],
+      "expected": [
+        "Tidak ada link 'Tambah Hak Akses'",
+        "Opsi select Nama Agen tidak memuat agen luar kota (RORO COBA / Balikpapan)"
+      ]
+    },
+    {
+      "id": "SCN-0047",
+      "title": "Cabang: daftar Hak Akses Agen hanya memuat agen sekota",
+      "category": "negative",
+      "priority": "high",
+      "screen": "SCR-12",
+      "requirements": [
+        "REQ-016",
+        "AC-09"
+      ],
+      "steps": [
+        "Login Operator Cabang Pare-Pare",
+        "Buka /partner/hakAksesagen"
+      ],
+      "expected": [
+        "Baris tabel tidak memuat hak akses agen luar kota (mis. 'RORO COBA' / Agen Surabaya) — P843"
+      ],
+      "bugCandidate": "FND-02"
+    },
+    {
+      "id": "SCN-0048",
+      "title": "Cabang: daftar Sub User Agen hanya memuat agen sekota",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-14",
+      "requirements": [
+        "REQ-017",
+        "AC-09"
+      ],
+      "steps": [
+        "Login Operator Cabang Pare-Pare",
+        "Buka /partner/subuseragen"
+      ],
+      "expected": [
+        "Baris tabel tidak memuat sub user agen luar kota ('RORO COBA'); bila tidak ada agen sekota tampil 'Tidak Ada Data yang tersedia'"
+      ]
+    },
+    {
+      "id": "SCN-0049",
+      "title": "Cabang dengan hak akses dapat membuka Hak Akses, Sub User, dan Petugas Scan",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-01",
+      "requirements": [
+        "REQ-020"
+      ],
+      "steps": [
+        "Login Operator Cabang Pare-Pare (hak akses 'Akses IK')",
+        "Buka /partner/hakAkses, /partner/subUser, /partner/petugasscan"
+      ],
+      "expected": [
+        "Ketiga daftar tampil dengan tabel dan tombol Tambah masing-masing"
+      ]
+    }
+  ]
+}

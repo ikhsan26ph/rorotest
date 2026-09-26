@@ -1,0 +1,188 @@
+{
+  "portal": "/partner",
+  "loginPath": "/partner",
+  "screens": [
+    {
+      "id": "hakakses-list",
+      "scr": "SCR-01",
+      "name": "Daftar Hak Akses",
+      "url": "/partner/hakAkses"
+    },
+    {
+      "id": "hakakses-list-filter",
+      "scr": "SCR-01",
+      "name": "Daftar Hak Akses — panel filter terbuka",
+      "url": "/partner/hakAkses",
+      "steps": [
+        {
+          "click": ":is(button,a):has-text('Filter')",
+          "wait": 800
+        }
+      ]
+    },
+    {
+      "id": "hakakses-create",
+      "scr": "SCR-02",
+      "name": "Tambah Hak Akses",
+      "url": "/partner/buathakakses"
+    },
+    {
+      "id": "hakakses-detail",
+      "scr": "SCR-03",
+      "name": "Detail Hak Akses",
+      "urlFrom": {
+        "screen": "hakakses-list",
+        "hrefMatch": "/partner/detailhakakses/"
+      }
+    },
+    {
+      "id": "hakakses-edit",
+      "scr": "SCR-04",
+      "name": "Edit Hak Akses",
+      "urlFrom": {
+        "screen": "hakakses-list",
+        "hrefMatch": "/partner/edithakakses/"
+      }
+    },
+    {
+      "id": "subuser-list",
+      "scr": "SCR-05",
+      "name": "Daftar Sub User",
+      "url": "/partner/subUser"
+    },
+    {
+      "id": "subuser-list-filter",
+      "scr": "SCR-05",
+      "name": "Daftar Sub User — panel filter terbuka",
+      "url": "/partner/subUser",
+      "steps": [
+        {
+          "click": ":is(button,a):has-text('Filter')",
+          "wait": 800
+        }
+      ]
+    },
+    {
+      "id": "subuser-create",
+      "scr": "SCR-06",
+      "name": "Tambah Sub User",
+      "url": "/partner/buatsubuser"
+    },
+    {
+      "id": "subuser-detail",
+      "scr": "SCR-07",
+      "name": "Detail Sub User",
+      "urlFrom": {
+        "screen": "subuser-list",
+        "hrefMatch": "/partner/detailsubuser/"
+      }
+    },
+    {
+      "id": "subuser-edit",
+      "scr": "SCR-08",
+      "name": "Edit Sub User",
+      "urlFrom": {
+        "screen": "subuser-list",
+        "hrefMatch": "/partner/editsubuser/"
+      }
+    },
+    {
+      "id": "petugasscan-list",
+      "scr": "SCR-09",
+      "name": "Daftar Petugas Scan",
+      "url": "/partner/petugasscan"
+    },
+    {
+      "id": "petugasscan-list-filter",
+      "scr": "SCR-09",
+      "name": "Daftar Petugas Scan — panel filter terbuka",
+      "url": "/partner/petugasscan",
+      "steps": [
+        {
+          "click": ":is(button,a):has-text('Filter')",
+          "wait": 800
+        }
+      ]
+    },
+    {
+      "id": "petugasscan-create",
+      "scr": "SCR-10",
+      "name": "Tambah Petugas Scan",
+      "url": "/partner/tambahPetugasScan_"
+    },
+    {
+      "id": "petugasscan-detail",
+      "scr": "SCR-11",
+      "name": "Detail Petugas Scan",
+      "urlFrom": {
+        "screen": "petugasscan-list",
+        "clsMatch": "viewPetugas",
+        "template": "/partner/petugasview/{b64value}"
+      }
+    },
+    {
+      "id": "petugasscan-edit",
+      "scr": "SCR-11",
+      "name": "Edit Petugas Scan",
+      "urlFrom": {
+        "screen": "petugasscan-list",
+        "clsMatch": "btn-edit",
+        "template": "/partner/petugasScanEdit/{b64value}"
+      }
+    },
+    {
+      "id": "hakaksesagen-list",
+      "scr": "SCR-12",
+      "name": "Daftar Hak Akses Agen",
+      "url": "/partner/hakAksesagen"
+    },
+    {
+      "id": "hakaksesagen-list-filter",
+      "scr": "SCR-12",
+      "name": "Daftar Hak Akses Agen — panel filter terbuka",
+      "url": "/partner/hakAksesagen",
+      "steps": [
+        {
+          "click": ":is(button,a):has-text('Filter')",
+          "wait": 800
+        }
+      ]
+    },
+    {
+      "id": "hakaksesagen-detail",
+      "scr": "SCR-13",
+      "name": "Detail Hak Akses Agen",
+      "urlFrom": {
+        "screen": "hakaksesagen-list",
+        "hrefMatch": "/partner/detailhakaksesagen/"
+      }
+    },
+    {
+      "id": "subuseragen-list",
+      "scr": "SCR-14",
+      "name": "Daftar Sub User Agen",
+      "url": "/partner/subuseragen"
+    },
+    {
+      "id": "subuseragen-list-filter",
+      "scr": "SCR-14",
+      "name": "Daftar Sub User Agen — panel filter terbuka",
+      "url": "/partner/subuseragen",
+      "steps": [
+        {
+          "click": ":is(button,a):has-text('Filter')",
+          "wait": 800
+        }
+      ]
+    },
+    {
+      "id": "subuseragen-detail",
+      "scr": "SCR-15",
+      "name": "Detail Sub User Agen",
+      "urlFrom": {
+        "screen": "subuseragen-list",
+        "hrefMatch": "/partner/detailsubuseragen/"
+      }
+    }
+  ]
+}

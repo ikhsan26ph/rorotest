@@ -1,0 +1,21 @@
+{
+  "portal": "/partner",
+  "loginPath": "/partner",
+  "screens": [
+    { "id": "hakakses-list", "scr": "SCR-01", "name": "Daftar Hak Akses (cabang)", "url": "/partner/hakAkses" },
+    { "id": "hakakses-create", "scr": "SCR-02", "name": "Tambah Hak Akses (cabang)", "url": "/partner/buathakakses" },
+    { "id": "subuser-list", "scr": "SCR-05", "name": "Daftar Sub User (cabang)", "url": "/partner/subUser" },
+    { "id": "subuser-create", "scr": "SCR-06", "name": "Tambah Sub User (cabang)", "url": "/partner/buatsubuser" },
+    { "id": "petugasscan-list", "scr": "SCR-09", "name": "Daftar Petugas Scan (cabang)", "url": "/partner/petugasscan" },
+    { "id": "petugasscan-create", "scr": "SCR-10", "name": "Tambah Petugas Scan (cabang)", "url": "/partner/tambahPetugasScan_" },
+    { "id": "hakaksesagen-list", "scr": "SCR-12", "name": "Daftar Hak Akses Agen (cabang)", "url": "/partner/hakAksesagen" },
+    { "id": "hakaksesagen-list-filter", "scr": "SCR-12", "name": "Daftar Hak Akses Agen (cabang) — filter", "url": "/partner/hakAksesagen",
+      "steps": [ { "click": ":is(button,a):has-text('Filter')", "wait": 800 } ] },
+    { "id": "hakaksesagen-detail", "scr": "SCR-13", "name": "Detail Hak Akses Agen (cabang)", "urlFrom": { "screen": "hakaksesagen-list", "hrefMatch": "/partner/detailhakaksesagen/" } },
+    { "id": "subuseragen-list", "scr": "SCR-14", "name": "Daftar Sub User Agen (cabang)", "url": "/partner/subuseragen" },
+    { "id": "subuseragen-list-filter", "scr": "SCR-14", "name": "Daftar Sub User Agen (cabang) — filter", "url": "/partner/subuseragen",
+      "steps": [ { "click": ":is(button,a):has-text('Filter')", "wait": 800 } ] },
+    { "id": "subuseragen-detail", "scr": "SCR-15", "name": "Detail Sub User Agen (cabang)", "urlFrom": { "screen": "subuseragen-list", "hrefMatch": "/partner/detailsubuseragen/" } },
+    { "id": "profilsubuser", "scr": "SCR-16", "name": "Akun Saya (profil sub user cabang)", "url": "/partner/profilsubuser" }
+  ]
+}

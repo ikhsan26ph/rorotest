@@ -1,0 +1,4952 @@
+{
+  "startedDate": "2026-09-24",
+  "finishedDate": "2026-09-25",
+  "role": "Cabang / Sub User Cabang",
+  "user": "Ikhsan Pare",
+  "city": "Parepare",
+  "access": "Akses IK",
+  "pages": [
+    {
+      "text": "Saldo Operator Rp. 10.294.585",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/riwayatsaldo",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/riwayatsaldo",
+      "headings": [
+        "ID Transaksi\nTanggal\n\t\nNama Transaksi\nKeterangan\n\t\nNama Kapal\nVoyage\n\t\nRute Jadwal\nKeberangkatan\n\t\nTransaksi\nSaldo\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "tanggal_awal",
+          "type": "text",
+          "placeholder": "dd/mm/yyyy"
+        },
+        {
+          "name": "",
+          "type": "text",
+          "placeholder": "s.d"
+        },
+        {
+          "name": "tanggal_akhir",
+          "type": "text",
+          "placeholder": "dd/mm/yyyy"
+        },
+        {
+          "name": "id_transaksi",
+          "type": "text",
+          "placeholder": "Masukkan ID "
+        },
+        {
+          "name": "nama_kapal",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "voyage",
+          "type": "text",
+          "placeholder": "Masukkan Voyage"
+        },
+        {
+          "name": "ID_penjualan",
+          "type": "text",
+          "placeholder": "Masukkan ID"
+        },
+        {
+          "name": "asal",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "tujuan",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "keberangkatan",
+          "type": "text",
+          "placeholder": "Tanggal Keberangkatan"
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/riwayatsaldo.png"
+    },
+    {
+      "text": "TOP-UP SALDO",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/isi_saldo",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/isi_saldo",
+      "headings": [],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Saldo",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/riwayatsaldo",
+          "title": null
+        },
+        {
+          "text": "Lihat Detail",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/riwayatsaldo",
+          "title": null
+        },
+        {
+          "text": "Lanjutkan Pembayaran",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "nominal",
+          "type": "text",
+          "placeholder": ""
+        },
+        {
+          "name": "metode",
+          "type": "radio",
+          "placeholder": null
+        },
+        {
+          "name": "metode",
+          "type": "radio",
+          "placeholder": null
+        },
+        {
+          "name": "metode",
+          "type": "radio",
+          "placeholder": null
+        },
+        {
+          "name": "metode",
+          "type": "radio",
+          "placeholder": null
+        },
+        {
+          "name": "metode",
+          "type": "radio",
+          "placeholder": null
+        },
+        {
+          "name": "metode",
+          "type": "radio",
+          "placeholder": null
+        },
+        {
+          "name": "metode",
+          "type": "radio",
+          "placeholder": null
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/isi_saldo.png"
+    },
+    {
+      "text": "DASHBOARD",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/Dashboard",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/Dashboard",
+      "headings": [
+        "Nama Jenis Tiket\n\t\nPenjualan\n\t\nPendapatan (Rp.)\n\n\n",
+        "Nama Jenis Tiket\n\t\nPenjualan\n\t\nPendapatan (Rp.)\n\n\n",
+        "Nama Jenis Tiket\n\t\nPenjualan\n\t\nPendapatan (Rp.)\n\n\n",
+        "Nama Jenis Tiket\n\t\nPenjualan\n\t\nPendapatan (Rp.)\n\n\n",
+        "Nama Jenis Tiket\n\t\nJenis Tiket\n\t\nJumlah\n\n\n",
+        "Nama Jenis Tiket\n\t\nJenis Tiket\n\t\nJumlah\n\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Lihat Statistik Penjualan Per Channel Tahun 2026",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/DashboardListPenjualanPerChannel",
+          "title": null
+        },
+        {
+          "text": "Lihat Semua Jadwal Tahun 2026",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/DashboardListPenjualanPerJadwal",
+          "title": null
+        },
+        {
+          "text": "Lihat Semua Penjualan Penumpang Tahun 2026",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/DashboardListPenjualanPenumpang",
+          "title": null
+        },
+        {
+          "text": "Lihat Semua Penjualan Kendaraan Tahun 2026",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/DashboardListPenjualanKendaraan",
+          "title": null
+        },
+        {
+          "text": "Lihat Semua Penjualan Bagasi Penumpang Tahun 2026",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/DashboardListPenjualanBagasiPenumpang",
+          "title": null
+        },
+        {
+          "text": "Lihat Semua Penjualan Bagasi Kendaraan Tahun 2026",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/DashboardListPenjualanBagasiKendaraan",
+          "title": null
+        },
+        {
+          "text": "Lihat Semua Pemberian Tiket Gratis Tahun 2026",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/getDetailTIketGratis",
+          "title": null
+        },
+        {
+          "text": "Lihat Semua Pemberian Tiket Pekerja Tahun 2026",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/getDetailPekerja",
+          "title": null
+        }
+      ],
+      "fields": [],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/Dashboard.png"
+    },
+    {
+      "text": "Penjualan (Harian)",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/laporanpenjualanharian",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/laporanpenjualanharian",
+      "headings": [
+        "Channel Penjualan\n\t\nNama User Operator\n\t\nTanggal Transaksi\n\t\nQty Trip\n\t\nTotal Tiket\n\t\nTotal Penjualan\n\t\nAksi\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "tgl_awal",
+          "type": "text",
+          "placeholder": "Masukkan Tanggal Berangkat"
+        },
+        {
+          "name": "channel",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "user",
+          "type": "select-one",
+          "placeholder": null
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/laporanpenjualanharian.png"
+    },
+    {
+      "text": "Pendapatan Penumpang",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/laporanPendapatanPenumpang",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/laporanPendapatanPenumpang",
+      "headings": [
+        "Nama Kapal\nVoyage\n\t\nKota Asal\nBerangkat\n\t\t\nKota Tujuan\nTiba\n\t\nQty\nTiket\n\t\nTotal (Rp.)\nPendapatan\n\t\nAksi\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nama_kapal",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "voyage",
+          "type": "text",
+          "placeholder": "Masukkan Nomor Voyage"
+        },
+        {
+          "name": "kota_asal",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "kota_tujuan",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "tgl_awal",
+          "type": "text",
+          "placeholder": "Masukkan Tanggal Berangkat"
+        },
+        {
+          "name": "tgl_akhir",
+          "type": "text",
+          "placeholder": "Masukkan Tanggal Tiba"
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/laporanPendapatanPenumpang.png"
+    },
+    {
+      "text": "Pendapatan Kendaraan",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/laporanrincianpendapatankendaraan",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/laporanrincianpendapatankendaraan",
+      "headings": [
+        "Nama Kapal\nVoyage\n\t\nKota Asal\nBerangkat\n\t\t\nKota Tujuan\nTiba\n\t\nQty\nTiket\n\t\nTotal (Rp.)\nPendapatan\n\t\nAksi\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nama_kapal",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "voyage",
+          "type": "text",
+          "placeholder": "Masukkan Nomor Voyage"
+        },
+        {
+          "name": "kota_asal",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "kota_tujuan",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "tgl_awal",
+          "type": "text",
+          "placeholder": "Masukkan Tanggal Berangkat"
+        },
+        {
+          "name": "tgl_akhir",
+          "type": "text",
+          "placeholder": "Masukkan Tanggal Tiba"
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/laporanrincianpendapatankendaraan.png"
+    },
+    {
+      "text": "Rekap Pendapatan",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/laporanpendapatanpertrip",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/laporanpendapatanpertrip",
+      "headings": [
+        "Nama Kapal\nVoyage\n\t\nKota Asal\nBerangkat\n\t\t\nKota Tujuan\nTiba\n\t\nQty\n\n\t\nTotal\nPendapatan (Rp.)\n\n\t\nAksi\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nama_kapal",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "voyage",
+          "type": "text",
+          "placeholder": "Masukkan Nomor Voyage"
+        },
+        {
+          "name": "kota_asal",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "kota_tujuan",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "tgl_awal",
+          "type": "text",
+          "placeholder": "Masukkan Tanggal Berangkat"
+        },
+        {
+          "name": "tgl_akhir",
+          "type": "text",
+          "placeholder": "Masukkan Tanggal Tiba"
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/laporanpendapatanpertrip.png"
+    },
+    {
+      "text": "Pembatalan Tiket",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/laporanpembatalantiket",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/laporanpembatalantiket",
+      "headings": [
+        "Channel Pembatalan\n\t\nNama User Operator\n\t\nTanggal Pembatalan\n\t\nQty Trip\n\t\nTotal Tiket\n\t\nTotal Dikembalikan\n\tAksi\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "tgl_pembatalan",
+          "type": "text",
+          "placeholder": "Masukkan Tanggal Pembatalan"
+        },
+        {
+          "name": "channel_pembatalan",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nama_user",
+          "type": "select-one",
+          "placeholder": null
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/laporanpembatalantiket.png"
+    },
+    {
+      "text": "Rekap Asuransi",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/laporanrekapasuransi",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/laporanrekapasuransi",
+      "headings": [
+        "Nama Kapal\n\t\nVoyage\n\t\nRute\n\t\nQty\n\t\nKeberangkatan\n\t\nTotal Asuransi (Rp.)\n\tAksi\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "KotaAsalID",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "KotaTujuanID",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nama_kapal",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "voyage",
+          "type": "text",
+          "placeholder": "Masukkan Voyage"
+        },
+        {
+          "name": "qty",
+          "type": "text",
+          "placeholder": "Masukkan Jumlah"
+        },
+        {
+          "name": "tgl_berangkat",
+          "type": "text",
+          "placeholder": "DD/MM/YYYY"
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/laporanrekapasuransi.png"
+    },
+    {
+      "text": "Pemakaian Saldo",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/laporanpemakaiansaldo",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/laporanpemakaiansaldo",
+      "headings": [
+        "Nama Kapal\nVoyage\n\t\nKota Asal\nBerangkat\n\t\t\nKota Tujuan\nTiba\n\t\nJumlah\nTransaksi\n\t\nPemakaian\nSaldo (Rp.)\n\t\nAksi\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nama_kapal",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "voyage",
+          "type": "text",
+          "placeholder": "Masukkan Nomor Voyage"
+        },
+        {
+          "name": "kota_asal",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "kota_tujuan",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "tgl_awal",
+          "type": "text",
+          "placeholder": "Masukkan Tanggal Berangkat"
+        },
+        {
+          "name": "tgl_akhir",
+          "type": "text",
+          "placeholder": "Masukkan Tanggal Tiba"
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/laporanpemakaiansaldo.png"
+    },
+    {
+      "text": "MANIFEST",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/manifestkapal",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/manifestkapal",
+      "headings": [
+        "Nama Kapal\n\t\nVoyage\n\t\nRute\n\t\nKapasitas\n\t\nKeberangkatan\n\tAksi\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "kapal",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "voyage",
+          "type": "text",
+          "placeholder": "Masukkan Voyage"
+        },
+        {
+          "name": "kapasitas",
+          "type": "number",
+          "placeholder": "Masukkan Kapasitas"
+        },
+        {
+          "name": "keberangkatan",
+          "type": "text",
+          "placeholder": "Tanggal Keberangkatan"
+        },
+        {
+          "name": "POLID",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "PODID",
+          "type": "select-one",
+          "placeholder": null
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/manifestkapal.png"
+    },
+    {
+      "text": "DAFTAR ORDER",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/daftarpenjualan",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/daftarpenjualan",
+      "headings": [
+        "ID Order\nStatus\n\t\nNama Kapal\nVoyage\n\t\nKota Asal\nBerangkat\n\t\nKota Tujuan\nTiba\n\t\nHarga\nTiket\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/home/pencarian",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nomor_booking",
+          "type": "text",
+          "placeholder": "Masukkan ID"
+        },
+        {
+          "name": "nama_kapal",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "kota_asal",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "kota_tujuan",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nama",
+          "type": "text",
+          "placeholder": "Masukkan Nama Penumpang / STNK / Pemilik Bagasi"
+        },
+        {
+          "name": "tgl_berangkat",
+          "type": "text",
+          "placeholder": "DD/MM/YYYY"
+        },
+        {
+          "name": "tgl_tiba",
+          "type": "text",
+          "placeholder": "DD/MM/YYYY"
+        },
+        {
+          "name": "status",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "kategori",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "tempat",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "metode",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "harga",
+          "type": "text",
+          "placeholder": "Masukkan Harga"
+        },
+        {
+          "name": "aksi",
+          "type": "select-one",
+          "placeholder": null
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/daftarpenjualan.png"
+    },
+    {
+      "text": "Konter Tiket",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/boarding",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/boarding",
+      "headings": [],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Ubah Pencarian",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Ganti Jadwal",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Ajukan Boarding Pass",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nama",
+          "type": "text",
+          "placeholder": "Masukkan Nama"
+        },
+        {
+          "name": "no_identitas",
+          "type": "text",
+          "placeholder": "Masukkan Nomor"
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/boarding.png"
+    },
+    {
+      "text": "Data Kendaraan",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/data_kendaraan_show",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/data_kendaraan_show",
+      "headings": [
+        "Nama Kapal\n\t\nNomor Voyage\n\t\nKota Asal\n\t\nKota Tujuan\n\t\nKeberangkatan\n\tAksi\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nama_kapal",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "voyage",
+          "type": "text",
+          "placeholder": "Masukkan Nomor"
+        },
+        {
+          "name": "berankat",
+          "type": "text",
+          "placeholder": "DD/MM/YYYY"
+        },
+        {
+          "name": "kota_asal",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "kota_tujuan",
+          "type": "select-one",
+          "placeholder": null
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/data_kendaraan_show.png"
+    },
+    {
+      "text": "Penjualan Cabang",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/pembatalantiket",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/pembatalantiket",
+      "headings": [
+        "ID Pembatalan\nTanggal Pembatalan\n\t\nID Tiket\nGolongan Tiket\n\t\nJenis Pembatalan\nNama User\n\t\nDenda\nTotal Dikembalikan (Rp.)\n\tAksi\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Buat Pembatalan",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/buatpembatalan",
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "IDPembatalan",
+          "type": "text",
+          "placeholder": "Masukkan ID"
+        },
+        {
+          "name": "pembatalan",
+          "type": "text",
+          "placeholder": "Masukkan Tanggal"
+        },
+        {
+          "name": "id_tiket",
+          "type": "text",
+          "placeholder": "Masukkan ID Tiket"
+        },
+        {
+          "name": "nama_user",
+          "type": "text",
+          "placeholder": "Masukkan Nama User"
+        },
+        {
+          "name": "jenis_pembatalan",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "jumlah_potongan",
+          "type": "text",
+          "placeholder": "Masukkan Denda"
+        },
+        {
+          "name": "total_dikembalikan",
+          "type": "text",
+          "placeholder": "Masukkan Total "
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/pembatalantiket.png"
+    },
+    {
+      "text": "Penjualan Agen",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/pembatalantiketagen",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/pembatalantiketagen",
+      "headings": [
+        "ID Pembatalan\nTanggal Pembatalan\n\t\nID Tiket\nGolongan Tiket\n\t\nJenis Pembatalan\nNama Agen\n\t\nJumlah Potongan\nTotal Dikembalikan (Rp.)\n\t\nStatus\n\tAksi\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "IDPembatalan",
+          "type": "text",
+          "placeholder": "Masukkan ID"
+        },
+        {
+          "name": "pembatalan",
+          "type": "text",
+          "placeholder": "Masukkan Tanggal"
+        },
+        {
+          "name": "id_tiket",
+          "type": "text",
+          "placeholder": "Masukkan ID Tiket"
+        },
+        {
+          "name": "golongan_tiket",
+          "type": "text",
+          "placeholder": "Masukkan Golongan Tiket "
+        },
+        {
+          "name": "id_agen",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "jenis_pembatalan",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "jumlah_potongan",
+          "type": "text",
+          "placeholder": "Masukkan Potongan "
+        },
+        {
+          "name": "total_dikembalikan",
+          "type": "text",
+          "placeholder": "Masukkan Total "
+        },
+        {
+          "name": "status",
+          "type": "select-one",
+          "placeholder": null
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/pembatalantiketagen.png"
+    },
+    {
+      "text": "Rekap Pembatalan",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/rekappembatalantiket",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/rekappembatalantiket",
+      "headings": [
+        "Agen\n\n\t\nNama Kapal\nVoyage\n\t\nKota Asal - Kota Tujuan\nBerangkat - Tiba\n\t\nQty Tiket\n\tAksi\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "AgenID",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nama_kapal",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "voyage",
+          "type": "text",
+          "placeholder": "Masukkan Nomor"
+        },
+        {
+          "name": "kota_asal",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "kota_tujuan",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "tgl_awal",
+          "type": "text",
+          "placeholder": "Masukkan Tanggal"
+        },
+        {
+          "name": "tgl_akhir",
+          "type": "text",
+          "placeholder": "Masukkan Tanggal"
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/rekappembatalantiket.png"
+    },
+    {
+      "text": "Penjualan (Harian)",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/laporanpenjualanharianagen",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/laporanpenjualanharianagen",
+      "headings": [
+        "Agen\n\t\nNama User Agen\n\t\nTanggal Transaksi\n\t\nQty Trip\n\t\nTotal Tiket\n\t\nTotal Penjualan\n\t\nAksi\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "tgl_awal",
+          "type": "text",
+          "placeholder": "Masukkan Tanggal"
+        },
+        {
+          "name": "agenpusat",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "user",
+          "type": "select-one",
+          "placeholder": null
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/laporanpenjualanharianagen.png"
+    },
+    {
+      "text": "Rekap Penjualan",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/laporanrekappenjualanagen",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/laporanrekappenjualanagen",
+      "headings": [
+        "Agen\n\t\nNama Kapal\nVoyage\n\t\nKota Asal - Kota Tujuan\nBerangkat - Tiba\n\t\nQty\n\t\nTotal Penjualan (Rp.)\nTotal Komisi\n\t\nAksi\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "AgenID",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nama_kapal",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "voyage",
+          "type": "text",
+          "placeholder": "Masukkan Nomor "
+        },
+        {
+          "name": "kota_asal",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "kota_tujuan",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "tgl_awal",
+          "type": "text",
+          "placeholder": "Masukkan Tanggal"
+        },
+        {
+          "name": "tgl_akhir",
+          "type": "text",
+          "placeholder": "Masukkan Tanggal"
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/laporanrekappenjualanagen.png"
+    },
+    {
+      "text": "Pembatalan Tiket",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/laporanpembatalantiketagen",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/laporanpembatalantiketagen",
+      "headings": [
+        "No\n\t\nTgl Pembatalan\n\t\nAgen\n\t\nNama User Agen\n\t\nTrip\n\t\nTotal Tiket\n\t\nTotal Dikembalikan\n\tAksi\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "tgl_pembatalan",
+          "type": "text",
+          "placeholder": "Masukkan Tanggal Pembatalan"
+        },
+        {
+          "name": "agenpusat",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "user",
+          "type": "select-one",
+          "placeholder": null
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/laporanpembatalantiketagen.png"
+    },
+    {
+      "text": "DAFTAR PIUTANG",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/daftarpiutang",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/daftarpiutang",
+      "headings": [
+        "Transaksi\n\t\nID Pesan\n\t\nNama Pelanggan\n\t\nTOP\n\t\nHarga (Rp.)\n\t\nJatuh Tempo\n\t\nStatus\n\tAksi\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "transaksi",
+          "type": "text",
+          "placeholder": "Pilih Tanggal Transaksi"
+        },
+        {
+          "name": "id_pesan",
+          "type": "text",
+          "placeholder": "Masukkan ID Pesan"
+        },
+        {
+          "name": "nama_pelanggan",
+          "type": "text",
+          "placeholder": "Masukkan Nama Pelanggan "
+        },
+        {
+          "name": "lama_pembayaran",
+          "type": "number",
+          "placeholder": null
+        },
+        {
+          "name": "harga",
+          "type": "text",
+          "placeholder": "Masukkan Harga "
+        },
+        {
+          "name": "jatuh_tempo",
+          "type": "text",
+          "placeholder": "Pilih Jatuh Tempo "
+        },
+        {
+          "name": "status",
+          "type": "select-one",
+          "placeholder": null
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/daftarpiutang.png"
+    },
+    {
+      "text": "PERSETUJUAN TIKET",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/persetujuantiket",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/persetujuantiket",
+      "headings": [
+        "Tanggal\n\t\nID Pesan\n\t\nNama Instansi\n\t\nSurat Tugas\n\t\nStatus\n\tAksi\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "P0841294",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/detailpenjualan/SWpxOS9KQTQ1QXRhT3hvcXVyTGtrZz09",
+          "title": ""
+        },
+        {
+          "text": "8",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "C0618670",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/detailpenjualan/ZVhxbGVSWmpXN2NhYTlvbyszSjl0QT09",
+          "title": ""
+        },
+        {
+          "text": "7",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "X0374951",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/detailpenjualan/Mm5ZcWpoSnNuNU9NMCtrZWlPUjFIQT09",
+          "title": ""
+        },
+        {
+          "text": "6",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "1",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "transaksi",
+          "type": "text",
+          "placeholder": "Pilih Tanggal Transaksi"
+        },
+        {
+          "name": "id_pesan",
+          "type": "text",
+          "placeholder": "Masukkan ID Pesan"
+        },
+        {
+          "name": "nama_instansi",
+          "type": "text",
+          "placeholder": "Masukkan Nama Pelanggan "
+        },
+        {
+          "name": "status",
+          "type": "select-one",
+          "placeholder": null
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/persetujuantiket.png"
+    },
+    {
+      "text": "CETAK TIKET",
+      "href": "https://jn-rorodemo.prahu-hub.com/home/directprint",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/home/directprint",
+      "headings": [
+        "ID Order \tNama Pembeli \tRute \tKapal \tBerangkat \tJml Tiket \tTotal (Rp) \tTercetak\tAksi\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Download E-Tiket",
+          "href": null,
+          "title": "Download E-Tiket"
+        },
+        {
+          "text": "Cetak",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "1",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "2",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "3",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "4",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "5",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Selanjutnya »",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Akhir »",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "id_order",
+          "type": "text",
+          "placeholder": "Masukkan ID Order"
+        },
+        {
+          "name": "rute",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "tgl_berangkat",
+          "type": "text",
+          "placeholder": "DD/MM/YYYY"
+        },
+        {
+          "name": "nama_pembeli",
+          "type": "text",
+          "placeholder": "Masukkan Nama Pembeli"
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/directprint.png"
+    },
+    {
+      "text": "JUAL TIKET",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/jualtiket?tgl_berangkat=24/09/2026&tgl_berangkat2=09/10/2026&jenis=%&golongan_kendaraan=&kelas=%&kota_asal=&kota_tujuan=&Carijadwal=1&temppolasal=6",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/jualtiket?tgl_berangkat=24/09/2026&tgl_berangkat2=09/10/2026&jenis=%&golongan_kendaraan=&kelas=%&kota_asal=&kota_tujuan=&Carijadwal=1&temppolasal=6",
+      "headings": [],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "1",
+          "href": "/partner/jualtiket?tgl_berangkat=24/09/2026&tgl_berangkat2=09/10/2026&jenis=%&golongan_kendaraan=&kelas=%&kota_asal=&kota_tujuan=&Carijadwal=1&temppolasal=6#",
+          "title": null
+        },
+        {
+          "text": "2",
+          "href": "/partner/jualtiket?tgl_berangkat=24/09/2026&tgl_berangkat2=09/10/2026&jenis=%&golongan_kendaraan=&kelas=%&kota_asal=&kota_tujuan=&Carijadwal=1&temppolasal=6#",
+          "title": null
+        },
+        {
+          "text": "3",
+          "href": "/partner/jualtiket?tgl_berangkat=24/09/2026&tgl_berangkat2=09/10/2026&jenis=%&golongan_kendaraan=&kelas=%&kota_asal=&kota_tujuan=&Carijadwal=1&temppolasal=6#",
+          "title": null
+        },
+        {
+          "text": "4",
+          "href": "/partner/jualtiket?tgl_berangkat=24/09/2026&tgl_berangkat2=09/10/2026&jenis=%&golongan_kendaraan=&kelas=%&kota_asal=&kota_tujuan=&Carijadwal=1&temppolasal=6#",
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "tgl_berangkat",
+          "type": "text",
+          "placeholder": "dd/mm/yyyy"
+        },
+        {
+          "name": "",
+          "type": "text",
+          "placeholder": "s.d"
+        },
+        {
+          "name": "tgl_berangkat2",
+          "type": "text",
+          "placeholder": "dd/mm/yyyy"
+        },
+        {
+          "name": "kota_asal",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "kota_tujuan",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "pilihdetail",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "jenis",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "kelas",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "golongan_kendaraan",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/2026&jenis=%&golongan_kendaraan=&kelas=%&kota_asal=&kota_tujuan=&Carijadwal=1&temppolasal=6.png"
+    },
+    {
+      "text": "KUOTA & JADWAL",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/masterjadwal",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/masterjadwal",
+      "headings": [
+        "Tanggal Buat\n\t\nTrayek\n\t\nNama Kapal\n\t\nNomor Voyage\n\t\nKapasitas\n\tAksi\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "×",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Buat Jadwal",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/tambahjadwal",
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "Tanggal",
+          "type": "text",
+          "placeholder": "Pilih Tanggal Buat"
+        },
+        {
+          "name": "nama_trayek",
+          "type": "text",
+          "placeholder": "Masukkan Nama Trayek"
+        },
+        {
+          "name": "nama_kapal",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nomor_voyage",
+          "type": "text",
+          "placeholder": "Masukkan No. Voyage"
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/masterjadwal.png"
+    },
+    {
+      "text": "Relasi Pelanggan",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/pelanggan",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/pelanggan",
+      "headings": [
+        "No\n\t\nNama Perusahaan\n\t\nLama Pembayaran\n\t\nNama PIC\n\t\nEmail\n\t\nTelepon / WA\n\tAksi\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": "/partner/pelanggan#",
+          "title": null
+        },
+        {
+          "text": "Tambah Pelanggan",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/tambahpelanggan",
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nama_perusahaan",
+          "type": "text",
+          "placeholder": "Masukkan Nama Perusahaan"
+        },
+        {
+          "name": "lama_pembayaran",
+          "type": "text",
+          "placeholder": "Lama Pembayaran"
+        },
+        {
+          "name": "pic",
+          "type": "text",
+          "placeholder": "Masukkan Nama PIC"
+        },
+        {
+          "name": "email_perusahaan",
+          "type": "text",
+          "placeholder": "Masukkan Email"
+        },
+        {
+          "name": "telp_perusahaan",
+          "type": "text",
+          "placeholder": "Masukkan Nomor "
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/pelanggan.png"
+    },
+    {
+      "text": "Relasi Agen",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/agen",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/agen",
+      "headings": [
+        "No\n\t\nNama Perusahaan Agen\n\t\nPenanggung Jawab\n\t\nTelepon / WA\n\t\nStatus\n\tAksi\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Tambah Agen",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/tambahagen",
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/detailagen/MTk1MzQ=",
+          "title": ""
+        },
+        {
+          "text": "19534",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "1",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nama_perusahaan",
+          "type": "text",
+          "placeholder": "Masukkan Nama Perusahaan Agen"
+        },
+        {
+          "name": "penanggung_jawab",
+          "type": "text",
+          "placeholder": "Masukkan Nama Penanggung Jawab"
+        },
+        {
+          "name": "telp",
+          "type": "text",
+          "placeholder": "Masukkan Nomor"
+        },
+        {
+          "name": "status",
+          "type": "select-one",
+          "placeholder": null
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/agen.png"
+    },
+    {
+      "text": "SALDO AGEN",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/agen_show",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/agen_show",
+      "headings": [
+        "No\n\t\nNama Perusahaan Agen\n\t\nPenanggung Jawab\n\t\nJumlah Saldo (Rp.)\n\tAksi\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Action Menu",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Top Up Saldo",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/agen_topup/VTBsMjFkcCsyOWptZ2hTK3U3akwrUT09",
+          "title": null
+        },
+        {
+          "text": "Riwayat Saldo",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/agen_riwayat_saldo/VTBsMjFkcCsyOWptZ2hTK3U3akwrUT09",
+          "title": null
+        },
+        {
+          "text": "Riwayat Topup",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/agen_riwayat_topup/VTBsMjFkcCsyOWptZ2hTK3U3akwrUT09",
+          "title": null
+        },
+        {
+          "text": "1",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nama_perusahaan",
+          "type": "text",
+          "placeholder": "Masukkan Nama Perusahaan Agen"
+        },
+        {
+          "name": "penanggung_jawab",
+          "type": "text",
+          "placeholder": "Masukkan Nama Penanggung Jawab"
+        },
+        {
+          "name": "saldo",
+          "type": "text",
+          "placeholder": "Masukkan Jumlah Saldo"
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/agen_show.png"
+    },
+    {
+      "text": "VOUCHER",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/voucher",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/voucher",
+      "headings": [
+        "No\n\t\nKode Voucher\n\t\nJenis Tiket\n\t\nDiskon Harga\n\t\nBerlaku\n\t\nStatus\n\tAksi\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Tambah Voucher",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/buatvoucher",
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "kode_voucher",
+          "type": "text",
+          "placeholder": "Masukkan Kode Voucher"
+        },
+        {
+          "name": "nominal",
+          "type": "text",
+          "placeholder": "Masukkan Diskon Harga "
+        },
+        {
+          "name": "jenis_voucher",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "berlaku",
+          "type": "text",
+          "placeholder": "DD/MM/YYYY"
+        },
+        {
+          "name": "berakhir",
+          "type": "text",
+          "placeholder": "DD/MM/YYYY"
+        },
+        {
+          "name": "status",
+          "type": "select-one",
+          "placeholder": null
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/voucher.png"
+    },
+    {
+      "text": "Hak Akses",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/hakAkses",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/hakAkses",
+      "headings": [
+        "No\n\t\nNama Hak Akses\n\t\nDeskripsi\n\t\nTotal Hak Akses\n\tAksi\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Tambah Hak Akses",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/buathakakses",
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nama",
+          "type": "text",
+          "placeholder": "Masukkan Nama Hak Akses"
+        },
+        {
+          "name": "keterangan",
+          "type": "text",
+          "placeholder": "Masukkan Deskripsi"
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/hakAkses.png"
+    },
+    {
+      "text": "Sub User",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/subUser",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/subUser",
+      "headings": [
+        "No\n\t\nNama Sub User\n\t\nEmail Sub User\n\t\nJenis User\n\t\nCabang Kota\n\t\nStatus User\n\tAksi\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Tambah Sub User",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/buatsubuser",
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/detailsubuser/19533",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/editsubuser/19533",
+          "title": ""
+        },
+        {
+          "text": "19533",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/detailsubuser/19405",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/editsubuser/19405",
+          "title": ""
+        },
+        {
+          "text": "19405",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/detailsubuser/19392",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/editsubuser/19392",
+          "title": ""
+        },
+        {
+          "text": "19392",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/detailsubuser/19321",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/editsubuser/19321",
+          "title": ""
+        },
+        {
+          "text": "19321",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/detailsubuser/18972",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/editsubuser/18972",
+          "title": ""
+        },
+        {
+          "text": "18972",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/detailsubuser/18965",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/editsubuser/18965",
+          "title": ""
+        },
+        {
+          "text": "18965",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/detailsubuser/17697",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/editsubuser/17697",
+          "title": ""
+        },
+        {
+          "text": "17697",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/detailsubuser/17553",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/editsubuser/17553",
+          "title": ""
+        },
+        {
+          "text": "17553",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/detailsubuser/16969",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/editsubuser/16969",
+          "title": ""
+        },
+        {
+          "text": "16969",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/detailsubuser/11230",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/editsubuser/11230",
+          "title": ""
+        },
+        {
+          "text": "11230",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "1",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nama",
+          "type": "text",
+          "placeholder": "Masukkan Nama Sub User"
+        },
+        {
+          "name": "jenis_user",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "email",
+          "type": "text",
+          "placeholder": "Masukkan Email Sub User "
+        },
+        {
+          "name": "idcabang",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "status_user",
+          "type": "select-one",
+          "placeholder": null
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/subUser.png"
+    },
+    {
+      "text": "Petugas Scan",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/petugasscan",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/petugasscan",
+      "headings": [
+        "No\n\t\nNama Petugas\n\t\nNomor WA\n\t\nEmail Petugas\n\t\nCabang Kota\n\t\nStatus User\n\tAksi\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Tambah Petugas Scan",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/tambahPetugasScan_",
+          "title": null
+        },
+        {
+          "text": "Download Scanner",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "57",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "56",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "55",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "54",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "53",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "52",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "51",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "50",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "49",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "48",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "1",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "2",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "3",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "4",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "5",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Selanjutnya »",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Akhir »",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nama_petugasnya",
+          "type": "text",
+          "placeholder": "Masukkan Nama Petugas"
+        },
+        {
+          "name": "wanya",
+          "type": "text",
+          "placeholder": "Masukkan No. WA"
+        },
+        {
+          "name": "emailnya",
+          "type": "text",
+          "placeholder": "Masukkan Email Petugas"
+        },
+        {
+          "name": "kota",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "status",
+          "type": "select-one",
+          "placeholder": null
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/petugasscan.png"
+    },
+    {
+      "text": "Hak Akses Agen",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/hakAksesagen",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/hakAksesagen",
+      "headings": [
+        "No\n\t\nNama Agen\n\t\nNama Hak Akses\n\t\nDeskripsi\n\t\nTotal Hak Akses\n\tAksi\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": "/partner/hakAksesagen#",
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/detailhakaksesagen/1",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/agen/detailhakakses/1",
+          "title": ""
+        },
+        {
+          "text": "1",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "AgentID",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nama",
+          "type": "text",
+          "placeholder": "Masukkan Nama Hak Akses"
+        },
+        {
+          "name": "deskripsi",
+          "type": "text",
+          "placeholder": "Masukkan Deskripsi"
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/hakAksesagen.png"
+    },
+    {
+      "text": "Sub User Agen",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/subuseragen",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/subuseragen",
+      "headings": [
+        "No\n\t\nNama Agen\n\t\nNama Sub User\n\t\nBagian Staff\n\t\nStatus User\n\tAksi\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": "/partner/subuseragen#",
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "AgentID",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nama",
+          "type": "text",
+          "placeholder": "Masukkan Nama Sub User"
+        },
+        {
+          "name": "bagian_staff",
+          "type": "text",
+          "placeholder": "Masukkan Bagian Staff"
+        },
+        {
+          "name": "status_user",
+          "type": "select-one",
+          "placeholder": null
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/subuseragen.png"
+    },
+    {
+      "text": "1. Master Kelas",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/masterkelasnew",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/masterkelasnew",
+      "headings": [
+        "No\n\t\nNama Kelas\n\tAksi\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Tambah Kelas",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/tambahkelas",
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "12",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "11",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "10",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "9",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "8",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "7",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "6",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "5",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "1",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nama_kelas",
+          "type": "text",
+          "placeholder": "Masukkan Nama Kelas"
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/masterkelasnew.png"
+    },
+    {
+      "text": "2. Master Golongan",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/mastergolongan",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/mastergolongan",
+      "headings": [
+        "No\n\t\nNama Golongan Tiket\n\t\nJenis Tiket\n\t\nGolongan\nKendaraan\n\t\nBonus\nTiket\n\t\nKondisi Kendaraan\n\t\nStatus Aktif\n\tAksi\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Tambah Golongan",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/tambahgolongan",
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "89",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "88",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "87",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "86",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "85",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "84",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "83",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "82",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "81",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "80",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "1",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "2",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "3",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "4",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "5",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Selanjutnya »",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Akhir »",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nama",
+          "type": "text",
+          "placeholder": "Masukkan Golongan"
+        },
+        {
+          "name": "ParentIDnya",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "golongan_kendaraan",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "bonus_tiket",
+          "type": "number",
+          "placeholder": "Bonus"
+        },
+        {
+          "name": "muatan_barang",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "status",
+          "type": "select-one",
+          "placeholder": null
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/mastergolongan.png"
+    },
+    {
+      "text": "3. Master Kapal",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/mkapal",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/mkapal",
+      "headings": [
+        "No\n\t\nNama Kapal\n\t\nCall Sign\n\t\nKapasitas Penumpang\n\tAksi\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Tambah Kapal",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/tambahkapal",
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "54",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "53",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "52",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "51",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "50",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "49",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "48",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "47",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "46",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "45",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "1",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "2",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "3",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "4",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "5",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Selanjutnya »",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Akhir »",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "namanya",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "call_signnya",
+          "type": "text",
+          "placeholder": "Masukkan Call Sign"
+        },
+        {
+          "name": "kapasitas",
+          "type": "text",
+          "placeholder": "Masukkan Kapasitas"
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/mkapal.png"
+    },
+    {
+      "text": "4. Master Trayek",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/DaftarTrayek",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/DaftarTrayek",
+      "headings": [
+        "Tanggal Buat\n\t\nNama Trayek\n\tPelabuhan Digunakan\tAksi\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Buat Trayek",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/mtrayek_tambah",
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "Tanggal",
+          "type": "text",
+          "placeholder": "Pilih Tanggal"
+        },
+        {
+          "name": "nama_trayek_filter",
+          "type": "text",
+          "placeholder": "Masukkan Nama Trayek"
+        },
+        {
+          "name": "pelabuhan_digunakan",
+          "type": "select-one",
+          "placeholder": null
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/DaftarTrayek.png"
+    },
+    {
+      "text": "5. Master Harga",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/masterharga",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/masterharga",
+      "headings": [
+        "Tanggal Buat\n\t\nNama Trayek\n\tRute\tAksi\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Buat Harga",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/tambahharga",
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "Tanggal",
+          "type": "text",
+          "placeholder": "Pilih Tanggal"
+        },
+        {
+          "name": "nama_harga_filter",
+          "type": "text",
+          "placeholder": "Masukkan Nama Trayek"
+        },
+        {
+          "name": "pol",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "pod",
+          "type": "select-one",
+          "placeholder": null
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/masterharga.png"
+    },
+    {
+      "text": "6. Tarif Pass Pelabuhan",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/tarifpass",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/tarifpass",
+      "headings": [
+        "Tanggal Buat\n\t\nNama Trayek\n\tRute\t\nKonsumsi\n\tAksi\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Buat Harga",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/tambahtarifpass",
+          "title": null
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/tambahtarifpass",
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "Tanggal",
+          "type": "text",
+          "placeholder": "DD/MM/YYYY"
+        },
+        {
+          "name": "nama_harga_filter",
+          "type": "text",
+          "placeholder": "Masukkan Nama Trayek"
+        },
+        {
+          "name": "pol",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "pod",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "Konsumsi",
+          "type": "text",
+          "placeholder": "Jumlah"
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/tarifpass.png"
+    },
+    {
+      "text": "7. Master Asuransi",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/masterasuransi",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/masterasuransi",
+      "headings": [
+        "Nama Trayek\n\tRute\t\nKonsumsi\n\tAksi\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/detailasuransi/63",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/settingasuransi/63",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/detailasuransi/60",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/settingasuransi/60",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/detailasuransi/59",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/settingasuransi/59",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/detailasuransi/48",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/settingasuransi/48",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/detailasuransi/46",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/settingasuransi/46",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/detailasuransi/42",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/settingasuransi/42",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/detailasuransi/41",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/settingasuransi/41",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/detailasuransi/30",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/settingasuransi/30",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/detailasuransi/29",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/settingasuransi/29",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/detailasuransi/28",
+          "title": ""
+        },
+        {
+          "text": "",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/settingasuransi/28",
+          "title": ""
+        },
+        {
+          "text": "1",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "2",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "3",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Selanjutnya »",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nama_trayek",
+          "type": "text",
+          "placeholder": "Masukkan Nama Trayek"
+        },
+        {
+          "name": "POLID",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "PODID",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "konsumsi",
+          "type": "text",
+          "placeholder": "Jumlah"
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/masterasuransi.png"
+    },
+    {
+      "text": "8. Master Crew",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/MasterCrew",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/MasterCrew",
+      "headings": [
+        "No\n\t\nNama\nAwak Kapal\n\t\nJenis Kelamin (L/P)\n\t\nTanggal\nLahir\n\t\nNo. Buku\nPelaut\n\t\nJabatan\n\t\nKode Pelaut\n\t\nSertifikat\nIjazah Pelaut\n\tAksi\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Tambah Crew",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/tambahcrew",
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "7",
+          "href": null,
+          "title": ""
+        },
+        {
+          "text": "1",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nama",
+          "type": "text",
+          "placeholder": "Masukkan Nama Awak Kapal"
+        },
+        {
+          "name": "gender",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "buku_pelaut",
+          "type": "text",
+          "placeholder": "No. Buku Pelaut"
+        },
+        {
+          "name": "kode_pelaut",
+          "type": "text",
+          "placeholder": "Masukkan Kode"
+        },
+        {
+          "name": "jabatan",
+          "type": "text",
+          "placeholder": "Masukkan Jabatan"
+        },
+        {
+          "name": "sertifikat",
+          "type": "text",
+          "placeholder": "Sertifikat Ijazah"
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/MasterCrew.png"
+    },
+    {
+      "text": "9. Denda Pembatalan",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/masterdenda",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/masterdenda",
+      "headings": [
+        "Nama Denda\n\t\nTrigger By \n\t\nRange Waktu\n\t\nDenda\n\tAksi\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Setting",
+          "href": null,
+          "title": ""
+        }
+      ],
+      "fields": [],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/masterdenda.png"
+    },
+    {
+      "text": "10. Master Informasi",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/informasi_show",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/informasi_show",
+      "headings": [
+        "No\n\t\nTanggal Buat\n\t\nJudul Informasi\n\t\nBerlaku Sampai\n\tAksi\n\n"
+      ],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Filter",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Tambah Informasi",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/informasi_add",
+          "title": null
+        },
+        {
+          "text": "Reset",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "created",
+          "type": "text",
+          "placeholder": "DD/MM/YYYY"
+        },
+        {
+          "name": "judul",
+          "type": "text",
+          "placeholder": "Masukkan Judul Informasi"
+        },
+        {
+          "name": "berlaku",
+          "type": "text",
+          "placeholder": "DD/MM/YYYY"
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/informasi_show.png"
+    },
+    {
+      "text": "AKUN SAYA",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/profilsubuser",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/profilsubuser",
+      "headings": [],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Simpan",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "nama_perusahaan",
+          "type": "text",
+          "placeholder": "Masukkan Nama Perusahaan"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "placeholder": "Masukkan Email"
+        },
+        {
+          "name": "password",
+          "type": "text",
+          "placeholder": "Masukkan Kata Sandi"
+        },
+        {
+          "name": "password_confirm",
+          "type": "text",
+          "placeholder": "Masukkan Konfirmasi Kata Sandi"
+        },
+        {
+          "name": "nama",
+          "type": "text",
+          "placeholder": "Masukkan Nama"
+        },
+        {
+          "name": "wa",
+          "type": "text",
+          "placeholder": "Masukkan Nomor Whatsapp"
+        },
+        {
+          "name": "jenis_user",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "bagian_staff",
+          "type": "text",
+          "placeholder": "Masukkan Bagian Staff"
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/profilsubuser.png"
+    }
+  ],
+  "forms": [
+    {
+      "text": "Tambah Agen",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/tambahagen",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/tambahagen",
+      "headings": [],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Relasi Agen",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/agen",
+          "title": null
+        },
+        {
+          "text": "Simpan",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Batal",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "nama_perusahaan",
+          "type": "text",
+          "placeholder": "Masukkan Nama Perusahaan"
+        },
+        {
+          "name": "penanggung_jawab",
+          "type": "text",
+          "placeholder": "Masukkan Nama Penanggung Jawab"
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "placeholder": "Masukkan Email"
+        },
+        {
+          "name": "password",
+          "type": "password",
+          "placeholder": "Masukkan Kata Sandi"
+        },
+        {
+          "name": "password_confirm",
+          "type": "password",
+          "placeholder": "Masukkan Konfirmasi Kata Sandi"
+        },
+        {
+          "name": "telp",
+          "type": "text",
+          "placeholder": "Masukkan Nomor"
+        },
+        {
+          "name": "",
+          "type": "text",
+          "placeholder": "Masukkan Logo Perusahaan"
+        },
+        {
+          "name": "foto_logo",
+          "type": "file",
+          "placeholder": null
+        },
+        {
+          "name": "",
+          "type": "text",
+          "placeholder": "Masukkan Dokumen Identitas"
+        },
+        {
+          "name": "foto_identitas",
+          "type": "file",
+          "placeholder": null
+        },
+        {
+          "name": "",
+          "type": "text",
+          "placeholder": "Masukkan Surat Perjanjian"
+        },
+        {
+          "name": "foto_perjanjian",
+          "type": "file",
+          "placeholder": null
+        },
+        {
+          "name": "",
+          "type": "text",
+          "placeholder": "Masukkan Dokumen (bila ada)"
+        },
+        {
+          "name": "foto_dokumen",
+          "type": "file",
+          "placeholder": null
+        },
+        {
+          "name": "status",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "bank",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "nomor_rekening",
+          "type": "text",
+          "placeholder": "Masukkan Nomor Rekening"
+        },
+        {
+          "name": "atas_nama",
+          "type": "text",
+          "placeholder": "Masukkan Nama"
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/tambahagen.png"
+    },
+    {
+      "text": "Tambah Hak Akses",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/buathakakses",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/buathakakses",
+      "headings": [],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Hak Akses",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/hakakses",
+          "title": null
+        },
+        {
+          "text": "KEMBALI",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/hakakses",
+          "title": null
+        },
+        {
+          "text": "Simpan",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Batal",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "nama_hak_akses",
+          "type": "text",
+          "placeholder": "Masukkan Nama Hak Akses"
+        },
+        {
+          "name": "ket_hak_akses",
+          "type": "text",
+          "placeholder": "Masukkan Deskripsi Hak Akses"
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        },
+        {
+          "name": "check",
+          "type": "checkbox",
+          "placeholder": null
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/buathakakses.png"
+    },
+    {
+      "text": "Tambah Sub User",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/buatsubuser",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/buatsubuser",
+      "headings": [],
+      "actions": [
+        {
+          "text": "Beranda",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/dashboard",
+          "title": null
+        },
+        {
+          "text": "Sub User",
+          "href": "https://jn-rorodemo.prahu-hub.com/partner/subuser",
+          "title": null
+        },
+        {
+          "text": "Simpan",
+          "href": null,
+          "title": null
+        },
+        {
+          "text": "Batal",
+          "href": null,
+          "title": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "email",
+          "type": "email",
+          "placeholder": "Masukkan Email"
+        },
+        {
+          "name": "password",
+          "type": "password",
+          "placeholder": "Masukkan Kata Sandi"
+        },
+        {
+          "name": "password_confirm",
+          "type": "password",
+          "placeholder": "Masukkan Konfirmasi Kata Sandi"
+        },
+        {
+          "name": "nama",
+          "type": "text",
+          "placeholder": "Masukkan Nama"
+        },
+        {
+          "name": "wa",
+          "type": "text",
+          "placeholder": "Masukkan Nomor Whatsapp"
+        },
+        {
+          "name": "jenis_user",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "cabang_kota",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "bagian_staff",
+          "type": "text",
+          "placeholder": "Masukkan Bagian Staff"
+        },
+        {
+          "name": "status_user",
+          "type": "select-one",
+          "placeholder": null
+        },
+        {
+          "name": "hak_akses[]",
+          "type": "select-multiple",
+          "placeholder": null
+        }
+      ],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/buatsubuser.png"
+    }
+  ],
+  "dashboardDetails": [
+    {
+      "text": "Lihat Statistik Penjualan Per Channel Tahun 2026",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/DashboardListPenjualanPerChannel",
+      "error": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://jn-rorodemo.prahu-hub.com/partner/DashboardListPenjualanPerChannel\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "text": "Lihat Semua Jadwal Tahun 2026",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/DashboardListPenjualanPerJadwal",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/DashboardListPenjualanPerJadwal",
+      "headings": [],
+      "actions": [],
+      "fields": [],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/DashboardListPenjualanPerJadwal.png"
+    },
+    {
+      "text": "Lihat Semua Penjualan Penumpang Tahun 2026",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/DashboardListPenjualanPenumpang",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/DashboardListPenjualanPenumpang",
+      "headings": [
+        "Nama Jenis Tiket\n\t\nPenjualan\n\t\nPendapatan (Rp.)\n\n\n"
+      ],
+      "actions": [],
+      "fields": [],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/DashboardListPenjualanPenumpang.png"
+    },
+    {
+      "text": "Lihat Semua Penjualan Kendaraan Tahun 2026",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/DashboardListPenjualanKendaraan",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/DashboardListPenjualanKendaraan",
+      "headings": [
+        "Nama Jenis Tiket\n\t\nPenjualan\n\t\nPendapatan (Rp.)\n\n\n"
+      ],
+      "actions": [],
+      "fields": [],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/DashboardListPenjualanKendaraan.png"
+    },
+    {
+      "text": "Lihat Semua Penjualan Bagasi Penumpang Tahun 2026",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/DashboardListPenjualanBagasiPenumpang",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/DashboardListPenjualanBagasiPenumpang",
+      "headings": [
+        "Nama Jenis Tiket\n\t\nPenjualan\n\t\nPendapatan (Rp.)\n\n\n"
+      ],
+      "actions": [],
+      "fields": [],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/DashboardListPenjualanBagasiPenumpang.png"
+    },
+    {
+      "text": "Lihat Semua Penjualan Bagasi Kendaraan Tahun 2026",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/DashboardListPenjualanBagasiKendaraan",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/DashboardListPenjualanBagasiKendaraan",
+      "headings": [
+        "Nama Jenis Tiket\n\t\nPenjualan\n\t\nPendapatan (Rp.)\n\n\n"
+      ],
+      "actions": [],
+      "fields": [],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/DashboardListPenjualanBagasiKendaraan.png"
+    },
+    {
+      "text": "Lihat Semua Pemberian Tiket Gratis Tahun 2026",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/getDetailTIketGratis",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/getDetailTIketGratis",
+      "headings": [
+        "Nama Jenis Tiket\n\t\nJenis Tiket\n\t\nJumlah\n\n\n"
+      ],
+      "actions": [],
+      "fields": [],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/getDetailTIketGratis.png"
+    },
+    {
+      "text": "Lihat Semua Pemberian Tiket Pekerja Tahun 2026",
+      "href": "https://jn-rorodemo.prahu-hub.com/partner/getDetailPekerja",
+      "status": 200,
+      "url": "https://jn-rorodemo.prahu-hub.com/partner/getDetailPekerja",
+      "headings": [
+        "Nama Jenis Tiket\n\t\nJenis Tiket\n\t\nJumlah\n\n\n"
+      ],
+      "actions": [],
+      "fields": [],
+      "screenshot": "/home/icun/Project/rorotest/artifacts/screenshots/explore/20260924-operator-cabang/getDetailPekerja.png"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+config/env.md
+.claude/settings.local.json
+results/
+reports/
+artifacts/
+*.pyc
+__pycache__/
+node_modules/
+results/_playwright/
+.playwright-mcp/
