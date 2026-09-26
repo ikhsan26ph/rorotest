@@ -267,6 +267,20 @@ Eksplorasi dilakukan untuk Operator Pusat dan Operator Cabang Parepare tanpa mem
 
 Temuan akses yang perlu diuji pada tahap skenario: daftar Relasi Pelanggan dan Voucher tampak sama antara Pusat dan Cabang, dan route edit Voucher dapat dibuka pada kedua role. Ini baru observasi UI/read-only; isolasi data serta otorisasi backend untuk menyimpan belum diuji. Bukti dan metadata run berada di `artifacts/explore/20260926-025823-relations-agents.json` serta screenshot terkait di `artifacts/screenshots/explore/20260926-025823-relations-agents/`.
 
+## Eksplorasi detail Pembatalan Tiket — 26 September 2026
+
+Eksplorasi dilakukan untuk Operator Pusat dan Operator Cabang Parepare. Tidak ada tiket yang dicari, dipilih, dibatalkan, diedit, dikonfirmasi, atau dicetak.
+
+| Area | Operator Pusat | Operator Cabang Parepare | Struktur/temuan utama |
+|---|---|---|---|
+| Pembatalan Penjualan Cabang | Daftar lintas cabang; form buat, edit, dan detail terbuka | Daftar berisi pembatalan dalam cakupan Parepare; form buat, edit, dan detail terbuka | Daftar memuat ID/tanggal pembatalan, tiket/golongan, jenis pembatalan, user, denda, nilai kembali, dan aksi |
+| Form Buat Pembatalan | Terbuka | Terbuka | Rentang tanggal keberangkatan maksimal 30 hari, pilihan jadwal, jenis **Batal Tiket** atau **Kapal Tidak Berangkat**, ID tiket, dan Cari Tiket. Pencarian tidak dijalankan |
+| Edit/Detail Pembatalan Cabang | Terbuka untuk record representatif | Terbuka untuk record representatif Parepare | Detail jadwal, pembeli, tiket, status check-in, jenis pembatalan, denda, harga, diskon, tarif pass, pembayaran, dan total kembali. Edit menyediakan keterangan serta Simpan/Batal; tidak digunakan |
+| Pembatalan Penjualan Agen | Memuat satu record historis dan detailnya | Tidak ada data saat diperiksa | Daftar memuat agen, potongan, nilai kembali, status, dan aksi. Detail memisahkan harga, komisi agen, diskon, pass, pembayaran operator, dan total harga |
+| Rekap Pembatalan | Memuat satu rekap historis dan detailnya | Tidak ada data saat diperiksa | Rekap dikelompokkan per agen, kapal/voyage, rute, waktu, dan jumlah tiket. Detail memiliki tab Agen/Cabang/Pusat dan Cetak Bukti; cetak tidak dijalankan |
+
+Data yang terlihat mendukung adanya pembatasan lingkup Cabang pada pembatalan langsung, tetapi otorisasi backend untuk membuat atau mengedit pembatalan belum diuji. Aturan denda tetap mengacu pada Master Denda Pembatalan yang sudah dipetakan; tidak ada perubahan setting. Bukti dan metadata run berada di `artifacts/explore/20260926-030656-cancellations.json` serta screenshot terkait di `artifacts/screenshots/explore/20260926-030656-cancellations/`.
+
 ## Handoff
 
 Gunakan route hasil UI ini untuk eksplorasi lanjut. Sebelum test detail, buat skenario per modul dari rule dan temuan UI, lalu harvest selector sesuai workflow. Seluruh gap dashboard untuk akun yang tersedia sudah ditutup. Sisa cakupan yang memerlukan input pengguna hanya akun Sub User Pusat di config/env.md. Tidak perlu membuat akun atau mengubah hak akses untuk menyelesaikan eksplorasi akun yang sudah tersedia.
