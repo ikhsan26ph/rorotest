@@ -254,6 +254,19 @@ Eksplorasi dilakukan untuk Operator Pusat dan Operator Cabang Parepare. Semua pe
 
 Perbedaan akses Jual Tiket terkonfirmasi juga melalui route langsung, bukan hanya status menu. Data Persetujuan, Manifest, Jadwal Konter, dan Data Kendaraan menunjukkan lingkup Cabang lebih sempit daripada Pusat. Bukti dan metadata run berada di `artifacts/explore/20260926-024841-sales-operations.json` serta screenshot terkait di `artifacts/screenshots/explore/20260926-024841-sales-operations/`.
 
+## Eksplorasi detail Relasi, Agen, Saldo Agen, dan Voucher — 26 September 2026
+
+Eksplorasi dilakukan untuk Operator Pusat dan Operator Cabang Parepare tanpa membuat relasi/agen/voucher, mengubah diskon/komisi, atau melakukan top-up saldo.
+
+| Modul | Operator Pusat | Operator Cabang Parepare | Struktur/temuan utama |
+|---|---|---|---|
+| Relasi Pelanggan | Daftar, Tambah Pelanggan, dan detail terbuka | Struktur dan data halaman pertama sama dengan Pusat | Daftar memuat perusahaan, lama pembayaran, PIC, kontak, dan aksi. Form tambah memuat pembayaran Tunai/TOP, identitas, kota, alamat, dan keterangan. Detail memuat Edit Pelanggan serta daftar/tambah diskon per jenis tiket, kelas/golongan, rute, dan harga |
+| Relasi Agen | Daftar dan detail; tidak ada Tambah Agen | Daftar hanya memuat agen dalam cakupan Cabang; Tambah Agen dan detail tersedia | Form tambah Cabang memuat identitas perusahaan/PIC, akun login, kontak, dokumen, status, serta rekening. Detail Cabang memiliki Edit Agen dan Tambah Komisi; detail Pusat hanya menampilkan komisi/filter |
+| Saldo Agen | 3 agen lintas cabang | 1 agen dalam cakupan Parepare | Menu aksi memuat riwayat saldo; Cabang juga memiliki kemampuan top-up menurut peta awal, tetapi tidak dijalankan. Riwayat saldo representatif dibuka tanpa transaksi |
+| Voucher | Daftar, tambah, detail, edit, dan pemakaian terbuka | Struktur serta halaman voucher yang sama juga dapat dibuka | Form mencakup target General/Member, kode, tipe dan nilai diskon, minimal transaksi, jenis tiket, masa berlaku, kuota, status, dan rute. Pemakaian memuat ID order, waktu, pemesan, dan nilai order |
+
+Temuan akses yang perlu diuji pada tahap skenario: daftar Relasi Pelanggan dan Voucher tampak sama antara Pusat dan Cabang, dan route edit Voucher dapat dibuka pada kedua role. Ini baru observasi UI/read-only; isolasi data serta otorisasi backend untuk menyimpan belum diuji. Bukti dan metadata run berada di `artifacts/explore/20260926-025823-relations-agents.json` serta screenshot terkait di `artifacts/screenshots/explore/20260926-025823-relations-agents/`.
+
 ## Handoff
 
 Gunakan route hasil UI ini untuk eksplorasi lanjut. Sebelum test detail, buat skenario per modul dari rule dan temuan UI, lalu harvest selector sesuai workflow. Seluruh gap dashboard untuk akun yang tersedia sudah ditutup. Sisa cakupan yang memerlukan input pengguna hanya akun Sub User Pusat di config/env.md. Tidak perlu membuat akun atau mengubah hak akses untuk menyelesaikan eksplorasi akun yang sudah tersedia.
