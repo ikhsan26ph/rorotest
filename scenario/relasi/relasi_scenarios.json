@@ -1,0 +1,463 @@
+{
+  "module": "relasi",
+  "generatedAt": "2026-09-27",
+  "scenarios": [
+    {
+      "id": "SCN-0001",
+      "title": "Verifikasi simetri akses Relasi Pelanggan: Operator Pusat vs Cabang Pare-Pare (jumlah data & tombol aksi SAMA) — kontras dengan Relasi Agen",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-PEL-01",
+      "requirements": [],
+      "steps": [
+        "Login Operator Pusat, buka /partner/pelanggan, catat jumlah total data pada info 'Menampilkan X sampai Y dari Z data' dan cek keberadaan tombol/link 'Tambah Pelanggan' (a.btn-buat-trayek) serta aksi baris Hapus Pelanggan (button.btn-delete) pada beberapa baris sampel",
+        "Buka salah satu Detail Pelanggan (a.btn-view.btn_1), catat keberadaan tombol 'Edit Pelanggan' dan link 'Tambah Diskon'",
+        "Logout, Login Operator Cabang Pare-Pare, ulangi langkah 1-2 persis pada /partner/pelanggan",
+        "Bandingkan: jumlah total data (Z) Pusat vs Cabang, keberadaan tombol Tambah/Edit/Hapus/Tambah Diskon pada kedua akun"
+      ],
+      "expected": [
+        "Jumlah total data Relasi Pelanggan pada Pusat dan Cabang SAMA PERSIS (dikonfirmasi live saat harvest 27 Sep 2026: 58 dari 58 pada kedua akun, tidak difilter kota) — menjawab Q-RA-04, mengonfirmasi ulang FND-RL-08",
+        "Tombol/link Tambah Pelanggan, Edit Pelanggan, Hapus Pelanggan, Tambah Diskon SEMUA tersedia identik pada kedua akun",
+        "Kontras eksplisit dicatat dengan hasil SCN-0012 (Relasi Agen: Pusat DITOLAK akses tulis) — perbedaan pola akses antar dua submodul dalam modul yang sama dikonfirmasi ulang di sini, bukan diasumsikan"
+      ],
+      "notes": "OBSERVASIONAL, tidak membuat/mengubah data apa pun, memakai 58 data existing. Jalankan SEBELUM SCN-0002 dst. agar baseline jumlah data (Z) tercatat sebelum data AUTOTEST ditambahkan."
+    },
+    {
+      "id": "SCN-0002",
+      "title": "Cabang Pare-Pare: Tambah Pelanggan AUTOTEST-20260927-PEL-CABANG lengkap semua field (termasuk Jenis Identitas/Nomor Identitas/Kota, TOP dicentang + Lama Pembayaran), verifikasi tersimpan & tampil identik di Daftar Cabang dan Pusat",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-PEL-04",
+      "requirements": ["REQ-PEL-02", "REQ-PEL-05", "REQ-PEL-06", "REQ-PEL-10", "VAL-PEL-03"],
+      "steps": [
+        "Login Operator Cabang Pare-Pare, buka /partner/pelanggan, klik link 'Tambah Pelanggan' (a.btn-buat-trayek) → /partner/tambahpelanggan",
+        "Isi #nama_perusahaan = 'AUTOTEST-20260927-PEL-CABANG', #penanggung_jawab = 'AUTOTEST-20260927-PEL-CABANG-PIC'",
+        "Centang checkbox #topnya ('Pembayaran Bisa TOP'), verifikasi field #lama_pembayaran berubah dari disabled menjadi enabled TEPAT setelah dicentang (VAL-PEL-03/Q-RP-02), isi dengan '7' (Hari)",
+        "Isi #email_perusahaan dan #telp_perusahaan dengan kontakTestNotifikasi/kontakTestWhatsapp dari config/env.md (WAJIB, bukan kontak nyata, sesuai aturan wajib NOTIFIKASI docs/agent-guide.md meski P703-724 tidak eksplisit menyebut notifikasi Pelanggan)",
+        "Pilih #jenis_identitas (select2) = 'KTP', isi #nomor_identitas = 'AUTOTEST-20260927-PEL-CABANG-KTP-0001'",
+        "Pilih #kota (satu-satunya field dengan atribut HTML required sungguhan) = 'Parepare' atau kota lain; catat dropdown ini berisi ratusan opsi kota/kab Indonesia (REQ-PEL-06 — sumber data admin /adminprahu, HANYA diobservasi dari sisi Operator, tidak diverifikasi cross-portal)",
+        "Isi #alamat_perusahaan = 'AUTOTEST-20260927-PEL-CABANG Alamat Test', biarkan #keterangan kosong (opsional, TIDAK bertanda *)",
+        "Klik #simpan",
+        "Verifikasi redirect ke /partner/pelanggan dan baris baru muncul (M-PEL-02: AJAX POST /partner/doaddpelanggan)",
+        "Buka Detail Pelanggan baris ini, verifikasi field 'Lama Pembayaran' menampilkan '7 Hari' (bukan 'Tunai'), dan seluruh field lain sesuai input",
+        "Login Operator Pusat, buka /partner/pelanggan, filter nama_perusahaan yang sama, verifikasi tampil IDENTIK (menegaskan ulang simetri SCN-0001 dengan data buatan sendiri, bukan cuma data lama)"
+      ],
+      "expected": [
+        "Data tersimpan (redirect ke daftar, tidak ada error) dengan seluruh field sesuai input (REQ-PEL-02, REQ-PEL-05)",
+        "Field #lama_pembayaran disabled sebelum #topnya dicentang, enabled sesudahnya, nilainya tersimpan dan tampil sebagai 'N Hari' di Detail dan kolom 'Lama Pembayaran' pada Daftar (VAL-PEL-03) — field ini secara fungsional adalah dasar perhitungan tempo piutang OP-15 (REQ-PEL-10), TAPI efek kalkulasi tempo itu sendiri TIDAK diuji di sini (cross-module OP-15, di luar cakupan dokumen ini)",
+        "Baris 'AUTOTEST-20260927-PEL-CABANG' tampil identik pada Daftar Cabang (pembuat) DAN Daftar Pusat"
+      ],
+      "notes": "MEMBUAT DATA BARU (Pelanggan). Dipakai ulang oleh SCN-0004 (uji duplikat email/WA), SCN-0005/0006/0007/0008 (Tambah Diskon di Detail Pelanggan ini) sebelum akhirnya dihapus di SCN-0011 — jangan dihapus di skenario ini. Email/Telp WAJIB kontakTestNotifikasi/kontakTestWhatsapp dari config/env.md, bukan kontak pelanggan nyata."
+    },
+    {
+      "id": "SCN-0003",
+      "title": "Tambah Pelanggan dengan seluruh field wajib kosong (kecuali Keterangan) — verifikasi alert zemPopover per-field berurutan, tidak tersimpan",
+      "category": "negative",
+      "priority": "high",
+      "screen": "SCR-PEL-04",
+      "requirements": ["REQ-PEL-03", "VAL-PEL-01", "AC-PEL-01"],
+      "steps": [
+        "Buka /partner/tambahpelanggan (akun Cabang atau Pusat, keduanya simetris), JANGAN isi field apa pun",
+        "PERINGATAN TEKNIS: zemPopover (.popover-body) otomatis hilang ~1000ms setelah muncul (setTimeout) — baca popover DI DALAM evaluate/callback yang SAMA dengan klik #simpan (mis. 'document.getElementById(\"simpan\").click(); return document.querySelector(\".popover\")?.outerHTML' secara sinkron), JANGAN mengecek popover setelah await/round-trip terpisah, atau assertion akan SELALU tampak kosong (jebakan yang sama seperti pengalaman harvest 27 Sep 2026)",
+        "Klik #simpan, baca popover pertama SEGERA (sinkron) → harus 'Masukkan Nama Perusahaan'",
+        "Isi field satu-per-satu mengikuti urutan M-PEL-01: nama_perusahaan → lanjut penanggung_jawab kosong → 'Masukkan Nama PIC'; (bila #topnya dicentang & lama_pembayaran kosong → 'Masukkan Jumlah Hari', TIDAK perlu dicoba karena #topnya default tidak dicentang pada skenario ini); email_perusahaan kosong → 'Masukkan Email Perusahaan'; format email salah → 'Masukkan Email Dengan Benar'; telp_perusahaan kosong → 'Masukkan Nomor'; jenis_identitas kosong → 'Pilih Jenis Identitas'; nomor_identitas kosong → 'Masukkan Nomor'; kota kosong → 'Pilih Kota / Kab'; alamat_perusahaan kosong → 'Masukkan Alamat Perusahaan' — setiap langkah baca popover SEGERA sesuai peringatan di atas",
+        "TANPA submit sungguhan, verifikasi via DOM bahwa elemen #keterangan TIDAK memiliki penanda wajib (tidak ada tanda * pada label, dan tidak termasuk rantai validasi M-PEL-01) — submit penuh dengan seluruh field terisi termasuk Keterangan kosong SUDAH dibuktikan berhasil di SCN-0002, tidak perlu diulang di sini",
+        "Pantau browser_network_requests sepanjang langkah 3-4: pastikan TIDAK ADA request ke /partner/doaddpelanggan terkirim selama field wajib masih ada yang kosong"
+      ],
+      "expected": [
+        "Setiap field wajib kosong memicu zemPopover per-field dengan teks PERSIS sesuai M-PEL-01 (bukan silent, bukan alert gabungan) — REQ-PEL-03/VAL-PEL-01/AC-PEL-01 terverifikasi ulang saat eksekusi",
+        "Tidak ada POST ke doaddpelanggan selama field wajib masih ada yang kosong",
+        "#keterangan terkonfirmasi TIDAK wajib (tidak ada tanda * dan tidak ada validasi untuknya)"
+      ],
+      "notes": "TIDAK membuat data apa pun (form tidak pernah disubmit lolos dalam skenario ini)."
+    },
+    {
+      "id": "SCN-0004",
+      "title": "Tambah Pelanggan dengan Email/WA duplikat milik AUTOTEST-20260927-PEL-CABANG dan format email salah — verifikasi pesan sesuai",
+      "category": "negative",
+      "priority": "medium",
+      "screen": "SCR-PEL-04",
+      "requirements": ["VAL-PEL-02"],
+      "steps": [
+        "Prasyarat: SCN-0002 sudah dijalankan (Pelanggan 'AUTOTEST-20260927-PEL-CABANG' dengan email=kontakTestNotifikasi, telp=kontakTestWhatsapp sudah ada)",
+        "Buka /partner/tambahpelanggan, isi nama_perusahaan='AUTOTEST-20260927-PEL-DUP' dan field lain valid KECUALI email_perusahaan; isi email dengan format salah (mis. 'bukan-email'), trigger validasi → verifikasi popover 'Masukkan Email Dengan Benar' muncul (baca SEGERA sesuai peringatan zemPopover 1000ms)",
+        "Perbaiki email_perusahaan menjadi PERSIS sama dengan kontakTestNotifikasi (email milik AUTOTEST-20260927-PEL-CABANG), trigger cek (AJAX POST /partner/cek_email_pelanggan) → verifikasi popover 'Email Sudah terdaftar' muncul",
+        "Ganti email_perusahaan ke nilai unik baru, tapi isi telp_perusahaan PERSIS sama dengan kontakTestWhatsapp (milik AUTOTEST-20260927-PEL-CABANG), trigger cek (AJAX POST /partner/cek_wa_pelanggan) → verifikasi popover 'Nomor Whatsapp Sudah terdaftar' muncul",
+        "Pantau network request: pastikan TIDAK ADA request /partner/doaddpelanggan yang berhasil (tidak ada data 'AUTOTEST-20260927-PEL-DUP' tersimpan) selama duplikasi/format belum diperbaiki"
+      ],
+      "expected": [
+        "Format email salah → 'Masukkan Email Dengan Benar' (VAL-PEL-02)",
+        "Email duplikat (AJAX) → 'Email Sudah terdaftar'; WA duplikat (AJAX) → 'Nomor Whatsapp Sudah terdaftar' — TIDAK ada validasi format angka spesifik untuk WA (dikonfirmasi tidak ada di source, VAL-PEL-02)",
+        "Tidak ada data 'AUTOTEST-20260927-PEL-DUP' tersimpan pada skenario ini"
+      ],
+      "notes": "TIDAK membuat data baru (semua percobaan submit sengaja ditolak). Sengaja menggunakan email/WA milik AUTOTEST-20260927-PEL-CABANG (data sendiri, bukan data pelanggan nyata orang lain) untuk memicu uniqueness check dengan aman."
+    },
+    {
+      "id": "SCN-0005",
+      "title": "Tambah Diskon Pelanggan (persen) pada AUTOTEST-20260927-PEL-CABANG: rute+jenis tiket Penumpang+golongan+kelas, verifikasi label '%'",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-PEL-05",
+      "requirements": ["REQ-PEL-11", "REQ-PEL-12", "REQ-PEL-16", "REQ-PEL-18"],
+      "steps": [
+        "Prasyarat: SCN-0002 sudah dijalankan (Pelanggan 'AUTOTEST-20260927-PEL-CABANG' ada)",
+        "Buka Detail Pelanggan 'AUTOTEST-20260927-PEL-CABANG' (/partner/detailpelanggan/<base64Id>), klik link 'Tambah Diskon' → /partner/tambahandiskon/<base64Id>",
+        "Pilih select#rute (name berlaku_untuk) = trayek apa saja yang tersedia (58 opsi), pilih select#jenis1 (name ParentID[]) = 'Penumpang', verifikasi select#golongan1 terisi via AJAX POST /partner/getgolongantiket sesuai jenis1 terpilih (REQ-PEL-16), pilih salah satu golongan, pilih select#kelas1 sesuai golongan",
+        "Pilih select#tipe1 (name tipe[]) = 'Persen', isi input#harga1 = '10', verifikasi label '%' tampil di kiri input (REQ-PEL-18 — kebalikan format untuk tipe Rupiah)",
+        "Klik #simpan (AJAX POST /partner/saveIncludeDiskon)",
+        "Verifikasi baris diskon baru muncul di tabel Diskon pada Detail Pelanggan (Tanggal Buat, Jenis Tiket, Golongan Tiket, Kelas/Kondisi, Rute, Diskon Harga = '10%')"
+      ],
+      "expected": [
+        "Baris Diskon baru tersimpan dan tampil di tabel Diskon Detail Pelanggan dengan format '10%' (REQ-PEL-11/18)",
+        "Golongan/Kelas yang tersedia sesuai Jenis Tiket 'Penumpang' yang dipilih (REQ-PEL-16), field rute+jenis tiket+golongan+kelas semua tersimpan sesuai input (REQ-PEL-12)"
+      ],
+      "notes": "MEMBUAT DATA BARU (1 baris Diskon pada Pelanggan AUTOTEST-20260927-PEL-CABANG). Dipakai ulang oleh SCN-0006 (uji duplikat kombinasi persis sama). Dihapus bersama Pelanggan induknya di SCN-0011 — verifikasi apakah Hapus Pelanggan cascade menghapus Diskon terkait saat eksekusi (BUKAN diasumsikan pasti, tombol Hapus Diskon terpisah pada tabel Diskon belum dipetakan detail di ui-inventory)."
+    },
+    {
+      "id": "SCN-0006",
+      "title": "Duplikat kombinasi Diskon Pelanggan (sama Golongan+Kelas+Rute+Jenis Tiket) — verifikasi alert 'Tidak bisa! Diskon sudah ditambahkan'",
+      "category": "negative",
+      "priority": "medium",
+      "screen": "SCR-PEL-05",
+      "requirements": ["REQ-PEL-15", "AC-PEL-05"],
+      "steps": [
+        "Prasyarat: SCN-0005 sudah dijalankan (1 baris Diskon persis: rute X, jenis Penumpang, golongan Y, kelas Z, tipe Persen 10% pada AUTOTEST-20260927-PEL-CABANG)",
+        "Siapkan page.on('dialog') handler (native alert, BUKAN zemPopover/SweetAlert) SEBELUM klik Simpan — alert duplikat di layar ini memakai native alert() browser, beda pola dari validasi field-kosong di layar yang sama yang pakai zemPopover",
+        "Buka /partner/tambahandiskon/<base64Id> untuk Pelanggan yang sama, isi kombinasi PERSIS SAMA dengan SCN-0005 (rute X, jenis Penumpang, golongan Y, kelas Z) tapi nilai harga boleh beda (mis. 15%), klik Simpan"
+      ],
+      "expected": [
+        "Native alert() muncul dengan teks PERSIS 'Tidak bisa! Diskon sudah ditambahkan' (M-PEL-04); request AJAX /partner/saveIncludeDiskon TIDAK menghasilkan baris baru tersimpan",
+        "Aturan larangan kombinasi duplikat konsisten dengan pola Master Harga (REQ-PEL-15 merujuk master_analysis.md REQ-018/019/020 — TIDAK diulang sebagai REQ baru di sini, hanya diverifikasi fungsinya di modul ini). Teks alert BELUM dibandingkan langsung dengan teks alert duplikat Master Harga — dicatat sebagai observasi tambahan, bukan kegagalan, bila ternyata berbeda kata",
+        "Tabel Diskon Pelanggan tetap hanya berisi 1 baris (dari SCN-0005), tidak bertambah"
+      ],
+      "notes": "TIDAK membuat data baru (submit duplikat sengaja ditolak)."
+    },
+    {
+      "id": "SCN-0007",
+      "title": "Tambah Diskon Pelanggan Jenis Tiket = Bagasi Kendaraan DAN Bagasi Penumpang — verifikasi Kelas/Kondisi Kendaraan otomatis disabled value 'Bagasi' pada KEDUA varian (FND-RL-02)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-PEL-05",
+      "requirements": ["REQ-PEL-17", "VAL-PEL-05", "AC-PEL-07"],
+      "bugCandidate": "FND-RL-02",
+      "steps": [
+        "Prasyarat: Pelanggan 'AUTOTEST-20260927-PEL-CABANG' ada (SCN-0002)",
+        "Buka /partner/tambahandiskon/<base64Id>, pilih select#rute apa saja, pilih select#jenis1 = 'Bagasi Kendaraan' (opsi PERTAMA dari 2 varian Bagasi — FND-RL-02: rule P719/720 hanya menyebut 'Bagasi' tunggal, UI punya 2 opsi terpisah), verifikasi select#kelas1 disembunyikan dan digantikan input.bagasi_<n> dengan value='Bagasi' dan atribut disabled=true",
+        "Pilih tipe1='Rupiah', isi harga1='5000', klik Simpan, verifikasi baris tersimpan dengan Kelas/Kondisi='Bagasi'",
+        "Ulangi langkah 2-3 dengan select#jenis1 = 'Bagasi Penumpang' (varian KEDUA), pilih rute BERBEDA dari langkah sebelumnya agar tidak dianggap kombinasi duplikat, verifikasi perilaku disabled/value='Bagasi' identik"
+      ],
+      "expected": [
+        "KEDUA varian ('Bagasi Kendaraan' dan 'Bagasi Penumpang') memicu perilaku identik: select#kelas1 disembunyikan, digantikan input value='Bagasi' disabled=true (REQ-PEL-17/VAL-PEL-05/AC-PEL-07 terverifikasi untuk kedua opsi, bukan cuma satu)",
+        "Dicatat sebagai verifikasi FND-RL-02 (kandidat gap-dokumentasi: rule menyebut 'Bagasi' tunggal, UI punya 2 opsi terpisah — fungsional tetap benar, hanya penamaan rule tidak 1:1 dengan opsi UI) untuk dikonfirmasi status resminya oleh bug-triager",
+        "2 baris Diskon baru tersimpan (Bagasi Kendaraan dan Bagasi Penumpang, rute berbeda)"
+      ],
+      "notes": "MEMBUAT DATA BARU (2 baris Diskon tambahan pada AUTOTEST-20260927-PEL-CABANG). Dihapus bersama Pelanggan induknya di SCN-0011 (sama seperti SCN-0005/0006)."
+    },
+    {
+      "id": "SCN-0008",
+      "title": "Input Diskon Persen >100% pada Tambah Diskon Pelanggan — verifikasi dibatasi client-side (Inputmask), amati bypass langsung",
+      "category": "edge",
+      "priority": "medium",
+      "screen": "SCR-PEL-05",
+      "requirements": ["REQ-PEL-19", "VAL-PEL-04", "AC-PEL-06"],
+      "steps": [
+        "Buka /partner/tambahandiskon/<base64Id> untuk AUTOTEST-20260927-PEL-CABANG, pilih rute+jenis1+golongan1+kelas1 apa saja yang BELUM dipakai kombinasi lain (hindari duplikat dengan SCN-0005/0007), pilih tipe1='Persen'",
+        "Ketik '150' pada input#harga1 memakai type()/keyboard event asli (bukan fill() langsung) untuk memicu Inputmask + handler keyup/keypress, amati nilai akhir yang tampil di field (harus terpotong maksimal '100' sesuai mask '(9[,9])|(99[,9])|(100)')",
+        "SETELAH itu, coba fill() langsung (bypass keyboard event) dengan nilai '150' ke input#harga1 via evaluate, lalu klik Simpan — amati apakah server menolak (validasi server-side) atau menerima nilai >100 (belum diketahui saat harvest karena hanya diverifikasi client-side)",
+        "JIKA server menerima (data tersimpan dengan >100%): catat sebagai TEMUAN BARU (pelanggaran REQ-PEL-19 di level server), lalu hapus baris diskon tsb sebagai cleanup segera. JIKA ditolak/dikoreksi: tidak perlu cleanup tambahan"
+      ],
+      "expected": [
+        "Input keyboard normal '150' pada field Persen TERPOTONG otomatis maksimal '100' (VAL-PEL-04 client-side terverifikasi ulang)",
+        "Hasil bypass server-side dicatat APA ADANYA (ditolak ATAU diterima) — BUKAN diasumsikan sebelum eksekusi (REQ-PEL-19/AC-PEL-06)",
+        "Jika sempat tersimpan >100%, cleanup baris tsb berhasil dilakukan"
+      ],
+      "notes": "OBSERVASIONAL untuk langkah bypass server-side (belum ada verifikasi ini saat harvest 27 Sep 2026). Pakai kombinasi rute/golongan/kelas yang unik agar tidak bentrok dengan SCN-0005/0006/0007."
+    },
+    {
+      "id": "SCN-0009",
+      "title": "Observasi data Pelanggan lama 'CV Karya Bersama' (id 3701) — Jenis Identitas/Nomor Identitas/Kota tampil strip '-' di Detail (data pre-fitur)",
+      "category": "positive",
+      "priority": "low",
+      "screen": "SCR-PEL-02",
+      "requirements": ["REQ-PEL-04"],
+      "steps": [
+        "Buka /partner/detailpelanggan/MzcwMQ== (CV Karya Bersama, id 3701, data existing pra-fitur, BUKAN data AUTOTEST)",
+        "Baca field Jenis Identitas, Nomor Identitas, Kota/Kab pada halaman Detail"
+      ],
+      "expected": [
+        "Ketiga field (Jenis Identitas, Nomor Identitas, Kota/Kab) menampilkan strip '-' karena data ini dibuat sebelum field tsb ditambahkan (REQ-PEL-04 terverifikasi dengan sampel nyata, FND-RL-05 dikonfirmasi ulang)",
+        "Tidak ada perubahan data (read-only, TIDAK membuka form Edit)"
+      ],
+      "notes": "Read-only, data existing bukan milik test run ini, JANGAN edit/hapus."
+    },
+    {
+      "id": "SCN-0010",
+      "title": "Filter Daftar Relasi Pelanggan berdasarkan Nama Perusahaan lalu Reset",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-PEL-01",
+      "requirements": ["VAL-PEL-06"],
+      "steps": [
+        "Buka /partner/pelanggan, klik toggle Filter (#btn-filter)",
+        "Isi nama_perusahaan = 'Karya Bersama', submit filter",
+        "Verifikasi daftar menyempit ke 1 baris (CV Karya Bersama) — dikonfirmasi live saat harvest 27 Sep 2026 (58→1)",
+        "Klik salah satu tombol 'Reset' yang ditemukan di DOM (.reset-master ATAU tombol .btn-primary lain — CATAT selector mana yang benar-benar berfungsi, ui-inventory belum membedakan detail keduanya)"
+      ],
+      "expected": [
+        "Setelah filter, hanya baris 'CV Karya Bersama' tampil (VAL-PEL-06 dikonfirmasi ulang)",
+        "Setelah Reset, daftar penuh (58 data existing + data AUTOTEST yang sudah dibuat pada titik eksekusi ini) tampil kembali"
+      ],
+      "notes": "Observasional pada data existing, tidak membuat data baru. Jalankan SETELAH SCN-0002 agar jumlah baris pasca-Reset bisa dibandingkan dengan baseline SCN-0001 + data AUTOTEST yang sudah ada."
+    },
+    {
+      "id": "SCN-0011",
+      "title": "Cleanup: Hapus Pelanggan AUTOTEST-20260927-PEL-CABANG beserta seluruh Diskon terkait, verifikasi hilang dari Daftar Cabang & Pusat",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-PEL-01",
+      "requirements": [],
+      "steps": [
+        "Prasyarat: SCN-0002/0004/0005/0006/0007/0008 sudah dijalankan; Pelanggan 'AUTOTEST-20260927-PEL-CABANG' TIDAK pernah dipakai transaksi apa pun di modul lain (OP-13/OP-15) selama rangkaian test ini — aman dihapus (beda kondisi dengan data referensi yang relasi_analysis.md sarankan TIDAK dihapus setelah dipakai lintas modul)",
+        "Buka /partner/pelanggan (akun Cabang Pare-Pare, pembuat data), filter nama_perusahaan='AUTOTEST-20260927-PEL-CABANG'",
+        "Klik aksi Hapus (button.btn-delete) pada baris tsb, konfirmasi dialog (SweetAlert2, tombol 'Ya'/'Hapus' sesuai shared/selector-map-partner-common.md)",
+        "Verifikasi baris hilang dari /partner/pelanggan pada akun Cabang",
+        "Login Operator Pusat, buka /partner/pelanggan, verifikasi baris yang sama JUGA hilang"
+      ],
+      "expected": [
+        "Baris 'AUTOTEST-20260927-PEL-CABANG' berhasil dihapus dan tidak lagi muncul di Daftar Cabang maupun Pusat",
+        "Seluruh Diskon terkait (dari SCN-0005/0007) tidak lagi dapat diakses (baik karena cascade delete atau karena parent Pelanggan sudah tidak ada) — catat perilaku APA ADANYA bila ternyata Diskon tetap ada sebagai data yatim (orphan), sebagai temuan baru, bukan diasumsikan"
+      ],
+      "notes": "Cleanup akhir rangkaian Pelanggan. Data AMAN dihapus karena tidak pernah dipakai transaksi OP-13/OP-15 apa pun sepanjang rangkaian SCN-0001-0010 ini."
+    },
+    {
+      "id": "SCN-0012",
+      "title": "Operator Pusat mengakses langsung URL /partner/tambahagen, /partner/editagen/<id>, /partner/tambahkomisiagen/<id> — verifikasi DITOLAK server-side",
+      "category": "negative",
+      "priority": "high",
+      "screen": "SCR-AGN-03",
+      "requirements": ["REQ-AGN-01", "AC-AGN-01"],
+      "steps": [
+        "Login Operator Pusat",
+        "Navigasi LANGSUNG (browser_navigate, bukan klik tombol UI karena tombolnya memang tidak ada) ke /partner/tambahagen, verifikasi redirect otomatis ke /partner/dashboard DAN muncul .alert-danger dengan teks 'Anda Tidak Memiliki Akses Ke Halaman Tersebut'",
+        "Ambil salah satu id Agen existing (mis. id polos 19534, PT. Integritas Kuasa) dari Detail Agen (/partner/detailagen/<base64Id>), navigasi LANGSUNG ke /partner/editagen/19534, verifikasi redirect+alert yang sama",
+        "Navigasi LANGSUNG ke /partner/tambahkomisiagen/19534, verifikasi redirect+alert yang sama",
+        "Sebagai pembanding, verifikasi juga di UI: buka /partner/agen (Daftar) sebagai Pusat, pindai SELURUH halaman (querySelectorAll) memastikan TIDAK ADA link/tombol 'Tambah Agen' di mana pun; buka /partner/detailagen/<base64Id> mana saja, verifikasi TIDAK ADA tombol 'Edit Agen' dan tabel Komisi Agen TANPA kolom Aksi/link 'Tambah Komisi'"
+      ],
+      "expected": [
+        "KETIGA route (tambahagen, editagen/<id>, tambahkomisiagen/<id>) mengembalikan redirect ke /partner/dashboard + alert 'Anda Tidak Memiliki Akses Ke Halaman Tersebut' untuk Operator Pusat — REQ-AGN-01/AC-AGN-01 terverifikasi PENUH di level server, bukan cuma UI (mengonfirmasi ulang FND-RL-07, DITUTUP bukan bug, justru desain akses solid)",
+        "UI Pusat pada /partner/agen dan /partner/detailagen TIDAK menampilkan tombol/link Tambah/Edit/Tambah Komisi sama sekali"
+      ],
+      "notes": "PRIORITAS HIGH sesuai instruksi eksplisit — bukti kuat pembatasan server-side. Tidak ada data yang diubah (murni akses/observasi penolakan)."
+    },
+    {
+      "id": "SCN-0013",
+      "title": "Cabang Pare-Pare: Tambah Agen AUTOTEST-20260927-AGN-01 status Aktif, isi SEMUA field termasuk Kata Sandi/Upload Dokumen/Informasi Rekening (FND-RL-04), notifikasi ke kontak test — verifikasi tersimpan & tampil di Daftar Cabang (pembuat) dan Pusat (view)",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-AGN-03",
+      "requirements": ["REQ-AGN-02", "REQ-AGN-04", "REQ-AGN-05", "AC-AGN-01", "AC-AGN-03", "AC-AGN-04"],
+      "bugCandidate": "FND-RL-04",
+      "steps": [
+        "Login Operator Cabang Pare-Pare, buka /partner/agen, klik link 'Tambah Agen' → /partner/tambahagen",
+        "Isi #nama_perusahaan='AUTOTEST-20260927-AGN-01', #penanggung_jawab='AUTOTEST-20260927-AGN-01-PIC'",
+        "Isi #email=kontakTestNotifikasi dari config/env.md (WAJIB kontak test, REQ-AGN-05 memicu notifikasi login sungguhan)",
+        "Isi #password dan #password_confirm dengan nilai yang lolos regex ^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]).{5,}$ (mis. 'Autotest2026', huruf+angka campur, min 6 karakter) — field ini TIDAK disebut rule P726-737 sama sekali (FND-RL-04), tapi WAJIB diisi untuk submit berhasil",
+        "Isi #telp=kontakTestWhatsapp dari config/env.md",
+        "Isi #alamat_perusahaan='AUTOTEST-20260927-AGN-01 Alamat Test'",
+        "Upload #foto_identitas dan #foto_perjanjian dengan file dummy/placeholder (BUKAN dokumen identitas asli siapa pun — siapkan fixture PDF/JPG kosong/dummy khusus test bila belum ada); biarkan #foto_stnk (Logo) dan #foto_dokumen (Dokumen Tambahan) kosong (opsional, TIDAK bertanda *)",
+        "Pilih select#status='Aktif' (REQ-AGN-05 — notifikasi HANYA terkirim bila Aktif saat pembuatan pertama)",
+        "Pilih select#bank (salah satu dari 6 opsi, mis. 'BRI'), isi #nomor_rekening (angka dummy, mis. '1234567890'), isi #atas_nama='AUTOTEST-20260927-AGN-01' (blok 'Informasi Rekening', FND-RL-04)",
+        "Klik #submit_sub — catat bahwa ini native form.submit() (bukan AJAX, karena upload file multipart), TUNGGU navigasi/reload penuh, bukan menunggu AJAX response",
+        "Verifikasi redirect ke /partner/agen dan baris baru 'AUTOTEST-20260927-AGN-01' muncul, dengan Aksi 'Detail Agen' DAN 'Hapus Agen' tersedia (akun Cabang)",
+        "Buka Detail Agen baris ini, verifikasi field Informasi Rekening & status upload dokumen tampil sesuai input",
+        "Login Operator Pusat, buka /partner/agen, verifikasi baris yang sama JUGA muncul (REQ-AGN-04 — sebagian: hanya membuktikan Pusat melihat SEMUA kota termasuk Pare-Pare; sisi 'Cabang lain SEKOTA' TIDAK bisa diuji, hanya ada 1 akun Cabang di config/env.md), tapi tanpa tombol Edit/Hapus/Tambah Komisi (AC-AGN-01 sisi Pusat, konsisten SCN-0012)"
+      ],
+      "expected": [
+        "Data tersimpan (redirect penuh ke /partner/agen, bukan AJAX partial) dengan seluruh field termasuk yang TIDAK disebut rule (Kata Sandi, Dokumen, Informasi Rekening — FND-RL-04) berhasil diisi dan tersimpan; field ini TERBUKTI WAJIB untuk submit berhasil (dicatat sebagai verifikasi temuan gap-dokumentasi FND-RL-04 untuk dikonfirmasi bug-triager, BUKAN bug fungsional)",
+        "Notifikasi login diharapkan terkirim ke kontakTestNotifikasi/kontakTestWhatsapp karena status Aktif saat pembuatan pertama (REQ-AGN-05) — verifikasi keberhasilan pengiriman sebatas TIDAK ADA error di alur submit; isi kontak test TIDAK dibuka/dicek isinya oleh skenario ini (di luar cakupan akses portal /agen)",
+        "Baris tampil di Daftar Cabang (pembuat, dengan Hapus Agen tersedia) DAN Daftar Pusat (view-only, tanpa Hapus/Edit) — AC-AGN-01 dan AC-AGN-03 (bagian testable) terverifikasi"
+      ],
+      "notes": "MEMBUAT DATA BARU (Agen). WAJIB pakai kontakTestNotifikasi/kontakTestWhatsapp dari config/env.md (aturan wajib NOTIFIKASI). Dipakai ulang oleh SCN-0014 (referensi email duplikat), SCN-0018/0019 (Tambah Komisi), dihapus di SCN-0021. Siapkan file dummy untuk upload Dokumen Identitas/Surat Perjanjian SEBELUM eksekusi (bukan data pribadi nyata)."
+    },
+    {
+      "id": "SCN-0014",
+      "title": "Tambah Agen dengan seluruh field wajib kosong — verifikasi alert zemPopover per-field berurutan (termasuk validasi Kata Sandi)",
+      "category": "negative",
+      "priority": "high",
+      "screen": "SCR-AGN-03",
+      "requirements": ["REQ-AGN-02", "VAL-AGN-01"],
+      "steps": [
+        "Login Operator Cabang Pare-Pare, buka /partner/tambahagen, JANGAN isi field apa pun",
+        "PERINGATAN TEKNIS sama seperti SCN-0003: zemPopover auto-hilang ~1000ms, baca popover SEGERA dalam evaluate/callback yang sama dengan klik Simpan, jangan await terpisah",
+        "Klik #submit_sub, baca popover pertama SEGERA → harus 'Masukkan Nama Perusahaan'",
+        "Isi field satu-per-satu mengikuti urutan M-AGN-01: penanggung_jawab kosong → 'Masukkan Nama Penanggung Jawab'; email kosong → 'Masukkan email', format salah → 'Penulisan email salah'; password kosong → 'Masukkan Kata Sandi', password gagal regex (mis. isi '123456' semua angka) → 'Kombinasi Hanya Boleh Huruf dan Angka'; password_confirm kosong → 'Masukkan Konfirmasi Kata Sandi', tidak sama dengan password → 'Kata Sandi Belum Sama'; telp kosong → 'Masukkan Nomor'; alamat_perusahaan kosong → 'Masukkan Alamat Perusahaan'; Dokumen Identitas kosong → 'Masukkan Dokumen Identitas'; Surat Perjanjian kosong → 'Masukkan Surat Perjanjian'; status kosong → 'Pilih Status'; bank kosong → 'Pilih Bank'; nomor_rekening kosong → 'Masukkan Nomor Rekening'; atas_nama kosong → 'Masukkan Nama' — setiap langkah baca popover SEGERA",
+        "Pantau network request sepanjang langkah 3-4: pastikan TIDAK ADA form.submit() sungguhan (tidak ada navigasi/reload ke /partner/agen) selama field wajib masih ada yang kosong"
+      ],
+      "expected": [
+        "Setiap field wajib kosong/invalid memicu zemPopover per-field dengan teks PERSIS sesuai M-AGN-01 (pola IDENTIK dengan Pelanggan — per-field, BUKAN silent seperti Master) — REQ-AGN-02/VAL-AGN-01 terverifikasi ulang, menjawab Q-RA-01",
+        "Validasi Kata Sandi (regex campur huruf+angka min 6 karakter) dan Konfirmasi Kata Sandi (harus sama) berfungsi sebagai bagian dari REQ-AGN-02, meski field ini FND-RL-04 (tidak disebut rule P726-737)",
+        "Tidak ada submit berhasil selama field wajib kosong"
+      ],
+      "notes": "TIDAK membuat data baru (form tidak pernah lolos validasi penuh dalam skenario ini)."
+    },
+    {
+      "id": "SCN-0015",
+      "title": "Tambah Agen dengan Email/WA duplikat milik AUTOTEST-20260927-AGN-01 (Cabang sendiri) — verifikasi alert; scope lintas-kota (Q-RA-02) TIDAK diuji",
+      "category": "negative",
+      "priority": "medium",
+      "screen": "SCR-AGN-03",
+      "requirements": ["REQ-AGN-03", "VAL-AGN-02", "AC-AGN-02"],
+      "steps": [
+        "Prasyarat: SCN-0013 sudah dijalankan (Agen 'AUTOTEST-20260927-AGN-01' dengan email=kontakTestNotifikasi, telp=kontakTestWhatsapp sudah ada, dibuat Cabang Pare-Pare)",
+        "Buka /partner/tambahagen (akun Cabang Pare-Pare yang sama), isi seluruh field valid (nama_perusahaan='AUTOTEST-20260927-AGN-DUP', password valid, dst.) KECUALI #email — isi PERSIS sama dengan kontakTestNotifikasi (email AGN-01), trigger cek → verifikasi popover 'Email sudah Terdaftar' muncul (flag server $('#email').attr(\"ada\")==\"1\")",
+        "Ganti email ke nilai unik baru, tapi isi #telp PERSIS sama dengan kontakTestWhatsapp (WA AGN-01), trigger cek → verifikasi popover 'Nomor sudah Terdaftar' muncul",
+        "Pantau network request: pastikan form.submit() TIDAK pernah berhasil (tidak ada data 'AUTOTEST-20260927-AGN-DUP' tersimpan) selama duplikasi belum diperbaiki"
+      ],
+      "expected": [
+        "Email duplikat (data Cabang Pare-Pare sendiri) → 'Email sudah Terdaftar'; WA duplikat → 'Nomor sudah Terdaftar' (REQ-AGN-03/VAL-AGN-02/AC-AGN-02 terverifikasi PENUH untuk scope 'data Cabang sendiri')",
+        "Q-RA-02 (apakah validasi ini benar-benar berlaku lintas SEMUA kota, bukan cuma per-cabang) TIDAK terjawab oleh skenario ini — source JS hanya membaca flag boolean 'ada' dari server tanpa mengungkap scope sesungguhnya. blockedUnless: tersedia akun Operator Cabang di KOTA LAIN (tidak ada di config/env.md saat ini) — JANGAN menyimpulkan/menebak hasil scope lintas-kota dari skenario ini",
+        "Tidak ada data 'AUTOTEST-20260927-AGN-DUP' tersimpan"
+      ],
+      "notes": "TIDAK membuat data baru. blockedUnless: bagian scope lintas-kota (Q-RA-02) butuh akun Cabang kota lain — dicatat sebagai gap cakupan permanen sampai akun tersedia, bagian yang testable (scope Cabang sendiri) tetap dijalankan penuh di skenario ini."
+    },
+    {
+      "id": "SCN-0016",
+      "title": "Cabang Tambah Agen AUTOTEST-20260927-AGN-02 status 'Tidak Aktif' saat dibuat — verifikasi TIDAK ADA notifikasi terkirim",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-AGN-03",
+      "requirements": ["REQ-AGN-06", "AC-AGN-04"],
+      "steps": [
+        "Login Operator Cabang Pare-Pare, buka /partner/tambahagen",
+        "Isi seluruh field wajib sama seperti SCN-0013 TAPI dengan nama_perusahaan='AUTOTEST-20260927-AGN-02', dan gunakan kontak test BERBEDA dari AGN-01 untuk email/telp (CATATAN PENTING: cek config/env.md apakah tersedia lebih dari satu kontakTestNotifikasi/kontakTestWhatsapp, atau gunakan alias email bila kontakTestNotifikasi berbasis Gmail yang mendukung tag '+' — WAJIB berbeda dari AGN-01 karena validasi unique email/WA akan menolak nilai identik; JANGAN menebak nilai, koordinasikan dengan user/config bila tidak ada kontak kedua yang jelas)",
+        "Pilih select#status='Tidak Aktif' (BEDA dari SCN-0013 yang 'Aktif')",
+        "Klik #submit_sub, verifikasi tersimpan (redirect ke /partner/agen, baris baru muncul dengan Status='Tidak Aktif')"
+      ],
+      "expected": [
+        "Data tersimpan dengan Status='Tidak Aktif'",
+        "TIDAK ADA notifikasi apa pun yang terkirim ke kontak test (REQ-AGN-06) — karena tidak ada akses langsung memeriksa inbox/log notifikasi dari sisi browser Operator, verifikasi sebatas OBSERVASI TIDAK LANGSUNG (tidak ada indikasi UI/network request pengiriman notifikasi berbeda dari kondisi Aktif); jika tersedia cara memeriksa log notifikasi internal, gunakan untuk konfirmasi definitif, JANGAN diasumsikan lolos tanpa pemeriksaan"
+      ],
+      "notes": "MEMBUAT DATA BARU (Agen kedua). Dipakai ulang oleh SCN-0017 (reaktivasi), dihapus di SCN-0021. WAJIB kontak test BERBEDA dari AGN-01 (lihat catatan langkah 2)."
+    },
+    {
+      "id": "SCN-0017",
+      "title": "Edit Agen AUTOTEST-20260927-AGN-02: ubah status Tidak Aktif → Aktif (reaktivasi) — verifikasi welcome email TIDAK terkirim ulang",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-AGN-04",
+      "requirements": ["REQ-AGN-07", "AC-AGN-04"],
+      "steps": [
+        "Prasyarat: SCN-0016 sudah dijalankan (Agen 'AUTOTEST-20260927-AGN-02' status Tidak Aktif ada)",
+        "Buka Detail Agen 'AUTOTEST-20260927-AGN-02', klik 'Edit Agen' → /partner/editagen/<idPolos> (akun Cabang; boleh diedit-simpan karena ini DATA MILIK RUN TEST INI SENDIRI, beda dari data existing nyata yang sengaja tidak disimpan saat harvest ui-inventory)",
+        "Verifikasi field password/password_confirm tampil sebagai mask literal '*******' (bukan value asli) — JANGAN mengubah password",
+        "Ubah select#status dari 'Tidak Aktif' menjadi 'Aktif', klik Simpan",
+        "Verifikasi perubahan tersimpan (Detail Agen menampilkan Status='Aktif')"
+      ],
+      "expected": [
+        "Status berhasil diubah menjadi 'Aktif'",
+        "Welcome email 'Selamat Datang di RORO' TIDAK terkirim ulang pada reaktivasi ini (REQ-AGN-07) — welcome email hanya terpicu SEKALI saat pembuatan awal berstatus Aktif (tidak terjadi di sini karena AGN-02 dibuat Tidak Aktif). Verifikasi sebatas observasi tidak langsung (sama keterbatasan seperti SCN-0016), JANGAN diasumsikan tanpa pemeriksaan bila ada cara memeriksa log notifikasi"
+      ],
+      "notes": "Mengedit data MILIK RUN TEST INI SENDIRI (AUTOTEST-20260927-AGN-02), BUKAN data existing nyata — aman disimpan, beda kebijakan dari ui-inventory yang sengaja tidak submit Edit pada data existing produksi."
+    },
+    {
+      "id": "SCN-0018",
+      "title": "Cabang Tambah Komisi Agen pada AUTOTEST-20260927-AGN-01 (persentase, rute+jenis tiket+golongan+kelas) — verifikasi confirm() dialog dulu, tersimpan, kolom 'Komisi (%)'",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-AGN-05",
+      "requirements": ["REQ-AGN-08", "REQ-AGN-11", "AC-AGN-06"],
+      "steps": [
+        "Prasyarat: SCN-0013 sudah dijalankan (Agen 'AUTOTEST-20260927-AGN-01' ada, idPolos diketahui dari href 'Edit Agen')",
+        "Login Operator Cabang Pare-Pare, buka Detail Agen 'AUTOTEST-20260927-AGN-01', klik link 'Tambah Komisi' → /partner/tambahkomisiagen/<idPolos>",
+        "Siapkan page.on('dialog') handler SEBELUM klik Simpan — layar ini memicu native confirm(\"Apakah Anda yakin untuk menambahan komisi agen ?\") [kutip persis termasuk typo] LEBIH DULU sebelum AJAX POST (M-AGN-02), beda alur dari Tambah Diskon Pelanggan yang tidak punya confirm()",
+        "Pilih select#rute (berlaku_untuk), select#jenis1 (ParentID[]) = 'Penumpang', select#golongan1, select#kelas1 sesuai golongan; isi input#harga1 (class hanyaangka-koma-) = '10' (TIDAK ADA selector tipe1 di layar ini — Komisi Agen SELALU persentase, REQ-AGN-08)",
+        "Klik Simpan, terima dialog confirm (klik OK/accept), verifikasi AJAX POST /partner/saveIncludeKomisi berhasil",
+        "Verifikasi baris Komisi baru muncul di tabel 'Komisi Agen' pada Detail Agen dengan kolom 'Komisi (%)' = '10'",
+        "Login Operator Pusat, buka Detail Agen yang sama, verifikasi baris Komisi JUGA tampil (view-only, tabel Komisi Agen TANPA kolom Aksi — konsisten SCN-0012)"
+      ],
+      "expected": [
+        "Dialog confirm() muncul SEBELUM AJAX POST tersimpan (M-AGN-02 terverifikasi ulang) — kegagalan handle dialog ini menyebabkan submit tidak pernah terkirim, WAJIB disiapkan sebelum klik Simpan",
+        "Komisi tersimpan sebagai persentase (REQ-AGN-08), tampil di Detail Agen Cabang (dengan Aksi) dan Pusat (tanpa Aksi, view-only)",
+        "REQ-AGN-11 (visibilitas Cabang lain SEKOTA) HANYA sebagian terverifikasi (Pusat melihat semua; Cabang pembuat melihat milik sendiri) — sisi 'Cabang lain sekota' TIDAK BISA DIUJI PENUH, sama keterbatasan seperti AC-AGN-03 (hanya 1 akun Cabang tersedia), JANGAN diasumsikan"
+      ],
+      "notes": "MEMBUAT DATA BARU (1 baris Komisi pada AUTOTEST-20260927-AGN-01). Dipakai ulang oleh SCN-0019 (uji duplikat), dihapus bersama Agen induknya di SCN-0021."
+    },
+    {
+      "id": "SCN-0019",
+      "title": "Duplikat kombinasi Komisi Agen (sama) pada AUTOTEST-20260927-AGN-01 — verifikasi alert aktual (FND-RL-01)",
+      "category": "negative",
+      "priority": "medium",
+      "screen": "SCR-AGN-05",
+      "requirements": ["REQ-AGN-10", "VAL-AGN-03", "AC-AGN-05"],
+      "bugCandidate": "FND-RL-01",
+      "steps": [
+        "Prasyarat: SCN-0018 sudah dijalankan (1 baris Komisi: rute X, Penumpang, golongan Y, kelas Z, 10% pada AUTOTEST-20260927-AGN-01)",
+        "Buka /partner/tambahkomisiagen/<idPolos> untuk Agen yang sama, siapkan page.on('dialog') handler untuk MENANGANI 2 dialog berurutan: (a) confirm() 'Apakah Anda yakin untuk menambahan komisi agen ?' (selalu muncul dulu, M-AGN-02) — terima/OK, BARU KEMUDIAN (b) alert() duplikat jika kombinasi memang duplikat",
+        "Isi kombinasi PERSIS SAMA dengan SCN-0018 (rute X, Penumpang, golongan Y, kelas Z), nilai harga boleh beda, klik Simpan, terima confirm() dialog",
+        "Verifikasi alert() KEDUA muncul dengan teks PERSIS 'Komisi yang Anda inputkan sudah ada di database' — CATAT bahwa ini BERBEDA dari kutipan rule P736/REQ-AGN-10 ('Komisi sudah ada di database'), assertion WAJIB pakai teks aktual atau partial match /sudah ada di database/i, JANGAN exact-match ke teks rule (FND-RL-01)",
+        "Verifikasi tabel Komisi Agen tetap hanya 1 baris (dari SCN-0018), tidak bertambah"
+      ],
+      "expected": [
+        "Fungsi penolakan duplikat bekerja (AJAX /partner/saveIncludeKomisi tidak menghasilkan baris baru) — REQ-AGN-10/AC-AGN-05 terverifikasi secara FUNGSIONAL",
+        "Teks alert AKTUAL adalah 'Komisi yang Anda inputkan sudah ada di database', BUKAN persis 'Komisi sudah ada di database' seperti dikutip rule — dicatat sebagai verifikasi FND-RL-01 (kandidat bug-dokumentasi/wording, BUKAN bug fungsional) untuk dikonfirmasi status resminya oleh bug-triager"
+      ],
+      "notes": "TIDAK membuat data baru (submit duplikat sengaja ditolak)."
+    },
+    {
+      "id": "SCN-0020",
+      "title": "Filter Daftar Relasi Agen berdasarkan Nama Perusahaan/Status lalu Reset (pengujian fungsional pertama)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-AGN-01",
+      "requirements": ["VAL-AGN-04"],
+      "steps": [
+        "Buka /partner/agen (akun Cabang atau Pusat), klik toggle Filter",
+        "Isi nama_perusahaan='AUTOTEST-20260927-AGN' (mencocokkan AGN-01 dan AGN-02 yang sudah dibuat SCN-0013/0016), submit filter, verifikasi hanya baris AUTOTEST yang tampil",
+        "Reset filter, isi select#status='Aktif', submit, verifikasi hanya baris berstatus Aktif yang tampil (AGN-01 Aktif sejak SCN-0013, AGN-02 Aktif sejak SCN-0017 bila dijalankan sebelum skenario ini — sesuaikan ekspektasi dengan urutan eksekusi)",
+        "Klik Reset, verifikasi daftar penuh kembali"
+      ],
+      "expected": [
+        "Filter nama_perusahaan dan status BERFUNGSI menyaring baris sesuai kriteria (VAL-AGN-04 — pengujian fungsional PERTAMA, sebelumnya ui-inventory hanya mengonfirmasi struktur field, belum narrowing live)",
+        "Reset mengembalikan daftar penuh"
+      ],
+      "notes": "Jalankan SETELAH SCN-0013/0016/0017 agar ada ≥2 data AUTOTEST untuk diuji narrowing-nya; JANGAN dijalankan sebelum data tsb ada atau hasil filter tidak bermakna."
+    },
+    {
+      "id": "SCN-0021",
+      "title": "Cleanup: Hapus Agen AUTOTEST-20260927-AGN-01 dan AGN-02 (Cabang) beserta Komisi terkait, verifikasi hilang dari Daftar Cabang & Pusat",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-AGN-01",
+      "requirements": [],
+      "steps": [
+        "Prasyarat: SCN-0013/0015/0016/0017/0018/0019/0020 sudah dijalankan; kedua Agen AUTOTEST TIDAK pernah dipakai transaksi Jual Tiket Agen (portal /agen, AG-05) apa pun sepanjang rangkaian test ini — aman dihapus",
+        "Login Operator Cabang Pare-Pare (HANYA Cabang yang punya tombol Hapus Agen — REQ-AGN-01), buka /partner/agen, filter 'AUTOTEST-20260927-AGN'",
+        "Klik aksi Hapus (button.btn-delete) pada baris 'AUTOTEST-20260927-AGN-01', konfirmasi dialog",
+        "Ulangi untuk baris 'AUTOTEST-20260927-AGN-02'",
+        "Verifikasi kedua baris hilang dari /partner/agen akun Cabang",
+        "Login Operator Pusat, buka /partner/agen, verifikasi kedua baris JUGA hilang"
+      ],
+      "expected": [
+        "Kedua Agen AUTOTEST berhasil dihapus, tidak lagi muncul di Daftar Cabang maupun Pusat",
+        "Komisi terkait (dari SCN-0018) tidak lagi dapat diakses — catat perilaku APA ADANYA (cascade delete atau orphan) sebagai temuan baru bila relevan, bukan diasumsikan"
+      ],
+      "notes": "Cleanup akhir rangkaian Agen. Data AMAN dihapus karena tidak pernah dipakai transaksi AG-05 apa pun. Hapus HANYA bisa dilakukan lewat akun Cabang (REQ-AGN-01 — Pusat tidak punya tombol Hapus sama sekali, dikonfirmasi ulang di SCN-0012)."
+    },
+    {
+      "id": "SCN-0022",
+      "title": "[BLOCKED — di luar cakupan OP-16/17] Efek Komisi Agen AUTOTEST-20260927-AGN-01 pada transaksi Jual Tiket Agen Pusat & Sub User Agen (Q-RA-03)",
+      "category": "edge",
+      "priority": "medium",
+      "screen": "SCR-AGN-02",
+      "requirements": ["REQ-AGN-09"],
+      "steps": [
+        "Idealnya: login ke portal /agen (Agen Pusat, akun #4 pengirimdidph@gmail.com atau Sub User Agen turunannya) memakai kredensial AUTOTEST-20260927-AGN-01 yang dibuat di SCN-0013, lakukan transaksi Jual Tiket Agen (AG-05) pada rute+jenis tiket+golongan+kelas yang PERSIS sama dengan Komisi yang di-set di SCN-0018, verifikasi komisi 10% benar-benar diterapkan/tercatat pada transaksi tsb",
+        "Pada dokumen ini: portal /agen (AG-05 Jual Tiket Agen, P852-1066) BELUM dipetakan sebagai modul terpisah dan berada DI LUAR cakupan submodul Operator OP-16/OP-17 (/partner) yang didokumentasikan di sini — TIDAK dieksekusi pada rangkaian skenario ini"
+      ],
+      "expected": [
+        "Status BLOCKED — tidak dieksekusi dalam cakupan dokumen relasi ini. Baru bisa dijalankan setelah modul AG-05 Jual Tiket Agen (portal /agen) dipetakan/diuji terpisah, dengan Agen AUTOTEST-20260927-AGN-01 (atau agen uji baru serupa) sebagai prasyarat data"
+      ],
+      "notes": "Q-RA-03 tidak dijawab di sini — sesuai instruksi eksplisit, JANGAN menebak hasilnya. blockedUnless: modul AG-05 (portal /agen) dipetakan/diuji terpisah pada langkah kerja berikutnya. REQ-AGN-09 field-level (kolom rute/jenis tiket/golongan/kelas pada form Tambah Komisi) SUDAH diverifikasi di SCN-0018 — yang BLOCKED di sini hanya efek transaksi nyatanya."
+    }
+  ]
+}

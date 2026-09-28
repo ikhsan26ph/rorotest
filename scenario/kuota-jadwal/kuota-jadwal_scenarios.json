@@ -1,0 +1,306 @@
+{
+  "module": "kuota-jadwal",
+  "generatedAt": "2026-09-27",
+  "scenarios": [
+    {
+      "id": "SCN-0001",
+      "title": "Cabang Pare-Pare: Buat Kuota & Jadwal & Crewlist AUTOTEST-20260927-KJ-CABANG lengkap (wizard 3 tahap), verifikasi tampil di Daftar Cabang sendiri dan Daftar Pusat",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-02",
+      "requirements": ["REQ-001", "REQ-007", "REQ-011", "REQ-012", "REQ-013", "REQ-017", "REQ-018", "AC-01"],
+      "steps": [
+        "Login Operator Cabang Pare-Pare, buka /partner/tambahjadwal (link 'Buat Jadwal' a.btn-buat-trayek dari /partner/masterjadwal)",
+        "Pilih Trayek (select#trayek) salah satu opsi berasal-kota Pare-Pare, SELAIN 'AUTOTEST-20260925-PPBPN-01' yang sudah dipakai transaksi OP-13; pilih Kapal (select#kapal) apa saja; isi Nomor Voyage (#nomor_voyage) = 'AUTOTEST-20260927-KJ-CABANG'",
+        "Verifikasi 3 tab (KUOTA/JADWAL/CREW LIST) muncul di bawah setelah Trayek+Kapal dipilih; verifikasi tombol 'Masukkan Crew' dan 'Selesai' pada tab CREW LIST BELUM aktif/tersedia pada tahap ini (REQ-007/011 — wizard bertahap)",
+        "Pada tab KUOTA: isi Kuota Internal & Eksternal (input#dist_penumpang<id>, input#dist_penumpang_eks<id>) untuk minimal 1 golongan penumpang; isi (input#dist_kendaraan<id>.dist_kendaraan, input#dist_kendaraan_eks<id>.dist_kendaraan_eks) untuk minimal 1 golongan kendaraan yang TIDAK readonly (hindari golongan III-A/III-B bila trayek Parepare-Balikpapan), biarkan Bonus Tiket (input.bonus_tiket) default; isi Kuota Bagasi (input#dist_bagasi<id>/_eks<id>) — catat bahwa kolom Internal dan Eksternal terpisah (REQ-013), klik Simpan pada tab KUOTA",
+        "Setelah tab KUOTA tersimpan, buka tab JADWAL: isi Waktu Berangkat (input[name='tgl_etd']) dengan tanggal SEJAUH MUNGKIN DI MASA DEPAN yang bisa dipilih datepicker, isi Waktu Tiba (input[name='tgl_eta']) setelahnya, biarkan Status Jadwal default 'Jadwal Tampil', klik Simpan pada tab JADWAL",
+        "Setelah tab JADWAL tersimpan, buka tab CREW LIST: verifikasi tombol 'Masukkan Crew' kini muncul/aktif, klik untuk membuka modal SCR-09, pilih minimal 1 Awak Kapal existing dari Master Crew untuk tiap pelabuhan, klik Simpan pada modal",
+        "Kembali ke tab CREW LIST, klik tombol 'Selesai'",
+        "Buka /partner/masterjadwal (Daftar), filter Nomor Voyage (#Nomor_Voyage) = 'AUTOTEST-20260927-KJ-CABANG', verifikasi baris muncul di akun Cabang",
+        "Login Operator Pusat, buka /partner/masterjadwal, filter Nomor Voyage yang sama, verifikasi baris yang sama juga muncul di akun Pusat"
+      ],
+      "expected": [
+        "Tab JADWAL dan CREW LIST secara efektif tidak bisa diselesaikan sebelum tahap sebelumnya benar-benar tersimpan (REQ-007/011 terverifikasi lewat elemen interaktif yang nonaktif sampai tahap sebelumnya tersimpan)",
+        "Field Kuota Internal dan Eksternal tersedia sebagai kolom terpisah dan bisa diisi independen (REQ-013)",
+        "Tombol Selesai berhasil menyelesaikan wizard setelah crew diisi (REQ-012)",
+        "Baris 'AUTOTEST-20260927-KJ-CABANG' tampil di Daftar akun Cabang Pare-Pare (pembuatnya) DAN di Daftar akun Pusat (REQ-001/AC-01)"
+      ],
+      "notes": "MEMBUAT DATA BARU (Kuota, Jadwal, Crewlist). Dipakai ulang oleh SCN-0002 (perbandingan Edit) dan SCN-0003 (Tutup Jadwal + cleanup) sebelum akhirnya dihapus di SCN-0003 — jangan dihapus di scenario ini. Golongan kendaraan yang dipilih WAJIB bukan III-A/III-B pada trayek Parepare-Balikpapan (readonly, lihat VAL-006/SCN-0009). Trayek yang dipakai harus SELAIN AUTOTEST-20260925-PPBPN-01 (id 2293, sudah dipakai transaksi OP-13, jangan disentuh sesuai Q-KJ-04)."
+    },
+    {
+      "id": "SCN-0002",
+      "title": "Edit Kuota & Jadwal AUTOTEST-20260927-KJ-CABANG: verifikasi field Edit sama dengan Tambah (REQ-019)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-06",
+      "requirements": ["REQ-019", "AC-11"],
+      "steps": [
+        "Prasyarat: SCN-0001 sudah dijalankan (Kuota & Jadwal 'AUTOTEST-20260927-KJ-CABANG' sudah ada)",
+        "Buka /partner/masterjadwal, filter Nomor Voyage = 'AUTOTEST-20260927-KJ-CABANG', klik aksi Edit (a.btn-edit.edit) pada baris tsb — AJAX in-place swap ke SCR-06/07/08, URL tetap /partner/masterjadwal",
+        "Bandingkan field yang tampil pada tab Kuota/Jadwal/crew list Edit dengan field pada tab KUOTA/JADWAL/CREW LIST Tambah (SCR-03/04/05): Trayek, Kapal, Kode Kapal, Kapasitas (disabled+terisi), Nomor Voyage (tetap editable), distribusi Kuota, Waktu Berangkat/Tiba, Status Jadwal",
+        "TIDAK mengubah/menyimpan apa pun, navigasi keluar"
+      ],
+      "expected": [
+        "Struktur & label field Edit identik dengan Tambah, hanya field Trayek/Kapal/Kode Kapal/Kapasitas yang disabled+terisi data existing (REQ-019/AC-11)",
+        "Nomor Voyage tetap dapat diedit (bukan disabled)",
+        "Tidak ada perubahan yang disimpan"
+      ],
+      "notes": "Read-only comparison, tidak mengubah data 'AUTOTEST-20260927-KJ-CABANG' (masih dipakai SCN-0003 sesudah ini)."
+    },
+    {
+      "id": "SCN-0003",
+      "title": "Tutup Jadwal AUTOTEST-20260927-KJ-CABANG lalu verifikasi hilang dari pencarian Jual Tiket/User Umum, kemudian Hapus (cleanup)",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-04",
+      "requirements": ["REQ-010", "AC-09"],
+      "steps": [
+        "Prasyarat: SCN-0001 sudah dijalankan; jadwal 'AUTOTEST-20260927-KJ-CABANG' belum pernah dipakai transaksi apa pun sehingga aman dihapus di akhir",
+        "Sebelum ditutup: cross-check jadwal ini MUNCUL sebagai pilihan di pencarian Jual Tiket Operator (OP-13) dan/atau Cari Jadwal User Umum (UM-03) sebagai baseline",
+        "Buka Edit Kuota & Jadwal 'AUTOTEST-20260927-KJ-CABANG', tab Jadwal, ubah select Status Jadwal menjadi 'Jadwal Tutup' (value Tutup), klik Simpan",
+        "Ulangi pencarian yang sama di Jual Tiket (OP-13) dan/atau Cari Jadwal User Umum (UM-03)",
+        "Kembali ke /partner/masterjadwal, klik aksi Hapus (a.btn-delete.delete-jadwal) pada baris 'AUTOTEST-20260927-KJ-CABANG' untuk cleanup"
+      ],
+      "expected": [
+        "Sebelum ditutup, jadwal tampil sebagai pilihan di pencarian Jual Tiket/User Umum",
+        "Setelah Status Jadwal diubah ke 'Jadwal Tutup' dan disimpan, jadwal TIDAK LAGI muncul di pencarian yang sama (REQ-010/AC-09, menjawab Q-KJ-02)",
+        "Setelah Hapus, baris 'AUTOTEST-20260927-KJ-CABANG' hilang dari /partner/masterjadwal baik di akun Cabang maupun Pusat"
+      ],
+      "notes": "Cross-module verification (OP-13/UM-03) — bila modul tsb belum bisa diakses pada sesi eksekusi, tandai bagian cross-module ini blocked secara parsial dan tetap lanjutkan cleanup Hapus. Cleanup ini AMAN karena jadwal belum pernah dipakai transaksi nyata (dibuat & dihapus dalam rangkaian test yang sama, bukan kasus Q-KJ-04)."
+    },
+    {
+      "id": "SCN-0004",
+      "title": "Pusat: Buat Kuota & Jadwal AUTOTEST-20260927-KJ-PUSAT pada trayek berasal kota Pare-Pare, uji tepi Bonus Tiket melebihi sisa Kuota Kendaraan, verifikasi otomatis tampil di Daftar Cabang Pare-Pare, lalu Hapus (cleanup)",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-02",
+      "requirements": ["REQ-002", "REQ-006", "VAL-005", "AC-02"],
+      "steps": [
+        "Login Operator Pusat, buka /partner/tambahjadwal",
+        "Pilih Trayek (select#trayek) berasal-kota Pare-Pare, SELAIN trayek yang dipakai SCN-0001 dan SELAIN 'AUTOTEST-20260925-PPBPN-01'; pilih Kapal apa saja; isi Nomor Voyage = 'AUTOTEST-20260927-KJ-PUSAT'",
+        "Pada tab KUOTA, pilih 1 golongan kendaraan yang EDITABLE (bukan III-A/III-B Parepare-Balikpapan), isi Kuota Internal=1 dan Eksternal=1 (total 2), lalu isi Bonus Tiket (input.bonus_tiket) golongan tsb dengan nilai jauh melebihi total (mis. 999)",
+        "Klik Simpan pada tab KUOTA, amati apakah ditolak (validasi bonus vs sisa kuota kapal) atau diterima apa adanya (Q-KJ-01)",
+        "Jika ditolak: perbaiki nilai Bonus Tiket ke angka wajar dan Simpan ulang agar wizard bisa lanjut. Jika diterima: lanjutkan apa adanya dan catat sebagai temuan",
+        "Lanjutkan tab JADWAL (tanggal SEJAUH MUNGKIN DI MASA DEPAN) dan tab CREW LIST (minimal 1 crew per pelabuhan) hingga klik 'Selesai'",
+        "Login Operator Cabang Pare-Pare, buka /partner/masterjadwal, filter Nomor Voyage = 'AUTOTEST-20260927-KJ-PUSAT', verifikasi baris muncul TANPA operator Cabang membuatnya sendiri",
+        "Login kembali Operator Pusat, hapus (a.btn-delete.delete-jadwal) baris 'AUTOTEST-20260927-KJ-PUSAT' sebagai cleanup, verifikasi hilang dari Daftar Pusat maupun Cabang"
+      ],
+      "expected": [
+        "Dicatat apa adanya: Simpan dengan Bonus Tiket jauh melebihi sisa Kuota Kendaraan DITOLAK (validasi keras) ATAU DITERIMA (tidak ada validasi otomatis) — bukan diasumsikan sebelum eksekusi (REQ-006/VAL-005/Q-KJ-01)",
+        "Kuota & Jadwal yang dibuat Pusat pada trayek berkota-asal Pare-Pare otomatis tampil di Daftar akun Cabang Pare-Pare tanpa aksi tambahan dari Cabang (REQ-002/AC-02)",
+        "Setelah Hapus, baris 'AUTOTEST-20260927-KJ-PUSAT' hilang dari kedua akun"
+      ],
+      "notes": "MEMBUAT DATA BARU (Kuota, Jadwal, Crewlist), dihapus di akhir skenario yang sama (aman, tidak dipakai transaksi apa pun)."
+    },
+    {
+      "id": "SCN-0005",
+      "title": "Simpan tab KUOTA dengan field distribusi kosong — observasi perilaku sebenarnya (VAL-001)",
+      "category": "negative",
+      "priority": "high",
+      "screen": "SCR-03",
+      "requirements": ["REQ-005", "VAL-001", "AC-06"],
+      "steps": [
+        "Buka /partner/tambahjadwal, pilih Trayek & Kapal existing apa saja (data existing, hanya untuk memunculkan tab — TIDAK bermaksud membuat Jadwal untuk trayek ini), isi Nomor Voyage = 'AUTOTEST-20260927-EMPTY-KUOTA'",
+        "Pada tab KUOTA, BIARKAN seluruh field distribusi (dist_penumpang*, dist_kendaraan*, dist_bagasi*) kosong/default",
+        "Pantau network request (browser_network_requests), lalu klik Simpan",
+        "Amati: apakah ada request POST/AJAX terkirim, apakah muncul alert/popover, apakah lanjut ke tab JADWAL, atau tetap diam (silent)",
+        "JIKA ternyata tersimpan (ada baris baru dengan Nomor Voyage 'AUTOTEST-20260927-EMPTY-KUOTA' di /partner/masterjadwal): segera Hapus baris tsb sebagai cleanup. JIKA silent/tidak tersimpan: tidak perlu cleanup"
+      ],
+      "expected": [
+        "Dicatat apa adanya salah satu dari: (a) tidak ada request terkirim & tidak ada perubahan (silent, konsisten AC-06), (b) muncul pesan validasi, atau (c) request terkirim dan data tersimpan meski field kosong (pelanggaran AC-06, catat sebagai temuan baru) — BUKAN diasumsikan sebelum eksekusi",
+        "Jika data sempat tersimpan, cleanup Hapus berhasil dilakukan"
+      ],
+      "notes": "OBSERVASIONAL — hasil sebenarnya belum diketahui saat harvest (beda dari FND-M-01 Master yang sudah terverifikasi silent). Trayek/Kapal yang dipilih adalah data existing, hanya dipakai untuk membuka form, TIDAK dimaksudkan tersimpan."
+    },
+    {
+      "id": "SCN-0006",
+      "title": "Simpan tab JADWAL dengan Waktu Berangkat/Tiba kosong — observasi perilaku sebenarnya (VAL-002)",
+      "category": "negative",
+      "priority": "high",
+      "screen": "SCR-04",
+      "requirements": ["REQ-009", "VAL-002", "AC-06"],
+      "steps": [
+        "Buka /partner/tambahjadwal, pilih Trayek & Kapal existing apa saja (data existing, tidak bermaksud membuat Jadwal), isi Nomor Voyage = 'AUTOTEST-20260927-EMPTY-JADWAL'",
+        "Langsung klik tab JADWAL TANPA mengisi/menyimpan tab KUOTA lebih dulu — amati apakah tab JADWAL bisa diakses & Status Jadwal/Pelabuhan tampil normal walau Kuota belum disimpan",
+        "Biarkan Waktu Berangkat (input[name='tgl_etd']) dan Waktu Tiba (input[name='tgl_eta']) kosong, biarkan Status Jadwal default 'Jadwal Tampil'",
+        "Pantau network request, lalu klik Simpan pada tab JADWAL",
+        "Amati: request terkirim/tidak, alert/tidak, redirect/tidak",
+        "JIKA ternyata tersimpan (baris 'AUTOTEST-20260927-EMPTY-JADWAL' muncul di /partner/masterjadwal): segera Hapus sebagai cleanup"
+      ],
+      "expected": [
+        "Dicatat apakah tab JADWAL bisa disimpan independen dari tab KUOTA yang belum disimpan (catatan tambahan di luar VAL-002)",
+        "Dicatat apa adanya salah satu dari: silent tanpa request (konsisten AC-06), muncul pesan validasi, atau request terkirim & data tersimpan meski tanggal kosong (catat sebagai temuan baru) — bukan diasumsikan",
+        "Jika sempat tersimpan, cleanup Hapus berhasil"
+      ],
+      "notes": "OBSERVASIONAL, sama seperti SCN-0005/VAL-001. Trayek/Kapal existing hanya dipakai membuka form."
+    },
+    {
+      "id": "SCN-0007",
+      "title": "[BLOCKED — trayek uji belum tersedia] Tambah Jadwal trayek multi-rute (≥3 pelabuhan): urutan tanggal wajib urut (REQ-008/VAL-003)",
+      "category": "edge",
+      "priority": "medium",
+      "screen": "SCR-02",
+      "requirements": ["REQ-008", "VAL-003", "AC-07"],
+      "steps": [
+        "Buka /partner/tambahjadwal, periksa seluruh 24 opsi select#trayek satu per satu (nama trayek tidak selalu mencerminkan jumlah pelabuhan) untuk mencari trayek dengan ≥3 pelabuhan/≥2 leg",
+        "Bila ditemukan trayek multi-pelabuhan yang SUDAH punya Tarif Pass (tampil sebagai opsi): lanjutkan uji — pada tab JADWAL isi tanggal rute kedua SAMA/LEBIH AWAL dari rute pertama, amati apakah datepicker membatasi atau submit ditolak",
+        "Bila TIDAK ditemukan (sesuai temuan harvest 27 September 2026 — semua 24 opsi hanya 2 pelabuhan/1 leg): tandai skenario BLOCKED, JANGAN membuat Trayek baru di Master untuk memenuhi prasyarat ini"
+      ],
+      "expected": [
+        "Jika trayek multi-pelabuhan ditemukan: tanggal rute kedua ≤ rute pertama ditolak (datepicker atau submit), sesuai AC-07",
+        "Jika tidak ditemukan: status BLOCKED, dicatat alasan 'tidak ada trayek uji ≥3 pelabuhan yang sudah punya Tarif Pass tersedia di antara 24 opsi dropdown' — TIDAK membuat/mengedit Trayek baru di OP-11 Master untuk kasus ini (di luar cakupan modul Kuota & Jadwal, keputusan eksplisit)"
+      ],
+      "notes": "blockedUnless: trayek Master 'asdfghdaf' (Balikpapan-Parepare-Taipa, FND-M-05 di master_analysis.md, data tertinggal sesi lain) bisa jadi kandidat TAPI belum dipastikan sudah punya Tarif Pass (syarat REQ-004) sehingga muncul di dropdown ini — cek dulu sebelum eksekusi. Terkait juga Q-KJ-06 (belum jelas apakah syarat Tarif Pass berlaku semua leg atau sebagian saja pada trayek multi-pelabuhan)."
+    },
+    {
+      "id": "SCN-0008",
+      "title": "Tombol 'Selesai' pada tab CREW LIST tetap disabled sebelum Kuota/Jadwal disimpan (VAL-004)",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-05",
+      "requirements": ["REQ-012", "VAL-004", "AC-08"],
+      "steps": [
+        "Buka /partner/tambahjadwal, pilih Trayek & Kapal existing apa saja (belum menyimpan apa pun)",
+        "Klik tab CREW LIST",
+        "Periksa atribut disabled elemen tombol 'Selesai' via DOM"
+      ],
+      "expected": [
+        "Tombol 'Selesai' memiliki atribut HTML disabled=true, didampingi teks 'Pastikan Crew List sudah terisi semua' (M-02) — bukan alert (VAL-004/REQ-012/AC-08 terverifikasi ulang saat eksekusi)",
+        "Tidak ada data yang disimpan pada skenario ini"
+      ],
+      "notes": "Assertion langsung sesuai instruksi (VAL-004 sudah terverifikasi penuh via DOM saat harvest), tidak perlu alur submit penuh."
+    },
+    {
+      "id": "SCN-0009",
+      "title": "Field Bonus Tiket golongan III-A/III-B pada jadwal Parepare-Balikpapan readonly, dibandingkan trayek lain yang editable (VAL-006)",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-06",
+      "requirements": ["REQ-015", "REQ-016", "VAL-006", "AC-10"],
+      "steps": [
+        "Buka /partner/masterjadwal, cari jadwal 'AUTOTEST-20260925-PPBPN-01' (id 2293, trayek Parepare-Balikpapan) — data existing SUDAH DIPAKAI transaksi lain (Q-KJ-04), klik Edit HANYA untuk membaca (JANGAN mengubah/menyimpan apa pun)",
+        "Pada tab Kuota, periksa atribut readonly elemen input.bonus_tiket golongan 'Kendaraan Kecil (III-A)' dan 'Mobil Mewah (III-B)'",
+        "Navigasi keluar TANPA Simpan",
+        "Buka /partner/tambahjadwal, pilih Trayek Bakauheni-Merak (atau trayek non-Parepare-Balikpapan lain), amati field Bonus Tiket golongan setara — TANPA Simpan"
+      ],
+      "expected": [
+        "Field Bonus Tiket golongan III-A/III-B pada jadwal Parepare-Balikpapan memiliki atribut readonly=true, value tetap '1' (REQ-016/VAL-006/AC-10)",
+        "Field Bonus Tiket pada trayek pembanding (Bakauheni-Merak) TIDAK readonly (editable)",
+        "Tidak ada perubahan yang disimpan pada jadwal existing 2293 maupun trayek pembanding"
+      ],
+      "notes": "Read-only observation only, TIDAK mengedit/menyimpan jadwal 2293 (data terpakai transaksi, Q-KJ-04) — konsisten batasan risiko di kuota-jadwal_analysis.md. Turut menambah sampel untuk Q-KJ-03 (generalisasi readonly khusus III-A/III-B + Parepare-Balikpapan, bukan perilaku umum semua golongan/rute) — jangan menggeneralisasi lebih jauh dari 2 sampel trayek yang diuji di sini."
+    },
+    {
+      "id": "SCN-0010",
+      "title": "Klik 'Lihat' pada baris Daftar Kuota & Jadwal menampilkan panel collapse kosong (FND-KJ-01)",
+      "category": "edge",
+      "priority": "medium",
+      "screen": "SCR-01",
+      "requirements": [],
+      "steps": [
+        "Buka /partner/masterjadwal, klik ikon mata 'Lihat' (a.btn-viewnya) pada salah satu baris data existing (bukan data AUTOTEST manapun)",
+        "Amati panel collapse (.col<id>) yang terbuka"
+      ],
+      "expected": [
+        "Panel collapse terbuka (state collapse show) tetapi TIDAK menampilkan detail data apa pun (kosong, hanya elemen pembatas visual) — mengonfirmasi/membantah FND-KJ-01, pola sama FND-M-04 Master",
+        "Tidak ada perubahan data (aksi Lihat bersifat read-only)"
+      ],
+      "bugCandidate": "FND-KJ-01",
+      "notes": "Memverifikasi kandidat gap desain FND-KJ-01 (pola sama FND-M-04 Master/OP-21). Gunakan data existing manapun, tidak perlu entitas baru."
+    },
+    {
+      "id": "SCN-0011",
+      "title": "Opsi dropdown Trayek pada Tambah Kuota & Jadwal akun Cabang identik dengan akun Pusat (desain sengaja, VAL-009/FND-KJ-03)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-02",
+      "requirements": ["VAL-009"],
+      "steps": [
+        "Login Operator Pusat, buka /partner/tambahjadwal, ambil seluruh opsi teks select#trayek",
+        "Login Operator Cabang Pare-Pare, buka /partner/tambahjadwal, ambil seluruh opsi teks select#trayek",
+        "Bandingkan kedua daftar opsi"
+      ],
+      "expected": [
+        "Daftar opsi Trayek pada akun Cabang SAMA PERSIS dengan akun Pusat (termasuk trayek yang tidak terkait kota Pare-Pare) — mengonfirmasi ini desain sengaja (BUKAN bug), sesuai keputusan user 27 September 2026",
+        "Tidak ada data yang disimpan"
+      ],
+      "notes": "Skenario POSITIF sesuai keputusan user 27 Sep 2026 (FND-KJ-03 DITUTUP, bukan bug-candidate/skenario negatif)."
+    },
+    {
+      "id": "SCN-0012",
+      "title": "Filter Daftar Kuota & Jadwal berdasarkan Nama Trayek lalu Reset",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-01",
+      "requirements": ["VAL-007"],
+      "steps": [
+        "Buka /partner/masterjadwal, klik toggle Filter (#btn-filter)",
+        "Isi Nama Trayek (#Nama_Trayek) dengan kata kunci yang diketahui ada (mis. 'SURABAYA'), submit Filter",
+        "Klik Reset (.reset-master)"
+      ],
+      "expected": [
+        "Setelah filter, hanya baris yang Trayek-nya mengandung kata kunci yang tampil (dikonfirmasi live saat harvest: 2242→230 data untuk kata kunci 'SURABAYA')",
+        "Setelah Reset, daftar penuh tampil kembali"
+      ],
+      "notes": "Efek filter sudah TERVERIFIKASI saat harvest; efek Reset belum dicoba eksplisit sebelumnya — dikonfirmasi di sini."
+    },
+    {
+      "id": "SCN-0013",
+      "title": "Verifikasi ketergantungan Master: Trayek/Golongan/Kelas yang tampil di Tambah Kuota & Jadwal sesuai data Master (REQ-004/017/018)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-02",
+      "requirements": ["REQ-004", "REQ-013", "REQ-017", "REQ-018", "AC-04", "AC-05"],
+      "steps": [
+        "Buka /partner/tarifpass (Master), catat beberapa Trayek yang SUDAH punya Tarif Pass",
+        "Buka /partner/tambahjadwal, periksa opsi select#trayek — verifikasi semua opsi cocok dengan Trayek yang sudah punya Tarif Pass di Master (REQ-004/AC-04), bukan seluruh Trayek Master",
+        "Pilih salah satu Trayek, lalu pilih Kapal — pada tab KUOTA, periksa opsi golongan kendaraan/bagasi yang muncul, bandingkan dengan Master Harga+Tarif Pass untuk trayek tsb (REQ-017/AC-05)",
+        "Periksa opsi golongan penumpang yang muncul, bandingkan dengan Master Kelas milik Kapal yang dipilih (REQ-018/AC-05)",
+        "Verifikasi kolom Kuota Internal dan Kuota Eksternal tampil terpisah untuk tiap golongan (REQ-013)",
+        "TIDAK menyimpan apa pun"
+      ],
+      "expected": [
+        "Opsi Trayek pada Tambah HANYA yang sudah punya Tarif Pass di Master (REQ-004/AC-04)",
+        "Opsi golongan kendaraan/bagasi sesuai Harga+Tarif Pass Trayek terpilih; opsi golongan penumpang sesuai Kelas Kapal terpilih (REQ-017/018/AC-05)",
+        "Kolom Kuota Internal & Eksternal terpisah dan independen (REQ-013)",
+        "Tidak ada data yang disimpan"
+      ]
+    },
+    {
+      "id": "SCN-0014",
+      "title": "Observasi apakah field Bonus Tiket kendaraan otomatis mengikuti formula (Kuota Internal+Eksternal) × bonus per golongan (REQ-014)",
+      "category": "edge",
+      "priority": "low",
+      "screen": "SCR-03",
+      "requirements": ["REQ-014"],
+      "steps": [
+        "Buka /partner/tambahjadwal, pilih Trayek & Kapal existing apa saja (data existing, tidak bermaksud menyimpan)",
+        "Pada tab KUOTA, catat nilai default Bonus Tiket (input.bonus_tiket) untuk 1 golongan kendaraan sebelum mengisi Kuota",
+        "Isi Kuota Internal dan Eksternal untuk golongan tsb dengan angka berbeda-beda (mis. 5+5, lalu ubah ke 10+10), amati apakah nilai Bonus Tiket berubah otomatis mengikuti formula (Internal+Eksternal)×bonus, atau tetap statis (manual entry)",
+        "TIDAK menyimpan apa pun"
+      ],
+      "expected": [
+        "Dicatat apa adanya: field Bonus Tiket berubah otomatis mengikuti formula REQ-014, ATAU tetap statis/manual (operator harus menghitung sendiri) — bukan diasumsikan sebelumnya",
+        "Tidak ada data yang disimpan"
+      ],
+      "notes": "Observasional, menjawab catatan 'PERLU VERIFIKASI UI' REQ-014 di kuota-jadwal_analysis.md."
+    },
+    {
+      "id": "SCN-0015",
+      "title": "[BLOCKED — data uji belum tersedia] Edit Kuota/Jadwal yang sudah dipakai transaksi lain — perilaku belum diketahui (Q-KJ-04)",
+      "category": "edge",
+      "priority": "medium",
+      "screen": "SCR-06",
+      "requirements": [],
+      "steps": [
+        "Idealnya: identifikasi Kuota & Jadwal uji milik run automation ini SENDIRI yang sudah dipakai transaksi OP-13 secara terkontrol, lalu coba Edit field non-destruktif kecil (mis. Nomor Voyage), amati diterima/ditolak/pesan",
+        "Pada run ini: BELUM ada Kuota & Jadwal uji milik run sendiri yang sudah dipakai transaksi terkontrol (SCN-0001/SCN-0004 sengaja dihapus di akhir sebelum dipakai transaksi apa pun, agar aman dibersihkan) — dan data existing yang sudah dipakai transaksi (mis. 'AUTOTEST-20260925-PPBPN-01' id 2293) berisiko mengganggu transaksi/manifest/laporan nyata bila diedit"
+      ],
+      "expected": [
+        "Status BLOCKED — tidak dieksekusi pada run ini. Baru bisa dijalankan bila tersedia Kuota & Jadwal uji milik run ini sendiri yang SUDAH dipakai transaksi OP-13 secara terkontrol (data sepenuhnya milik test, aman diedit untuk observasi), dan hasilnya dicatat sebagai temuan baru berdasarkan observasi (bukan pass/fail berdasar ekspektasi yang ditebak)"
+      ],
+      "notes": "Sesuai instruksi tugas: Q-KJ-04 belum diuji, tidak boleh diasumsikan boleh/dilarang. blockedUnless: butuh data uji sendiri yang sudah terpakai transaksi secara terkontrol lebih dulu (di luar cakupan modul ini sendiri, perlu koordinasi dengan skenario OP-13 pada run berikutnya)."
+    }
+  ]
+}
