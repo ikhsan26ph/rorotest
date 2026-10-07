@@ -338,3 +338,24 @@ Temuan: jadwal `AUTOTEST-20260925-PPBPN-01` (ID detail 2296 di portal user) hany
 | A5 | Akun Saya | `/agen/profil` | Detail | Melihat profil perusahaan, dokumen, status, dan rekening | Belum | Tidak ditemukan kontrol edit pada sesi ini |
 
 Portal Agen hanya menampilkan lima area di atas; tidak ada menu laporan, manifest, pembatalan, voucher, pengaturan user, atau master pada akun yang diuji. Bukti dan metadata run berada di `artifacts/explore/20260926-034842-agent.json` serta screenshot terkait di `artifacts/screenshots/explore/20260926-034842-agent/`.
+
+## Pembaruan audit biaya admin — 7 Oktober 2026
+
+Empat role diaudit dari menu/link/form navigasi aktual: User Umum5, Admin Prahu86, Operator Pusat83, Operator Cabang83 =257 route/role. Sebanyak251 dapat dibuka dan6 timeout. Sepuluh halaman masih memperlihatkan loading; akses tidak berarti perhitungan passed. Halaman pencarian, input pemesanan, detail order dan pembayaran diperiksa terpisah dalam audit fee.
+
+Admin Prahu tersedia di `/adminprahu` (akun Admin Pusat pada config); berbeda dengan Silverstripe Admin Finance `/admin/Finance/`. Finance telah memiliki kolom Processing Fee (Rp). Publik menampilkan sembilan metode: Mandiri, BCA, BNI, BRI, OVO, DANA, QRIS, Alfamart, Indomaret. Permata, Link dan Dishbursment di Finance tidak diuji gateway karena tidak tampil pada publik.
+
+Laporan Pemakaian Saldo memuat debit pemesanan User Umum sebelum lunas. Tarif komisi tiket dewasa operator contoh1.5% terhadap harga tanpa pass, pecahan dibulatkan ke atas. Tujuh order uji tercatat sama pada ketiga role admin/operator. Pengujian ini tidak menyelesaikan pembayaran; kontribusi laporan yang membutuhkan status lunas, agen atau pembatalan belum direkonsiliasi. Hasil rinci berada dalam results/reports run `20261007-031636`.
+
+
+## 2026-10-07 — Pembelian ulang fee, run 20261007-063745
+
+Otorisasi baru pengguna: buat pembelian User Umum semua metode publik, ubah Jumlah dan Processing Fee, cek daftar/detail/semua laporan tanpa asumsi. Otorisasi ini mengizinkan sembilan booking baru meski data run terdahulu belum bersih; bukan izin pelunasan nyata. Konfirmasi dummy run ini sudah ditanyakan tetapi belum diterima.
+
+Kode sendiri: Mandiri I9135515, BCA B9135522, BNI U9135528, BRI E9135534, OVO K9135542, DANA H9135549, Alfamart X9135557, Indomaret M9135565, QRIS L9135571. Semua jadwal2321, 11 Oktober2026 08:00, AUTOTEST-20261001-PPBPN-03. Komponen aktual harga265500+pass44500=310000. Tujuh instruksi awal berhasil dan detail mencakup Processing Fee; retail HTTP500 ApiException. Quote retail16400/16600 benar, tidak dianggap gateway berhasil.
+
+Fee awal/detail tujuh metode: 15200,15400,15600,15800,23800,14600,11800. Setelah Finance dipulihkan, payment masing-masing12000,12000,12000,12000,19220,10850,10640. Full-readiness UI dan lookup selesai diverifikasi; tujuh mismatch pending, bukan hanya QRIS. First3 detail timeout awal dipulihkan dengan baca ulang order sama saat konfigurasi uji aktif, kemudian Finance dikembalikan lagi.
+
+Daftar empat peran memuat seluruh kode dengan header Harga Tiket310000. Tidak menyamakan subtotal dengan total bayar. Admin/operator pending tidak menyediakan link detail. Sepuluh jenis laporan menu pada tiga peran diamati; transaksi lunas belum ada sehingga tidak mengklaim semua nominal laporan sesuai. Ledger dan laporan pemakaian saldo tiga peran cocok per kode: tujuh debit3983, total27881; retail tidak ada debit. Komisi dewasa aktual1.5%, rule ceil(harga tanpa pass×komisi).
+
+Seluruh12baris Finance identik baseline fresh. Semua sembilan order run masih pending; tidak ada pelunasan maupun pembatalan langsung sebelum expiry. Catatan results/_test-data__fee-purchase__20261007-063745.md. Raw bukti artifacts/fee-purchase/20261007-063745/. Kesalahan script array views, URL anchor, dan provisional commit-only pembacaan diklasifikasi TEST ISSUE, tidak dijadikan bug aplikasi.

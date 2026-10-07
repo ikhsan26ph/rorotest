@@ -1,0 +1,167 @@
+{
+  "module": "fee-sync",
+  "scenarios": [
+    {
+      "id": "SCN-0001",
+      "title": "Sinkronisasi biaya admin pembayaran dan detail order Bank Mandiri",
+      "category": "positive",
+      "priority": "high",
+      "screen": "User Umum — Detail Order/Pembayaran",
+      "requirements": [
+        "REQ-FS-001"
+      ],
+      "steps": [
+        "Buka detail dari URL aktual milik kode uji dan baca nominal visible di samping (Belum termasuk admin fee).",
+        "Buka pembayaran kode sama, tunggu DOM/lookup selesai dan baca Biaya Admin yang visible.",
+        "Baca ulang detail kode sama dan bandingkan ketiga nilai."
+      ],
+      "expected": [
+        "Nominal pembayaran sama dengan nominal admin fee detail sebelum/sesudah; nilai tidak tampil atau gateway gagal dicatat blocked, bukan dianggap nol."
+      ]
+    },
+    {
+      "id": "SCN-0002",
+      "title": "Sinkronisasi biaya admin pembayaran dan detail order Bank BCA",
+      "category": "positive",
+      "priority": "high",
+      "screen": "User Umum — Detail Order/Pembayaran",
+      "requirements": [
+        "REQ-FS-001"
+      ],
+      "steps": [
+        "Buka detail dari URL aktual milik kode uji dan baca nominal visible di samping (Belum termasuk admin fee).",
+        "Buka pembayaran kode sama, tunggu DOM/lookup selesai dan baca Biaya Admin yang visible.",
+        "Baca ulang detail kode sama dan bandingkan ketiga nilai."
+      ],
+      "expected": [
+        "Nominal pembayaran sama dengan nominal admin fee detail sebelum/sesudah; nilai tidak tampil atau gateway gagal dicatat blocked, bukan dianggap nol."
+      ]
+    },
+    {
+      "id": "SCN-0003",
+      "title": "Sinkronisasi biaya admin pembayaran dan detail order Bank BNI",
+      "category": "positive",
+      "priority": "high",
+      "screen": "User Umum — Detail Order/Pembayaran",
+      "requirements": [
+        "REQ-FS-001"
+      ],
+      "steps": [
+        "Buka detail dari URL aktual milik kode uji dan baca nominal visible di samping (Belum termasuk admin fee).",
+        "Buka pembayaran kode sama, tunggu DOM/lookup selesai dan baca Biaya Admin yang visible.",
+        "Baca ulang detail kode sama dan bandingkan ketiga nilai."
+      ],
+      "expected": [
+        "Nominal pembayaran sama dengan nominal admin fee detail sebelum/sesudah; nilai tidak tampil atau gateway gagal dicatat blocked, bukan dianggap nol."
+      ]
+    },
+    {
+      "id": "SCN-0004",
+      "title": "Sinkronisasi biaya admin pembayaran dan detail order Bank BRI",
+      "category": "positive",
+      "priority": "high",
+      "screen": "User Umum — Detail Order/Pembayaran",
+      "requirements": [
+        "REQ-FS-001"
+      ],
+      "steps": [
+        "Buka detail dari URL aktual milik kode uji dan baca nominal visible di samping (Belum termasuk admin fee).",
+        "Buka pembayaran kode sama, tunggu DOM/lookup selesai dan baca Biaya Admin yang visible.",
+        "Baca ulang detail kode sama dan bandingkan ketiga nilai."
+      ],
+      "expected": [
+        "Nominal pembayaran sama dengan nominal admin fee detail sebelum/sesudah; nilai tidak tampil atau gateway gagal dicatat blocked, bukan dianggap nol."
+      ]
+    },
+    {
+      "id": "SCN-0005",
+      "title": "Sinkronisasi biaya admin pembayaran dan detail order OVO",
+      "category": "positive",
+      "priority": "high",
+      "screen": "User Umum — Detail Order/Pembayaran",
+      "requirements": [
+        "REQ-FS-001"
+      ],
+      "steps": [
+        "Buka detail dari URL aktual milik kode uji dan baca nominal visible di samping (Belum termasuk admin fee).",
+        "Buka pembayaran kode sama, tunggu DOM/lookup selesai dan baca Biaya Admin yang visible.",
+        "Baca ulang detail kode sama dan bandingkan ketiga nilai."
+      ],
+      "expected": [
+        "Nominal pembayaran sama dengan nominal admin fee detail sebelum/sesudah; nilai tidak tampil atau gateway gagal dicatat blocked, bukan dianggap nol."
+      ]
+    },
+    {
+      "id": "SCN-0006",
+      "title": "Sinkronisasi biaya admin pembayaran dan detail order DANA",
+      "category": "positive",
+      "priority": "high",
+      "screen": "User Umum — Detail Order/Pembayaran",
+      "requirements": [
+        "REQ-FS-001"
+      ],
+      "steps": [
+        "Buka detail dari URL aktual milik kode uji dan baca nominal visible di samping (Belum termasuk admin fee).",
+        "Buka pembayaran kode sama, tunggu DOM/lookup selesai dan baca Biaya Admin yang visible.",
+        "Baca ulang detail kode sama dan bandingkan ketiga nilai."
+      ],
+      "expected": [
+        "Nominal pembayaran sama dengan nominal admin fee detail sebelum/sesudah; nilai tidak tampil atau gateway gagal dicatat blocked, bukan dianggap nol."
+      ]
+    },
+    {
+      "id": "SCN-0007",
+      "title": "Sinkronisasi biaya admin pembayaran dan detail order Alfamart",
+      "category": "positive",
+      "priority": "high",
+      "screen": "User Umum — Detail Order/Pembayaran",
+      "requirements": [
+        "REQ-FS-001"
+      ],
+      "steps": [
+        "Buka detail dari URL aktual milik kode uji dan baca nominal visible di samping (Belum termasuk admin fee).",
+        "Buka pembayaran kode sama, tunggu DOM/lookup selesai dan baca Biaya Admin yang visible.",
+        "Baca ulang detail kode sama dan bandingkan ketiga nilai."
+      ],
+      "expected": [
+        "Nominal pembayaran sama dengan nominal admin fee detail sebelum/sesudah; nilai tidak tampil atau gateway gagal dicatat blocked, bukan dianggap nol."
+      ]
+    },
+    {
+      "id": "SCN-0008",
+      "title": "Sinkronisasi biaya admin pembayaran dan detail order Indomaret",
+      "category": "positive",
+      "priority": "high",
+      "screen": "User Umum — Detail Order/Pembayaran",
+      "requirements": [
+        "REQ-FS-001"
+      ],
+      "steps": [
+        "Buka detail dari URL aktual milik kode uji dan baca nominal visible di samping (Belum termasuk admin fee).",
+        "Buka pembayaran kode sama, tunggu DOM/lookup selesai dan baca Biaya Admin yang visible.",
+        "Baca ulang detail kode sama dan bandingkan ketiga nilai."
+      ],
+      "expected": [
+        "Nominal pembayaran sama dengan nominal admin fee detail sebelum/sesudah; nilai tidak tampil atau gateway gagal dicatat blocked, bukan dianggap nol."
+      ]
+    },
+    {
+      "id": "SCN-0009",
+      "title": "Sinkronisasi biaya admin pembayaran dan detail order QRIS",
+      "category": "positive",
+      "priority": "high",
+      "screen": "User Umum — Detail Order/Pembayaran",
+      "requirements": [
+        "REQ-FS-001"
+      ],
+      "steps": [
+        "Buka detail dari URL aktual milik kode uji dan baca nominal visible di samping (Belum termasuk admin fee).",
+        "Buka pembayaran kode sama, tunggu DOM/lookup selesai dan baca Biaya Admin yang visible.",
+        "Baca ulang detail kode sama dan bandingkan ketiga nilai."
+      ],
+      "expected": [
+        "Nominal pembayaran sama dengan nominal admin fee detail sebelum/sesudah; nilai tidak tampil atau gateway gagal dicatat blocked, bukan dianggap nol."
+      ]
+    }
+  ]
+}

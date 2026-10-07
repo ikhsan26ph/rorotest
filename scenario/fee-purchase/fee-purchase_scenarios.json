@@ -1,0 +1,481 @@
+{
+  "scenarios": [
+    {
+      "title": "Pembelian baru Bank Mandiri dan konsistensi biaya sebelum pemulihan",
+      "screen": "User Umum / Finance",
+      "requirements": [
+        "REQ-FP-001",
+        "REQ-FP-002"
+      ],
+      "steps": [
+        "Baca nilai Finance aktual, ubah Jumlah dan Processing Fee, baca ulang nilai tersimpan.",
+        "Buat satu order baru; ekstrak harga/pass/subtotal aktual. Pilih metode lewat UI sampai instruksi, tanpa pelunasan jika dummy belum dikonfirmasi.",
+        "Catat respons gateway, UI pembayaran, daftar order dan fee card detail tanpa menimpa quote sesudah instruksi."
+      ],
+      "expected": [
+        "Fee sesuai rumus dan snapshot konfigurasi uji; total gateway/UI cocok subtotal+fee.",
+        "Fee detail order sama dengan fee instruksi pada order yang sama; keterangan subtotal dibaca sebelum membandingkan total."
+      ],
+      "id": "SCN-0001",
+      "category": "positive",
+      "priority": "high"
+    },
+    {
+      "title": "Pembelian baru Bank BCA dan konsistensi biaya sebelum pemulihan",
+      "screen": "User Umum / Finance",
+      "requirements": [
+        "REQ-FP-001",
+        "REQ-FP-002"
+      ],
+      "steps": [
+        "Baca nilai Finance aktual, ubah Jumlah dan Processing Fee, baca ulang nilai tersimpan.",
+        "Buat satu order baru; ekstrak harga/pass/subtotal aktual. Pilih metode lewat UI sampai instruksi, tanpa pelunasan jika dummy belum dikonfirmasi.",
+        "Catat respons gateway, UI pembayaran, daftar order dan fee card detail tanpa menimpa quote sesudah instruksi."
+      ],
+      "expected": [
+        "Fee sesuai rumus dan snapshot konfigurasi uji; total gateway/UI cocok subtotal+fee.",
+        "Fee detail order sama dengan fee instruksi pada order yang sama; keterangan subtotal dibaca sebelum membandingkan total."
+      ],
+      "id": "SCN-0002",
+      "category": "positive",
+      "priority": "high"
+    },
+    {
+      "title": "Pembelian baru Bank BNI dan konsistensi biaya sebelum pemulihan",
+      "screen": "User Umum / Finance",
+      "requirements": [
+        "REQ-FP-001",
+        "REQ-FP-002"
+      ],
+      "steps": [
+        "Baca nilai Finance aktual, ubah Jumlah dan Processing Fee, baca ulang nilai tersimpan.",
+        "Buat satu order baru; ekstrak harga/pass/subtotal aktual. Pilih metode lewat UI sampai instruksi, tanpa pelunasan jika dummy belum dikonfirmasi.",
+        "Catat respons gateway, UI pembayaran, daftar order dan fee card detail tanpa menimpa quote sesudah instruksi."
+      ],
+      "expected": [
+        "Fee sesuai rumus dan snapshot konfigurasi uji; total gateway/UI cocok subtotal+fee.",
+        "Fee detail order sama dengan fee instruksi pada order yang sama; keterangan subtotal dibaca sebelum membandingkan total."
+      ],
+      "id": "SCN-0003",
+      "category": "positive",
+      "priority": "high"
+    },
+    {
+      "title": "Pembelian baru Bank BRI dan konsistensi biaya sebelum pemulihan",
+      "screen": "User Umum / Finance",
+      "requirements": [
+        "REQ-FP-001",
+        "REQ-FP-002"
+      ],
+      "steps": [
+        "Baca nilai Finance aktual, ubah Jumlah dan Processing Fee, baca ulang nilai tersimpan.",
+        "Buat satu order baru; ekstrak harga/pass/subtotal aktual. Pilih metode lewat UI sampai instruksi, tanpa pelunasan jika dummy belum dikonfirmasi.",
+        "Catat respons gateway, UI pembayaran, daftar order dan fee card detail tanpa menimpa quote sesudah instruksi."
+      ],
+      "expected": [
+        "Fee sesuai rumus dan snapshot konfigurasi uji; total gateway/UI cocok subtotal+fee.",
+        "Fee detail order sama dengan fee instruksi pada order yang sama; keterangan subtotal dibaca sebelum membandingkan total."
+      ],
+      "id": "SCN-0004",
+      "category": "positive",
+      "priority": "high"
+    },
+    {
+      "title": "Pembelian baru OVO dan konsistensi biaya sebelum pemulihan",
+      "screen": "User Umum / Finance",
+      "requirements": [
+        "REQ-FP-001",
+        "REQ-FP-002"
+      ],
+      "steps": [
+        "Baca nilai Finance aktual, ubah Jumlah dan Processing Fee, baca ulang nilai tersimpan.",
+        "Buat satu order baru; ekstrak harga/pass/subtotal aktual. Pilih metode lewat UI sampai instruksi, tanpa pelunasan jika dummy belum dikonfirmasi.",
+        "Catat respons gateway, UI pembayaran, daftar order dan fee card detail tanpa menimpa quote sesudah instruksi."
+      ],
+      "expected": [
+        "Fee sesuai rumus dan snapshot konfigurasi uji; total gateway/UI cocok subtotal+fee.",
+        "Fee detail order sama dengan fee instruksi pada order yang sama; keterangan subtotal dibaca sebelum membandingkan total."
+      ],
+      "id": "SCN-0005",
+      "category": "positive",
+      "priority": "high"
+    },
+    {
+      "title": "Pembelian baru DANA dan konsistensi biaya sebelum pemulihan",
+      "screen": "User Umum / Finance",
+      "requirements": [
+        "REQ-FP-001",
+        "REQ-FP-002"
+      ],
+      "steps": [
+        "Baca nilai Finance aktual, ubah Jumlah dan Processing Fee, baca ulang nilai tersimpan.",
+        "Buat satu order baru; ekstrak harga/pass/subtotal aktual. Pilih metode lewat UI sampai instruksi, tanpa pelunasan jika dummy belum dikonfirmasi.",
+        "Catat respons gateway, UI pembayaran, daftar order dan fee card detail tanpa menimpa quote sesudah instruksi."
+      ],
+      "expected": [
+        "Fee sesuai rumus dan snapshot konfigurasi uji; total gateway/UI cocok subtotal+fee.",
+        "Fee detail order sama dengan fee instruksi pada order yang sama; keterangan subtotal dibaca sebelum membandingkan total."
+      ],
+      "id": "SCN-0006",
+      "category": "positive",
+      "priority": "high"
+    },
+    {
+      "title": "Pembelian baru Alfamart dan konsistensi biaya sebelum pemulihan",
+      "screen": "User Umum / Finance",
+      "requirements": [
+        "REQ-FP-001",
+        "REQ-FP-002"
+      ],
+      "steps": [
+        "Baca nilai Finance aktual, ubah Jumlah dan Processing Fee, baca ulang nilai tersimpan.",
+        "Buat satu order baru; ekstrak harga/pass/subtotal aktual. Pilih metode lewat UI sampai instruksi, tanpa pelunasan jika dummy belum dikonfirmasi.",
+        "Catat respons gateway, UI pembayaran, daftar order dan fee card detail tanpa menimpa quote sesudah instruksi."
+      ],
+      "expected": [
+        "Fee sesuai rumus dan snapshot konfigurasi uji; total gateway/UI cocok subtotal+fee.",
+        "Fee detail order sama dengan fee instruksi pada order yang sama; keterangan subtotal dibaca sebelum membandingkan total."
+      ],
+      "id": "SCN-0007",
+      "category": "positive",
+      "priority": "high"
+    },
+    {
+      "title": "Pembelian baru Indomaret dan konsistensi biaya sebelum pemulihan",
+      "screen": "User Umum / Finance",
+      "requirements": [
+        "REQ-FP-001",
+        "REQ-FP-002"
+      ],
+      "steps": [
+        "Baca nilai Finance aktual, ubah Jumlah dan Processing Fee, baca ulang nilai tersimpan.",
+        "Buat satu order baru; ekstrak harga/pass/subtotal aktual. Pilih metode lewat UI sampai instruksi, tanpa pelunasan jika dummy belum dikonfirmasi.",
+        "Catat respons gateway, UI pembayaran, daftar order dan fee card detail tanpa menimpa quote sesudah instruksi."
+      ],
+      "expected": [
+        "Fee sesuai rumus dan snapshot konfigurasi uji; total gateway/UI cocok subtotal+fee.",
+        "Fee detail order sama dengan fee instruksi pada order yang sama; keterangan subtotal dibaca sebelum membandingkan total."
+      ],
+      "id": "SCN-0008",
+      "category": "positive",
+      "priority": "high"
+    },
+    {
+      "title": "Pembelian baru QRIS dan konsistensi biaya sebelum pemulihan",
+      "screen": "User Umum / Finance",
+      "requirements": [
+        "REQ-FP-001",
+        "REQ-FP-002"
+      ],
+      "steps": [
+        "Baca nilai Finance aktual, ubah Jumlah dan Processing Fee, baca ulang nilai tersimpan.",
+        "Buat satu order baru; ekstrak harga/pass/subtotal aktual. Pilih metode lewat UI sampai instruksi, tanpa pelunasan jika dummy belum dikonfirmasi.",
+        "Catat respons gateway, UI pembayaran, daftar order dan fee card detail tanpa menimpa quote sesudah instruksi."
+      ],
+      "expected": [
+        "Fee sesuai rumus dan snapshot konfigurasi uji; total gateway/UI cocok subtotal+fee.",
+        "Fee detail order sama dengan fee instruksi pada order yang sama; keterangan subtotal dibaca sebelum membandingkan total."
+      ],
+      "id": "SCN-0009",
+      "category": "positive",
+      "priority": "high"
+    },
+    {
+      "title": "Nilai daftar dan detail order baru User Umum",
+      "screen": "User Umum",
+      "requirements": [
+        "REQ-FP-002"
+      ],
+      "steps": [
+        "Cari semua kode order run pada daftar order; baca label dan nominal.",
+        "Buka detail dari tautan aktual bila tersedia; cocokkan komponen yang sama dengan snapshot order."
+      ],
+      "expected": [
+        "Nominal yang memiliki definisi sama konsisten; kolom tidak tampil dicatat eksplisit dan tidak ditebak."
+      ],
+      "id": "SCN-0010",
+      "category": "positive",
+      "priority": "high"
+    },
+    {
+      "title": "Nilai daftar dan detail order baru Admin Prahu",
+      "screen": "Admin Prahu",
+      "requirements": [
+        "REQ-FP-002"
+      ],
+      "steps": [
+        "Cari semua kode order run pada daftar order; baca label dan nominal.",
+        "Buka detail dari tautan aktual bila tersedia; cocokkan komponen yang sama dengan snapshot order."
+      ],
+      "expected": [
+        "Nominal yang memiliki definisi sama konsisten; kolom tidak tampil dicatat eksplisit dan tidak ditebak."
+      ],
+      "id": "SCN-0011",
+      "category": "positive",
+      "priority": "high"
+    },
+    {
+      "title": "Nilai daftar dan detail order baru Operator Pusat",
+      "screen": "Operator Pusat",
+      "requirements": [
+        "REQ-FP-002"
+      ],
+      "steps": [
+        "Cari semua kode order run pada daftar order; baca label dan nominal.",
+        "Buka detail dari tautan aktual bila tersedia; cocokkan komponen yang sama dengan snapshot order."
+      ],
+      "expected": [
+        "Nominal yang memiliki definisi sama konsisten; kolom tidak tampil dicatat eksplisit dan tidak ditebak."
+      ],
+      "id": "SCN-0012",
+      "category": "positive",
+      "priority": "high"
+    },
+    {
+      "title": "Nilai daftar dan detail order baru Operator Cabang",
+      "screen": "Operator Cabang",
+      "requirements": [
+        "REQ-FP-002"
+      ],
+      "steps": [
+        "Cari semua kode order run pada daftar order; baca label dan nominal.",
+        "Buka detail dari tautan aktual bila tersedia; cocokkan komponen yang sama dengan snapshot order."
+      ],
+      "expected": [
+        "Nominal yang memiliki definisi sama konsisten; kolom tidak tampil dicatat eksplisit dan tidak ditebak."
+      ],
+      "id": "SCN-0013",
+      "category": "positive",
+      "priority": "high"
+    },
+    {
+      "title": "Rekonsiliasi laporan Penjualan Harian",
+      "screen": "Laporan",
+      "requirements": [
+        "REQ-FP-003"
+      ],
+      "steps": [
+        "Buka laporan dari tiga role dan catat header, periode serta kontribusi kode/jadwal run.",
+        "Bandingkan nilai yang memang memiliki definisi sama; gunakan detail laporan untuk mengidentifikasi kode order."
+      ],
+      "expected": [
+        "Kontribusi aktual order cocok dengan komponen/saldo/status yang teramati.",
+        "Tanpa transaksi relevan/lunas atau kolom yang dapat dibandingkan, beri blocked beserta bukti."
+      ],
+      "id": "SCN-0014",
+      "category": "positive",
+      "priority": "high"
+    },
+    {
+      "title": "Rekonsiliasi laporan Pendapatan Penumpang",
+      "screen": "Laporan",
+      "requirements": [
+        "REQ-FP-003"
+      ],
+      "steps": [
+        "Buka laporan dari tiga role dan catat header, periode serta kontribusi kode/jadwal run.",
+        "Bandingkan nilai yang memang memiliki definisi sama; gunakan detail laporan untuk mengidentifikasi kode order."
+      ],
+      "expected": [
+        "Kontribusi aktual order cocok dengan komponen/saldo/status yang teramati.",
+        "Tanpa transaksi relevan/lunas atau kolom yang dapat dibandingkan, beri blocked beserta bukti."
+      ],
+      "id": "SCN-0015",
+      "category": "positive",
+      "priority": "high"
+    },
+    {
+      "title": "Rekonsiliasi laporan Pendapatan Kendaraan",
+      "screen": "Laporan",
+      "requirements": [
+        "REQ-FP-003"
+      ],
+      "steps": [
+        "Buka laporan dari tiga role dan catat header, periode serta kontribusi kode/jadwal run.",
+        "Bandingkan nilai yang memang memiliki definisi sama; gunakan detail laporan untuk mengidentifikasi kode order."
+      ],
+      "expected": [
+        "Kontribusi aktual order cocok dengan komponen/saldo/status yang teramati.",
+        "Tanpa transaksi relevan/lunas atau kolom yang dapat dibandingkan, beri blocked beserta bukti."
+      ],
+      "id": "SCN-0016",
+      "category": "positive",
+      "priority": "high"
+    },
+    {
+      "title": "Rekonsiliasi laporan Rekap Pendapatan Per Trip",
+      "screen": "Laporan",
+      "requirements": [
+        "REQ-FP-003"
+      ],
+      "steps": [
+        "Buka laporan dari tiga role dan catat header, periode serta kontribusi kode/jadwal run.",
+        "Bandingkan nilai yang memang memiliki definisi sama; gunakan detail laporan untuk mengidentifikasi kode order."
+      ],
+      "expected": [
+        "Kontribusi aktual order cocok dengan komponen/saldo/status yang teramati.",
+        "Tanpa transaksi relevan/lunas atau kolom yang dapat dibandingkan, beri blocked beserta bukti."
+      ],
+      "id": "SCN-0017",
+      "category": "positive",
+      "priority": "high"
+    },
+    {
+      "title": "Rekonsiliasi laporan Pembatalan Tiket",
+      "screen": "Laporan",
+      "requirements": [
+        "REQ-FP-003"
+      ],
+      "steps": [
+        "Buka laporan dari tiga role dan catat header, periode serta kontribusi kode/jadwal run.",
+        "Bandingkan nilai yang memang memiliki definisi sama; gunakan detail laporan untuk mengidentifikasi kode order."
+      ],
+      "expected": [
+        "Kontribusi aktual order cocok dengan komponen/saldo/status yang teramati.",
+        "Tanpa transaksi relevan/lunas atau kolom yang dapat dibandingkan, beri blocked beserta bukti."
+      ],
+      "id": "SCN-0018",
+      "category": "positive",
+      "priority": "high"
+    },
+    {
+      "title": "Rekonsiliasi laporan Rekap Asuransi",
+      "screen": "Laporan",
+      "requirements": [
+        "REQ-FP-003"
+      ],
+      "steps": [
+        "Buka laporan dari tiga role dan catat header, periode serta kontribusi kode/jadwal run.",
+        "Bandingkan nilai yang memang memiliki definisi sama; gunakan detail laporan untuk mengidentifikasi kode order."
+      ],
+      "expected": [
+        "Kontribusi aktual order cocok dengan komponen/saldo/status yang teramati.",
+        "Tanpa transaksi relevan/lunas atau kolom yang dapat dibandingkan, beri blocked beserta bukti."
+      ],
+      "id": "SCN-0019",
+      "category": "positive",
+      "priority": "high"
+    },
+    {
+      "title": "Rekonsiliasi laporan Pemakaian Saldo",
+      "screen": "Laporan",
+      "requirements": [
+        "REQ-FP-003"
+      ],
+      "steps": [
+        "Buka laporan dari tiga role dan catat header, periode serta kontribusi kode/jadwal run.",
+        "Bandingkan nilai yang memang memiliki definisi sama; gunakan detail laporan untuk mengidentifikasi kode order."
+      ],
+      "expected": [
+        "Kontribusi aktual order cocok dengan komponen/saldo/status yang teramati.",
+        "Tanpa transaksi relevan/lunas atau kolom yang dapat dibandingkan, beri blocked beserta bukti."
+      ],
+      "id": "SCN-0020",
+      "category": "positive",
+      "priority": "high"
+    },
+    {
+      "title": "Rekonsiliasi laporan Penjualan Harian Agen",
+      "screen": "Laporan",
+      "requirements": [
+        "REQ-FP-003"
+      ],
+      "steps": [
+        "Buka laporan dari tiga role dan catat header, periode serta kontribusi kode/jadwal run.",
+        "Bandingkan nilai yang memang memiliki definisi sama; gunakan detail laporan untuk mengidentifikasi kode order."
+      ],
+      "expected": [
+        "Kontribusi aktual order cocok dengan komponen/saldo/status yang teramati.",
+        "Tanpa transaksi relevan/lunas atau kolom yang dapat dibandingkan, beri blocked beserta bukti."
+      ],
+      "id": "SCN-0021",
+      "category": "positive",
+      "priority": "high"
+    },
+    {
+      "title": "Rekonsiliasi laporan Rekap Penjualan Agen",
+      "screen": "Laporan",
+      "requirements": [
+        "REQ-FP-003"
+      ],
+      "steps": [
+        "Buka laporan dari tiga role dan catat header, periode serta kontribusi kode/jadwal run.",
+        "Bandingkan nilai yang memang memiliki definisi sama; gunakan detail laporan untuk mengidentifikasi kode order."
+      ],
+      "expected": [
+        "Kontribusi aktual order cocok dengan komponen/saldo/status yang teramati.",
+        "Tanpa transaksi relevan/lunas atau kolom yang dapat dibandingkan, beri blocked beserta bukti."
+      ],
+      "id": "SCN-0022",
+      "category": "positive",
+      "priority": "high"
+    },
+    {
+      "title": "Rekonsiliasi laporan Pembatalan Tiket Agen",
+      "screen": "Laporan",
+      "requirements": [
+        "REQ-FP-003"
+      ],
+      "steps": [
+        "Buka laporan dari tiga role dan catat header, periode serta kontribusi kode/jadwal run.",
+        "Bandingkan nilai yang memang memiliki definisi sama; gunakan detail laporan untuk mengidentifikasi kode order."
+      ],
+      "expected": [
+        "Kontribusi aktual order cocok dengan komponen/saldo/status yang teramati.",
+        "Tanpa transaksi relevan/lunas atau kolom yang dapat dibandingkan, beri blocked beserta bukti."
+      ],
+      "id": "SCN-0023",
+      "category": "positive",
+      "priority": "high"
+    },
+    {
+      "title": "Snapshot dan pemulihan Finance serta pencatatan booking",
+      "screen": "Finance",
+      "requirements": [
+        "REQ-FP-004"
+      ],
+      "steps": [
+        "Ambil snapshot fresh semua12 channel.",
+        "Pulihkan perubahan; baca ulang seluruh nilai dan catat kode/jadwal/status cleanup semua order run."
+      ],
+      "expected": [
+        "Konfigurasi kembali identik snapshot fresh, tanpa menimpa artefak run lama."
+      ],
+      "id": "SCN-0024",
+      "category": "positive",
+      "priority": "high"
+    },
+    {
+      "title": "Konsistensi invoice pending setelah pemulihan",
+      "screen": "Pembayaran",
+      "requirements": [
+        "REQ-FP-005"
+      ],
+      "steps": [
+        "Setelah konfigurasi pulih, buka ulang detail dan payment order run yang sama."
+      ],
+      "expected": [
+        "Fee/total order tetap konsisten dengan snapshot instruksi yang diterbitkan."
+      ],
+      "id": "SCN-0025",
+      "category": "positive",
+      "priority": "high"
+    },
+    {
+      "title": "Potongan saldo order baru",
+      "screen": "Riwayat Saldo",
+      "requirements": [
+        "REQ-FP-006"
+      ],
+      "steps": [
+        "Baca transaksi per kode pada ledger dan laporan Pemakaian Saldo."
+      ],
+      "expected": [
+        "Debit/kredit order yang sama cocok pada ledger dan laporan; jangan mengatribusikan transaksi lain ke run."
+      ],
+      "id": "SCN-0026",
+      "category": "positive",
+      "priority": "high"
+    }
+  ]
+}

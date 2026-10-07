@@ -1,0 +1,598 @@
+{
+  "scenarios": [
+    {
+      "id": "SCN-0001",
+      "title": "Snapshot konfigurasi awal Finance",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-01",
+      "requirements": [
+        "REQ-001"
+      ],
+      "steps": [
+        "Baca semua channel, Jumlah, Processing Fee dan Limit; simpan nilai awal sebelum mengubah."
+      ],
+      "expected": [
+        "Snapshot lengkap tanpa kredensial; konfigurasi dapat dipulihkan."
+      ]
+    },
+    {
+      "id": "SCN-0002",
+      "title": "Perhitungan biaya admin Bank BNI sebelum dan sesudah perubahan",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-02",
+      "requirements": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-003"
+      ],
+      "steps": [
+        "Pastikan Bank BNI tampil di user umum.",
+        "Ubah Jumlah dan Processing Fee channel terkait; pertahankan tipe persen OVO/DANA/QRIS dan Limit.",
+        "Gunakan harga dan tarif pass order uji; cocokkan fee dari aplikasi dengan rumus independen.",
+        "Periksa quote backend dan renderer showva bawaan aplikasi; cocokkan biaya serta total ringkasan. Instruksi gateway aktual diuji dalam skenario terpisah."
+      ],
+      "expected": [
+        "OVO/DANA/QRIS: fee=(harga+tarif pass)*Jumlah/100+Processing Fee.",
+        "Channel flat: fee=Jumlah+Processing Fee.",
+        "Total pembayaran=harga+tarif pass+fee, dengan komponen lain dicatat terpisah."
+      ]
+    },
+    {
+      "id": "SCN-0003",
+      "title": "Perhitungan biaya admin Bank BRI sebelum dan sesudah perubahan",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-02",
+      "requirements": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-003"
+      ],
+      "steps": [
+        "Pastikan Bank BRI tampil di user umum.",
+        "Ubah Jumlah dan Processing Fee channel terkait; pertahankan tipe persen OVO/DANA/QRIS dan Limit.",
+        "Gunakan harga dan tarif pass order uji; cocokkan fee dari aplikasi dengan rumus independen.",
+        "Periksa quote backend dan renderer showva bawaan aplikasi; cocokkan biaya serta total ringkasan. Instruksi gateway aktual diuji dalam skenario terpisah."
+      ],
+      "expected": [
+        "OVO/DANA/QRIS: fee=(harga+tarif pass)*Jumlah/100+Processing Fee.",
+        "Channel flat: fee=Jumlah+Processing Fee.",
+        "Total pembayaran=harga+tarif pass+fee, dengan komponen lain dicatat terpisah."
+      ]
+    },
+    {
+      "id": "SCN-0004",
+      "title": "Perhitungan biaya admin Bank Mandiri sebelum dan sesudah perubahan",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-02",
+      "requirements": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-003"
+      ],
+      "steps": [
+        "Pastikan Bank Mandiri tampil di user umum.",
+        "Ubah Jumlah dan Processing Fee channel terkait; pertahankan tipe persen OVO/DANA/QRIS dan Limit.",
+        "Gunakan harga dan tarif pass order uji; cocokkan fee dari aplikasi dengan rumus independen.",
+        "Periksa quote backend dan renderer showva bawaan aplikasi; cocokkan biaya serta total ringkasan. Instruksi gateway aktual diuji dalam skenario terpisah."
+      ],
+      "expected": [
+        "OVO/DANA/QRIS: fee=(harga+tarif pass)*Jumlah/100+Processing Fee.",
+        "Channel flat: fee=Jumlah+Processing Fee.",
+        "Total pembayaran=harga+tarif pass+fee, dengan komponen lain dicatat terpisah."
+      ]
+    },
+    {
+      "id": "SCN-0005",
+      "title": "Perhitungan biaya admin Bank BCA sebelum dan sesudah perubahan",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-02",
+      "requirements": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-003"
+      ],
+      "steps": [
+        "Pastikan Bank BCA tampil di user umum.",
+        "Ubah Jumlah dan Processing Fee channel terkait; pertahankan tipe persen OVO/DANA/QRIS dan Limit.",
+        "Gunakan harga dan tarif pass order uji; cocokkan fee dari aplikasi dengan rumus independen.",
+        "Periksa quote backend dan renderer showva bawaan aplikasi; cocokkan biaya serta total ringkasan. Instruksi gateway aktual diuji dalam skenario terpisah."
+      ],
+      "expected": [
+        "OVO/DANA/QRIS: fee=(harga+tarif pass)*Jumlah/100+Processing Fee.",
+        "Channel flat: fee=Jumlah+Processing Fee.",
+        "Total pembayaran=harga+tarif pass+fee, dengan komponen lain dicatat terpisah."
+      ]
+    },
+    {
+      "id": "SCN-0006",
+      "title": "Perhitungan biaya admin Alfamart sebelum dan sesudah perubahan",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-02",
+      "requirements": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-003"
+      ],
+      "steps": [
+        "Pastikan Alfamart tampil di user umum.",
+        "Ubah Jumlah dan Processing Fee channel terkait; pertahankan tipe persen OVO/DANA/QRIS dan Limit.",
+        "Gunakan harga dan tarif pass order uji; cocokkan fee dari aplikasi dengan rumus independen.",
+        "Periksa quote backend dan renderer showva bawaan aplikasi; cocokkan biaya serta total ringkasan. Instruksi gateway aktual diuji dalam skenario terpisah."
+      ],
+      "expected": [
+        "OVO/DANA/QRIS: fee=(harga+tarif pass)*Jumlah/100+Processing Fee.",
+        "Channel flat: fee=Jumlah+Processing Fee.",
+        "Total pembayaran=harga+tarif pass+fee, dengan komponen lain dicatat terpisah."
+      ]
+    },
+    {
+      "id": "SCN-0007",
+      "title": "Perhitungan biaya admin OVO sebelum dan sesudah perubahan",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-02",
+      "requirements": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-003"
+      ],
+      "steps": [
+        "Pastikan OVO tampil di user umum.",
+        "Ubah Jumlah dan Processing Fee channel terkait; pertahankan tipe persen OVO/DANA/QRIS dan Limit.",
+        "Gunakan harga dan tarif pass order uji; cocokkan fee dari aplikasi dengan rumus independen.",
+        "Periksa quote backend dan renderer showva bawaan aplikasi; cocokkan biaya serta total ringkasan. Instruksi gateway aktual diuji dalam skenario terpisah."
+      ],
+      "expected": [
+        "OVO/DANA/QRIS: fee=(harga+tarif pass)*Jumlah/100+Processing Fee.",
+        "Channel flat: fee=Jumlah+Processing Fee.",
+        "Total pembayaran=harga+tarif pass+fee, dengan komponen lain dicatat terpisah."
+      ]
+    },
+    {
+      "id": "SCN-0008",
+      "title": "Perhitungan biaya admin DANA sebelum dan sesudah perubahan",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-02",
+      "requirements": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-003"
+      ],
+      "steps": [
+        "Pastikan DANA tampil di user umum.",
+        "Ubah Jumlah dan Processing Fee channel terkait; pertahankan tipe persen OVO/DANA/QRIS dan Limit.",
+        "Gunakan harga dan tarif pass order uji; cocokkan fee dari aplikasi dengan rumus independen.",
+        "Periksa quote backend dan renderer showva bawaan aplikasi; cocokkan biaya serta total ringkasan. Instruksi gateway aktual diuji dalam skenario terpisah."
+      ],
+      "expected": [
+        "OVO/DANA/QRIS: fee=(harga+tarif pass)*Jumlah/100+Processing Fee.",
+        "Channel flat: fee=Jumlah+Processing Fee.",
+        "Total pembayaran=harga+tarif pass+fee, dengan komponen lain dicatat terpisah."
+      ]
+    },
+    {
+      "id": "SCN-0009",
+      "title": "Perhitungan biaya admin QRIS sebelum dan sesudah perubahan",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-02",
+      "requirements": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-003"
+      ],
+      "steps": [
+        "Pastikan QRIS tampil di user umum.",
+        "Ubah Jumlah dan Processing Fee channel terkait; pertahankan tipe persen OVO/DANA/QRIS dan Limit.",
+        "Gunakan harga dan tarif pass order uji; cocokkan fee dari aplikasi dengan rumus independen.",
+        "Periksa quote backend dan renderer showva bawaan aplikasi; cocokkan biaya serta total ringkasan. Instruksi gateway aktual diuji dalam skenario terpisah."
+      ],
+      "expected": [
+        "OVO/DANA/QRIS: fee=(harga+tarif pass)*Jumlah/100+Processing Fee.",
+        "Channel flat: fee=Jumlah+Processing Fee.",
+        "Total pembayaran=harga+tarif pass+fee, dengan komponen lain dicatat terpisah."
+      ]
+    },
+    {
+      "id": "SCN-0010",
+      "title": "Perhitungan biaya admin Indomaret sebelum dan sesudah perubahan",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-02",
+      "requirements": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-003"
+      ],
+      "steps": [
+        "Pastikan Indomaret tampil di user umum.",
+        "Ubah Jumlah dan Processing Fee channel terkait; pertahankan tipe persen OVO/DANA/QRIS dan Limit.",
+        "Gunakan harga dan tarif pass order uji; cocokkan fee dari aplikasi dengan rumus independen.",
+        "Periksa quote backend dan renderer showva bawaan aplikasi; cocokkan biaya serta total ringkasan. Instruksi gateway aktual diuji dalam skenario terpisah."
+      ],
+      "expected": [
+        "OVO/DANA/QRIS: fee=(harga+tarif pass)*Jumlah/100+Processing Fee.",
+        "Channel flat: fee=Jumlah+Processing Fee.",
+        "Total pembayaran=harga+tarif pass+fee, dengan komponen lain dicatat terpisah."
+      ]
+    },
+    {
+      "id": "SCN-0011",
+      "title": "Buka seluruh halaman menu User Umum dan telusuri biaya order uji",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-03",
+      "requirements": [
+        "REQ-004"
+      ],
+      "steps": [
+        "Login sebagai User Umum; buka seluruh halaman menu dan filter read-only.",
+        "Telusuri order uji di halaman yang berwenang; cocokan nilai harga/pass/fee/total."
+      ],
+      "expected": [
+        "Hasil akses halaman dilaporkan terpisah dari validasi hitungan.",
+        "Hitungan dinyatakan passed hanya jika order uji dan komponen nilainya dapat dicocokkan; tanpa bukti diberi blocked."
+      ]
+    },
+    {
+      "id": "SCN-0012",
+      "title": "Buka seluruh halaman menu Admin Prahu dan telusuri biaya order uji",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-03",
+      "requirements": [
+        "REQ-004"
+      ],
+      "steps": [
+        "Login sebagai Admin Prahu; buka seluruh halaman menu dan filter read-only.",
+        "Telusuri order uji di halaman yang berwenang; cocokan nilai harga/pass/fee/total."
+      ],
+      "expected": [
+        "Hasil akses halaman dilaporkan terpisah dari validasi hitungan.",
+        "Hitungan dinyatakan passed hanya jika order uji dan komponen nilainya dapat dicocokkan; tanpa bukti diberi blocked."
+      ]
+    },
+    {
+      "id": "SCN-0013",
+      "title": "Buka seluruh halaman menu Operator Pusat dan telusuri biaya order uji",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-03",
+      "requirements": [
+        "REQ-004"
+      ],
+      "steps": [
+        "Login sebagai Operator Pusat; buka seluruh halaman menu dan filter read-only.",
+        "Telusuri order uji di halaman yang berwenang; cocokan nilai harga/pass/fee/total."
+      ],
+      "expected": [
+        "Hasil akses halaman dilaporkan terpisah dari validasi hitungan.",
+        "Hitungan dinyatakan passed hanya jika order uji dan komponen nilainya dapat dicocokkan; tanpa bukti diberi blocked."
+      ]
+    },
+    {
+      "id": "SCN-0014",
+      "title": "Buka seluruh halaman menu Operator Cabang dan telusuri biaya order uji",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-03",
+      "requirements": [
+        "REQ-004"
+      ],
+      "steps": [
+        "Login sebagai Operator Cabang; buka seluruh halaman menu dan filter read-only.",
+        "Telusuri order uji di halaman yang berwenang; cocokan nilai harga/pass/fee/total."
+      ],
+      "expected": [
+        "Hasil akses halaman dilaporkan terpisah dari validasi hitungan.",
+        "Hitungan dinyatakan passed hanya jika order uji dan komponen nilainya dapat dicocokkan; tanpa bukti diberi blocked."
+      ]
+    },
+    {
+      "id": "SCN-0015",
+      "title": "Rekonsiliasi laporan Penjualan Harian",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-04",
+      "requirements": [
+        "REQ-005"
+      ],
+      "steps": [
+        "Buka laporan dari role yang berwenang dan filter periode order uji.",
+        "Cari kontribusi order uji dan bandingkan dengan komponen order serta status pembayarannya.",
+        "Pemakaian Saldo dapat diverifikasi setelah instruksi/debit awal; laporan yang memerlukan pelunasan menunggu konfirmasi dummy."
+      ],
+      "expected": [
+        "Nilai pendapatan/fee/saldo konsisten dengan definisi kolom; opening halaman tidak dianggap bukti perhitungan.",
+        "Laporan yang memerlukan transaksi agen/asuransi/pembatalan diberi blocked jika prasyarat tidak tersedia; tidak menyentuh order milik pihak lain."
+      ]
+    },
+    {
+      "id": "SCN-0016",
+      "title": "Rekonsiliasi laporan Pendapatan Penumpang",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-04",
+      "requirements": [
+        "REQ-005"
+      ],
+      "steps": [
+        "Buka laporan dari role yang berwenang dan filter periode order uji.",
+        "Cari kontribusi order uji dan bandingkan dengan komponen order serta status pembayarannya.",
+        "Pemakaian Saldo dapat diverifikasi setelah instruksi/debit awal; laporan yang memerlukan pelunasan menunggu konfirmasi dummy."
+      ],
+      "expected": [
+        "Nilai pendapatan/fee/saldo konsisten dengan definisi kolom; opening halaman tidak dianggap bukti perhitungan.",
+        "Laporan yang memerlukan transaksi agen/asuransi/pembatalan diberi blocked jika prasyarat tidak tersedia; tidak menyentuh order milik pihak lain."
+      ]
+    },
+    {
+      "id": "SCN-0017",
+      "title": "Rekonsiliasi laporan Pendapatan Kendaraan",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-04",
+      "requirements": [
+        "REQ-005"
+      ],
+      "steps": [
+        "Buka laporan dari role yang berwenang dan filter periode order uji.",
+        "Cari kontribusi order uji dan bandingkan dengan komponen order serta status pembayarannya.",
+        "Pemakaian Saldo dapat diverifikasi setelah instruksi/debit awal; laporan yang memerlukan pelunasan menunggu konfirmasi dummy."
+      ],
+      "expected": [
+        "Nilai pendapatan/fee/saldo konsisten dengan definisi kolom; opening halaman tidak dianggap bukti perhitungan.",
+        "Laporan yang memerlukan transaksi agen/asuransi/pembatalan diberi blocked jika prasyarat tidak tersedia; tidak menyentuh order milik pihak lain."
+      ]
+    },
+    {
+      "id": "SCN-0018",
+      "title": "Rekonsiliasi laporan Rekap Pendapatan Per Trip",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-04",
+      "requirements": [
+        "REQ-005"
+      ],
+      "steps": [
+        "Buka laporan dari role yang berwenang dan filter periode order uji.",
+        "Cari kontribusi order uji dan bandingkan dengan komponen order serta status pembayarannya.",
+        "Pemakaian Saldo dapat diverifikasi setelah instruksi/debit awal; laporan yang memerlukan pelunasan menunggu konfirmasi dummy."
+      ],
+      "expected": [
+        "Nilai pendapatan/fee/saldo konsisten dengan definisi kolom; opening halaman tidak dianggap bukti perhitungan.",
+        "Laporan yang memerlukan transaksi agen/asuransi/pembatalan diberi blocked jika prasyarat tidak tersedia; tidak menyentuh order milik pihak lain."
+      ]
+    },
+    {
+      "id": "SCN-0019",
+      "title": "Rekonsiliasi laporan Pembatalan Tiket",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-04",
+      "requirements": [
+        "REQ-005"
+      ],
+      "steps": [
+        "Buka laporan dari role yang berwenang dan filter periode order uji.",
+        "Cari kontribusi order uji dan bandingkan dengan komponen order serta status pembayarannya.",
+        "Pemakaian Saldo dapat diverifikasi setelah instruksi/debit awal; laporan yang memerlukan pelunasan menunggu konfirmasi dummy."
+      ],
+      "expected": [
+        "Nilai pendapatan/fee/saldo konsisten dengan definisi kolom; opening halaman tidak dianggap bukti perhitungan.",
+        "Laporan yang memerlukan transaksi agen/asuransi/pembatalan diberi blocked jika prasyarat tidak tersedia; tidak menyentuh order milik pihak lain."
+      ]
+    },
+    {
+      "id": "SCN-0020",
+      "title": "Rekonsiliasi laporan Rekap Asuransi",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-04",
+      "requirements": [
+        "REQ-005"
+      ],
+      "steps": [
+        "Buka laporan dari role yang berwenang dan filter periode order uji.",
+        "Cari kontribusi order uji dan bandingkan dengan komponen order serta status pembayarannya.",
+        "Pemakaian Saldo dapat diverifikasi setelah instruksi/debit awal; laporan yang memerlukan pelunasan menunggu konfirmasi dummy."
+      ],
+      "expected": [
+        "Nilai pendapatan/fee/saldo konsisten dengan definisi kolom; opening halaman tidak dianggap bukti perhitungan.",
+        "Laporan yang memerlukan transaksi agen/asuransi/pembatalan diberi blocked jika prasyarat tidak tersedia; tidak menyentuh order milik pihak lain."
+      ]
+    },
+    {
+      "id": "SCN-0021",
+      "title": "Rekonsiliasi laporan Pemakaian Saldo",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-04",
+      "requirements": [
+        "REQ-005"
+      ],
+      "steps": [
+        "Buka laporan dari role yang berwenang dan filter periode order uji.",
+        "Cari kontribusi order uji dan bandingkan dengan komponen order serta status pembayarannya.",
+        "Pemakaian Saldo dapat diverifikasi setelah instruksi/debit awal; laporan yang memerlukan pelunasan menunggu konfirmasi dummy."
+      ],
+      "expected": [
+        "Nilai pendapatan/fee/saldo konsisten dengan definisi kolom; opening halaman tidak dianggap bukti perhitungan.",
+        "Laporan yang memerlukan transaksi agen/asuransi/pembatalan diberi blocked jika prasyarat tidak tersedia; tidak menyentuh order milik pihak lain."
+      ]
+    },
+    {
+      "id": "SCN-0022",
+      "title": "Rekonsiliasi laporan Penjualan Harian Agen",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-04",
+      "requirements": [
+        "REQ-005"
+      ],
+      "steps": [
+        "Buka laporan dari role yang berwenang dan filter periode order uji.",
+        "Cari kontribusi order uji dan bandingkan dengan komponen order serta status pembayarannya.",
+        "Pemakaian Saldo dapat diverifikasi setelah instruksi/debit awal; laporan yang memerlukan pelunasan menunggu konfirmasi dummy."
+      ],
+      "expected": [
+        "Nilai pendapatan/fee/saldo konsisten dengan definisi kolom; opening halaman tidak dianggap bukti perhitungan.",
+        "Laporan yang memerlukan transaksi agen/asuransi/pembatalan diberi blocked jika prasyarat tidak tersedia; tidak menyentuh order milik pihak lain."
+      ]
+    },
+    {
+      "id": "SCN-0023",
+      "title": "Rekonsiliasi laporan Rekap Penjualan Agen",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-04",
+      "requirements": [
+        "REQ-005"
+      ],
+      "steps": [
+        "Buka laporan dari role yang berwenang dan filter periode order uji.",
+        "Cari kontribusi order uji dan bandingkan dengan komponen order serta status pembayarannya.",
+        "Pemakaian Saldo dapat diverifikasi setelah instruksi/debit awal; laporan yang memerlukan pelunasan menunggu konfirmasi dummy."
+      ],
+      "expected": [
+        "Nilai pendapatan/fee/saldo konsisten dengan definisi kolom; opening halaman tidak dianggap bukti perhitungan.",
+        "Laporan yang memerlukan transaksi agen/asuransi/pembatalan diberi blocked jika prasyarat tidak tersedia; tidak menyentuh order milik pihak lain."
+      ]
+    },
+    {
+      "id": "SCN-0024",
+      "title": "Rekonsiliasi laporan Pembatalan Tiket Agen",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-04",
+      "requirements": [
+        "REQ-005"
+      ],
+      "steps": [
+        "Buka laporan dari role yang berwenang dan filter periode order uji.",
+        "Cari kontribusi order uji dan bandingkan dengan komponen order serta status pembayarannya.",
+        "Pemakaian Saldo dapat diverifikasi setelah instruksi/debit awal; laporan yang memerlukan pelunasan menunggu konfirmasi dummy."
+      ],
+      "expected": [
+        "Nilai pendapatan/fee/saldo konsisten dengan definisi kolom; opening halaman tidak dianggap bukti perhitungan.",
+        "Laporan yang memerlukan transaksi agen/asuransi/pembatalan diberi blocked jika prasyarat tidak tersedia; tidak menyentuh order milik pihak lain."
+      ]
+    },
+    {
+      "id": "SCN-0025",
+      "title": "Rekonsiliasi potongan saldo awal operator untuk User Umum",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-05",
+      "requirements": [
+        "REQ-006"
+      ],
+      "steps": [
+        "Catat saldo awal dan riwayat.",
+        "Pada order uji, pilih metode sampai instruksi bayar untuk mencatat debit awal saldo operator. Pelunasan pembayaran dan penggunaan saldo sebagai pembayaran akhir hanya jika dikonfirmasi dummy."
+      ],
+      "expected": [
+        "Delta saldo awal cocok dengan debit tujuh instruksi berhasil dan komisi tiket tanpa pass dibulatkan ke atas.",
+        "Metode gagal tidak menambah debit; pelunasan, refund dan penggunaan saldo akhir dibedakan dari debit awal."
+      ]
+    },
+    {
+      "id": "SCN-0026",
+      "title": "Pemulihan konfigurasi Finance dan pembersihan booking",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-01",
+      "requirements": [
+        "REQ-007"
+      ],
+      "steps": [
+        "Pulihkan semua Jumlah, Processing Fee dan Limit ke snapshot awal; baca ulang.",
+        "Catat kode booking/jadwal setiap order yang dibuat; batalkan order belum dibayar jika fitur tersedia."
+      ],
+      "expected": [
+        "Seluruh konfigurasi identik snapshot awal.",
+        "Semua booking run tercatat dan status pembersihannya dijelaskan."
+      ]
+    },
+    {
+      "id": "SCN-0027",
+      "title": "Instruksi gateway seluruh metode dengan fee yang diubah",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-02",
+      "requirements": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-003",
+        "REQ-006"
+      ],
+      "steps": [
+        "Gunakan izin eksplisit pengguna untuk pengujian fee dan potongan saldo. Pilih metode sampai instruksi bayar; jangan selesaikan pembayaran atau otorisasi wallet tanpa konfirmasi dummy.",
+        "Ubah fee tiap channel, pilih metode melalui UI biasa, cocokkan quote/instruksi/nominal gateway jika tersedia dan debit awal ledger, lalu pulihkan."
+      ],
+      "expected": [
+        "Nominal gateway dan total ringkasan sama dengan subtotal+fee.",
+        "Semua metode aktual dievaluasi terpisah dari quote; error gateway dicatat dengan screenshot."
+      ]
+    },
+    {
+      "id": "SCN-0028",
+      "title": "Aritmetika saldo pada riwayat transaksi historis",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-05",
+      "requirements": [
+        "REQ-008"
+      ],
+      "steps": [
+        "Baca 20 transaksi terakhir pada Riwayat Saldo operator tanpa mengubah transaksi.",
+        "Untuk setiap pasangan berurutan, hitung saldo setelah transaksi lebih lama + debit/kredit transaksi lebih baru."
+      ],
+      "expected": [
+        "Seluruh 19 transisi yang dapat dicocokkan sama dengan sisa saldo ditampilkan.",
+        "Hasil ini tidak dianggap bukti debit order baru atau pengaruh Processing Fee."
+      ]
+    },
+    {
+      "id": "SCN-0029",
+      "title": "Konsistensi invoice pending setelah konfigurasi Finance dipulihkan",
+      "category": "edge",
+      "priority": "high",
+      "screen": "SCR-02",
+      "requirements": [
+        "REQ-009"
+      ],
+      "steps": [
+        "Buat instruksi bayar dengan konfigurasi uji; catat amount gateway.",
+        "Pulihkan konfigurasi lalu buka ulang halaman bayar order yang sama tanpa pelunasan."
+      ],
+      "expected": [
+        "Total invoice pending tetap konsisten dengan nominal instruksi gateway yang diterbitkan."
+      ]
+    },
+    {
+      "id": "SCN-0030",
+      "title": "Pemulihan pemilihan metode setelah gateway gagal",
+      "category": "edge",
+      "priority": "high",
+      "screen": "SCR-02",
+      "requirements": [
+        "REQ-010"
+      ],
+      "steps": [
+        "Setelah metode gagal menghasilkan instruksi, pilih alternatif pada order uji yang sama.",
+        "Bandingkan dengan metode alternatif pada order uji baru."
+      ],
+      "expected": [
+        "Order gagal dapat memilih metode lain tanpa terkunci DOUBLE_VA."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,210 @@
+{
+  "module": "fee-payment",
+  "scenarios": [
+    {
+      "id": "SCN-0001",
+      "title": "Pelunasan dummy order baru Bank Mandiri",
+      "category": "positive",
+      "priority": "high",
+      "screen": "User Umum / Checkout Dummy",
+      "requirements": [
+        "REQ-FPAY-001",
+        "REQ-FPAY-002"
+      ],
+      "steps": [
+        "Cari kode order run20261007-072556 dan pastikan bukan sudah lunas/expired.",
+        "Cocokkan total order/instruksi dan nominal pada checkout/simulator aktual.",
+        "Lakukan pelunasan dummy satu kali sesuai UI, tunggu callback dan cek status positif lunas/e-tiket."
+      ],
+      "expected": [
+        "Status lunas terverifikasi pada kode sama dan nominal bayar sama instruksi; gateway/checkout gagal dicatat dengan bukti."
+      ]
+    },
+    {
+      "id": "SCN-0002",
+      "title": "Pelunasan dummy order baru Bank BCA",
+      "category": "positive",
+      "priority": "high",
+      "screen": "User Umum / Checkout Dummy",
+      "requirements": [
+        "REQ-FPAY-001",
+        "REQ-FPAY-002"
+      ],
+      "steps": [
+        "Cari kode order run20261007-072556 dan pastikan bukan sudah lunas/expired.",
+        "Cocokkan total order/instruksi dan nominal pada checkout/simulator aktual.",
+        "Lakukan pelunasan dummy satu kali sesuai UI, tunggu callback dan cek status positif lunas/e-tiket."
+      ],
+      "expected": [
+        "Status lunas terverifikasi pada kode sama dan nominal bayar sama instruksi; gateway/checkout gagal dicatat dengan bukti."
+      ]
+    },
+    {
+      "id": "SCN-0003",
+      "title": "Pelunasan dummy order baru Bank BNI",
+      "category": "positive",
+      "priority": "high",
+      "screen": "User Umum / Checkout Dummy",
+      "requirements": [
+        "REQ-FPAY-001",
+        "REQ-FPAY-002"
+      ],
+      "steps": [
+        "Cari kode order run20261007-072556 dan pastikan bukan sudah lunas/expired.",
+        "Cocokkan total order/instruksi dan nominal pada checkout/simulator aktual.",
+        "Lakukan pelunasan dummy satu kali sesuai UI, tunggu callback dan cek status positif lunas/e-tiket."
+      ],
+      "expected": [
+        "Status lunas terverifikasi pada kode sama dan nominal bayar sama instruksi; gateway/checkout gagal dicatat dengan bukti."
+      ]
+    },
+    {
+      "id": "SCN-0004",
+      "title": "Pelunasan dummy order baru Bank BRI",
+      "category": "positive",
+      "priority": "high",
+      "screen": "User Umum / Checkout Dummy",
+      "requirements": [
+        "REQ-FPAY-001",
+        "REQ-FPAY-002"
+      ],
+      "steps": [
+        "Cari kode order run20261007-072556 dan pastikan bukan sudah lunas/expired.",
+        "Cocokkan total order/instruksi dan nominal pada checkout/simulator aktual.",
+        "Lakukan pelunasan dummy satu kali sesuai UI, tunggu callback dan cek status positif lunas/e-tiket."
+      ],
+      "expected": [
+        "Status lunas terverifikasi pada kode sama dan nominal bayar sama instruksi; gateway/checkout gagal dicatat dengan bukti."
+      ]
+    },
+    {
+      "id": "SCN-0005",
+      "title": "Pelunasan dummy order baru OVO",
+      "category": "positive",
+      "priority": "high",
+      "screen": "User Umum / Checkout Dummy",
+      "requirements": [
+        "REQ-FPAY-001",
+        "REQ-FPAY-002"
+      ],
+      "steps": [
+        "Cari kode order run20261007-072556 dan pastikan bukan sudah lunas/expired.",
+        "Cocokkan total order/instruksi dan nominal pada checkout/simulator aktual.",
+        "Lakukan pelunasan dummy satu kali sesuai UI, tunggu callback dan cek status positif lunas/e-tiket."
+      ],
+      "expected": [
+        "Status lunas terverifikasi pada kode sama dan nominal bayar sama instruksi; gateway/checkout gagal dicatat dengan bukti."
+      ]
+    },
+    {
+      "id": "SCN-0006",
+      "title": "Pelunasan dummy order baru DANA",
+      "category": "positive",
+      "priority": "high",
+      "screen": "User Umum / Checkout Dummy",
+      "requirements": [
+        "REQ-FPAY-001",
+        "REQ-FPAY-002"
+      ],
+      "steps": [
+        "Cari kode order run20261007-072556 dan pastikan bukan sudah lunas/expired.",
+        "Cocokkan total order/instruksi dan nominal pada checkout/simulator aktual.",
+        "Lakukan pelunasan dummy satu kali sesuai UI, tunggu callback dan cek status positif lunas/e-tiket."
+      ],
+      "expected": [
+        "Status lunas terverifikasi pada kode sama dan nominal bayar sama instruksi; gateway/checkout gagal dicatat dengan bukti."
+      ]
+    },
+    {
+      "id": "SCN-0007",
+      "title": "Pelunasan dummy order baru Alfamart",
+      "category": "positive",
+      "priority": "high",
+      "screen": "User Umum / Checkout Dummy",
+      "requirements": [
+        "REQ-FPAY-001",
+        "REQ-FPAY-002"
+      ],
+      "steps": [
+        "Cari kode order run20261007-072556 dan pastikan bukan sudah lunas/expired.",
+        "Cocokkan total order/instruksi dan nominal pada checkout/simulator aktual.",
+        "Lakukan pelunasan dummy satu kali sesuai UI, tunggu callback dan cek status positif lunas/e-tiket."
+      ],
+      "expected": [
+        "Status lunas terverifikasi pada kode sama dan nominal bayar sama instruksi; gateway/checkout gagal dicatat dengan bukti."
+      ]
+    },
+    {
+      "id": "SCN-0008",
+      "title": "Pelunasan dummy order baru Indomaret",
+      "category": "positive",
+      "priority": "high",
+      "screen": "User Umum / Checkout Dummy",
+      "requirements": [
+        "REQ-FPAY-001",
+        "REQ-FPAY-002"
+      ],
+      "steps": [
+        "Cari kode order run20261007-072556 dan pastikan bukan sudah lunas/expired.",
+        "Cocokkan total order/instruksi dan nominal pada checkout/simulator aktual.",
+        "Lakukan pelunasan dummy satu kali sesuai UI, tunggu callback dan cek status positif lunas/e-tiket."
+      ],
+      "expected": [
+        "Status lunas terverifikasi pada kode sama dan nominal bayar sama instruksi; gateway/checkout gagal dicatat dengan bukti."
+      ]
+    },
+    {
+      "id": "SCN-0009",
+      "title": "Pelunasan dummy order baru QRIS",
+      "category": "positive",
+      "priority": "high",
+      "screen": "User Umum / Checkout Dummy",
+      "requirements": [
+        "REQ-FPAY-001",
+        "REQ-FPAY-002"
+      ],
+      "steps": [
+        "Cari kode order run20261007-072556 dan pastikan bukan sudah lunas/expired.",
+        "Cocokkan total order/instruksi dan nominal pada checkout/simulator aktual.",
+        "Lakukan pelunasan dummy satu kali sesuai UI, tunggu callback dan cek status positif lunas/e-tiket."
+      ],
+      "expected": [
+        "Status lunas terverifikasi pada kode sama dan nominal bayar sama instruksi; gateway/checkout gagal dicatat dengan bukti."
+      ]
+    },
+    {
+      "id": "SCN-0010",
+      "title": "Cetak PDF e-tiket QRIS setelah lunas",
+      "category": "positive",
+      "priority": "high",
+      "screen": "User Umum — Detail Order / Cetak E-Tiket",
+      "requirements": [
+        "REQ-FPAY-003"
+      ],
+      "steps": [
+        "Pastikan detail kode I9135888 menunjukkan Order Selesai dan tanggal bayar.",
+        "Klik Cetak E-Tiket dari tombol aktual; rekam response dan hasil unduhan/popup."
+      ],
+      "expected": [
+        "Endpoint cetak berhasil mengembalikan dokumen PDF/e-tiket untuk kode sama, bukan HTTP500."
+      ]
+    },
+    {
+      "id": "SCN-0011",
+      "title": "Cetak PDF e-tiket OVO setelah lunas",
+      "category": "positive",
+      "priority": "high",
+      "screen": "User Umum — Detail Order / Cetak E-Tiket",
+      "requirements": [
+        "REQ-FPAY-003"
+      ],
+      "steps": [
+        "Pastikan detail kode S9135832 menunjukkan Order Selesai dan tanggal bayar.",
+        "Klik Cetak E-Tiket dari tombol aktual; rekam response dan hasil unduhan/popup."
+      ],
+      "expected": [
+        "Endpoint cetak berhasil mengembalikan dokumen PDF/e-tiket untuk kode sama, bukan HTTP500."
+      ]
+    }
+  ]
+}
