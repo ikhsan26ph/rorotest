@@ -1,0 +1,2002 @@
+{
+  "summary": {
+    "total": 17,
+    "positive": 6,
+    "negative": 5,
+    "edge": 6,
+    "stress": 0
+  },
+  "source": {
+    "spec": "inputs/ro314-penyesuain-registrasi-agen/spec.txt",
+    "designs": [],
+    "extras": [],
+    "specSha256": "59754fd53cfd02e7ca5ae5f677c23e29b01f17030325f0610a55a0512a040a09"
+  },
+  "generationPolicy": {
+    "productAssumptions": [],
+    "missingEvidencePolicy": "record-gap-and-block-dependent-automation",
+    "negativeDefinition": "Regresi terhadap perilaku yang dilarang requirement; kasus deposit memakai input/kondisi invalid yang dibuktikan baseline.",
+    "stressOmission": "GAP-11: tidak ada kontrak volume, concurrency, durasi, atau performa; tidak mengarang oracle."
+  },
+  "metadataExtensions": {
+    "steps[].assertion": "absent = tidak tampil; unavailable = tidak tersedia untuk digunakan; ready = indikator selesai memuat data terverifikasi; matches-baseline = hasil sesuai oracle baseline. Jangan memakai toBeVisible untuk semua expect.",
+    "gherkinSteps": "Urutan lengkap yang persis ditulis ke feature; tiap langkah menunjuk preconditionIndex, structuredStepIndex, atau unresolvedStepId.",
+    "unresolvedSteps": "Operasi baseline belum dapat dipecah menjadi action atomik yang sah. Jangan melewati langkah ini saat codegen; lengkapi dari bukti lalu verifikasi ulang artefak.",
+    "automation": "Semua skenario masih blocked untuk codegen/eksekusi langsung. Ini bukan hasil pengujian aplikasi.",
+    "selectorHints": "role/name/testid null = belum terverifikasi. labelText hanya teks spec, bukan bukti ARIA name.",
+    "testData": "fixtureRef/baselineRef adalah pengenal kebutuhan data; bukan sumber yang tersedia. literalValues kosong karena data nyata belum diberikan.",
+    "screen": "deposit-agen adalah pengenal konteks mekanisme, bukan nama layar, URL, atau role yang diasumsikan."
+  },
+  "scenarios": [
+    {
+      "id": "RO314-PENYESUAIN-REGISTRASI-AGEN-POS-001",
+      "title": "Field Jaminan Agen dihapus dari Tambah Agen",
+      "category": "positive",
+      "priority": "high",
+      "requirement": "REQ-001",
+      "screen": "tambah-agen",
+      "preconditions": [
+        "user Kantor Cabang memiliki akses sah ke Relasi Agen sesuai spesifikasi"
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Tambah Agen",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Halaman selesai menampilkan data",
+          "value": "Indikator selesai memuat data yang dibuktikan implementasi",
+          "assertion": "ready"
+        },
+        {
+          "action": "expect",
+          "target": "Field Jaminan Agen",
+          "value": "sistem tidak menampilkan label dan kontrol input \"Jaminan Agen\"",
+          "assertion": "absent"
+        },
+        {
+          "action": "expect",
+          "target": "Input nominal Jaminan Agen",
+          "value": "user tidak memiliki input UI untuk mengisi nominal jaminan agen",
+          "assertion": "unavailable"
+        }
+      ],
+      "expected": [
+        "sistem tidak menampilkan label dan kontrol input \"Jaminan Agen\"",
+        "user tidak memiliki input UI untuk mengisi nominal jaminan agen"
+      ],
+      "testData": {
+        "fixtureRef": null,
+        "baselineRef": null,
+        "literalValues": {},
+        "note": "Ref adalah kebutuhan fixture/baseline, bukan berkas atau data yang sudah tersedia."
+      },
+      "selectorHints": {
+        "Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null,
+          "labelText": "Jaminan Agen",
+          "evidence": "Label teks dari spec; bukan ARIA name yang telah diverifikasi."
+        },
+        "Field Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        },
+        "Input nominal Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        }
+      },
+      "sourceRefs": [
+        {
+          "file": "inputs/ro314-penyesuain-registrasi-agen/spec.txt",
+          "lines": [
+            1,
+            2
+          ]
+        }
+      ],
+      "testFocus": "Penghapusan label sekaligus kontrol pada form awal.",
+      "automation": {
+        "readiness": "blocked",
+        "blockers": [
+          "GAP-02",
+          "GAP-06",
+          "GAP-12"
+        ],
+        "reason": "Detail implementasi atau fixture/baseline belum tersedia; jangan menerjemahkan placeholder menjadi selector/tindakan karangan."
+      },
+      "unresolvedSteps": [],
+      "gherkinSteps": [
+        {
+          "keyword": "Given",
+          "text": "user Kantor Cabang memiliki akses sah ke Relasi Agen sesuai spesifikasi",
+          "preconditionIndex": 0
+        },
+        {
+          "keyword": "Given",
+          "text": "user berada di halaman \"Tambah Agen\"",
+          "structuredStepIndex": 0
+        },
+        {
+          "keyword": "When",
+          "text": "halaman selesai menampilkan data menurut indikator implementasi yang telah diverifikasi",
+          "structuredStepIndex": 1
+        },
+        {
+          "keyword": "Then",
+          "text": "sistem tidak menampilkan label dan kontrol input \"Jaminan Agen\"",
+          "structuredStepIndex": 2
+        },
+        {
+          "keyword": "And",
+          "text": "user tidak memiliki input UI untuk mengisi nominal jaminan agen",
+          "structuredStepIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "RO314-PENYESUAIN-REGISTRASI-AGEN-POS-002",
+      "title": "Informasi Jaminan Agen dihapus dari Detail Agen",
+      "category": "positive",
+      "priority": "high",
+      "requirement": "REQ-002",
+      "screen": "detail-agen",
+      "preconditions": [
+        "user Kantor Cabang memiliki akses sah ke Relasi Agen sesuai spesifikasi",
+        "fixture agen tanpa data jaminan historis telah diverifikasi tersedia pada baseline"
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Detail Agen",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Halaman selesai menampilkan data",
+          "value": "Indikator selesai memuat data yang dibuktikan implementasi",
+          "assertion": "ready"
+        },
+        {
+          "action": "expect",
+          "target": "Informasi Jaminan Agen",
+          "value": "sistem tidak menampilkan informasi \"Jaminan Agen\" beserta nominal atau datanya",
+          "assertion": "absent"
+        }
+      ],
+      "expected": [
+        "sistem tidak menampilkan informasi \"Jaminan Agen\" beserta nominal atau datanya"
+      ],
+      "testData": {
+        "fixtureRef": "agen-baseline-tanpa-jaminan-historis",
+        "baselineRef": null,
+        "literalValues": {},
+        "note": "Ref adalah kebutuhan fixture/baseline, bukan berkas atau data yang sudah tersedia."
+      },
+      "selectorHints": {
+        "Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null,
+          "labelText": "Jaminan Agen",
+          "evidence": "Label teks dari spec; bukan ARIA name yang telah diverifikasi."
+        },
+        "Informasi Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        }
+      },
+      "sourceRefs": [
+        {
+          "file": "inputs/ro314-penyesuain-registrasi-agen/spec.txt",
+          "lines": [
+            3
+          ]
+        }
+      ],
+      "testFocus": "Tidak ada bagian informasi jaminan pada record baseline tanpa jaminan historis.",
+      "automation": {
+        "readiness": "blocked",
+        "blockers": [
+          "GAP-02",
+          "GAP-06",
+          "GAP-12",
+          "GAP-05"
+        ],
+        "reason": "Detail implementasi atau fixture/baseline belum tersedia; jangan menerjemahkan placeholder menjadi selector/tindakan karangan."
+      },
+      "unresolvedSteps": [],
+      "gherkinSteps": [
+        {
+          "keyword": "Given",
+          "text": "user Kantor Cabang memiliki akses sah ke Relasi Agen sesuai spesifikasi",
+          "preconditionIndex": 0
+        },
+        {
+          "keyword": "And",
+          "text": "fixture agen tanpa data jaminan historis telah diverifikasi tersedia pada baseline",
+          "preconditionIndex": 1
+        },
+        {
+          "keyword": "Given",
+          "text": "user berada di halaman \"Detail Agen\"",
+          "structuredStepIndex": 0
+        },
+        {
+          "keyword": "When",
+          "text": "halaman selesai menampilkan data menurut indikator implementasi yang telah diverifikasi",
+          "structuredStepIndex": 1
+        },
+        {
+          "keyword": "Then",
+          "text": "sistem tidak menampilkan informasi \"Jaminan Agen\" beserta nominal atau datanya",
+          "structuredStepIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "RO314-PENYESUAIN-REGISTRASI-AGEN-POS-003",
+      "title": "Field Jaminan Agen dihapus dari Edit Agen",
+      "category": "positive",
+      "priority": "high",
+      "requirement": "REQ-003",
+      "screen": "edit-agen",
+      "preconditions": [
+        "user Kantor Cabang memiliki akses sah ke Relasi Agen sesuai spesifikasi",
+        "fixture agen tanpa data jaminan historis telah diverifikasi tersedia pada baseline"
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Edit Agen",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Halaman selesai menampilkan data",
+          "value": "Indikator selesai memuat data yang dibuktikan implementasi",
+          "assertion": "ready"
+        },
+        {
+          "action": "expect",
+          "target": "Field Jaminan Agen",
+          "value": "sistem tidak menampilkan label dan kontrol input \"Jaminan Agen\"",
+          "assertion": "absent"
+        },
+        {
+          "action": "expect",
+          "target": "Kontrol tambah atau ubah Jaminan Agen",
+          "value": "user tidak memiliki kontrol UI untuk menambahkan atau mengubah \"Jaminan Agen\"",
+          "assertion": "unavailable"
+        }
+      ],
+      "expected": [
+        "sistem tidak menampilkan label dan kontrol input \"Jaminan Agen\"",
+        "user tidak memiliki kontrol UI untuk menambahkan atau mengubah \"Jaminan Agen\""
+      ],
+      "testData": {
+        "fixtureRef": "agen-baseline-tanpa-jaminan-historis",
+        "baselineRef": null,
+        "literalValues": {},
+        "note": "Ref adalah kebutuhan fixture/baseline, bukan berkas atau data yang sudah tersedia."
+      },
+      "selectorHints": {
+        "Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null,
+          "labelText": "Jaminan Agen",
+          "evidence": "Label teks dari spec; bukan ARIA name yang telah diverifikasi."
+        },
+        "Field Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        },
+        "Kontrol tambah atau ubah Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        }
+      },
+      "sourceRefs": [
+        {
+          "file": "inputs/ro314-penyesuain-registrasi-agen/spec.txt",
+          "lines": [
+            4
+          ]
+        }
+      ],
+      "testFocus": "Tidak ada field atau kemampuan menambahkan jaminan pada record yang belum memilikinya.",
+      "automation": {
+        "readiness": "blocked",
+        "blockers": [
+          "GAP-02",
+          "GAP-06",
+          "GAP-12",
+          "GAP-05"
+        ],
+        "reason": "Detail implementasi atau fixture/baseline belum tersedia; jangan menerjemahkan placeholder menjadi selector/tindakan karangan."
+      },
+      "unresolvedSteps": [],
+      "gherkinSteps": [
+        {
+          "keyword": "Given",
+          "text": "user Kantor Cabang memiliki akses sah ke Relasi Agen sesuai spesifikasi",
+          "preconditionIndex": 0
+        },
+        {
+          "keyword": "And",
+          "text": "fixture agen tanpa data jaminan historis telah diverifikasi tersedia pada baseline",
+          "preconditionIndex": 1
+        },
+        {
+          "keyword": "Given",
+          "text": "user berada di halaman \"Edit Agen\"",
+          "structuredStepIndex": 0
+        },
+        {
+          "keyword": "When",
+          "text": "halaman selesai menampilkan data menurut indikator implementasi yang telah diverifikasi",
+          "structuredStepIndex": 1
+        },
+        {
+          "keyword": "Then",
+          "text": "sistem tidak menampilkan label dan kontrol input \"Jaminan Agen\"",
+          "structuredStepIndex": 2
+        },
+        {
+          "keyword": "And",
+          "text": "user tidak memiliki kontrol UI untuk menambahkan atau mengubah \"Jaminan Agen\"",
+          "structuredStepIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "RO314-PENYESUAIN-REGISTRASI-AGEN-POS-004",
+      "title": "Edit field lain tidak membutuhkan input Jaminan Agen",
+      "category": "positive",
+      "priority": "high",
+      "requirement": "REQ-003",
+      "screen": "edit-agen",
+      "preconditions": [
+        "user Kantor Cabang memiliki akses sah ke Relasi Agen sesuai spesifikasi",
+        "fixture agen tanpa data jaminan historis telah diverifikasi tersedia pada baseline",
+        "field edit lain, nilai perubahan valid, operasi simpan, dan bukti hasilnya telah diverifikasi pada baseline"
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Edit Agen",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Hasil simpan perubahan baseline",
+          "value": "perubahan field lain tersimpan menurut bukti baseline tanpa mengisi nominal Jaminan Agen",
+          "assertion": "matches-baseline"
+        },
+        {
+          "action": "expect",
+          "target": "Field Jaminan Agen",
+          "value": "sistem tidak menampilkan label dan kontrol input \"Jaminan Agen\"",
+          "assertion": "absent"
+        }
+      ],
+      "expected": [
+        "perubahan field lain tersimpan menurut bukti baseline tanpa mengisi nominal Jaminan Agen",
+        "sistem tidak menampilkan label dan kontrol input \"Jaminan Agen\""
+      ],
+      "testData": {
+        "fixtureRef": "agen-baseline-tanpa-jaminan-historis",
+        "baselineRef": "edit-field-lain-valid",
+        "literalValues": {},
+        "note": "Ref adalah kebutuhan fixture/baseline, bukan berkas atau data yang sudah tersedia."
+      },
+      "selectorHints": {
+        "Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null,
+          "labelText": "Jaminan Agen",
+          "evidence": "Label teks dari spec; bukan ARIA name yang telah diverifikasi."
+        },
+        "Hasil simpan perubahan baseline": {
+          "role": null,
+          "name": null,
+          "testid": null
+        },
+        "Field Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        }
+      },
+      "sourceRefs": [
+        {
+          "file": "inputs/ro314-penyesuain-registrasi-agen/spec.txt",
+          "lines": [
+            4
+          ]
+        }
+      ],
+      "testFocus": "Keberhasilan edit valid untuk record tanpa jaminan historis; tidak menyatakan mutasi data jaminan di database.",
+      "automation": {
+        "readiness": "blocked",
+        "blockers": [
+          "GAP-02",
+          "GAP-06",
+          "GAP-12",
+          "GAP-04",
+          "GAP-05"
+        ],
+        "reason": "Detail implementasi atau fixture/baseline belum tersedia; jangan menerjemahkan placeholder menjadi selector/tindakan karangan."
+      },
+      "unresolvedSteps": [
+        {
+          "id": "baseline-operation",
+          "instruction": "user menjalankan perubahan field lain dan operasi simpan sesuai baseline tanpa mengisi Jaminan Agen",
+          "reason": "Urutan tindakan, field, kontrol, data, dan hasil baseline belum tersedia.",
+          "gapIds": [
+            "GAP-04",
+            "GAP-05"
+          ],
+          "insertAfterStructuredStepIndex": 0
+        }
+      ],
+      "gherkinSteps": [
+        {
+          "keyword": "Given",
+          "text": "user Kantor Cabang memiliki akses sah ke Relasi Agen sesuai spesifikasi",
+          "preconditionIndex": 0
+        },
+        {
+          "keyword": "And",
+          "text": "fixture agen tanpa data jaminan historis telah diverifikasi tersedia pada baseline",
+          "preconditionIndex": 1
+        },
+        {
+          "keyword": "And",
+          "text": "field edit lain, nilai perubahan valid, operasi simpan, dan bukti hasilnya telah diverifikasi pada baseline",
+          "preconditionIndex": 2
+        },
+        {
+          "keyword": "Given",
+          "text": "user berada di halaman \"Edit Agen\"",
+          "structuredStepIndex": 0
+        },
+        {
+          "keyword": "When",
+          "text": "user menjalankan perubahan field lain dan operasi simpan sesuai baseline tanpa mengisi Jaminan Agen",
+          "unresolvedStepId": "baseline-operation"
+        },
+        {
+          "keyword": "Then",
+          "text": "perubahan field lain tersimpan menurut bukti baseline tanpa mengisi nominal Jaminan Agen",
+          "structuredStepIndex": 1
+        },
+        {
+          "keyword": "And",
+          "text": "sistem tidak menampilkan label dan kontrol input \"Jaminan Agen\"",
+          "structuredStepIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "RO314-PENYESUAIN-REGISTRASI-AGEN-POS-005",
+      "title": "Informasi Jaminan Agen dihapus dari Akun Saya",
+      "category": "positive",
+      "priority": "high",
+      "requirement": "REQ-004",
+      "screen": "akun-saya",
+      "preconditions": [
+        "user Agen memiliki akses sah ke Akun Saya sesuai spesifikasi",
+        "fixture agen tanpa data jaminan historis telah diverifikasi tersedia pada baseline",
+        "akun user Agen telah dipetakan ke fixture agen tersebut"
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Akun Saya",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Halaman selesai menampilkan data",
+          "value": "Indikator selesai memuat data yang dibuktikan implementasi",
+          "assertion": "ready"
+        },
+        {
+          "action": "expect",
+          "target": "Informasi Jaminan Agen",
+          "value": "sistem tidak menampilkan informasi \"Jaminan Agen\" beserta nominal atau datanya",
+          "assertion": "absent"
+        }
+      ],
+      "expected": [
+        "sistem tidak menampilkan informasi \"Jaminan Agen\" beserta nominal atau datanya"
+      ],
+      "testData": {
+        "fixtureRef": "akun-agen-baseline-tanpa-jaminan-historis",
+        "baselineRef": null,
+        "literalValues": {},
+        "note": "Ref adalah kebutuhan fixture/baseline, bukan berkas atau data yang sudah tersedia."
+      },
+      "selectorHints": {
+        "Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null,
+          "labelText": "Jaminan Agen",
+          "evidence": "Label teks dari spec; bukan ARIA name yang telah diverifikasi."
+        },
+        "Informasi Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        }
+      },
+      "sourceRefs": [
+        {
+          "file": "inputs/ro314-penyesuain-registrasi-agen/spec.txt",
+          "lines": [
+            5
+          ]
+        }
+      ],
+      "testFocus": "Tidak ada bagian jaminan pada Akun Saya untuk record baseline tanpa jaminan historis.",
+      "automation": {
+        "readiness": "blocked",
+        "blockers": [
+          "GAP-02",
+          "GAP-06",
+          "GAP-12",
+          "GAP-05"
+        ],
+        "reason": "Detail implementasi atau fixture/baseline belum tersedia; jangan menerjemahkan placeholder menjadi selector/tindakan karangan."
+      },
+      "unresolvedSteps": [],
+      "gherkinSteps": [
+        {
+          "keyword": "Given",
+          "text": "user Agen memiliki akses sah ke Akun Saya sesuai spesifikasi",
+          "preconditionIndex": 0
+        },
+        {
+          "keyword": "And",
+          "text": "fixture agen tanpa data jaminan historis telah diverifikasi tersedia pada baseline",
+          "preconditionIndex": 1
+        },
+        {
+          "keyword": "And",
+          "text": "akun user Agen telah dipetakan ke fixture agen tersebut",
+          "preconditionIndex": 2
+        },
+        {
+          "keyword": "Given",
+          "text": "user berada di halaman \"Akun Saya\"",
+          "structuredStepIndex": 0
+        },
+        {
+          "keyword": "When",
+          "text": "halaman selesai menampilkan data menurut indikator implementasi yang telah diverifikasi",
+          "structuredStepIndex": 1
+        },
+        {
+          "keyword": "Then",
+          "text": "sistem tidak menampilkan informasi \"Jaminan Agen\" beserta nominal atau datanya",
+          "structuredStepIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "RO314-PENYESUAIN-REGISTRASI-AGEN-POS-006",
+      "title": "Alur Deposit Agen valid tetap mengikuti baseline",
+      "category": "positive",
+      "priority": "high",
+      "requirement": "REQ-005",
+      "screen": "deposit-agen",
+      "preconditions": [
+        "aktor, layar, data, urutan tindakan, dan hasil alur deposit valid telah dibuktikan pada baseline",
+        "lingkungan uji sesudah perubahan memakai kondisi awal yang setara dengan baseline"
+      ],
+      "steps": [
+        {
+          "action": "expect",
+          "target": "Hasil Deposit Agen valid",
+          "value": "hasil alur Deposit Agen valid tetap sesuai hasil dan ketentuan baseline",
+          "assertion": "matches-baseline"
+        }
+      ],
+      "expected": [
+        "hasil alur Deposit Agen valid tetap sesuai hasil dan ketentuan baseline"
+      ],
+      "testData": {
+        "fixtureRef": null,
+        "baselineRef": "deposit-valid-dengan-oracle",
+        "literalValues": {},
+        "note": "Ref adalah kebutuhan fixture/baseline, bukan berkas atau data yang sudah tersedia."
+      },
+      "selectorHints": {
+        "Hasil Deposit Agen valid": {
+          "role": null,
+          "name": null,
+          "testid": null
+        }
+      },
+      "sourceRefs": [
+        {
+          "file": "inputs/ro314-penyesuain-registrasi-agen/spec.txt",
+          "lines": [
+            6
+          ]
+        }
+      ],
+      "testFocus": "Preservasi mekanisme deposit; tidak menciptakan alur top-up, nominal, saldo, biaya, atau pesan baru.",
+      "automation": {
+        "readiness": "blocked",
+        "blockers": [
+          "GAP-07"
+        ],
+        "reason": "Detail implementasi atau fixture/baseline belum tersedia; jangan menerjemahkan placeholder menjadi selector/tindakan karangan."
+      },
+      "unresolvedSteps": [
+        {
+          "id": "baseline-operation",
+          "instruction": "user menjalankan alur Deposit Agen valid sesuai urutan tindakan baseline",
+          "reason": "Aktor, layar, urutan tindakan, data, dan oracle Deposit Agen belum tersedia.",
+          "gapIds": [
+            "GAP-07"
+          ],
+          "insertAfterStructuredStepIndex": null
+        }
+      ],
+      "gherkinSteps": [
+        {
+          "keyword": "Given",
+          "text": "aktor, layar, data, urutan tindakan, dan hasil alur deposit valid telah dibuktikan pada baseline",
+          "preconditionIndex": 0
+        },
+        {
+          "keyword": "And",
+          "text": "lingkungan uji sesudah perubahan memakai kondisi awal yang setara dengan baseline",
+          "preconditionIndex": 1
+        },
+        {
+          "keyword": "When",
+          "text": "user menjalankan alur Deposit Agen valid sesuai urutan tindakan baseline",
+          "unresolvedStepId": "baseline-operation"
+        },
+        {
+          "keyword": "Then",
+          "text": "hasil alur Deposit Agen valid tetap sesuai hasil dan ketentuan baseline",
+          "structuredStepIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "RO314-PENYESUAIN-REGISTRASI-AGEN-NEG-001",
+      "title": "Registrasi tidak ditolak oleh validasi Jaminan Agen yang tertinggal",
+      "category": "negative",
+      "priority": "high",
+      "requirement": "REQ-001",
+      "screen": "tambah-agen",
+      "preconditions": [
+        "user Kantor Cabang memiliki akses sah ke Relasi Agen sesuai spesifikasi",
+        "data selain jaminan, seluruh prasyarat registrasi, operasi submit, dan bukti keberhasilan telah diverifikasi valid"
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Tambah Agen",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Validasi wajib Jaminan Agen",
+          "value": "sistem tidak menolak registrasi karena nominal Jaminan Agen tidak diisi",
+          "assertion": "absent"
+        },
+        {
+          "action": "expect",
+          "target": "Hasil registrasi valid",
+          "value": "registrasi berhasil menurut bukti keberhasilan yang telah diverifikasi untuk data dan prasyarat valid",
+          "assertion": "matches-baseline"
+        }
+      ],
+      "expected": [
+        "sistem tidak menolak registrasi karena nominal Jaminan Agen tidak diisi",
+        "registrasi berhasil menurut bukti keberhasilan yang telah diverifikasi untuk data dan prasyarat valid"
+      ],
+      "testData": {
+        "fixtureRef": null,
+        "baselineRef": "registrasi-valid-tanpa-jaminan",
+        "literalValues": {},
+        "note": "Ref adalah kebutuhan fixture/baseline, bukan berkas atau data yang sudah tersedia."
+      },
+      "selectorHints": {
+        "Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null,
+          "labelText": "Jaminan Agen",
+          "evidence": "Label teks dari spec; bukan ARIA name yang telah diverifikasi."
+        },
+        "Validasi wajib Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        },
+        "Hasil registrasi valid": {
+          "role": null,
+          "name": null,
+          "testid": null
+        }
+      },
+      "sourceRefs": [
+        {
+          "file": "inputs/ro314-penyesuain-registrasi-agen/spec.txt",
+          "lines": [
+            1,
+            2
+          ]
+        }
+      ],
+      "testFocus": "Regresi negatif: larangan validasi wajib jaminan yang sudah dihapus; bukan input nominal invalid buatan.",
+      "automation": {
+        "readiness": "blocked",
+        "blockers": [
+          "GAP-02",
+          "GAP-06",
+          "GAP-12",
+          "GAP-03"
+        ],
+        "reason": "Detail implementasi atau fixture/baseline belum tersedia; jangan menerjemahkan placeholder menjadi selector/tindakan karangan."
+      },
+      "unresolvedSteps": [
+        {
+          "id": "baseline-operation",
+          "instruction": "user menjalankan registrasi dengan data dan prasyarat valid yang telah diverifikasi tanpa mengisi Jaminan Agen",
+          "reason": "Urutan tindakan, field, kontrol, data, dan hasil baseline belum tersedia.",
+          "gapIds": [
+            "GAP-03"
+          ],
+          "insertAfterStructuredStepIndex": 0
+        }
+      ],
+      "gherkinSteps": [
+        {
+          "keyword": "Given",
+          "text": "user Kantor Cabang memiliki akses sah ke Relasi Agen sesuai spesifikasi",
+          "preconditionIndex": 0
+        },
+        {
+          "keyword": "And",
+          "text": "data selain jaminan, seluruh prasyarat registrasi, operasi submit, dan bukti keberhasilan telah diverifikasi valid",
+          "preconditionIndex": 1
+        },
+        {
+          "keyword": "Given",
+          "text": "user berada di halaman \"Tambah Agen\"",
+          "structuredStepIndex": 0
+        },
+        {
+          "keyword": "When",
+          "text": "user menjalankan registrasi dengan data dan prasyarat valid yang telah diverifikasi tanpa mengisi Jaminan Agen",
+          "unresolvedStepId": "baseline-operation"
+        },
+        {
+          "keyword": "Then",
+          "text": "sistem tidak menolak registrasi karena nominal Jaminan Agen tidak diisi",
+          "structuredStepIndex": 1
+        },
+        {
+          "keyword": "And",
+          "text": "registrasi berhasil menurut bukti keberhasilan yang telah diverifikasi untuk data dan prasyarat valid",
+          "structuredStepIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "RO314-PENYESUAIN-REGISTRASI-AGEN-NEG-002",
+      "title": "Nominal jaminan lama tidak bocor pada Detail Agen",
+      "category": "negative",
+      "priority": "high",
+      "requirement": "REQ-002",
+      "screen": "detail-agen",
+      "preconditions": [
+        "user Kantor Cabang memiliki akses sah ke Relasi Agen sesuai spesifikasi",
+        "fixture agen lama dengan nominal Jaminan Agen nonnol yang dikenali dari baseline telah tersedia"
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Detail Agen",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Halaman selesai menampilkan data",
+          "value": "Indikator selesai memuat data yang dibuktikan implementasi",
+          "assertion": "ready"
+        },
+        {
+          "action": "expect",
+          "target": "Nilai historis Jaminan Agen",
+          "value": "sistem tidak menampilkan nominal historis sebagai informasi jaminan, termasuk nominal yang tampil tanpa label",
+          "assertion": "absent"
+        },
+        {
+          "action": "expect",
+          "target": "Informasi Jaminan Agen",
+          "value": "sistem tidak menampilkan informasi \"Jaminan Agen\" beserta nominal atau datanya",
+          "assertion": "absent"
+        }
+      ],
+      "expected": [
+        "sistem tidak menampilkan nominal historis sebagai informasi jaminan, termasuk nominal yang tampil tanpa label",
+        "sistem tidak menampilkan informasi \"Jaminan Agen\" beserta nominal atau datanya"
+      ],
+      "testData": {
+        "fixtureRef": "agen-historis-jaminan-nonnol",
+        "baselineRef": null,
+        "literalValues": {},
+        "note": "Ref adalah kebutuhan fixture/baseline, bukan berkas atau data yang sudah tersedia."
+      },
+      "selectorHints": {
+        "Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null,
+          "labelText": "Jaminan Agen",
+          "evidence": "Label teks dari spec; bukan ARIA name yang telah diverifikasi."
+        },
+        "Nilai historis Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        },
+        "Informasi Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        }
+      },
+      "sourceRefs": [
+        {
+          "file": "inputs/ro314-penyesuain-registrasi-agen/spec.txt",
+          "lines": [
+            3
+          ]
+        }
+      ],
+      "testFocus": "Mendeteksi kebocoran data historis walau label sudah hilang; jangan melarang angka yang sama pada konteks deposit.",
+      "automation": {
+        "readiness": "blocked",
+        "blockers": [
+          "GAP-02",
+          "GAP-06",
+          "GAP-12",
+          "GAP-05"
+        ],
+        "reason": "Detail implementasi atau fixture/baseline belum tersedia; jangan menerjemahkan placeholder menjadi selector/tindakan karangan."
+      },
+      "unresolvedSteps": [],
+      "gherkinSteps": [
+        {
+          "keyword": "Given",
+          "text": "user Kantor Cabang memiliki akses sah ke Relasi Agen sesuai spesifikasi",
+          "preconditionIndex": 0
+        },
+        {
+          "keyword": "And",
+          "text": "fixture agen lama dengan nominal Jaminan Agen nonnol yang dikenali dari baseline telah tersedia",
+          "preconditionIndex": 1
+        },
+        {
+          "keyword": "Given",
+          "text": "user berada di halaman \"Detail Agen\"",
+          "structuredStepIndex": 0
+        },
+        {
+          "keyword": "When",
+          "text": "halaman selesai menampilkan data menurut indikator implementasi yang telah diverifikasi",
+          "structuredStepIndex": 1
+        },
+        {
+          "keyword": "Then",
+          "text": "sistem tidak menampilkan nominal historis sebagai informasi jaminan, termasuk nominal yang tampil tanpa label",
+          "structuredStepIndex": 2
+        },
+        {
+          "keyword": "And",
+          "text": "sistem tidak menampilkan informasi \"Jaminan Agen\" beserta nominal atau datanya",
+          "structuredStepIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "RO314-PENYESUAIN-REGISTRASI-AGEN-NEG-003",
+      "title": "Agen lama tidak memperoleh kontrol untuk mengubah jaminan",
+      "category": "negative",
+      "priority": "high",
+      "requirement": "REQ-003",
+      "screen": "edit-agen",
+      "preconditions": [
+        "user Kantor Cabang memiliki akses sah ke Relasi Agen sesuai spesifikasi",
+        "fixture agen lama dengan nominal Jaminan Agen nonnol yang dikenali dari baseline telah tersedia"
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Edit Agen",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Halaman selesai menampilkan data",
+          "value": "Indikator selesai memuat data yang dibuktikan implementasi",
+          "assertion": "ready"
+        },
+        {
+          "action": "expect",
+          "target": "Kontrol tambah atau ubah Jaminan Agen",
+          "value": "user tidak memiliki kontrol UI untuk menambahkan atau mengubah \"Jaminan Agen\"",
+          "assertion": "unavailable"
+        },
+        {
+          "action": "expect",
+          "target": "Field Jaminan Agen",
+          "value": "sistem tidak menampilkan label dan kontrol input \"Jaminan Agen\"",
+          "assertion": "absent"
+        }
+      ],
+      "expected": [
+        "user tidak memiliki kontrol UI untuk menambahkan atau mengubah \"Jaminan Agen\"",
+        "sistem tidak menampilkan label dan kontrol input \"Jaminan Agen\""
+      ],
+      "testData": {
+        "fixtureRef": "agen-historis-jaminan-nonnol",
+        "baselineRef": null,
+        "literalValues": {},
+        "note": "Ref adalah kebutuhan fixture/baseline, bukan berkas atau data yang sudah tersedia."
+      },
+      "selectorHints": {
+        "Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null,
+          "labelText": "Jaminan Agen",
+          "evidence": "Label teks dari spec; bukan ARIA name yang telah diverifikasi."
+        },
+        "Kontrol tambah atau ubah Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        },
+        "Field Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        }
+      },
+      "sourceRefs": [
+        {
+          "file": "inputs/ro314-penyesuain-registrasi-agen/spec.txt",
+          "lines": [
+            4
+          ]
+        }
+      ],
+      "testFocus": "Regresi negatif: data lama tidak boleh memunculkan kembali kontrol jaminan pada Edit Agen. Tidak mengirim payload API.",
+      "automation": {
+        "readiness": "blocked",
+        "blockers": [
+          "GAP-02",
+          "GAP-06",
+          "GAP-12",
+          "GAP-05"
+        ],
+        "reason": "Detail implementasi atau fixture/baseline belum tersedia; jangan menerjemahkan placeholder menjadi selector/tindakan karangan."
+      },
+      "unresolvedSteps": [],
+      "gherkinSteps": [
+        {
+          "keyword": "Given",
+          "text": "user Kantor Cabang memiliki akses sah ke Relasi Agen sesuai spesifikasi",
+          "preconditionIndex": 0
+        },
+        {
+          "keyword": "And",
+          "text": "fixture agen lama dengan nominal Jaminan Agen nonnol yang dikenali dari baseline telah tersedia",
+          "preconditionIndex": 1
+        },
+        {
+          "keyword": "Given",
+          "text": "user berada di halaman \"Edit Agen\"",
+          "structuredStepIndex": 0
+        },
+        {
+          "keyword": "When",
+          "text": "halaman selesai menampilkan data menurut indikator implementasi yang telah diverifikasi",
+          "structuredStepIndex": 1
+        },
+        {
+          "keyword": "Then",
+          "text": "user tidak memiliki kontrol UI untuk menambahkan atau mengubah \"Jaminan Agen\"",
+          "structuredStepIndex": 2
+        },
+        {
+          "keyword": "And",
+          "text": "sistem tidak menampilkan label dan kontrol input \"Jaminan Agen\"",
+          "structuredStepIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "RO314-PENYESUAIN-REGISTRASI-AGEN-NEG-004",
+      "title": "Nominal jaminan lama tidak bocor pada Akun Saya",
+      "category": "negative",
+      "priority": "high",
+      "requirement": "REQ-004",
+      "screen": "akun-saya",
+      "preconditions": [
+        "user Agen memiliki akses sah ke Akun Saya sesuai spesifikasi",
+        "fixture agen lama dengan nominal Jaminan Agen nonnol yang dikenali dari baseline telah tersedia",
+        "akun user Agen telah dipetakan ke fixture historis tersebut"
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Akun Saya",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Halaman selesai menampilkan data",
+          "value": "Indikator selesai memuat data yang dibuktikan implementasi",
+          "assertion": "ready"
+        },
+        {
+          "action": "expect",
+          "target": "Nilai historis Jaminan Agen",
+          "value": "sistem tidak menampilkan nominal historis sebagai informasi jaminan, termasuk nominal yang tampil tanpa label",
+          "assertion": "absent"
+        },
+        {
+          "action": "expect",
+          "target": "Informasi Jaminan Agen",
+          "value": "sistem tidak menampilkan informasi \"Jaminan Agen\" beserta nominal atau datanya",
+          "assertion": "absent"
+        }
+      ],
+      "expected": [
+        "sistem tidak menampilkan nominal historis sebagai informasi jaminan, termasuk nominal yang tampil tanpa label",
+        "sistem tidak menampilkan informasi \"Jaminan Agen\" beserta nominal atau datanya"
+      ],
+      "testData": {
+        "fixtureRef": "akun-agen-historis-jaminan-nonnol",
+        "baselineRef": null,
+        "literalValues": {},
+        "note": "Ref adalah kebutuhan fixture/baseline, bukan berkas atau data yang sudah tersedia."
+      },
+      "selectorHints": {
+        "Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null,
+          "labelText": "Jaminan Agen",
+          "evidence": "Label teks dari spec; bukan ARIA name yang telah diverifikasi."
+        },
+        "Nilai historis Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        },
+        "Informasi Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        }
+      },
+      "sourceRefs": [
+        {
+          "file": "inputs/ro314-penyesuain-registrasi-agen/spec.txt",
+          "lines": [
+            5
+          ]
+        }
+      ],
+      "testFocus": "Mendeteksi kebocoran nominal lama kepada pemilik akun; tanpa membuat aturan akses akun lain.",
+      "automation": {
+        "readiness": "blocked",
+        "blockers": [
+          "GAP-02",
+          "GAP-06",
+          "GAP-12",
+          "GAP-05"
+        ],
+        "reason": "Detail implementasi atau fixture/baseline belum tersedia; jangan menerjemahkan placeholder menjadi selector/tindakan karangan."
+      },
+      "unresolvedSteps": [],
+      "gherkinSteps": [
+        {
+          "keyword": "Given",
+          "text": "user Agen memiliki akses sah ke Akun Saya sesuai spesifikasi",
+          "preconditionIndex": 0
+        },
+        {
+          "keyword": "And",
+          "text": "fixture agen lama dengan nominal Jaminan Agen nonnol yang dikenali dari baseline telah tersedia",
+          "preconditionIndex": 1
+        },
+        {
+          "keyword": "And",
+          "text": "akun user Agen telah dipetakan ke fixture historis tersebut",
+          "preconditionIndex": 2
+        },
+        {
+          "keyword": "Given",
+          "text": "user berada di halaman \"Akun Saya\"",
+          "structuredStepIndex": 0
+        },
+        {
+          "keyword": "When",
+          "text": "halaman selesai menampilkan data menurut indikator implementasi yang telah diverifikasi",
+          "structuredStepIndex": 1
+        },
+        {
+          "keyword": "Then",
+          "text": "sistem tidak menampilkan nominal historis sebagai informasi jaminan, termasuk nominal yang tampil tanpa label",
+          "structuredStepIndex": 2
+        },
+        {
+          "keyword": "And",
+          "text": "sistem tidak menampilkan informasi \"Jaminan Agen\" beserta nominal atau datanya",
+          "structuredStepIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "RO314-PENYESUAIN-REGISTRASI-AGEN-NEG-005",
+      "title": "Alur Deposit Agen invalid tetap mengikuti penolakan baseline",
+      "category": "negative",
+      "priority": "high",
+      "requirement": "REQ-005",
+      "screen": "deposit-agen",
+      "preconditions": [
+        "aktor, layar, data atau kondisi invalid, tindakan, dan hasil penolakan deposit telah dibuktikan pada baseline",
+        "lingkungan uji sesudah perubahan memakai kondisi awal yang setara dengan baseline"
+      ],
+      "steps": [
+        {
+          "action": "expect",
+          "target": "Hasil penolakan Deposit Agen",
+          "value": "alur Deposit Agen invalid tetap mengikuti penolakan dan ketentuan baseline",
+          "assertion": "matches-baseline"
+        }
+      ],
+      "expected": [
+        "alur Deposit Agen invalid tetap mengikuti penolakan dan ketentuan baseline"
+      ],
+      "testData": {
+        "fixtureRef": null,
+        "baselineRef": "deposit-invalid-dengan-oracle-penolakan",
+        "literalValues": {},
+        "note": "Ref adalah kebutuhan fixture/baseline, bukan berkas atau data yang sudah tersedia."
+      },
+      "selectorHints": {
+        "Hasil penolakan Deposit Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        }
+      },
+      "sourceRefs": [
+        {
+          "file": "inputs/ro314-penyesuain-registrasi-agen/spec.txt",
+          "lines": [
+            6
+          ]
+        }
+      ],
+      "testFocus": "Validasi deposit lama dipertahankan; tidak mengarang jenis invalid, rentang nominal, atau pesan penolakan.",
+      "automation": {
+        "readiness": "blocked",
+        "blockers": [
+          "GAP-07"
+        ],
+        "reason": "Detail implementasi atau fixture/baseline belum tersedia; jangan menerjemahkan placeholder menjadi selector/tindakan karangan."
+      },
+      "unresolvedSteps": [
+        {
+          "id": "baseline-operation",
+          "instruction": "user menjalankan alur Deposit Agen invalid yang telah dibuktikan pada baseline",
+          "reason": "Aktor, layar, urutan tindakan, data, dan oracle Deposit Agen belum tersedia.",
+          "gapIds": [
+            "GAP-07"
+          ],
+          "insertAfterStructuredStepIndex": null
+        }
+      ],
+      "gherkinSteps": [
+        {
+          "keyword": "Given",
+          "text": "aktor, layar, data atau kondisi invalid, tindakan, dan hasil penolakan deposit telah dibuktikan pada baseline",
+          "preconditionIndex": 0
+        },
+        {
+          "keyword": "And",
+          "text": "lingkungan uji sesudah perubahan memakai kondisi awal yang setara dengan baseline",
+          "preconditionIndex": 1
+        },
+        {
+          "keyword": "When",
+          "text": "user menjalankan alur Deposit Agen invalid yang telah dibuktikan pada baseline",
+          "unresolvedStepId": "baseline-operation"
+        },
+        {
+          "keyword": "Then",
+          "text": "alur Deposit Agen invalid tetap mengikuti penolakan dan ketentuan baseline",
+          "structuredStepIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "RO314-PENYESUAIN-REGISTRASI-AGEN-EDG-001",
+      "title": "Jaminan bernilai nol tetap dihapus pada Detail Agen",
+      "category": "edge",
+      "priority": "medium",
+      "requirement": "REQ-002",
+      "screen": "detail-agen",
+      "preconditions": [
+        "user Kantor Cabang memiliki akses sah ke Relasi Agen sesuai spesifikasi",
+        "fixture historis dengan nilai Jaminan Agen nol telah diverifikasi sah dan tersedia pada baseline"
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Detail Agen",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Halaman selesai menampilkan data",
+          "value": "Indikator selesai memuat data yang dibuktikan implementasi",
+          "assertion": "ready"
+        },
+        {
+          "action": "expect",
+          "target": "Informasi Jaminan Agen",
+          "value": "sistem tidak menampilkan informasi \"Jaminan Agen\" beserta nominal atau datanya",
+          "assertion": "absent"
+        },
+        {
+          "action": "expect",
+          "target": "Nilai nol Jaminan Agen",
+          "value": "sistem tidak menampilkan nilai nol sebagai informasi Jaminan Agen",
+          "assertion": "absent"
+        }
+      ],
+      "expected": [
+        "sistem tidak menampilkan informasi \"Jaminan Agen\" beserta nominal atau datanya",
+        "sistem tidak menampilkan nilai nol sebagai informasi Jaminan Agen"
+      ],
+      "testData": {
+        "fixtureRef": "agen-historis-jaminan-nol",
+        "baselineRef": null,
+        "literalValues": {},
+        "note": "Ref adalah kebutuhan fixture/baseline, bukan berkas atau data yang sudah tersedia."
+      },
+      "selectorHints": {
+        "Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null,
+          "labelText": "Jaminan Agen",
+          "evidence": "Label teks dari spec; bukan ARIA name yang telah diverifikasi."
+        },
+        "Informasi Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        },
+        "Nilai nol Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        }
+      },
+      "sourceRefs": [
+        {
+          "file": "inputs/ro314-penyesuain-registrasi-agen/spec.txt",
+          "lines": [
+            3
+          ]
+        }
+      ],
+      "testFocus": "Boundary fixture historis nol; tidak mengasumsikan nilai nol valid untuk input aplikasi baru.",
+      "automation": {
+        "readiness": "blocked",
+        "blockers": [
+          "GAP-02",
+          "GAP-06",
+          "GAP-12",
+          "GAP-05"
+        ],
+        "reason": "Detail implementasi atau fixture/baseline belum tersedia; jangan menerjemahkan placeholder menjadi selector/tindakan karangan."
+      },
+      "unresolvedSteps": [],
+      "gherkinSteps": [
+        {
+          "keyword": "Given",
+          "text": "user Kantor Cabang memiliki akses sah ke Relasi Agen sesuai spesifikasi",
+          "preconditionIndex": 0
+        },
+        {
+          "keyword": "And",
+          "text": "fixture historis dengan nilai Jaminan Agen nol telah diverifikasi sah dan tersedia pada baseline",
+          "preconditionIndex": 1
+        },
+        {
+          "keyword": "Given",
+          "text": "user berada di halaman \"Detail Agen\"",
+          "structuredStepIndex": 0
+        },
+        {
+          "keyword": "When",
+          "text": "halaman selesai menampilkan data menurut indikator implementasi yang telah diverifikasi",
+          "structuredStepIndex": 1
+        },
+        {
+          "keyword": "Then",
+          "text": "sistem tidak menampilkan informasi \"Jaminan Agen\" beserta nominal atau datanya",
+          "structuredStepIndex": 2
+        },
+        {
+          "keyword": "And",
+          "text": "sistem tidak menampilkan nilai nol sebagai informasi Jaminan Agen",
+          "structuredStepIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "RO314-PENYESUAIN-REGISTRASI-AGEN-EDG-002",
+      "title": "Jaminan bernilai nol tetap dihapus pada Akun Saya",
+      "category": "edge",
+      "priority": "medium",
+      "requirement": "REQ-004",
+      "screen": "akun-saya",
+      "preconditions": [
+        "user Agen memiliki akses sah ke Akun Saya sesuai spesifikasi",
+        "fixture historis dengan nilai Jaminan Agen nol telah diverifikasi sah dan tersedia pada baseline",
+        "akun user Agen telah dipetakan ke fixture historis tersebut"
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Akun Saya",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Halaman selesai menampilkan data",
+          "value": "Indikator selesai memuat data yang dibuktikan implementasi",
+          "assertion": "ready"
+        },
+        {
+          "action": "expect",
+          "target": "Informasi Jaminan Agen",
+          "value": "sistem tidak menampilkan informasi \"Jaminan Agen\" beserta nominal atau datanya",
+          "assertion": "absent"
+        },
+        {
+          "action": "expect",
+          "target": "Nilai nol Jaminan Agen",
+          "value": "sistem tidak menampilkan nilai nol sebagai informasi Jaminan Agen",
+          "assertion": "absent"
+        }
+      ],
+      "expected": [
+        "sistem tidak menampilkan informasi \"Jaminan Agen\" beserta nominal atau datanya",
+        "sistem tidak menampilkan nilai nol sebagai informasi Jaminan Agen"
+      ],
+      "testData": {
+        "fixtureRef": "akun-agen-historis-jaminan-nol",
+        "baselineRef": null,
+        "literalValues": {},
+        "note": "Ref adalah kebutuhan fixture/baseline, bukan berkas atau data yang sudah tersedia."
+      },
+      "selectorHints": {
+        "Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null,
+          "labelText": "Jaminan Agen",
+          "evidence": "Label teks dari spec; bukan ARIA name yang telah diverifikasi."
+        },
+        "Informasi Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        },
+        "Nilai nol Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        }
+      },
+      "sourceRefs": [
+        {
+          "file": "inputs/ro314-penyesuain-registrasi-agen/spec.txt",
+          "lines": [
+            5
+          ]
+        }
+      ],
+      "testFocus": "Boundary fixture historis nol; tidak mengasumsikan nilai nol valid untuk input aplikasi baru.",
+      "automation": {
+        "readiness": "blocked",
+        "blockers": [
+          "GAP-02",
+          "GAP-06",
+          "GAP-12",
+          "GAP-05"
+        ],
+        "reason": "Detail implementasi atau fixture/baseline belum tersedia; jangan menerjemahkan placeholder menjadi selector/tindakan karangan."
+      },
+      "unresolvedSteps": [],
+      "gherkinSteps": [
+        {
+          "keyword": "Given",
+          "text": "user Agen memiliki akses sah ke Akun Saya sesuai spesifikasi",
+          "preconditionIndex": 0
+        },
+        {
+          "keyword": "And",
+          "text": "fixture historis dengan nilai Jaminan Agen nol telah diverifikasi sah dan tersedia pada baseline",
+          "preconditionIndex": 1
+        },
+        {
+          "keyword": "And",
+          "text": "akun user Agen telah dipetakan ke fixture historis tersebut",
+          "preconditionIndex": 2
+        },
+        {
+          "keyword": "Given",
+          "text": "user berada di halaman \"Akun Saya\"",
+          "structuredStepIndex": 0
+        },
+        {
+          "keyword": "When",
+          "text": "halaman selesai menampilkan data menurut indikator implementasi yang telah diverifikasi",
+          "structuredStepIndex": 1
+        },
+        {
+          "keyword": "Then",
+          "text": "sistem tidak menampilkan informasi \"Jaminan Agen\" beserta nominal atau datanya",
+          "structuredStepIndex": 2
+        },
+        {
+          "keyword": "And",
+          "text": "sistem tidak menampilkan nilai nol sebagai informasi Jaminan Agen",
+          "structuredStepIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "RO314-PENYESUAIN-REGISTRASI-AGEN-EDG-003",
+      "title": "Jaminan bernilai nol tetap dihapus pada Edit Agen",
+      "category": "edge",
+      "priority": "medium",
+      "requirement": "REQ-003",
+      "screen": "edit-agen",
+      "preconditions": [
+        "user Kantor Cabang memiliki akses sah ke Relasi Agen sesuai spesifikasi",
+        "fixture historis dengan nilai Jaminan Agen nol telah diverifikasi sah dan tersedia pada baseline"
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Edit Agen",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Halaman selesai menampilkan data",
+          "value": "Indikator selesai memuat data yang dibuktikan implementasi",
+          "assertion": "ready"
+        },
+        {
+          "action": "expect",
+          "target": "Field Jaminan Agen",
+          "value": "sistem tidak menampilkan label dan kontrol input \"Jaminan Agen\"",
+          "assertion": "absent"
+        },
+        {
+          "action": "expect",
+          "target": "Kontrol tambah atau ubah Jaminan Agen",
+          "value": "user tidak memiliki kontrol UI untuk menambahkan atau mengubah \"Jaminan Agen\"",
+          "assertion": "unavailable"
+        }
+      ],
+      "expected": [
+        "sistem tidak menampilkan label dan kontrol input \"Jaminan Agen\"",
+        "user tidak memiliki kontrol UI untuk menambahkan atau mengubah \"Jaminan Agen\""
+      ],
+      "testData": {
+        "fixtureRef": "agen-historis-jaminan-nol",
+        "baselineRef": null,
+        "literalValues": {},
+        "note": "Ref adalah kebutuhan fixture/baseline, bukan berkas atau data yang sudah tersedia."
+      },
+      "selectorHints": {
+        "Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null,
+          "labelText": "Jaminan Agen",
+          "evidence": "Label teks dari spec; bukan ARIA name yang telah diverifikasi."
+        },
+        "Field Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        },
+        "Kontrol tambah atau ubah Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        }
+      },
+      "sourceRefs": [
+        {
+          "file": "inputs/ro314-penyesuain-registrasi-agen/spec.txt",
+          "lines": [
+            4
+          ]
+        }
+      ],
+      "testFocus": "Boundary fixture historis nol; tidak mengasumsikan nilai nol valid untuk input aplikasi baru.",
+      "automation": {
+        "readiness": "blocked",
+        "blockers": [
+          "GAP-02",
+          "GAP-06",
+          "GAP-12",
+          "GAP-05"
+        ],
+        "reason": "Detail implementasi atau fixture/baseline belum tersedia; jangan menerjemahkan placeholder menjadi selector/tindakan karangan."
+      },
+      "unresolvedSteps": [],
+      "gherkinSteps": [
+        {
+          "keyword": "Given",
+          "text": "user Kantor Cabang memiliki akses sah ke Relasi Agen sesuai spesifikasi",
+          "preconditionIndex": 0
+        },
+        {
+          "keyword": "And",
+          "text": "fixture historis dengan nilai Jaminan Agen nol telah diverifikasi sah dan tersedia pada baseline",
+          "preconditionIndex": 1
+        },
+        {
+          "keyword": "Given",
+          "text": "user berada di halaman \"Edit Agen\"",
+          "structuredStepIndex": 0
+        },
+        {
+          "keyword": "When",
+          "text": "halaman selesai menampilkan data menurut indikator implementasi yang telah diverifikasi",
+          "structuredStepIndex": 1
+        },
+        {
+          "keyword": "Then",
+          "text": "sistem tidak menampilkan label dan kontrol input \"Jaminan Agen\"",
+          "structuredStepIndex": 2
+        },
+        {
+          "keyword": "And",
+          "text": "user tidak memiliki kontrol UI untuk menambahkan atau mengubah \"Jaminan Agen\"",
+          "structuredStepIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "RO314-PENYESUAIN-REGISTRASI-AGEN-EDG-004",
+      "title": "Jaminan kosong tidak menyisakan label atau placeholder pada Detail Agen",
+      "category": "edge",
+      "priority": "medium",
+      "requirement": "REQ-002",
+      "screen": "detail-agen",
+      "preconditions": [
+        "user Kantor Cabang memiliki akses sah ke Relasi Agen sesuai spesifikasi",
+        "fixture historis dengan data Jaminan Agen kosong telah diverifikasi sah dan tersedia pada baseline"
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Detail Agen",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Halaman selesai menampilkan data",
+          "value": "Indikator selesai memuat data yang dibuktikan implementasi",
+          "assertion": "ready"
+        },
+        {
+          "action": "expect",
+          "target": "Informasi Jaminan Agen",
+          "value": "sistem tidak menampilkan informasi \"Jaminan Agen\" beserta nominal atau datanya",
+          "assertion": "absent"
+        },
+        {
+          "action": "expect",
+          "target": "Placeholder informasi Jaminan Agen",
+          "value": "sistem tidak menampilkan label atau placeholder yang merepresentasikan informasi Jaminan Agen kosong",
+          "assertion": "absent"
+        }
+      ],
+      "expected": [
+        "sistem tidak menampilkan informasi \"Jaminan Agen\" beserta nominal atau datanya",
+        "sistem tidak menampilkan label atau placeholder yang merepresentasikan informasi Jaminan Agen kosong"
+      ],
+      "testData": {
+        "fixtureRef": "agen-historis-jaminan-kosong",
+        "baselineRef": null,
+        "literalValues": {},
+        "note": "Ref adalah kebutuhan fixture/baseline, bukan berkas atau data yang sudah tersedia."
+      },
+      "selectorHints": {
+        "Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null,
+          "labelText": "Jaminan Agen",
+          "evidence": "Label teks dari spec; bukan ARIA name yang telah diverifikasi."
+        },
+        "Informasi Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        },
+        "Placeholder informasi Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        }
+      },
+      "sourceRefs": [
+        {
+          "file": "inputs/ro314-penyesuain-registrasi-agen/spec.txt",
+          "lines": [
+            3
+          ]
+        }
+      ],
+      "testFocus": "Data kosong menguji sisa bagian informasi; tidak mengarang karakter placeholder seperti tanda hubung.",
+      "automation": {
+        "readiness": "blocked",
+        "blockers": [
+          "GAP-02",
+          "GAP-06",
+          "GAP-12",
+          "GAP-05"
+        ],
+        "reason": "Detail implementasi atau fixture/baseline belum tersedia; jangan menerjemahkan placeholder menjadi selector/tindakan karangan."
+      },
+      "unresolvedSteps": [],
+      "gherkinSteps": [
+        {
+          "keyword": "Given",
+          "text": "user Kantor Cabang memiliki akses sah ke Relasi Agen sesuai spesifikasi",
+          "preconditionIndex": 0
+        },
+        {
+          "keyword": "And",
+          "text": "fixture historis dengan data Jaminan Agen kosong telah diverifikasi sah dan tersedia pada baseline",
+          "preconditionIndex": 1
+        },
+        {
+          "keyword": "Given",
+          "text": "user berada di halaman \"Detail Agen\"",
+          "structuredStepIndex": 0
+        },
+        {
+          "keyword": "When",
+          "text": "halaman selesai menampilkan data menurut indikator implementasi yang telah diverifikasi",
+          "structuredStepIndex": 1
+        },
+        {
+          "keyword": "Then",
+          "text": "sistem tidak menampilkan informasi \"Jaminan Agen\" beserta nominal atau datanya",
+          "structuredStepIndex": 2
+        },
+        {
+          "keyword": "And",
+          "text": "sistem tidak menampilkan label atau placeholder yang merepresentasikan informasi Jaminan Agen kosong",
+          "structuredStepIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "RO314-PENYESUAIN-REGISTRASI-AGEN-EDG-005",
+      "title": "Jaminan kosong tidak menyisakan label atau placeholder pada Akun Saya",
+      "category": "edge",
+      "priority": "medium",
+      "requirement": "REQ-004",
+      "screen": "akun-saya",
+      "preconditions": [
+        "user Agen memiliki akses sah ke Akun Saya sesuai spesifikasi",
+        "fixture historis dengan data Jaminan Agen kosong telah diverifikasi sah dan tersedia pada baseline",
+        "akun user Agen telah dipetakan ke fixture historis tersebut"
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Akun Saya",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Halaman selesai menampilkan data",
+          "value": "Indikator selesai memuat data yang dibuktikan implementasi",
+          "assertion": "ready"
+        },
+        {
+          "action": "expect",
+          "target": "Informasi Jaminan Agen",
+          "value": "sistem tidak menampilkan informasi \"Jaminan Agen\" beserta nominal atau datanya",
+          "assertion": "absent"
+        },
+        {
+          "action": "expect",
+          "target": "Placeholder informasi Jaminan Agen",
+          "value": "sistem tidak menampilkan label atau placeholder yang merepresentasikan informasi Jaminan Agen kosong",
+          "assertion": "absent"
+        }
+      ],
+      "expected": [
+        "sistem tidak menampilkan informasi \"Jaminan Agen\" beserta nominal atau datanya",
+        "sistem tidak menampilkan label atau placeholder yang merepresentasikan informasi Jaminan Agen kosong"
+      ],
+      "testData": {
+        "fixtureRef": "akun-agen-historis-jaminan-kosong",
+        "baselineRef": null,
+        "literalValues": {},
+        "note": "Ref adalah kebutuhan fixture/baseline, bukan berkas atau data yang sudah tersedia."
+      },
+      "selectorHints": {
+        "Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null,
+          "labelText": "Jaminan Agen",
+          "evidence": "Label teks dari spec; bukan ARIA name yang telah diverifikasi."
+        },
+        "Informasi Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        },
+        "Placeholder informasi Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        }
+      },
+      "sourceRefs": [
+        {
+          "file": "inputs/ro314-penyesuain-registrasi-agen/spec.txt",
+          "lines": [
+            5
+          ]
+        }
+      ],
+      "testFocus": "Data kosong menguji sisa bagian informasi; tidak mengarang karakter placeholder seperti tanda hubung.",
+      "automation": {
+        "readiness": "blocked",
+        "blockers": [
+          "GAP-02",
+          "GAP-06",
+          "GAP-12",
+          "GAP-05"
+        ],
+        "reason": "Detail implementasi atau fixture/baseline belum tersedia; jangan menerjemahkan placeholder menjadi selector/tindakan karangan."
+      },
+      "unresolvedSteps": [],
+      "gherkinSteps": [
+        {
+          "keyword": "Given",
+          "text": "user Agen memiliki akses sah ke Akun Saya sesuai spesifikasi",
+          "preconditionIndex": 0
+        },
+        {
+          "keyword": "And",
+          "text": "fixture historis dengan data Jaminan Agen kosong telah diverifikasi sah dan tersedia pada baseline",
+          "preconditionIndex": 1
+        },
+        {
+          "keyword": "And",
+          "text": "akun user Agen telah dipetakan ke fixture historis tersebut",
+          "preconditionIndex": 2
+        },
+        {
+          "keyword": "Given",
+          "text": "user berada di halaman \"Akun Saya\"",
+          "structuredStepIndex": 0
+        },
+        {
+          "keyword": "When",
+          "text": "halaman selesai menampilkan data menurut indikator implementasi yang telah diverifikasi",
+          "structuredStepIndex": 1
+        },
+        {
+          "keyword": "Then",
+          "text": "sistem tidak menampilkan informasi \"Jaminan Agen\" beserta nominal atau datanya",
+          "structuredStepIndex": 2
+        },
+        {
+          "keyword": "And",
+          "text": "sistem tidak menampilkan label atau placeholder yang merepresentasikan informasi Jaminan Agen kosong",
+          "structuredStepIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "RO314-PENYESUAIN-REGISTRASI-AGEN-EDG-006",
+      "title": "Edit agen historis tidak mengaktifkan kembali field atau kewajiban jaminan",
+      "category": "edge",
+      "priority": "high",
+      "requirement": "REQ-003",
+      "screen": "edit-agen",
+      "preconditions": [
+        "user Kantor Cabang memiliki akses sah ke Relasi Agen sesuai spesifikasi",
+        "fixture agen lama dengan nominal Jaminan Agen nonnol yang dikenali dari baseline telah tersedia",
+        "field edit lain, nilai perubahan valid, operasi simpan, dan bukti hasilnya telah diverifikasi pada baseline"
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Edit Agen",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Hasil edit agen historis",
+          "value": "perubahan field lain tersimpan menurut bukti baseline tanpa memasukkan atau mengubah Jaminan Agen melalui form",
+          "assertion": "matches-baseline"
+        },
+        {
+          "action": "expect",
+          "target": "Validasi wajib Jaminan Agen",
+          "value": "sistem tidak menolak edit karena nominal Jaminan Agen tidak diisi",
+          "assertion": "absent"
+        },
+        {
+          "action": "expect",
+          "target": "Field Jaminan Agen",
+          "value": "sistem tidak menampilkan label dan kontrol input \"Jaminan Agen\"",
+          "assertion": "absent"
+        }
+      ],
+      "expected": [
+        "perubahan field lain tersimpan menurut bukti baseline tanpa memasukkan atau mengubah Jaminan Agen melalui form",
+        "sistem tidak menolak edit karena nominal Jaminan Agen tidak diisi",
+        "sistem tidak menampilkan label dan kontrol input \"Jaminan Agen\""
+      ],
+      "testData": {
+        "fixtureRef": "agen-historis-jaminan-nonnol",
+        "baselineRef": "edit-agen-historis-field-lain-valid",
+        "literalValues": {},
+        "note": "Ref adalah kebutuhan fixture/baseline, bukan berkas atau data yang sudah tersedia."
+      },
+      "selectorHints": {
+        "Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null,
+          "labelText": "Jaminan Agen",
+          "evidence": "Label teks dari spec; bukan ARIA name yang telah diverifikasi."
+        },
+        "Hasil edit agen historis": {
+          "role": null,
+          "name": null,
+          "testid": null
+        },
+        "Validasi wajib Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        },
+        "Field Jaminan Agen": {
+          "role": null,
+          "name": null,
+          "testid": null
+        }
+      },
+      "sourceRefs": [
+        {
+          "file": "inputs/ro314-penyesuain-registrasi-agen/spec.txt",
+          "lines": [
+            4
+          ]
+        }
+      ],
+      "testFocus": "Kombinasi legacy record dan operasi simpan. Tidak menilai retensi, migrasi, atau nilai database jaminan.",
+      "automation": {
+        "readiness": "blocked",
+        "blockers": [
+          "GAP-02",
+          "GAP-06",
+          "GAP-12",
+          "GAP-04",
+          "GAP-05"
+        ],
+        "reason": "Detail implementasi atau fixture/baseline belum tersedia; jangan menerjemahkan placeholder menjadi selector/tindakan karangan."
+      },
+      "unresolvedSteps": [
+        {
+          "id": "baseline-operation",
+          "instruction": "user menjalankan perubahan field lain dan operasi simpan pada agen historis sesuai baseline tanpa mengisi Jaminan Agen",
+          "reason": "Urutan tindakan, field, kontrol, data, dan hasil baseline belum tersedia.",
+          "gapIds": [
+            "GAP-04",
+            "GAP-05"
+          ],
+          "insertAfterStructuredStepIndex": 0
+        }
+      ],
+      "gherkinSteps": [
+        {
+          "keyword": "Given",
+          "text": "user Kantor Cabang memiliki akses sah ke Relasi Agen sesuai spesifikasi",
+          "preconditionIndex": 0
+        },
+        {
+          "keyword": "And",
+          "text": "fixture agen lama dengan nominal Jaminan Agen nonnol yang dikenali dari baseline telah tersedia",
+          "preconditionIndex": 1
+        },
+        {
+          "keyword": "And",
+          "text": "field edit lain, nilai perubahan valid, operasi simpan, dan bukti hasilnya telah diverifikasi pada baseline",
+          "preconditionIndex": 2
+        },
+        {
+          "keyword": "Given",
+          "text": "user berada di halaman \"Edit Agen\"",
+          "structuredStepIndex": 0
+        },
+        {
+          "keyword": "When",
+          "text": "user menjalankan perubahan field lain dan operasi simpan pada agen historis sesuai baseline tanpa mengisi Jaminan Agen",
+          "unresolvedStepId": "baseline-operation"
+        },
+        {
+          "keyword": "Then",
+          "text": "perubahan field lain tersimpan menurut bukti baseline tanpa memasukkan atau mengubah Jaminan Agen melalui form",
+          "structuredStepIndex": 1
+        },
+        {
+          "keyword": "And",
+          "text": "sistem tidak menolak edit karena nominal Jaminan Agen tidak diisi",
+          "structuredStepIndex": 2
+        },
+        {
+          "keyword": "And",
+          "text": "sistem tidak menampilkan label dan kontrol input \"Jaminan Agen\"",
+          "structuredStepIndex": 3
+        }
+      ]
+    }
+  ]
+}

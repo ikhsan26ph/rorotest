@@ -1,0 +1,1572 @@
+{
+  "summary": {
+    "total": 24,
+    "positive": 18,
+    "negative": 6,
+    "edge": 0,
+    "stress": 0
+  },
+  "source": {
+    "spec": "inputs/ro318-perubahan-warna-dokumen-roro/spec.txt",
+    "designs": [],
+    "extras": []
+  },
+  "scenarios": [
+    {
+      "id": "RO318-PERUBAHAN-WARNA-DOKUMEN-RORO-POS-001",
+      "title": "Warna identitas E-Tiket pada tampilan menjadi biru sesuai referensi yang disahkan; kode belum diberikan",
+      "category": "positive",
+      "priority": "high",
+      "requirement": "REQ-001",
+      "screen": "e-tiket",
+      "preconditions": [
+        "Tersedia dokumen E-Tiket untuk cakupan RORO yang dapat diverifikasi dari sistem aktual; fixture belum diberikan.",
+        "Mekanisme akses keluaran dan elemen aktual sudah dipetakan; belum tersedia pada input.",
+        "Daftar elemen identitas dan elemen di luar target sudah dikonfirmasi per kanal; belum tersedia pada input.",
+        "Referensi warna biru E-Tiket sudah disahkan; spesifikasi belum memberi kode warna."
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "E-Tiket - tampilan",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "E-Tiket - tampilan",
+          "value": "semua elemen identitas yang terkonfirmasi menggunakan biru sesuai referensi yang disahkan; kode belum diberikan"
+        }
+      ],
+      "expected": [
+        "E-Tiket - tampilan: semua elemen identitas yang terkonfirmasi menggunakan biru sesuai referensi yang disahkan; kode belum diberikan"
+      ],
+      "testData": {
+        "document": "E-Tiket",
+        "channels": [
+          "tampilan"
+        ],
+        "fixture": null,
+        "baseline": null,
+        "identityElementMap": null,
+        "expectedIdentityColor": null,
+        "previousIdentityColor": null
+      },
+      "selectorHints": {},
+      "automationStatus": "blocked",
+      "blockers": [
+        "GAP-001",
+        "GAP-002",
+        "GAP-005"
+      ],
+      "evidence": [
+        "S1",
+        "S2",
+        "S5"
+      ],
+      "oracle": {
+        "kind": "identity-color",
+        "expectedColor": null,
+        "referenceRequired": true,
+        "method": null
+      }
+    },
+    {
+      "id": "RO318-PERUBAHAN-WARNA-DOKUMEN-RORO-NEG-001",
+      "title": "Tidak ada warna hijau identitas lama tersisa pada tampilan E-Tiket",
+      "category": "negative",
+      "priority": "high",
+      "requirement": "REQ-001",
+      "screen": "e-tiket",
+      "preconditions": [
+        "Tersedia dokumen E-Tiket untuk cakupan RORO yang dapat diverifikasi dari sistem aktual; fixture belum diberikan.",
+        "Mekanisme akses keluaran dan elemen aktual sudah dipetakan; belum tersedia pada input.",
+        "Daftar elemen identitas dan elemen di luar target sudah dikonfirmasi per kanal; belum tersedia pada input.",
+        "Tersedia baseline sebelum perubahan serta dokumen sesudah perubahan dengan data sumber yang sama untuk setiap kanal yang diuji; baseline belum diberikan."
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "E-Tiket - tampilan",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "E-Tiket - tampilan",
+          "value": "tidak ada elemen target yang masih memakai warna hijau identitas lama berdasarkan baseline; elemen hijau di luar target tidak termasuk pemeriksaan ini"
+        }
+      ],
+      "expected": [
+        "E-Tiket - tampilan: tidak ada elemen target yang masih memakai warna hijau identitas lama berdasarkan baseline; elemen hijau di luar target tidak termasuk pemeriksaan ini"
+      ],
+      "testData": {
+        "document": "E-Tiket",
+        "channels": [
+          "tampilan"
+        ],
+        "fixture": null,
+        "baseline": null,
+        "identityElementMap": null,
+        "expectedIdentityColor": null,
+        "previousIdentityColor": null
+      },
+      "selectorHints": {},
+      "automationStatus": "blocked",
+      "blockers": [
+        "GAP-002",
+        "GAP-003",
+        "GAP-005"
+      ],
+      "evidence": [
+        "S2",
+        "S5"
+      ],
+      "oracle": {
+        "kind": "forbidden-previous-identity-color",
+        "previousColorFromBaseline": true,
+        "scope": "confirmed-identity-elements-only",
+        "method": null
+      }
+    },
+    {
+      "id": "RO318-PERUBAHAN-WARNA-DOKUMEN-RORO-POS-002",
+      "title": "Warna identitas E-Tiket pada cetakan menjadi biru sesuai referensi yang disahkan; kode belum diberikan",
+      "category": "positive",
+      "priority": "high",
+      "requirement": "REQ-001",
+      "screen": "e-tiket",
+      "preconditions": [
+        "Tersedia dokumen E-Tiket untuk cakupan RORO yang dapat diverifikasi dari sistem aktual; fixture belum diberikan.",
+        "Mekanisme akses keluaran dan elemen aktual sudah dipetakan; belum tersedia pada input.",
+        "Daftar elemen identitas dan elemen di luar target sudah dikonfirmasi per kanal; belum tersedia pada input.",
+        "Referensi warna biru E-Tiket sudah disahkan; spesifikasi belum memberi kode warna.",
+        "Metode memperoleh dan memverifikasi keluaran cetakan sudah ditetapkan; media, renderer, dan metode pembandingan belum diberikan."
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "E-Tiket - cetakan",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "E-Tiket - cetakan",
+          "value": "semua elemen identitas yang terkonfirmasi menggunakan biru sesuai referensi yang disahkan; kode belum diberikan"
+        }
+      ],
+      "expected": [
+        "E-Tiket - cetakan: semua elemen identitas yang terkonfirmasi menggunakan biru sesuai referensi yang disahkan; kode belum diberikan"
+      ],
+      "testData": {
+        "document": "E-Tiket",
+        "channels": [
+          "cetakan"
+        ],
+        "fixture": null,
+        "baseline": null,
+        "identityElementMap": null,
+        "expectedIdentityColor": null,
+        "previousIdentityColor": null
+      },
+      "selectorHints": {},
+      "automationStatus": "blocked",
+      "blockers": [
+        "GAP-001",
+        "GAP-002",
+        "GAP-004",
+        "GAP-005"
+      ],
+      "evidence": [
+        "S1",
+        "S2",
+        "S5"
+      ],
+      "oracle": {
+        "kind": "identity-color",
+        "expectedColor": null,
+        "referenceRequired": true,
+        "method": null
+      }
+    },
+    {
+      "id": "RO318-PERUBAHAN-WARNA-DOKUMEN-RORO-NEG-002",
+      "title": "Tidak ada warna hijau identitas lama tersisa pada cetakan E-Tiket",
+      "category": "negative",
+      "priority": "high",
+      "requirement": "REQ-001",
+      "screen": "e-tiket",
+      "preconditions": [
+        "Tersedia dokumen E-Tiket untuk cakupan RORO yang dapat diverifikasi dari sistem aktual; fixture belum diberikan.",
+        "Mekanisme akses keluaran dan elemen aktual sudah dipetakan; belum tersedia pada input.",
+        "Daftar elemen identitas dan elemen di luar target sudah dikonfirmasi per kanal; belum tersedia pada input.",
+        "Tersedia baseline sebelum perubahan serta dokumen sesudah perubahan dengan data sumber yang sama untuk setiap kanal yang diuji; baseline belum diberikan.",
+        "Metode memperoleh dan memverifikasi keluaran cetakan sudah ditetapkan; media, renderer, dan metode pembandingan belum diberikan."
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "E-Tiket - cetakan",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "E-Tiket - cetakan",
+          "value": "tidak ada elemen target yang masih memakai warna hijau identitas lama berdasarkan baseline; elemen hijau di luar target tidak termasuk pemeriksaan ini"
+        }
+      ],
+      "expected": [
+        "E-Tiket - cetakan: tidak ada elemen target yang masih memakai warna hijau identitas lama berdasarkan baseline; elemen hijau di luar target tidak termasuk pemeriksaan ini"
+      ],
+      "testData": {
+        "document": "E-Tiket",
+        "channels": [
+          "cetakan"
+        ],
+        "fixture": null,
+        "baseline": null,
+        "identityElementMap": null,
+        "expectedIdentityColor": null,
+        "previousIdentityColor": null
+      },
+      "selectorHints": {},
+      "automationStatus": "blocked",
+      "blockers": [
+        "GAP-002",
+        "GAP-003",
+        "GAP-004",
+        "GAP-005"
+      ],
+      "evidence": [
+        "S2",
+        "S5"
+      ],
+      "oracle": {
+        "kind": "forbidden-previous-identity-color",
+        "previousColorFromBaseline": true,
+        "scope": "confirmed-identity-elements-only",
+        "method": null
+      }
+    },
+    {
+      "id": "RO318-PERUBAHAN-WARNA-DOKUMEN-RORO-POS-003",
+      "title": "Warna identitas Kwitansi pada tampilan menjadi #002564",
+      "category": "positive",
+      "priority": "high",
+      "requirement": "REQ-002",
+      "screen": "kwitansi",
+      "preconditions": [
+        "Tersedia dokumen Kwitansi untuk cakupan RORO yang dapat diverifikasi dari sistem aktual; fixture belum diberikan.",
+        "Mekanisme akses keluaran dan elemen aktual sudah dipetakan; belum tersedia pada input.",
+        "Daftar elemen identitas dan elemen di luar target sudah dikonfirmasi per kanal; belum tersedia pada input."
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Kwitansi - tampilan",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Kwitansi - tampilan",
+          "value": "semua elemen identitas yang terkonfirmasi menggunakan #002564"
+        }
+      ],
+      "expected": [
+        "Kwitansi - tampilan: semua elemen identitas yang terkonfirmasi menggunakan #002564"
+      ],
+      "testData": {
+        "document": "Kwitansi",
+        "channels": [
+          "tampilan"
+        ],
+        "fixture": null,
+        "baseline": null,
+        "identityElementMap": null,
+        "expectedIdentityColor": "#002564",
+        "previousIdentityColor": null
+      },
+      "selectorHints": {},
+      "automationStatus": "blocked",
+      "blockers": [
+        "GAP-002",
+        "GAP-005"
+      ],
+      "evidence": [
+        "S1",
+        "S3",
+        "S5"
+      ],
+      "oracle": {
+        "kind": "identity-color",
+        "expectedColor": "#002564",
+        "referenceRequired": false,
+        "method": null
+      }
+    },
+    {
+      "id": "RO318-PERUBAHAN-WARNA-DOKUMEN-RORO-NEG-003",
+      "title": "Tidak ada warna hijau identitas lama tersisa pada tampilan Kwitansi",
+      "category": "negative",
+      "priority": "high",
+      "requirement": "REQ-002",
+      "screen": "kwitansi",
+      "preconditions": [
+        "Tersedia dokumen Kwitansi untuk cakupan RORO yang dapat diverifikasi dari sistem aktual; fixture belum diberikan.",
+        "Mekanisme akses keluaran dan elemen aktual sudah dipetakan; belum tersedia pada input.",
+        "Daftar elemen identitas dan elemen di luar target sudah dikonfirmasi per kanal; belum tersedia pada input.",
+        "Tersedia baseline sebelum perubahan serta dokumen sesudah perubahan dengan data sumber yang sama untuk setiap kanal yang diuji; baseline belum diberikan."
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Kwitansi - tampilan",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Kwitansi - tampilan",
+          "value": "tidak ada elemen target yang masih memakai warna hijau identitas lama berdasarkan baseline; elemen hijau di luar target tidak termasuk pemeriksaan ini"
+        }
+      ],
+      "expected": [
+        "Kwitansi - tampilan: tidak ada elemen target yang masih memakai warna hijau identitas lama berdasarkan baseline; elemen hijau di luar target tidak termasuk pemeriksaan ini"
+      ],
+      "testData": {
+        "document": "Kwitansi",
+        "channels": [
+          "tampilan"
+        ],
+        "fixture": null,
+        "baseline": null,
+        "identityElementMap": null,
+        "expectedIdentityColor": null,
+        "previousIdentityColor": null
+      },
+      "selectorHints": {},
+      "automationStatus": "blocked",
+      "blockers": [
+        "GAP-002",
+        "GAP-003",
+        "GAP-005"
+      ],
+      "evidence": [
+        "S3",
+        "S5"
+      ],
+      "oracle": {
+        "kind": "forbidden-previous-identity-color",
+        "previousColorFromBaseline": true,
+        "scope": "confirmed-identity-elements-only",
+        "method": null
+      }
+    },
+    {
+      "id": "RO318-PERUBAHAN-WARNA-DOKUMEN-RORO-POS-004",
+      "title": "Warna identitas Kwitansi pada cetakan menjadi #002564",
+      "category": "positive",
+      "priority": "high",
+      "requirement": "REQ-002",
+      "screen": "kwitansi",
+      "preconditions": [
+        "Tersedia dokumen Kwitansi untuk cakupan RORO yang dapat diverifikasi dari sistem aktual; fixture belum diberikan.",
+        "Mekanisme akses keluaran dan elemen aktual sudah dipetakan; belum tersedia pada input.",
+        "Daftar elemen identitas dan elemen di luar target sudah dikonfirmasi per kanal; belum tersedia pada input.",
+        "Metode memperoleh dan memverifikasi keluaran cetakan sudah ditetapkan; media, renderer, dan metode pembandingan belum diberikan."
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Kwitansi - cetakan",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Kwitansi - cetakan",
+          "value": "semua elemen identitas yang terkonfirmasi menggunakan #002564"
+        }
+      ],
+      "expected": [
+        "Kwitansi - cetakan: semua elemen identitas yang terkonfirmasi menggunakan #002564"
+      ],
+      "testData": {
+        "document": "Kwitansi",
+        "channels": [
+          "cetakan"
+        ],
+        "fixture": null,
+        "baseline": null,
+        "identityElementMap": null,
+        "expectedIdentityColor": "#002564",
+        "previousIdentityColor": null
+      },
+      "selectorHints": {},
+      "automationStatus": "blocked",
+      "blockers": [
+        "GAP-002",
+        "GAP-004",
+        "GAP-005"
+      ],
+      "evidence": [
+        "S1",
+        "S3",
+        "S5"
+      ],
+      "oracle": {
+        "kind": "identity-color",
+        "expectedColor": "#002564",
+        "referenceRequired": false,
+        "method": null
+      }
+    },
+    {
+      "id": "RO318-PERUBAHAN-WARNA-DOKUMEN-RORO-NEG-004",
+      "title": "Tidak ada warna hijau identitas lama tersisa pada cetakan Kwitansi",
+      "category": "negative",
+      "priority": "high",
+      "requirement": "REQ-002",
+      "screen": "kwitansi",
+      "preconditions": [
+        "Tersedia dokumen Kwitansi untuk cakupan RORO yang dapat diverifikasi dari sistem aktual; fixture belum diberikan.",
+        "Mekanisme akses keluaran dan elemen aktual sudah dipetakan; belum tersedia pada input.",
+        "Daftar elemen identitas dan elemen di luar target sudah dikonfirmasi per kanal; belum tersedia pada input.",
+        "Tersedia baseline sebelum perubahan serta dokumen sesudah perubahan dengan data sumber yang sama untuk setiap kanal yang diuji; baseline belum diberikan.",
+        "Metode memperoleh dan memverifikasi keluaran cetakan sudah ditetapkan; media, renderer, dan metode pembandingan belum diberikan."
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Kwitansi - cetakan",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Kwitansi - cetakan",
+          "value": "tidak ada elemen target yang masih memakai warna hijau identitas lama berdasarkan baseline; elemen hijau di luar target tidak termasuk pemeriksaan ini"
+        }
+      ],
+      "expected": [
+        "Kwitansi - cetakan: tidak ada elemen target yang masih memakai warna hijau identitas lama berdasarkan baseline; elemen hijau di luar target tidak termasuk pemeriksaan ini"
+      ],
+      "testData": {
+        "document": "Kwitansi",
+        "channels": [
+          "cetakan"
+        ],
+        "fixture": null,
+        "baseline": null,
+        "identityElementMap": null,
+        "expectedIdentityColor": null,
+        "previousIdentityColor": null
+      },
+      "selectorHints": {},
+      "automationStatus": "blocked",
+      "blockers": [
+        "GAP-002",
+        "GAP-003",
+        "GAP-004",
+        "GAP-005"
+      ],
+      "evidence": [
+        "S3",
+        "S5"
+      ],
+      "oracle": {
+        "kind": "forbidden-previous-identity-color",
+        "previousColorFromBaseline": true,
+        "scope": "confirmed-identity-elements-only",
+        "method": null
+      }
+    },
+    {
+      "id": "RO318-PERUBAHAN-WARNA-DOKUMEN-RORO-POS-005",
+      "title": "Warna identitas Boarding Pass pada tampilan menjadi biru sesuai referensi yang disahkan; kode belum diberikan",
+      "category": "positive",
+      "priority": "high",
+      "requirement": "REQ-003",
+      "screen": "boarding-pass",
+      "preconditions": [
+        "Tersedia dokumen Boarding Pass untuk cakupan RORO yang dapat diverifikasi dari sistem aktual; fixture belum diberikan.",
+        "Mekanisme akses keluaran dan elemen aktual sudah dipetakan; belum tersedia pada input.",
+        "Daftar elemen identitas dan elemen di luar target sudah dikonfirmasi per kanal; belum tersedia pada input.",
+        "Referensi warna biru Boarding Pass sudah disahkan; spesifikasi belum memberi kode warna."
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Boarding Pass - tampilan",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Boarding Pass - tampilan",
+          "value": "semua elemen identitas yang terkonfirmasi menggunakan biru sesuai referensi yang disahkan; kode belum diberikan"
+        }
+      ],
+      "expected": [
+        "Boarding Pass - tampilan: semua elemen identitas yang terkonfirmasi menggunakan biru sesuai referensi yang disahkan; kode belum diberikan"
+      ],
+      "testData": {
+        "document": "Boarding Pass",
+        "channels": [
+          "tampilan"
+        ],
+        "fixture": null,
+        "baseline": null,
+        "identityElementMap": null,
+        "expectedIdentityColor": null,
+        "previousIdentityColor": null
+      },
+      "selectorHints": {},
+      "automationStatus": "blocked",
+      "blockers": [
+        "GAP-001",
+        "GAP-002",
+        "GAP-005"
+      ],
+      "evidence": [
+        "S1",
+        "S4",
+        "S5"
+      ],
+      "oracle": {
+        "kind": "identity-color",
+        "expectedColor": null,
+        "referenceRequired": true,
+        "method": null
+      }
+    },
+    {
+      "id": "RO318-PERUBAHAN-WARNA-DOKUMEN-RORO-NEG-005",
+      "title": "Tidak ada warna hijau identitas lama tersisa pada tampilan Boarding Pass",
+      "category": "negative",
+      "priority": "high",
+      "requirement": "REQ-003",
+      "screen": "boarding-pass",
+      "preconditions": [
+        "Tersedia dokumen Boarding Pass untuk cakupan RORO yang dapat diverifikasi dari sistem aktual; fixture belum diberikan.",
+        "Mekanisme akses keluaran dan elemen aktual sudah dipetakan; belum tersedia pada input.",
+        "Daftar elemen identitas dan elemen di luar target sudah dikonfirmasi per kanal; belum tersedia pada input.",
+        "Tersedia baseline sebelum perubahan serta dokumen sesudah perubahan dengan data sumber yang sama untuk setiap kanal yang diuji; baseline belum diberikan."
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Boarding Pass - tampilan",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Boarding Pass - tampilan",
+          "value": "tidak ada elemen target yang masih memakai warna hijau identitas lama berdasarkan baseline; elemen hijau di luar target tidak termasuk pemeriksaan ini"
+        }
+      ],
+      "expected": [
+        "Boarding Pass - tampilan: tidak ada elemen target yang masih memakai warna hijau identitas lama berdasarkan baseline; elemen hijau di luar target tidak termasuk pemeriksaan ini"
+      ],
+      "testData": {
+        "document": "Boarding Pass",
+        "channels": [
+          "tampilan"
+        ],
+        "fixture": null,
+        "baseline": null,
+        "identityElementMap": null,
+        "expectedIdentityColor": null,
+        "previousIdentityColor": null
+      },
+      "selectorHints": {},
+      "automationStatus": "blocked",
+      "blockers": [
+        "GAP-002",
+        "GAP-003",
+        "GAP-005"
+      ],
+      "evidence": [
+        "S4",
+        "S5"
+      ],
+      "oracle": {
+        "kind": "forbidden-previous-identity-color",
+        "previousColorFromBaseline": true,
+        "scope": "confirmed-identity-elements-only",
+        "method": null
+      }
+    },
+    {
+      "id": "RO318-PERUBAHAN-WARNA-DOKUMEN-RORO-POS-006",
+      "title": "Warna identitas Boarding Pass pada cetakan menjadi biru sesuai referensi yang disahkan; kode belum diberikan",
+      "category": "positive",
+      "priority": "high",
+      "requirement": "REQ-003",
+      "screen": "boarding-pass",
+      "preconditions": [
+        "Tersedia dokumen Boarding Pass untuk cakupan RORO yang dapat diverifikasi dari sistem aktual; fixture belum diberikan.",
+        "Mekanisme akses keluaran dan elemen aktual sudah dipetakan; belum tersedia pada input.",
+        "Daftar elemen identitas dan elemen di luar target sudah dikonfirmasi per kanal; belum tersedia pada input.",
+        "Referensi warna biru Boarding Pass sudah disahkan; spesifikasi belum memberi kode warna.",
+        "Metode memperoleh dan memverifikasi keluaran cetakan sudah ditetapkan; media, renderer, dan metode pembandingan belum diberikan."
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Boarding Pass - cetakan",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Boarding Pass - cetakan",
+          "value": "semua elemen identitas yang terkonfirmasi menggunakan biru sesuai referensi yang disahkan; kode belum diberikan"
+        }
+      ],
+      "expected": [
+        "Boarding Pass - cetakan: semua elemen identitas yang terkonfirmasi menggunakan biru sesuai referensi yang disahkan; kode belum diberikan"
+      ],
+      "testData": {
+        "document": "Boarding Pass",
+        "channels": [
+          "cetakan"
+        ],
+        "fixture": null,
+        "baseline": null,
+        "identityElementMap": null,
+        "expectedIdentityColor": null,
+        "previousIdentityColor": null
+      },
+      "selectorHints": {},
+      "automationStatus": "blocked",
+      "blockers": [
+        "GAP-001",
+        "GAP-002",
+        "GAP-004",
+        "GAP-005"
+      ],
+      "evidence": [
+        "S1",
+        "S4",
+        "S5"
+      ],
+      "oracle": {
+        "kind": "identity-color",
+        "expectedColor": null,
+        "referenceRequired": true,
+        "method": null
+      }
+    },
+    {
+      "id": "RO318-PERUBAHAN-WARNA-DOKUMEN-RORO-NEG-006",
+      "title": "Tidak ada warna hijau identitas lama tersisa pada cetakan Boarding Pass",
+      "category": "negative",
+      "priority": "high",
+      "requirement": "REQ-003",
+      "screen": "boarding-pass",
+      "preconditions": [
+        "Tersedia dokumen Boarding Pass untuk cakupan RORO yang dapat diverifikasi dari sistem aktual; fixture belum diberikan.",
+        "Mekanisme akses keluaran dan elemen aktual sudah dipetakan; belum tersedia pada input.",
+        "Daftar elemen identitas dan elemen di luar target sudah dikonfirmasi per kanal; belum tersedia pada input.",
+        "Tersedia baseline sebelum perubahan serta dokumen sesudah perubahan dengan data sumber yang sama untuk setiap kanal yang diuji; baseline belum diberikan.",
+        "Metode memperoleh dan memverifikasi keluaran cetakan sudah ditetapkan; media, renderer, dan metode pembandingan belum diberikan."
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Boarding Pass - cetakan",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Boarding Pass - cetakan",
+          "value": "tidak ada elemen target yang masih memakai warna hijau identitas lama berdasarkan baseline; elemen hijau di luar target tidak termasuk pemeriksaan ini"
+        }
+      ],
+      "expected": [
+        "Boarding Pass - cetakan: tidak ada elemen target yang masih memakai warna hijau identitas lama berdasarkan baseline; elemen hijau di luar target tidak termasuk pemeriksaan ini"
+      ],
+      "testData": {
+        "document": "Boarding Pass",
+        "channels": [
+          "cetakan"
+        ],
+        "fixture": null,
+        "baseline": null,
+        "identityElementMap": null,
+        "expectedIdentityColor": null,
+        "previousIdentityColor": null
+      },
+      "selectorHints": {},
+      "automationStatus": "blocked",
+      "blockers": [
+        "GAP-002",
+        "GAP-003",
+        "GAP-004",
+        "GAP-005"
+      ],
+      "evidence": [
+        "S4",
+        "S5"
+      ],
+      "oracle": {
+        "kind": "forbidden-previous-identity-color",
+        "previousColorFromBaseline": true,
+        "scope": "confirmed-identity-elements-only",
+        "method": null
+      }
+    },
+    {
+      "id": "RO318-PERUBAHAN-WARNA-DOKUMEN-RORO-POS-007",
+      "title": "Warna di luar elemen identitas E-Tiket tetap pada tampilan dan cetakan",
+      "category": "positive",
+      "priority": "high",
+      "requirement": "REQ-004",
+      "screen": "e-tiket",
+      "preconditions": [
+        "Tersedia dokumen E-Tiket untuk cakupan RORO yang dapat diverifikasi dari sistem aktual; fixture belum diberikan.",
+        "Mekanisme akses keluaran dan elemen aktual sudah dipetakan; belum tersedia pada input.",
+        "Daftar elemen identitas dan elemen di luar target sudah dikonfirmasi per kanal; belum tersedia pada input.",
+        "Tersedia baseline sebelum perubahan serta dokumen sesudah perubahan dengan data sumber yang sama untuk setiap kanal yang diuji; baseline belum diberikan.",
+        "Metode memperoleh dan memverifikasi keluaran cetakan sudah ditetapkan; media, renderer, dan metode pembandingan belum diberikan."
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "E-Tiket - tampilan",
+          "value": null
+        },
+        {
+          "action": "navigate",
+          "target": "E-Tiket - cetakan",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "E-Tiket - tampilan",
+          "value": "warna setiap elemen di luar daftar target tetap sama dengan baseline kanal yang sama"
+        },
+        {
+          "action": "expect",
+          "target": "E-Tiket - cetakan",
+          "value": "warna setiap elemen di luar daftar target tetap sama dengan baseline kanal yang sama"
+        }
+      ],
+      "expected": [
+        "E-Tiket - tampilan: warna setiap elemen di luar daftar target tetap sama dengan baseline kanal yang sama",
+        "E-Tiket - cetakan: warna setiap elemen di luar daftar target tetap sama dengan baseline kanal yang sama"
+      ],
+      "testData": {
+        "document": "E-Tiket",
+        "channels": [
+          "tampilan",
+          "cetakan"
+        ],
+        "fixture": null,
+        "baseline": null,
+        "identityElementMap": null,
+        "expectedIdentityColor": null,
+        "previousIdentityColor": null
+      },
+      "selectorHints": {},
+      "automationStatus": "blocked",
+      "blockers": [
+        "GAP-002",
+        "GAP-003",
+        "GAP-004",
+        "GAP-005"
+      ],
+      "evidence": [
+        "S5"
+      ],
+      "oracle": {
+        "kind": "non-identity-colors",
+        "comparison": "same-document-same-source-data-same-channel",
+        "method": null,
+        "tolerance": null
+      }
+    },
+    {
+      "id": "RO318-PERUBAHAN-WARNA-DOKUMEN-RORO-POS-008",
+      "title": "Warna di luar elemen identitas Kwitansi tetap pada tampilan dan cetakan",
+      "category": "positive",
+      "priority": "high",
+      "requirement": "REQ-004",
+      "screen": "kwitansi",
+      "preconditions": [
+        "Tersedia dokumen Kwitansi untuk cakupan RORO yang dapat diverifikasi dari sistem aktual; fixture belum diberikan.",
+        "Mekanisme akses keluaran dan elemen aktual sudah dipetakan; belum tersedia pada input.",
+        "Daftar elemen identitas dan elemen di luar target sudah dikonfirmasi per kanal; belum tersedia pada input.",
+        "Tersedia baseline sebelum perubahan serta dokumen sesudah perubahan dengan data sumber yang sama untuk setiap kanal yang diuji; baseline belum diberikan.",
+        "Metode memperoleh dan memverifikasi keluaran cetakan sudah ditetapkan; media, renderer, dan metode pembandingan belum diberikan."
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Kwitansi - tampilan",
+          "value": null
+        },
+        {
+          "action": "navigate",
+          "target": "Kwitansi - cetakan",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Kwitansi - tampilan",
+          "value": "warna setiap elemen di luar daftar target tetap sama dengan baseline kanal yang sama"
+        },
+        {
+          "action": "expect",
+          "target": "Kwitansi - cetakan",
+          "value": "warna setiap elemen di luar daftar target tetap sama dengan baseline kanal yang sama"
+        }
+      ],
+      "expected": [
+        "Kwitansi - tampilan: warna setiap elemen di luar daftar target tetap sama dengan baseline kanal yang sama",
+        "Kwitansi - cetakan: warna setiap elemen di luar daftar target tetap sama dengan baseline kanal yang sama"
+      ],
+      "testData": {
+        "document": "Kwitansi",
+        "channels": [
+          "tampilan",
+          "cetakan"
+        ],
+        "fixture": null,
+        "baseline": null,
+        "identityElementMap": null,
+        "expectedIdentityColor": null,
+        "previousIdentityColor": null
+      },
+      "selectorHints": {},
+      "automationStatus": "blocked",
+      "blockers": [
+        "GAP-002",
+        "GAP-003",
+        "GAP-004",
+        "GAP-005"
+      ],
+      "evidence": [
+        "S5"
+      ],
+      "oracle": {
+        "kind": "non-identity-colors",
+        "comparison": "same-document-same-source-data-same-channel",
+        "method": null,
+        "tolerance": null
+      }
+    },
+    {
+      "id": "RO318-PERUBAHAN-WARNA-DOKUMEN-RORO-POS-009",
+      "title": "Warna di luar elemen identitas Boarding Pass tetap pada tampilan dan cetakan",
+      "category": "positive",
+      "priority": "high",
+      "requirement": "REQ-004",
+      "screen": "boarding-pass",
+      "preconditions": [
+        "Tersedia dokumen Boarding Pass untuk cakupan RORO yang dapat diverifikasi dari sistem aktual; fixture belum diberikan.",
+        "Mekanisme akses keluaran dan elemen aktual sudah dipetakan; belum tersedia pada input.",
+        "Daftar elemen identitas dan elemen di luar target sudah dikonfirmasi per kanal; belum tersedia pada input.",
+        "Tersedia baseline sebelum perubahan serta dokumen sesudah perubahan dengan data sumber yang sama untuk setiap kanal yang diuji; baseline belum diberikan.",
+        "Metode memperoleh dan memverifikasi keluaran cetakan sudah ditetapkan; media, renderer, dan metode pembandingan belum diberikan."
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Boarding Pass - tampilan",
+          "value": null
+        },
+        {
+          "action": "navigate",
+          "target": "Boarding Pass - cetakan",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Boarding Pass - tampilan",
+          "value": "warna setiap elemen di luar daftar target tetap sama dengan baseline kanal yang sama"
+        },
+        {
+          "action": "expect",
+          "target": "Boarding Pass - cetakan",
+          "value": "warna setiap elemen di luar daftar target tetap sama dengan baseline kanal yang sama"
+        }
+      ],
+      "expected": [
+        "Boarding Pass - tampilan: warna setiap elemen di luar daftar target tetap sama dengan baseline kanal yang sama",
+        "Boarding Pass - cetakan: warna setiap elemen di luar daftar target tetap sama dengan baseline kanal yang sama"
+      ],
+      "testData": {
+        "document": "Boarding Pass",
+        "channels": [
+          "tampilan",
+          "cetakan"
+        ],
+        "fixture": null,
+        "baseline": null,
+        "identityElementMap": null,
+        "expectedIdentityColor": null,
+        "previousIdentityColor": null
+      },
+      "selectorHints": {},
+      "automationStatus": "blocked",
+      "blockers": [
+        "GAP-002",
+        "GAP-003",
+        "GAP-004",
+        "GAP-005"
+      ],
+      "evidence": [
+        "S5"
+      ],
+      "oracle": {
+        "kind": "non-identity-colors",
+        "comparison": "same-document-same-source-data-same-channel",
+        "method": null,
+        "tolerance": null
+      }
+    },
+    {
+      "id": "RO318-PERUBAHAN-WARNA-DOKUMEN-RORO-POS-010",
+      "title": "Informasi dokumen E-Tiket tetap pada tampilan dan cetakan",
+      "category": "positive",
+      "priority": "high",
+      "requirement": "REQ-005",
+      "screen": "e-tiket",
+      "preconditions": [
+        "Tersedia dokumen E-Tiket untuk cakupan RORO yang dapat diverifikasi dari sistem aktual; fixture belum diberikan.",
+        "Mekanisme akses keluaran dan elemen aktual sudah dipetakan; belum tersedia pada input.",
+        "Daftar elemen identitas dan elemen di luar target sudah dikonfirmasi per kanal; belum tersedia pada input.",
+        "Tersedia baseline sebelum perubahan serta dokumen sesudah perubahan dengan data sumber yang sama untuk setiap kanal yang diuji; baseline belum diberikan.",
+        "Metode memperoleh dan memverifikasi keluaran cetakan sudah ditetapkan; media, renderer, dan metode pembandingan belum diberikan.",
+        "Inventaris informasi atau pemetaan nilai data dokumen sudah dikonfirmasi; tidak dibuat nama field sendiri."
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "E-Tiket - tampilan",
+          "value": null
+        },
+        {
+          "action": "navigate",
+          "target": "E-Tiket - cetakan",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "E-Tiket - tampilan",
+          "value": "seluruh informasi yang benar-benar ada pada baseline tetap tersedia dan sama"
+        },
+        {
+          "action": "expect",
+          "target": "E-Tiket - cetakan",
+          "value": "seluruh informasi yang benar-benar ada pada baseline tetap tersedia dan sama"
+        }
+      ],
+      "expected": [
+        "E-Tiket - tampilan: seluruh informasi yang benar-benar ada pada baseline tetap tersedia dan sama",
+        "E-Tiket - cetakan: seluruh informasi yang benar-benar ada pada baseline tetap tersedia dan sama"
+      ],
+      "testData": {
+        "document": "E-Tiket",
+        "channels": [
+          "tampilan",
+          "cetakan"
+        ],
+        "fixture": null,
+        "baseline": null,
+        "identityElementMap": null,
+        "expectedIdentityColor": null,
+        "previousIdentityColor": null
+      },
+      "selectorHints": {},
+      "automationStatus": "blocked",
+      "blockers": [
+        "GAP-002",
+        "GAP-003",
+        "GAP-004",
+        "GAP-005",
+        "GAP-009"
+      ],
+      "evidence": [
+        "S5"
+      ],
+      "oracle": {
+        "kind": "information-inventory",
+        "comparison": "same-document-same-source-data-same-channel",
+        "method": null,
+        "tolerance": null
+      }
+    },
+    {
+      "id": "RO318-PERUBAHAN-WARNA-DOKUMEN-RORO-POS-011",
+      "title": "Informasi dokumen Kwitansi tetap pada tampilan dan cetakan",
+      "category": "positive",
+      "priority": "high",
+      "requirement": "REQ-005",
+      "screen": "kwitansi",
+      "preconditions": [
+        "Tersedia dokumen Kwitansi untuk cakupan RORO yang dapat diverifikasi dari sistem aktual; fixture belum diberikan.",
+        "Mekanisme akses keluaran dan elemen aktual sudah dipetakan; belum tersedia pada input.",
+        "Daftar elemen identitas dan elemen di luar target sudah dikonfirmasi per kanal; belum tersedia pada input.",
+        "Tersedia baseline sebelum perubahan serta dokumen sesudah perubahan dengan data sumber yang sama untuk setiap kanal yang diuji; baseline belum diberikan.",
+        "Metode memperoleh dan memverifikasi keluaran cetakan sudah ditetapkan; media, renderer, dan metode pembandingan belum diberikan.",
+        "Inventaris informasi atau pemetaan nilai data dokumen sudah dikonfirmasi; tidak dibuat nama field sendiri."
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Kwitansi - tampilan",
+          "value": null
+        },
+        {
+          "action": "navigate",
+          "target": "Kwitansi - cetakan",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Kwitansi - tampilan",
+          "value": "seluruh informasi yang benar-benar ada pada baseline tetap tersedia dan sama"
+        },
+        {
+          "action": "expect",
+          "target": "Kwitansi - cetakan",
+          "value": "seluruh informasi yang benar-benar ada pada baseline tetap tersedia dan sama"
+        }
+      ],
+      "expected": [
+        "Kwitansi - tampilan: seluruh informasi yang benar-benar ada pada baseline tetap tersedia dan sama",
+        "Kwitansi - cetakan: seluruh informasi yang benar-benar ada pada baseline tetap tersedia dan sama"
+      ],
+      "testData": {
+        "document": "Kwitansi",
+        "channels": [
+          "tampilan",
+          "cetakan"
+        ],
+        "fixture": null,
+        "baseline": null,
+        "identityElementMap": null,
+        "expectedIdentityColor": null,
+        "previousIdentityColor": null
+      },
+      "selectorHints": {},
+      "automationStatus": "blocked",
+      "blockers": [
+        "GAP-002",
+        "GAP-003",
+        "GAP-004",
+        "GAP-005",
+        "GAP-009"
+      ],
+      "evidence": [
+        "S5"
+      ],
+      "oracle": {
+        "kind": "information-inventory",
+        "comparison": "same-document-same-source-data-same-channel",
+        "method": null,
+        "tolerance": null
+      }
+    },
+    {
+      "id": "RO318-PERUBAHAN-WARNA-DOKUMEN-RORO-POS-012",
+      "title": "Informasi dokumen Boarding Pass tetap pada tampilan dan cetakan",
+      "category": "positive",
+      "priority": "high",
+      "requirement": "REQ-005",
+      "screen": "boarding-pass",
+      "preconditions": [
+        "Tersedia dokumen Boarding Pass untuk cakupan RORO yang dapat diverifikasi dari sistem aktual; fixture belum diberikan.",
+        "Mekanisme akses keluaran dan elemen aktual sudah dipetakan; belum tersedia pada input.",
+        "Daftar elemen identitas dan elemen di luar target sudah dikonfirmasi per kanal; belum tersedia pada input.",
+        "Tersedia baseline sebelum perubahan serta dokumen sesudah perubahan dengan data sumber yang sama untuk setiap kanal yang diuji; baseline belum diberikan.",
+        "Metode memperoleh dan memverifikasi keluaran cetakan sudah ditetapkan; media, renderer, dan metode pembandingan belum diberikan.",
+        "Inventaris informasi atau pemetaan nilai data dokumen sudah dikonfirmasi; tidak dibuat nama field sendiri."
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Boarding Pass - tampilan",
+          "value": null
+        },
+        {
+          "action": "navigate",
+          "target": "Boarding Pass - cetakan",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Boarding Pass - tampilan",
+          "value": "seluruh informasi yang benar-benar ada pada baseline tetap tersedia dan sama"
+        },
+        {
+          "action": "expect",
+          "target": "Boarding Pass - cetakan",
+          "value": "seluruh informasi yang benar-benar ada pada baseline tetap tersedia dan sama"
+        }
+      ],
+      "expected": [
+        "Boarding Pass - tampilan: seluruh informasi yang benar-benar ada pada baseline tetap tersedia dan sama",
+        "Boarding Pass - cetakan: seluruh informasi yang benar-benar ada pada baseline tetap tersedia dan sama"
+      ],
+      "testData": {
+        "document": "Boarding Pass",
+        "channels": [
+          "tampilan",
+          "cetakan"
+        ],
+        "fixture": null,
+        "baseline": null,
+        "identityElementMap": null,
+        "expectedIdentityColor": null,
+        "previousIdentityColor": null
+      },
+      "selectorHints": {},
+      "automationStatus": "blocked",
+      "blockers": [
+        "GAP-002",
+        "GAP-003",
+        "GAP-004",
+        "GAP-005",
+        "GAP-009"
+      ],
+      "evidence": [
+        "S5"
+      ],
+      "oracle": {
+        "kind": "information-inventory",
+        "comparison": "same-document-same-source-data-same-channel",
+        "method": null,
+        "tolerance": null
+      }
+    },
+    {
+      "id": "RO318-PERUBAHAN-WARNA-DOKUMEN-RORO-POS-013",
+      "title": "Format dokumen E-Tiket tetap pada tampilan dan cetakan",
+      "category": "positive",
+      "priority": "high",
+      "requirement": "REQ-006",
+      "screen": "e-tiket",
+      "preconditions": [
+        "Tersedia dokumen E-Tiket untuk cakupan RORO yang dapat diverifikasi dari sistem aktual; fixture belum diberikan.",
+        "Mekanisme akses keluaran dan elemen aktual sudah dipetakan; belum tersedia pada input.",
+        "Daftar elemen identitas dan elemen di luar target sudah dikonfirmasi per kanal; belum tersedia pada input.",
+        "Tersedia baseline sebelum perubahan serta dokumen sesudah perubahan dengan data sumber yang sama untuk setiap kanal yang diuji; baseline belum diberikan.",
+        "Metode memperoleh dan memverifikasi keluaran cetakan sudah ditetapkan; media, renderer, dan metode pembandingan belum diberikan.",
+        "Definisi format serta metode pembandingan baseline sudah dikonfirmasi; tidak dibuat toleransi atau pengecualian sendiri."
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "E-Tiket - tampilan",
+          "value": null
+        },
+        {
+          "action": "navigate",
+          "target": "E-Tiket - cetakan",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "E-Tiket - tampilan",
+          "value": "format tetap sesuai baseline berdasarkan definisi pembandingan yang dikonfirmasi, dengan perubahan warna identitas sebagai satu-satunya pengecualian dari spesifikasi"
+        },
+        {
+          "action": "expect",
+          "target": "E-Tiket - cetakan",
+          "value": "format tetap sesuai baseline berdasarkan definisi pembandingan yang dikonfirmasi, dengan perubahan warna identitas sebagai satu-satunya pengecualian dari spesifikasi"
+        }
+      ],
+      "expected": [
+        "E-Tiket - tampilan: format tetap sesuai baseline berdasarkan definisi pembandingan yang dikonfirmasi, dengan perubahan warna identitas sebagai satu-satunya pengecualian dari spesifikasi",
+        "E-Tiket - cetakan: format tetap sesuai baseline berdasarkan definisi pembandingan yang dikonfirmasi, dengan perubahan warna identitas sebagai satu-satunya pengecualian dari spesifikasi"
+      ],
+      "testData": {
+        "document": "E-Tiket",
+        "channels": [
+          "tampilan",
+          "cetakan"
+        ],
+        "fixture": null,
+        "baseline": null,
+        "identityElementMap": null,
+        "expectedIdentityColor": null,
+        "previousIdentityColor": null
+      },
+      "selectorHints": {},
+      "automationStatus": "blocked",
+      "blockers": [
+        "GAP-002",
+        "GAP-003",
+        "GAP-004",
+        "GAP-005",
+        "GAP-006"
+      ],
+      "evidence": [
+        "S5"
+      ],
+      "oracle": {
+        "kind": "format-comparison",
+        "comparison": "same-document-same-source-data-same-channel",
+        "method": null,
+        "tolerance": null
+      }
+    },
+    {
+      "id": "RO318-PERUBAHAN-WARNA-DOKUMEN-RORO-POS-014",
+      "title": "Format dokumen Kwitansi tetap pada tampilan dan cetakan",
+      "category": "positive",
+      "priority": "high",
+      "requirement": "REQ-006",
+      "screen": "kwitansi",
+      "preconditions": [
+        "Tersedia dokumen Kwitansi untuk cakupan RORO yang dapat diverifikasi dari sistem aktual; fixture belum diberikan.",
+        "Mekanisme akses keluaran dan elemen aktual sudah dipetakan; belum tersedia pada input.",
+        "Daftar elemen identitas dan elemen di luar target sudah dikonfirmasi per kanal; belum tersedia pada input.",
+        "Tersedia baseline sebelum perubahan serta dokumen sesudah perubahan dengan data sumber yang sama untuk setiap kanal yang diuji; baseline belum diberikan.",
+        "Metode memperoleh dan memverifikasi keluaran cetakan sudah ditetapkan; media, renderer, dan metode pembandingan belum diberikan.",
+        "Definisi format serta metode pembandingan baseline sudah dikonfirmasi; tidak dibuat toleransi atau pengecualian sendiri."
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Kwitansi - tampilan",
+          "value": null
+        },
+        {
+          "action": "navigate",
+          "target": "Kwitansi - cetakan",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Kwitansi - tampilan",
+          "value": "format tetap sesuai baseline berdasarkan definisi pembandingan yang dikonfirmasi, dengan perubahan warna identitas sebagai satu-satunya pengecualian dari spesifikasi"
+        },
+        {
+          "action": "expect",
+          "target": "Kwitansi - cetakan",
+          "value": "format tetap sesuai baseline berdasarkan definisi pembandingan yang dikonfirmasi, dengan perubahan warna identitas sebagai satu-satunya pengecualian dari spesifikasi"
+        }
+      ],
+      "expected": [
+        "Kwitansi - tampilan: format tetap sesuai baseline berdasarkan definisi pembandingan yang dikonfirmasi, dengan perubahan warna identitas sebagai satu-satunya pengecualian dari spesifikasi",
+        "Kwitansi - cetakan: format tetap sesuai baseline berdasarkan definisi pembandingan yang dikonfirmasi, dengan perubahan warna identitas sebagai satu-satunya pengecualian dari spesifikasi"
+      ],
+      "testData": {
+        "document": "Kwitansi",
+        "channels": [
+          "tampilan",
+          "cetakan"
+        ],
+        "fixture": null,
+        "baseline": null,
+        "identityElementMap": null,
+        "expectedIdentityColor": null,
+        "previousIdentityColor": null
+      },
+      "selectorHints": {},
+      "automationStatus": "blocked",
+      "blockers": [
+        "GAP-002",
+        "GAP-003",
+        "GAP-004",
+        "GAP-005",
+        "GAP-006"
+      ],
+      "evidence": [
+        "S5"
+      ],
+      "oracle": {
+        "kind": "format-comparison",
+        "comparison": "same-document-same-source-data-same-channel",
+        "method": null,
+        "tolerance": null
+      }
+    },
+    {
+      "id": "RO318-PERUBAHAN-WARNA-DOKUMEN-RORO-POS-015",
+      "title": "Format dokumen Boarding Pass tetap pada tampilan dan cetakan",
+      "category": "positive",
+      "priority": "high",
+      "requirement": "REQ-006",
+      "screen": "boarding-pass",
+      "preconditions": [
+        "Tersedia dokumen Boarding Pass untuk cakupan RORO yang dapat diverifikasi dari sistem aktual; fixture belum diberikan.",
+        "Mekanisme akses keluaran dan elemen aktual sudah dipetakan; belum tersedia pada input.",
+        "Daftar elemen identitas dan elemen di luar target sudah dikonfirmasi per kanal; belum tersedia pada input.",
+        "Tersedia baseline sebelum perubahan serta dokumen sesudah perubahan dengan data sumber yang sama untuk setiap kanal yang diuji; baseline belum diberikan.",
+        "Metode memperoleh dan memverifikasi keluaran cetakan sudah ditetapkan; media, renderer, dan metode pembandingan belum diberikan.",
+        "Definisi format serta metode pembandingan baseline sudah dikonfirmasi; tidak dibuat toleransi atau pengecualian sendiri."
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Boarding Pass - tampilan",
+          "value": null
+        },
+        {
+          "action": "navigate",
+          "target": "Boarding Pass - cetakan",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Boarding Pass - tampilan",
+          "value": "format tetap sesuai baseline berdasarkan definisi pembandingan yang dikonfirmasi, dengan perubahan warna identitas sebagai satu-satunya pengecualian dari spesifikasi"
+        },
+        {
+          "action": "expect",
+          "target": "Boarding Pass - cetakan",
+          "value": "format tetap sesuai baseline berdasarkan definisi pembandingan yang dikonfirmasi, dengan perubahan warna identitas sebagai satu-satunya pengecualian dari spesifikasi"
+        }
+      ],
+      "expected": [
+        "Boarding Pass - tampilan: format tetap sesuai baseline berdasarkan definisi pembandingan yang dikonfirmasi, dengan perubahan warna identitas sebagai satu-satunya pengecualian dari spesifikasi",
+        "Boarding Pass - cetakan: format tetap sesuai baseline berdasarkan definisi pembandingan yang dikonfirmasi, dengan perubahan warna identitas sebagai satu-satunya pengecualian dari spesifikasi"
+      ],
+      "testData": {
+        "document": "Boarding Pass",
+        "channels": [
+          "tampilan",
+          "cetakan"
+        ],
+        "fixture": null,
+        "baseline": null,
+        "identityElementMap": null,
+        "expectedIdentityColor": null,
+        "previousIdentityColor": null
+      },
+      "selectorHints": {},
+      "automationStatus": "blocked",
+      "blockers": [
+        "GAP-002",
+        "GAP-003",
+        "GAP-004",
+        "GAP-005",
+        "GAP-006"
+      ],
+      "evidence": [
+        "S5"
+      ],
+      "oracle": {
+        "kind": "format-comparison",
+        "comparison": "same-document-same-source-data-same-channel",
+        "method": null,
+        "tolerance": null
+      }
+    },
+    {
+      "id": "RO318-PERUBAHAN-WARNA-DOKUMEN-RORO-POS-016",
+      "title": "Nilai data dokumen E-Tiket tetap pada tampilan dan cetakan",
+      "category": "positive",
+      "priority": "high",
+      "requirement": "REQ-007",
+      "screen": "e-tiket",
+      "preconditions": [
+        "Tersedia dokumen E-Tiket untuk cakupan RORO yang dapat diverifikasi dari sistem aktual; fixture belum diberikan.",
+        "Mekanisme akses keluaran dan elemen aktual sudah dipetakan; belum tersedia pada input.",
+        "Daftar elemen identitas dan elemen di luar target sudah dikonfirmasi per kanal; belum tersedia pada input.",
+        "Tersedia baseline sebelum perubahan serta dokumen sesudah perubahan dengan data sumber yang sama untuk setiap kanal yang diuji; baseline belum diberikan.",
+        "Metode memperoleh dan memverifikasi keluaran cetakan sudah ditetapkan; media, renderer, dan metode pembandingan belum diberikan.",
+        "Inventaris informasi atau pemetaan nilai data dokumen sudah dikonfirmasi; tidak dibuat nama field sendiri."
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "E-Tiket - tampilan",
+          "value": null
+        },
+        {
+          "action": "navigate",
+          "target": "E-Tiket - cetakan",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "E-Tiket - tampilan",
+          "value": "seluruh nilai data yang dipetakan identik dengan baseline untuk data sumber yang sama"
+        },
+        {
+          "action": "expect",
+          "target": "E-Tiket - cetakan",
+          "value": "seluruh nilai data yang dipetakan identik dengan baseline untuk data sumber yang sama"
+        }
+      ],
+      "expected": [
+        "E-Tiket - tampilan: seluruh nilai data yang dipetakan identik dengan baseline untuk data sumber yang sama",
+        "E-Tiket - cetakan: seluruh nilai data yang dipetakan identik dengan baseline untuk data sumber yang sama"
+      ],
+      "testData": {
+        "document": "E-Tiket",
+        "channels": [
+          "tampilan",
+          "cetakan"
+        ],
+        "fixture": null,
+        "baseline": null,
+        "identityElementMap": null,
+        "expectedIdentityColor": null,
+        "previousIdentityColor": null
+      },
+      "selectorHints": {},
+      "automationStatus": "blocked",
+      "blockers": [
+        "GAP-002",
+        "GAP-003",
+        "GAP-004",
+        "GAP-005",
+        "GAP-009"
+      ],
+      "evidence": [
+        "S5"
+      ],
+      "oracle": {
+        "kind": "data-value-comparison",
+        "comparison": "same-document-same-source-data-same-channel",
+        "method": null,
+        "tolerance": null
+      }
+    },
+    {
+      "id": "RO318-PERUBAHAN-WARNA-DOKUMEN-RORO-POS-017",
+      "title": "Nilai data dokumen Kwitansi tetap pada tampilan dan cetakan",
+      "category": "positive",
+      "priority": "high",
+      "requirement": "REQ-007",
+      "screen": "kwitansi",
+      "preconditions": [
+        "Tersedia dokumen Kwitansi untuk cakupan RORO yang dapat diverifikasi dari sistem aktual; fixture belum diberikan.",
+        "Mekanisme akses keluaran dan elemen aktual sudah dipetakan; belum tersedia pada input.",
+        "Daftar elemen identitas dan elemen di luar target sudah dikonfirmasi per kanal; belum tersedia pada input.",
+        "Tersedia baseline sebelum perubahan serta dokumen sesudah perubahan dengan data sumber yang sama untuk setiap kanal yang diuji; baseline belum diberikan.",
+        "Metode memperoleh dan memverifikasi keluaran cetakan sudah ditetapkan; media, renderer, dan metode pembandingan belum diberikan.",
+        "Inventaris informasi atau pemetaan nilai data dokumen sudah dikonfirmasi; tidak dibuat nama field sendiri."
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Kwitansi - tampilan",
+          "value": null
+        },
+        {
+          "action": "navigate",
+          "target": "Kwitansi - cetakan",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Kwitansi - tampilan",
+          "value": "seluruh nilai data yang dipetakan identik dengan baseline untuk data sumber yang sama"
+        },
+        {
+          "action": "expect",
+          "target": "Kwitansi - cetakan",
+          "value": "seluruh nilai data yang dipetakan identik dengan baseline untuk data sumber yang sama"
+        }
+      ],
+      "expected": [
+        "Kwitansi - tampilan: seluruh nilai data yang dipetakan identik dengan baseline untuk data sumber yang sama",
+        "Kwitansi - cetakan: seluruh nilai data yang dipetakan identik dengan baseline untuk data sumber yang sama"
+      ],
+      "testData": {
+        "document": "Kwitansi",
+        "channels": [
+          "tampilan",
+          "cetakan"
+        ],
+        "fixture": null,
+        "baseline": null,
+        "identityElementMap": null,
+        "expectedIdentityColor": null,
+        "previousIdentityColor": null
+      },
+      "selectorHints": {},
+      "automationStatus": "blocked",
+      "blockers": [
+        "GAP-002",
+        "GAP-003",
+        "GAP-004",
+        "GAP-005",
+        "GAP-009"
+      ],
+      "evidence": [
+        "S5"
+      ],
+      "oracle": {
+        "kind": "data-value-comparison",
+        "comparison": "same-document-same-source-data-same-channel",
+        "method": null,
+        "tolerance": null
+      }
+    },
+    {
+      "id": "RO318-PERUBAHAN-WARNA-DOKUMEN-RORO-POS-018",
+      "title": "Nilai data dokumen Boarding Pass tetap pada tampilan dan cetakan",
+      "category": "positive",
+      "priority": "high",
+      "requirement": "REQ-007",
+      "screen": "boarding-pass",
+      "preconditions": [
+        "Tersedia dokumen Boarding Pass untuk cakupan RORO yang dapat diverifikasi dari sistem aktual; fixture belum diberikan.",
+        "Mekanisme akses keluaran dan elemen aktual sudah dipetakan; belum tersedia pada input.",
+        "Daftar elemen identitas dan elemen di luar target sudah dikonfirmasi per kanal; belum tersedia pada input.",
+        "Tersedia baseline sebelum perubahan serta dokumen sesudah perubahan dengan data sumber yang sama untuk setiap kanal yang diuji; baseline belum diberikan.",
+        "Metode memperoleh dan memverifikasi keluaran cetakan sudah ditetapkan; media, renderer, dan metode pembandingan belum diberikan.",
+        "Inventaris informasi atau pemetaan nilai data dokumen sudah dikonfirmasi; tidak dibuat nama field sendiri."
+      ],
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "Boarding Pass - tampilan",
+          "value": null
+        },
+        {
+          "action": "navigate",
+          "target": "Boarding Pass - cetakan",
+          "value": null
+        },
+        {
+          "action": "expect",
+          "target": "Boarding Pass - tampilan",
+          "value": "seluruh nilai data yang dipetakan identik dengan baseline untuk data sumber yang sama"
+        },
+        {
+          "action": "expect",
+          "target": "Boarding Pass - cetakan",
+          "value": "seluruh nilai data yang dipetakan identik dengan baseline untuk data sumber yang sama"
+        }
+      ],
+      "expected": [
+        "Boarding Pass - tampilan: seluruh nilai data yang dipetakan identik dengan baseline untuk data sumber yang sama",
+        "Boarding Pass - cetakan: seluruh nilai data yang dipetakan identik dengan baseline untuk data sumber yang sama"
+      ],
+      "testData": {
+        "document": "Boarding Pass",
+        "channels": [
+          "tampilan",
+          "cetakan"
+        ],
+        "fixture": null,
+        "baseline": null,
+        "identityElementMap": null,
+        "expectedIdentityColor": null,
+        "previousIdentityColor": null
+      },
+      "selectorHints": {},
+      "automationStatus": "blocked",
+      "blockers": [
+        "GAP-002",
+        "GAP-003",
+        "GAP-004",
+        "GAP-005",
+        "GAP-009"
+      ],
+      "evidence": [
+        "S5"
+      ],
+      "oracle": {
+        "kind": "data-value-comparison",
+        "comparison": "same-document-same-source-data-same-channel",
+        "method": null,
+        "tolerance": null
+      }
+    }
+  ]
+}

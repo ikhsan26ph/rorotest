@@ -106,3 +106,99 @@ Koreksi TEST ISSUE: status Order Selesai berada juga di baris berikutnya, bukan 
 Hasil11skenario:4passed (2pelunasan +2PDF),0failed,7blocked. Pembayaran2dari9lunas. Excel reports/fee-payment__20261007-074932.xlsx; JSON results/fee-payment__20261007-074932.json. Sisa memerlukan pemulihan checkout/integrasi aplikasi; repository ini hanya pengujian. Tidak melakukan refund/pembatalan tiket lunas karena pengguna meminta menyelesaikan pembayaran. Cleanup belum selesai.
 
 Pemeriksaan terakhir ledger setelah expiry DANA:7kode masing-masing tetap satu debit3983; dua retail tidak ada baris. T9135838 berstatus Order Expired pada baris kode yang sama dan debit3983 belum memiliki kredit balik pada100baris terakhir yang diperiksa. Kebijakan pengembalian saldo belum diverifikasi; tidak langsung diklasifikasikan bug. Bukti ledger-after-dana-expiry.json dan dana-normal-expiry-check.json.
+
+## 2026-10-09 — Koreksi fixture RO319
+
+Pengguna menginstruksikan memakai Cabang Pare-Pare yang tersedia; Cabang tidak harus Balikpapan. Nama cabang/aktor dan angka contoh desain tidak boleh menjadi blocker otomatis. Gunakan role akun serta data aktual yang terverifikasi, catat binding dan tetap pertahankan ID/judul skenario sumber. Blocked harus didasarkan pada prasyarat atau kemampuan yang benar-benar tidak tersedia setelah penelusuran alur aktual, bukan hanya perbedaan label tombol atau contoh dataset. Run awal RO319179blocked adalah pemeriksaan prasyarat yang terlalu luas, belum eksekusi bisnis179skenario; perlu pengujian ulang.
+
+## 2026-10-09 — Retest RO319 dengan Cabang Pare-Pare
+
+Binding contoh cabang/voyage/kapasitas/dataset disesuaikan aktual dengan otorisasi pengguna, tanpa mengubah ID/judul/REQ. Run final20261008-192419:9passed,5failed,166blocked,15stressskipped.14skenario menjalankan assertion bisnis;166belum menjalankan seluruh langkah. Pembuatan Cabang melalui entry point tambah/Simpan menghasilkan record2334workflow_version0/JadwalTampil sebelum approval/Jadwal/Crew. Recordkuota-only juga terlihat pada Pusat dan tabAktif; filterMenunggu memuat recordnonpending. SimpanDraft tidak ditemukan pada form/handler yang dimuat, tidak dianggap bukti backenddraft tidak ada di seluruh route. Antrean/keputusan perbaris memang terdapat pada kode daftar; ketiadaan menuApprovalKuota terpisah bukan blocker otomatis.
+
+Testissue paging/responslama dan selector diperbaiki: paging10/20/50, formmetadata/filter/navigasi lolos. Page2menggunakan Awal untuk kembaliPage1; tidak memaksakan labelSebelumnya. Ketiga record sendiri2334/2335/2336dihapus viaUI, POSTdeletejadwal200 dan absence dua role terverifikasi. Tidak membuat booking/pembayaran/departure. Hasil sementara dipertahankan; gunakan JSON/Excel20261008-192419dan triagefinal untuk kesimpulan. Selector aktual di shared/selector-map-ro319.md.
+
+### 2026-10-09 — RO319 dihentikan atas permintaan pengguna
+
+Run 20261008-231344 paused, bukan complete. Browser ditutup dan runner dihentikan. 28 skenario memiliki percobaan, 152 non-stress belum dijalankan, 15 stress dikecualikan. Hasil teknis belum final; lanjut NEG-020 recheck. Record2337 Cabang Pare-Pare dipertahankan untuk resume, cleanup ditunda. Checkpoint: results/_checkpoint__ro319-setting-kuota-jadwal-ada-approval__20261008-231344.md; hasil: results/ro319-setting-kuota-jadwal-ada-approval__20261008-231344.json. Tidak ada booking/pembayaran.
+
+
+## 2026-10-09 — Test RO320, run 20261009-082337
+
+Pengguna mengonfirmasi lanjut 142 skenario non-stress setelah plan; 15 stress dikecualikan. Hasil: 9 passed, 12 failed, 121 blocked, 15 skipped. Sebanyak 44 skenario memiliki percobaan (23 blocked dengan pemeriksaan parsial); 98 non-stress belum dijalankan setelah guard tiga failed dengan pola sama. Jangan menyebut seluruh 142 telah diuji bisnis.
+
+Temuan utama: masuk Isi Data tidak mengurangi slot admission (used 0 / remaining 2 sebelum dan sesudah savetmpbooking HTTP 200, jadwal future AUTOTEST 2321 PAP → BPN); UI rentang 1–500 meloloskan 11, berbeda REQ-018; Simpan Pengaturan langsung POST tanpa konfirmasi dan tetap enabled pada pristine; kontak langsung menampilkan 36 pelabuhan tanpa pemilihan operator. Tiga failed direktori merupakan satu temuan, bukan bug ACL Admin/Pusat. ACL User Umum, Cabang dan tanpa sesi ditolak pada halaman/data/POST invalid. Login Agen menuju /device, belum memiliki sesi bisnis; tidak registrasi atau bypass device, tidak retry.
+
+Tiga WA invalid gagal pada expected disabled, tetapi diagnosis native/JS menolak setelah klik, saveContact 0. Jangan mengklaim nomor invalid tersimpan. Email Opsional berbeda asumsi A09 wajib: DESIGN GAP / keputusan produk, bukan pelanggaran format email yang terkonfirmasi. Preview 24 Jam dengan zona WITA terpisah sah secara semantik; kegagalan awal dikoreksi sebagai TEST ISSUE. Selector menu, pembacaan response setelah navigasi, jenis dialog fault quota, dan wait error diagnosis juga TEST ISSUE yang dipulihkan.
+
+Tidak ada savebooking/pembayaran, perubahan setting/kontak, refund, atau pembatalan order run lain. Fault/simpan valid dicegah dengan route lokal; snapshot setting, histori, dan 36 kontak akhir identik baseline. Dua percobaan tmp draft Isi Data termasuk retry setelah runner issue; Batal kembali ke Cari Jadwal, kuota akhir used 0 / remaining 2. Penghapusan record tmp internal belum diverifikasi. Izin perubahan setting/kontak sementara sudah ditanyakan tetapi belum diterima; konfirmasi 142 tidak dianggap override aturan tenant/dummy. Harness seed C/R, clock server, lifecycle dan multioperator belum tersedia.
+
+Artefak: results/ro320-pembatasan-order-untuk-user-umum__20261009-082337.json; reports/ro320-pembatasan-order-untuk-user-umum__20261009-082337.xlsx; results/_triage__ro320-pembatasan-order-untuk-user-umum__20261009-082337.md. Bukti di artifacts/ro320/20261009-082337/ dan screenshots run; selector di shared/selector-map-ro320.md. Workbook digenerate script standar memakai environment Python lokal artifacts/ro320/report-venv (openpyxl), tanpa edit manual.
+
+
+## 2026-10-09 — Koreksi rentang RO320 menjadi 1–500
+
+Pengguna menjelaskan bahwa batas 1–500 memang diminta untuk kebutuhan load test. Rentang tersebut adalah perilaku yang disengaja dan menjadi acuan terkini; temuan bug rentang dari run 20261009-082337 dicabut. NEG-025 masih menggunakan oracle >10 invalid, sehingga diubah failed → skipped (oracle usang), bukan passed validasi server. ID/judul/REQ sumber dipertahankan agar traceability tidak berubah. Rekap terbaru: 9 passed, 11 failed, 121 blocked, 16 skipped (15 stress, 1 oracle usang). JSON, triage, selector map dan workbook diperbarui; artefak sebelum koreksi dipertahankan.
+
+Klarifikasi ini tidak meminta pelaksanaan load/stress test baru dan tidak mengotorisasi perubahan setting tenant atau pembayaran. Retest range terkini perlu batas1/500 dan invalid0/501; penerimaan/persistensi server belum dibuktikan oleh run lama.
+
+## 2026-10-09 — Otorisasi resume RO320
+
+Pengguna menjawab “oke lanjutkan” atas pertanyaan izin perubahan sementara batas/status/pesan dan kontak Balikpapan, lalu restore baseline. Izin ini berlaku untuk uji Simpan/server run20261009-095550; range1–500 memang disengaja untuk kebutuhan load test. Tidak ada instruksi menjalankan stress, pembayaran, atau booking massal. Baseline fresh diambil sebelum write, konfigurasi dipulihkan; histori audit perubahan sah tidak dihapus.
+
+### Hasil resume RO320 — 20261009-095550
+
+Izin temporary setting/kontak diterapkan. Sebanyak14skenario UI persistence diulang:12passed,2blocked karena oracle kontak publik/resetWIB belum teruji. Lima skenario batas invalid yang sebelumnya blocked kini passed berdasarkan gabungan bukti UI parent dan payload server resume. Sebanyak28payload server menghasilkan verdict sesuai oracle:1/11/500 diterima;0/501/-1/pecahan/huruf/kosong ditolak; perubahanlimit/status/message atomik; statusUnlimited ditolak; WA/email/address/day/hourinvalid ditolak tanpa perubahan konfigurasi; zoneWIB diabaikan, BPN tetapWITA.
+
+HTTP429 pada batchawal ditangani dengan jeda, verifikasi restore dan throttle request. NEG038–040 gagal berturut-turut pada expected inputmentah/Simpan disabled: input disanitasi/truncate, buttonenabled. Guard tiga failed pola sama menghentikan sisa eksekusi. Backend menolak rawinvalid; jangan menyebut nomorinvalid tersimpan. Rekap kumulatif26passed/14failed/101blocked/16skipped; bukan seluruh157skenario diuji penuh. Setting dan seluruh konfigurasi kontak kembali baseline fresh, kontak lain identik termasuk metadata. Audit setting5→13entry dipertahankan. Tidak membuat booking/payment/stress. Browser ditutup. JSON/Excel/triage baru20261009-095550; parent tidak ditimpa.
+
+## 2026-10-09 — Resume transaksi RO320 dengan otorisasi luas
+
+Pengguna: “lanjutkan, ubah apapun selagi masih menggunakan akun yang ada di env.md”. Perubahan fixture/settings untuk pengujian RO320 diizinkan menggunakan akun yang ada; tidak mengulang pertanyaan izin perubahan. Gunakan booking uji terbatas, kontak notifikasi env, restore baseline dan cleanup booking sendiri. Pelunasan sandbox/dummy run baru ditanyakan secara spesifik sesuai aturan PEMBAYARAN; pekerjaan pending/kuota tetap berjalan saat menunggu jawaban. Jangan mengubah data transaksi orang lain atau melakukan stress tanpa kebutuhan eksplisit.
+
+### Hasil resume transaksi RO320 — 20261009-104428
+
+24 skenario dicoba pada batch ini: 11 passed, 9 failed, 4 blocked; hasil kumulatif 36 passed, 23 failed, 82 blocked, 16 skipped. Dari 82 blocked, 76 belum dijalankan setelah guard dan 6 parsial/dependensi; bukan bukti bahwa seluruh alur tidak dapat diuji. Guard tiga gagal berturut-turut pada modal konfirmasi menghentikan skenario bisnis berikutnya. Write Pusat/Admin sendiri berhasil.
+
+Dua booking sendiri S9151763 dan B9151776 pada jadwal2321 berhasil pending dan memenuhi kuota2; order berikutnya diblokir. Quota API tidak menunjukkan pengurangan saat draft Isi Data; reservasi internal DB/race belum dibuktikan. Instruksi QRIS B9151776 berhasil, belum dilunasi karena konfirmasi sandbox/dummy masih pending. Ledger mencatat debit awal operator Rp3.983, belum diklaim kembali.
+
+Settings dan konfigurasi36kontak dipulihkan; histori13→36 dipertahankan. Kedua booking masih pending saat laporan dibuat. Worker cleanup PID30235 menunggu expiry alami, dijadwalkan12:50:25WIB, hanya memeriksa/meng-expire dua booking sendiri yang belum paid, memverifikasi kuota/ledger, lalu memperbarui JSON/Excel. Status aktual wajib dibaca dari artifacts/ro320/20261009-104428/cleanup-worker.json; jangan menganggap jadwal berarti cleanup berhasil. Checkpoint Markdown adalah snapshot sebelum worker berjalan.
+
+Helper Agen diperbaiki: autentikasi valid di/device dihitung gate device, bukan password gagal; tanpa registrasi/bypass. Laporan reports/ro320-pembatasan-order-untuk-user-umum__20261009-104428.xlsx tervalidasi157baris skenario dan23baris failed. Parent tidak ditimpa.
+
+## 2026-10-09 — Resume kelompok akun/channel/rute RO320
+
+Pengguna meminta lanjutkan sampai bisa, meneruskan otorisasi ubah fixture dengan akun env. Batch11skn run20261009-121900 mencoba prasyarat melalui alur resmi: Cabang, Agen/device, User Umum tambahan, jadwal balik dan request manipulasi. Tidak mengartikan ini sebagai konfirmasi sandbox pembayaran.
+
+### Hasil kelompok akun/channel/rute — 20261009-121900
+
+11 skenario dicoba: 7passed (POS001/POS002/NEG001/NEG002/NEG003/NEG004/EDG023), 3failed (POS004/POS005/POS006), 1blocked (POS003). Kumulatif43passed/26failed/72blocked/16skipped; blocked65belumdijalankan dan7parsial/dependensi. Bukan seluruh157skenario selesai. Guard tiga failed pada expected+1draft-slot menutup skenario bisnis batchini; cleanup/diagnosis/report dilanjutkan.
+
+Cabang/Agen masuk formIsiData aktual dan tidak mengubah quota publik. Full fixture memakai dua pending sendiri C0R2, bukan mengklaim telah dibayar C2R0. Pemalsuan channelagen dan userId185 ditolak serverORDER_LIMIT; quota tetap2/0. Enam jadwal trayek sama dan browsercontext terpisah mematuhi kuota sama.
+
+Prasyarat Agen terselesaikan melalui UIresmi Pusat: perangkat AUTOTEST NQAR-J4J6/ID25, lokasi fixture0,0 dinyatakan simulasi, approve→modalRegistrasi→Daftarkan→Aktif. Tidak bypass gate. Private storageState artifacts/.auth/ro320-agent-device-20261009-121900.json (mode600/gitignored) diuji pada contextterpisah berhasil ke/agen/beranda_agen; hanya berlakuAgen, bukan seluruhrole. Device sendiri dipertahankan untukresume, tidak mencabut perangkat lain.
+
+UserUmum pertama record185 aktif diAdmin, tetapi percobaanlogin terakhir gagal (guard2 termasuk1historis). Tidak menebakpassword atau mengulang. Validasi/CMSakun tidak menemukan reset untukakun itu; recoveryresmi membutuhkan reCAPTCHA, belum mengirimemail. Kontak targetcocokkontakTestNotifikasi env. Pertanyaan update/verifikasi env sedangpending. POS003tetapblockedprasyaratnyata.
+
+Jadwal2338 BPN→PAP12Okt2030/Detail2328 tampilpublik; jadwal2339 KRG→MJU14Okt2030 tidak. Kedua fixturejadwal sendiri dihapus dan absenceCabang/Pusat diverifikasi. Tidak membuat bookingfinal baru. POS004 contohSBY→KPG digantiBPN→PAP sebagaiIDrute berbeda; POS005arahbalik; POS006dua pendingreturn mengganti contohsatu, oracleunchangedreturn/+1outbound sama. Buyer/passenger formnyata terlihat. Tiga failed bersumberquotaAPIused0→0/remaining2→2 saatIsiData; DBinternal/race belumdibuktikan, satu probabletemuanbersamaPOS015.
+
+KoreksiTESTISSUE: pesanNEG002pada kartu bukanheader; quotaresponseNEG001/003tidak memiliki fieldok; bodyresponseAJAXlangsungnavigasi tidakbisadibacasesudahredirect. Batal tersembunyi/duplikat tidakmenjadi businessblocker. Actualbukti sebelumcleanup dipakaiuntukverdict; percobaanterakhir sesudahfixtureterhapus tidakdianggap bug baru. Draftnavkembali melaluihrefobserved, internalDBdeletion belumdiverifikasi. Setting dan konfigurasi36kontak akhircocokbaseline. MetadataauditBPN dari parenttetapdipertahankan.
+
+Laporanresults/reports20261009-121900digenerate scriptstandar dan diverifikasi157barisskenario/26failed. Parenttidakditimpaverdict. Cleanupdua bookinglama run104428 sedangdirecheck terpisah; statusaktual wajibdibaca di cleanup-worker.json/hasilrun, bukan menganggap jadwalworkerberarti berhasil.
+
+### Recheck cleanup bookinglama setelahdeadline
+
+Worker12:50WIB melakukan POSTexpiredxenditHTTP200/body1 tetapi detailS9151763/B9151776 masih memilih/lakukanpembayaran, quota used2/remaining0, ledger B9151776 debitRp3.983tanpacredit. Kunjungan paymentURLsetelahdeadline tidakmembuktikanexpiredownkode (redirectdaftar berisibanyakorderexpiredlain bukan oracle); recheckdetailkodekeduanyatetappending. RateLimit1015 sementara ditangani jeda lebih60detik, requestnormal berhasil kembali, tidakbypass. Statuscleanup needs-recheck; tidak klaim sudahbersih. Updatehasil/Excelparent hanyacleanup, verdictscenario tidak berubah. Reportbaru121900memuatstatusaktual ini. BelumadaUIcancelpending yangditemukan; tidakrefundmanual atau melunasi.
+
+### 9 Oktober 2026 — RO320 resume72, run20261009-131124
+
+Pengguna secara eksplisit meminta menjalankan 72 blocked; cakupan>30 sudah disetujui pesan itu. Plan disimpan, roleplanner/executor/triager berurutan agentutama. Range1–500 tetap; tidak ada stress/pelunasan nyata. Preflight Agen private storageState valid; kuotaPAP→BPN tetapused2/remaining0. 7skenario dicoba:3passed(POS040 zonaWITA/resetWIB;NEG053 kontakPAPkosong tanpaWAkeliru dengan arahfixtureaktual;NEG033 portX-FAKE ditolak),3failed(NEG041/042/043 Simpaninvalid tetapenabled),1blockedparsial(EDG029 Batal menjaga data server/publik, tiket belum tersedia). Source langkahfilldibaca dari steps; helperawalfields kosong dibetulkan dan3verdictTESTISSUE diganti retest. NEG041 juga menormalisasi spasi nomor menjadi digit; tidak submitinvalid dan tidak membuktikan server menerima emailinvalid.
+
+Guard docs/roles/test-executor.md wajibberhenti sesudah3failedberuntun pola sama; tidak menjalankan65sisanya. Kumulatif46passed/29failed/66blocked/16skipped. Semua157sourceIDs/judul/REQtetap. Settings dan36konfigurasi kontak dipulihkan; auditPOS040 tetap. Tidak membuatbookingbaru atau menyampaikanWA/email. OwnbookinglamaS9151763 danB9151776 dicek13:14WIB tetapMemilihPembayaran/LakukanPembayaran, belumExpired; quota2/0. Refund/debitreturn belumdiverifikasi. Laporan results/reportsrun131124, daftarblockedcurrent dan checkpoint disimpan; sesi browser ditutup.
+
+### 9 Oktober 2026 — permintaan5akun User Umum Yopmail
+
+Pengguna mengizinkan registrasi5akunbaru Yopmail dengan passworddefault yang ditentukan pengguna, memperluas batas akunenv sebelumnya khususregistrasiini. Link/user/register diperoleh dari halamanlogin aktual. Satu calonemail diisi melaluiUI; klikBuatAkun menampilkan popoverLakukanAutentikasi pada reCAPTCHA. Tahapkodeverifikasi/nama/password belumterbuka; tidak ada POST submitRegistrasi, emailverifikasi atau akunbaru terkonfirmasi. 5calonemail disimpan results/_registration__ro320__20261009.md, bukan akunaktif; env tidakditambah. Tidak bypass CAPTCHA atau tokeninjection. Browserditutup.
+
+### 9 Oktober 2026 — akun User Umum tambahan RO320
+
+Pengguna menyediakan partnerphv24@gmail.com beserta password. Ditambahkan sebagai akun8 User Umum pada config/env.md (privat/gitignored); kredensial tidak dicetak pada log/laporan. Login resmi satu kali berhasil menuju /home/profil; guard perakun baru count0, guard akunlama yang gagal tidak direset. Bukti artifacts/registration/new-user-verification.json. Sekarang dua akun User Umum terverifikasi dapat login: pengirimphv24@gmail.com dan partnerphv24@gmail.com. Prasyarat duauser untuk POS003 tersedia; skenario belum diretest dan verdictmodul tidak diubah. Tidak ada booking atau pelunasan baru. Browserditutup.

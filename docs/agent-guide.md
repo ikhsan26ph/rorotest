@@ -99,12 +99,20 @@ Catatan sesi — status hipotesis bawaan project OMS (diperiksa 2026-09-25 pada 
   Fixture yang dipakai (`tests/helpers/partner-session.js`, `workers: 1` di `playwright.config.js`) login sekali per role pada context
   yang terus hidup dengan guard "login gagal 2x → berhenti", sehingga storageState memang tidak diperlukan. Jangan beralih ke pola
   storageState sebelum diuji dan dicatat di `shared/decisions.md`.
+  Verifikasi 9 Oktober 2026 pada resume RO320 membuktikan storageState untuk sesi Agen
+  dengan perangkat AUTOTEST yang disetujui dapat dipakai pada context terpisah. Bukti ini
+  hanya berlaku untuk Agen; file sesi privat harus di-gitignore, mode 600, dan tidak dicetak.
 - (ii) "Wajib `locator.dispatchEvent('click')`" — **TIDAK BERLAKU di aplikasi ini** (aturan dihapus 2026-09-25): `locator.click()` biasa
   memicu handler jQuery (toggle filter, checkbox via label, tombol Simpan/Hapus, SweetAlert). Pakai `click()` biasa; `dispatchEvent`
   hanya sebagai fallback terdokumentasi bila sebuah elemen terbukti tidak merespons.
 
 Login portal Operator (`/partner`): `#username`, `#password`, tombol "Login" → tetap di `/partner` (Akun Saya) lalu redirect
 `/partner/profil` (Operator Pusat) / `/partner/profilsubuser` (Sub User); indikator sesi `#signOut`. Detail: `shared/selector-map-partner-common.md`.
+Login Agen (`tests/helpers/agent-session.js`): `/device` dengan identitas akun yang sesuai
+merupakan sesi terautentikasi yang menunggu persetujuan perangkat, bukan password salah.
+Helper mengembalikan `gatedByDevice: true`; executor tetap menandai alur bisnis yang
+memerlukan perangkat aktif sebagai `blocked`. Guard dua kegagalan kredensial tetap berlaku.
+
 `tests/helpers/fixtures.js` adalah fixture lama OMS (akun #1, route `/login`) dan tidak dipakai modul portal Operator.
 
 ## Batasan Eksekusi Browser

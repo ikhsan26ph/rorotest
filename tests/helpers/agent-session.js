@@ -29,7 +29,12 @@ async function loginAgent(browser) {
     await page.locator('#username').fill(acct.email);
     await page.locator('#password').fill(acct.password);
     await page.getByRole('button', { name: 'Login', exact: true }).click();
-    await page.locator('#signOut').waitFor({ state: 'visible', timeout: 30_000 });
+    // Device approval is an authenticated landing, not a credential failure.
+    await page.waitForFunction((email) => {
+      const signedIn = document.querySelector('#signOut');
+      return !!(signedIn && signedIn.getClientRects().length) ||
+        (/^\/device\/?$/.test(location.pathname) && document.body.innerText.includes(email));
+    }, acct.email, { timeout: 30_000 });
     await page.waitForLoadState('domcontentloaded');
     writeFailures(0);
   } catch (error) {
@@ -39,7 +44,7 @@ async function loginAgent(browser) {
   }
   const landing = page.url();
   await page.close();
-  return { context, acct, landing };
+  return { context, acct, landing, gatedByDevice: /\/device\/?$/.test(new URL(landing).pathname) };
 }
 
 module.exports = { loginAgent };
