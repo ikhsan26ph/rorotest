@@ -4,6 +4,7 @@
 Usage:
     python scripts/generate_report.py results/<modul>__<runId>.json [file2.json ...]
     python scripts/generate_report.py --all   # gabungkan run TERBARU per modul
+    python scripts/generate_report.py --sales-analysis <input-analisis.json>
 
 Output: reports/<modul>__<runId>.xlsx  (atau reports/rekap-all__<timestamp>.xlsx untuk --all)
 Sheet: Summary, Detail, Failed_BugCandidates
@@ -181,6 +182,14 @@ def main():
     if not args:
         print(__doc__)
         sys.exit(1)
+    if args[0] == "--sales-analysis":
+        if len(args) != 2:
+            sys.exit("Usage: generate_report.py --sales-analysis <input-analisis.json>")
+        from sales_analysis_report import generate_sales_analysis
+
+        out = generate_sales_analysis(Path(args[1]), REPORTS)
+        print(f"Report tersimpan: {out}")
+        return
     paths = latest_per_module() if args == ["--all"] else [Path(a) for a in args]
     missing = [p for p in paths if not Path(p).exists()]
     if missing:

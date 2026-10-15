@@ -82,6 +82,18 @@ Field `id`, `title`, `category`, `priority`, `requirements` HARUS disalin apa ad
 `python scripts/generate_report.py results/<file>.json` → menghasilkan `reports/<modul>__<runId>.xlsx`
 berisi sheet: **Summary**, **Detail**, **Failed & Bug Candidates**. Jangan menulis Excel manual — selalu lewat script ini.
 
+Untuk laporan analisis user umum/order (bukan hasil skenario), gunakan
+`python scripts/generate_report.py --sales-analysis <input-analisis.json>`.
+Input berisi `kind: "sales-analysis"`, `source` (path snapshot order lengkap), dan
+`routes` (path pemetaan rute lengkap yang merujuk snapshot tersebut). Mode ini
+menghasilkan rekap 2025–2026: total user unik per tahun dan gabungan, mingguan,
+bulanan, harian, rute gabungan/per tahun/per minggu, dan metodologi. User dihitung
+dari ID pembeli berbeda; jangan menjumlahkan user antarperiode/rute. Order
+bertanda AUTOTEST dikeluarkan, semua status tetap dicatat, dan tahun berjalan
+hanya mencakup tanggal order terakhir pada snapshot. Nama/kontak/ID pembeli
+tidak ditulis ke workbook. Snapshot dan pemetaan rute harus berasal dari pembacaan
+yang terverifikasi; jangan menebak rute dari nama kapal atau tanggal berangkat.
+
 ## Mode Eksekusi (urutan prioritas)
 
 1. **Playwright script** — bila `tests/<modul>.spec.js` ada, eksekusi modul WAJIB lewat
