@@ -1,0 +1,82 @@
+{
+  "source": {
+    "type": "user-bug-retest",
+    "date": "2026-10-15",
+    "references": [
+      "25. Kuota & Jadwal - Setting Kuota - Pengajuan Approval - 1.png",
+      "25. Kuota & Jadwal - Setting Kuota - Pengajuan Approval - 2.png"
+    ],
+    "note": "Cakupan spesifik dua bug pengguna. REQ-024 suite lama memiliki oracle total berbeda; retest memakai contoh pengguna51=20+12+4+5+10, tidak mengganti hasil/skenario lama."
+  },
+  "scenarios": [
+    {
+      "id": "SCN-0001",
+      "title": "Modal pengajuan menampilkan lima jenis tiket, total tiket, dan kapasitas kapal",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-02",
+      "requirements": [
+        "BUG-1"
+      ],
+      "steps": [
+        "Isi fixture Penumpang20/Kendaraan12/Bonus4/BagasiPenumpang5/BagasiKendaraan10",
+        "Klik Simpan & Ajukan tanpa konfirmasi akhir"
+      ],
+      "expected": [
+        "Kelima jenis dan subtotal tampil; total51 dan kapasitas125000 sesuai contoh screenshot pengguna"
+      ]
+    },
+    {
+      "id": "SCN-0002",
+      "title": "Masing-masing card distribusi menampilkan subtotal sesuai jenis tiket",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-01",
+      "requirements": [
+        "BUG-2"
+      ],
+      "steps": [
+        "Isi fixture20/12/4/5/10",
+        "Baca kelima subtotal dalam card yang tepat"
+      ],
+      "expected": [
+        "Card Penumpang20; Kendaraan12 dan Bonus4; Bagasi Penumpang5 dan Kendaraan10"
+      ]
+    },
+    {
+      "id": "SCN-0003",
+      "title": "Perubahan isian memperbarui subtotal card dan modal pengajuan",
+      "category": "edge",
+      "priority": "high",
+      "screen": "SCR-02",
+      "requirements": [
+        "BUG-1",
+        "BUG-2"
+      ],
+      "steps": [
+        "Dari fixture awal ubah internal Penumpang10 menjadi17, kendaraan III-A3 menjadi5, BagasiPenumpang3 menjadi8, BagasiKendaraan3 menjadi9",
+        "Buka kembali modal"
+      ],
+      "expected": [
+        "Subtotal27/14/6/10/16 dan total73 sesuai penjumlahan kelima jenis"
+      ]
+    },
+    {
+      "id": "SCN-0004",
+      "title": "Isian nol dan kosong memperbarui subtotal tanpa NaN atau nilai lama",
+      "category": "edge",
+      "priority": "high",
+      "screen": "SCR-01",
+      "requirements": [
+        "BUG-2"
+      ],
+      "steps": [
+        "Reset seluruh kuota internal/eksternal ke0",
+        "Kosongkan satu input dan baca subtotal"
+      ],
+      "expected": [
+        "Kelima subtotal0, bonus0 meski rasio bonus default masih1/2; tidak ada NaN"
+      ]
+    }
+  ]
+}

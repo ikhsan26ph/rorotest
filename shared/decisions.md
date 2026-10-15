@@ -247,3 +247,89 @@ Cleanup5 perangkat sendiri:57/4N6L-9DLB Dicabut,58/GATR-8YNF Dicabut,59/XQSV-TS3
 ## 2026-10-14 — Reproduksi targeted RO315 cookie replay (100150)
 
 Atas permintaan pengguna, salin hanya PHPSESSID, cf_clearance, roro_agent_device dari perangkat sumber Aktif fixture Agen 19577 dan Sub Agen 19578 ke context browser baru desktop/emulasi Pixel 7. Empat kombinasi lulus: Akun Saya dan Beranda diarahkan ke /device, Baru, termasuk setelah 12 detik dan reload. Identitas pada halaman verifikasi bukan akses halaman Agen. Bypass yang dilaporkan belum terulang; tetap NEED RECHECK untuk environment/waktu/versi asal laporan. Hasil: results/ro315-cookie-replay__20261014-100150.json; triage: results/_triage__ro315-cookie-replay__20261014-100150.md. Sumber perangkat ID63/64 Dicabut setelah run, context ditutup, nilai cookie tidak ditulis. Hasil hanya untuk context terisolasi Chromium dan emulasi; tidak mencakup perangkat fisik atau pemindahan proof key.
+
+
+## 2026-10-15 — Test RO323 Notifikasi Sistem, run20261015-074926
+
+Pengguna menyetujui308non-stress melalui “lanjut” setelah plan>30. Planner/executor/triager berurutan agentutama; tanpa subagent. Tidak ada specPlaywright maupun ui-inventoryRO323; eksekusi viaMCP run-code, tanpa snapshotnormal. Hasil60skenario dieksekusi:57passed/3failed;248blocked hanya assessmentprasyarat;12stressskipped. Semua320ID/judul/kategori/prioritas dan requirementtunggal sumber dipertahankan, requirement juga dinormalisasi ke requirementsarray. FileJSON/Excel/triage memakai suffix20261015-074926.
+
+Tiga failed:POS104toastdeleteumum tanpa jumlah2;POS105danEDG019toastreadumum tanpa jumlah danseleksimasih2. Aksi data benar danisolasiakun terjaga. TriageBUG(probable)severityminor berdasarkananalis/JSON; bukan3bugindependen atau buktiDBloss. Resetseleksi sesudahbulkread memerlukankonfirmasikontrakdesain, sebabREQ063 eksplisitreset saatfilterberubah. UIinventory/FND/rawspec rujukan belumtersedia.
+
+Fixtureown4device:73NH7M-W9UP,74KHXY-3FZG,75 82CV-632V padaAgen19577;76VFZA-4CR7 padaAgen19579. Final73/74/76Dicabut,75Ditolak;semuarow/historitetap, tidakadaActive/Menunggu run. AkunRO315lama danperangkatexistingtidakdihapus. Geolocation0,0simulasi. Pengajuan/approval/revocationbody/time/Detail/read,isolasiperakun,prefpersonalOFF,lintasbrowser/logoutdanhistorysesudahOFF diuji. ForeigndeleteID3069milikAgen19579 dari19577 mendapat200namunscopeaman/historykeduanyaidentik. TamperaccountId19565 pada preferensijugascopesesiown, tidak mengubahuserkedua. Jangan mengklaimHTTP403untukdua caseini. Payloadjenisforbidden400;globalCabang403. HistoriAgenown dipertahankan;hanya2notifikasiPusatown2961/2972dihapus.
+
+Global47choicesidentikbaseline:Email14/14,WA0/6,Pushaplikasi0/1,Web26/26. Tidakmutasisettingtenant. Nilai preferensipersonalPusat/Agen/Userdipulihkan;timestamp/auditsaveberubahsecaraalamidan tidakdipalsukan. NEG053setupDevicePusat3prefsOFF;globaljenissemuaON;tidakmembuktikanisolasi satu togglepersonal saja. Fault500 browserdicegatbeforeorigin/commit,bukanfailure/rollbackDBinternal.
+
+ReadonlypreflightbookingCabang menemukanjadwal2327PAP→BPN9Oktober2030 dengan1slotinternal; quote1adultRp310000dibuka, tanpa finalsave,paymentgatewayinit ataupelunasan. Batal adalahhistory.back(); sisa1 tetap. Penghapusandraftinternal belumterverifikasi; draftURI tersimpan padaJSONcleanup. Tidakmengklaimfixturegratisatau2ordersekaligus siap. Tidakadabookingfinal/paymentnew. Kontaknotifikasi env tidakdipakai untukpengirimanbaru.
+
+Blockerutama:fixturetransaksisukses/gagal dancommit/dispatchtrace,serverclock/job/migrasi,Member/AdminPrahulain/AdminUtamakedua,globalOFF/savedsetting yangberbedadari baseline,WA3channel/sinkpengiriman,restrictedpermissionfixtures,pembayaran sandboxRO323belumdikonfirmasi. Izinsandbox9orderoldrun tidakdiperluas. Browsercontextsditutupsetelahfinalverification/report. Selectoraktual disimpan shared/selector-map-ro323.md; contohangka/kategori/control diadaptasidenganbinding percase, IDs/oracle domain dipertahankan. Retestissue adapter(Detaillink,customlabel,indeterminate,paginationrender,logout) tidakdibiarkan sebagai bugaplikasi.
+
+
+## 2026-10-15 — Resume RO323 dengan fixture transaksi sendiri, 20261015-090250
+
+User mengizinkan membuat top-up, tiket gratis, pembayaran, pembatalan dan reward uji: “lakukan saja tidak apa apa”, lalu meminta lanjut/status. Izin308non-stress dari run parent tetap berlaku. Konfirmasi sandbox/dummy belum diterima secara eksplisit; pertanyaan mengenai jenis environment diajukan. Top-up/pelunasan berdana tidak diselesaikan.
+
+Dibuat melalui UI Cabang pada jadwal2327 Parepare→Balikpapan, 9Oktober2030: booking128091/O9203009 satu penumpang, tiket469216/O9203009-001, pengajuan gratis82 berinstansi AUTOTEST-20261015-090250-RO323-GRATIS-A. Dokumen/identitas fiktif, telepon non-routable; email e-tiket hanya kontak test config. Nama buyer/pax dinormalisasi UI menjadi AUTOTESTROBUYER/AUTOTESTROPAX; marker run dipertahankan pada instansi/dokumen/catatan. Cabang approval09:21 lalu Pusat09:22, total Gratis Rp0. Event pembayaran Rp0 dikirim dan Detail Order lulus untuk dua operator. E-tiket send/selesaiPayment200 dan UI Kirim Tiket Berhasil; tidak mengklaim penerimaan inbox email.
+
+Pembatalan7409/P7D2B290DFB ditolak untuk pengujian, lalu pengajuan7410/PDE21DC4BD2 disetujui untuk cleanup. Kedua request hanya tiket own; harga/denda/refund0. Final ticket dibatalkan dan slot internal jadwal kembali1 pada09:39; tidak ada request own menunggu. Riwayat/audit dipertahankan.
+
+14kasus dicoba:7passed,6failed,1blocked setelah triage. Rekap kumulatif320 dengan306verdict dibawa/provenance parent:64passed,9failed,235blocked,12stressskipped. POS033 sempat assertion generik cocok, tetapi dikoreksi blocked karena Cabang fixture adalah pengaju; A06 meminta membedakan relasi pengaju/approver. POS067 failed karena teks pengaju menggunakan sudut pandang approver.
+
+Lima failed gratis POS004/005/006/007/065 berbagi satu bug tautan: notifikasi /partner/detailapprove/ODI%3D ditolak, tombol Detail resmi /partner/detailapprove/ODI= membuka ownrecord pada sesi yang sama. Perbedaan encoding padding diduga penyebab, belum dipastikan dari source backend. Commit/body/time/unread sesuai; status menjadi read walau tujuan ditolak. Guard wajib docs/roles/test-executor.md menghentikan skenario setelah POS006/POS007/POS065 tiga failure berturut-turut. Diagnosis route, cleanup dan laporan dilanjutkan. POS066/POS071 belum dieksekusi, tidak menyalin verdict.
+
+Top-up Agen19577 Rp10.000 Transfer + PDF dummy siap tetapi belum Simpan; tidak ada commit saldo/event own. Reward preflight Validasi Member menyediakan APK JN Member, tanpa create Member pada halaman yang diperiksa; akun Member/poin dan alur pengajuan sendiri belum tersedia. Data Member/reward existing tidak dimutasi. Setting global/preferensi personal tidak dimutasi dalam resume. Header saldo berubah dari aktivitas lain; tidak dipakai sebagai bukti efek transaksi0.
+
+Gangguan524 dan adapter responsebody sesudahnavigation/listener/locator didiagnosis; failure final bukan timeout. Artifacts results/_fixture-resume, _bookings, _executed, JSONhasil, triage dan Excel memakai suffix20261015-090250; parent tidak ditimpa. Sesi/form top-up belum disimpan dipertahankan untuk resume. Tidak ada trace DB/dispatcher internal, hanya UI tersimpan/riwayat/notification own. Tidak membuat subagent. Dua script untracked audit_sort_icons.js/diagnose_sort_icons.js bukan perubahan run dan dipertahankan.
+
+
+## 2026-10-15 — Scope resume blocked 20261015-100755
+
+User meminta menyelesaikan semua blocked setelah penjelasan prasyarat. Resume mencakup fixture akun sendiri dan perubahan sementara setting Push Web yang secara eksplisit dibutuhkan skenario; baseline dicatat dan dipulihkan per kasus. Tidak mengaktifkan WhatsApp/Email ke kontak lain, tidak mengubah tarif/jadwal, tidak menyelesaikan transaksi berdana sebelum konfirmasi eksplisit sandbox. Konfirmasi sandbox dan akses job/clock/Member ditanyakan asynchronous; belum ada jawaban. Tidak mengubah guide atau menghapus guard.
+
+
+## 2026-10-15 — Klarifikasi guard saat penyelesaian blocked RO323
+
+User secara eksplisit meminta menyelesaikan blocked. Bukti resume menunjukkan environment sehat (23 kasus independen passed) dan bug URL gratis telah terisolasi: URL escaped ditolak sementara Detail resmi bekerja pada sesi sama. Perbarui docs/roles/test-executor.md bersama: tiga failure berpola sama menghentikan batch untuk diagnosis; gangguan environment/sesi tetap memblokir dependensi, sedangkan bug aplikasi terkonfirmasi tetap failed dan kasus independen yang sudah diizinkan boleh dilanjutkan. Tidak melonggarkan guard login2, aturan pembayaran sandbox, oracle, atau persyaratan bukti. Perubahan ini memperbaiki over-blocking workflow, tidak memperbaiki/menutupi bug aplikasi.
+
+## 2026-10-15 — Penutupan resume RO323 blocked, 20261015-100755
+
+Dari235 kasus blocked parent,84 selesai dieksekusi:73passed dan11failed. Rekap gabungan320 skenario:137passed,20failed,151blocked,12stress skipped. Hanya84 verdict baru;236 verdict lainnya dibawa atau direview prasyaratnya dengan provenance. Tidak ada subagent. Guard tiga failure sekarang dipakai untuk diagnosis batch; kasus independen dilanjutkan sesudah bug terisolasi dan sesi sehat.
+
+Sebelas failure baru adalah6 Detail notifikasi kuota menuju NotFound dan5 Detail tiket gratis ditolak/menuju profil atau dashboard. Tautan normal bisnis tetap dapat membuka data sendiri. Encoding masih hipotesis penyebab gratis berdasarkan kontrol parent82, bukan konfirmasi source backend. POS008 didiagnosis ulang setelah navigasi selesai; screenshot loading diganti dengan halaman tujuan aktual.
+
+Lima booking GratisRp0 dibuat satu per satu pada jadwal2327 (9Oktober2030):128112/B9203904,128113/N9203988,128114/G9204042,128115/U9204068,128116/K9204091. Tiket469311–469315; cancellation final7415–7419 semuanya Disetujui, harga/denda/refund0. Setiap booking berikutnya dibuat setelah kuota kembali1; kapasitas akhir1 diverifikasi. E-tiket diproses lewat pilihan Cetak, tanpa pengiriman email/WA. Tidak menyelesaikan top-up, TOP/lunas, atau pembayaran nyata.
+
+Device78/79 milik run selesai Dicabut. SubAdmin19586 dan SubUserPusat19588 TidakAktif; AdminUtama19587 SoftDeleted melalui tombol GridField SoftDeleteRecord19587 resmi CMS. Delete pada form edit CMS tidak menyelesaikan aksi; gunakan kontrol daftar yang terverifikasi. Tidak menghapus akun/data existing.
+
+Kuota2365/2366/2367 sudah approved berstatus IsiJadwal, tanpa jadwal/tanggal keberangkatan diterbitkan. Tidak ada Batal/Hapus pada UI record approved yang diperiksa; ketiga catatan dipertahankan sebagai jejak uji. Dokumen dummy/notifikasi own dan audit juga dipertahankan. Pesan existing20 akun User Umum dibaca untuk pengujian single-read/idempotensi; history lama tidak dihapus.
+
+Semua47 nilai global kembali baseline;13 pilihan personal Pusat dan10 Cabang yang disentuh kembali ON,4 pilihan visible User Umum kembali ON. Khusus POS090/POS091, satu global WA payment UserOnline diaktifkan sementara hanya untuk UI Batal/counter, tanpa transaksi/trigger pengiriman; global kembali OFF. Preferensi WA user saat pertama ditawarkan ternyata ON; setelah fixture OFF dipakai, nilai tersembunyi awal ON dipulihkan sebelum global kembali OFF. Tanggal audit save berubah secara sah, tidak dipalsukan.
+
+Fault500 dicegat sebelum origin untuk pengujian kegagalan transport; bukan bukti rollback DB. Kiriman PushWeb dibuktikan dari inbox persisten server, tidak diklaim sebagai trace dispatcher/provider. Tidak memakai jam browser untuk menggantikan clock server atau mock response untuk mengklaim commit bisnis.
+
+151 blocked tersisa dikelompokkan spesifik:43 sandbox/transaksi berbayar sendiri;56 JN Member/aplikasi/poin/reward;34 backend job/clock/migrasi/seed;7 sink channel;6 kontrol aktor/ACL;3 dataset User Umum baru/0/10/11;2 alur Cabang-approval-kedua yang tidak ditawarkan UI sesudah Pusat-first. APK B6LIVE yang ditawarkan aplikasi404 pada browser terautentikasi; tidak ada emulator/perangkat terhubung. Konfirmasi eksplisit sandbox dan akses backend/Member belum dijawab. Tidak menebak endpoint atau memutasi data pelanggan untuk memaksakan prasyarat.
+
+JSONhasil, journal fixture, triage, daftar blocked beserta ID, dan Excel berakhiran20261015-100755. Run lama dipertahankan; skrip audit_sort_icons.js/audit_sort_tabs.js/diagnose_sort_icons.js bukan perubahan run dan tidak disentuh.
+
+## 2026-10-15 — Konfirmasi staging dan resume43 transaksi, 20261015-141411
+
+User menegaskan: “43 lanjutkan, ini hanya versi staging aman!” sebagai jawaban langsung atas pertanyaan apakah seluruh top-up, saldo, TOP dan pembayaran environment ini sandbox/dummy tanpa uang nyata. Konfirmasi ini memenuhi prasyarat pembayaran testing pada docs/agent-guide.md untuk host yang dikonfigurasi. Cakupan43 kasus transaksi dari blockerSummary sandbox run20261015-100755 sudah diizinkan; tidak meminta persetujuan jumlah ulang. Gunakan data sendiri berprefixAUTOTEST-20261015-141411, jadwal sejauh mungkin, kontak notifikasi test dari config; catat transaksi dan cleanup booking sendiri. Tidak mentransfer uang melalui bank/wallet eksternal nyata dan tidak memodifikasi transaksi pelanggan existing. Setting global/personal sementara hanya sesuai skenario dan dipulihkan.
+
+
+## 2026-10-15 — Retest dua bug ringkasan kuota, 20261015-141825
+
+Pengguna meminta cek perbaikan modal approval Cabang dan total tiap card distribusi, dengan dua gambar Training25. Peran planner/executor/triager dijalankan berurutan agentutama tanpa subagent. Dibuat4skenario terfokus sumber pengguna pada scenario/ro319-retest-ringkasan-kuota; semua4passed. Bukan retest195skenarioRO319 atau approvalend-to-end.
+
+CabangParepare akun3env, trayekPAREPARE-BALIKPAPAN5/KM.SWARNA BAHTERA2: cardPenumpang20/Kendaraan12/Bonus4/BagasiPenumpang5/BagasiKendaraan10 pada lokasi yang benar. ModalAJUKANKUOTA menampilkan kelima jenis dan51dari kapasitas125.000. Setelah edit:27/14/6/10/16,total73; reset0/kosongsatuinput menghasilkan lima0tanpaNaN/nilailama. Formula modal menggunakan contoh pengguna51=20+12+4+5+10; berbeda oracleREQ024suiteRO319lama. Hasil/skenariolama tidak ditimpa atau dianggap terujiulang.
+
+Selector-mapdist_*lama tidak berlaku pada workflowbaru; inputnameQuota[key][internal|external], formjadwal-quota-form, dialogquota-workflow-dialog, data-dialog-quota dan atributsubtotal aktual dicatat diui-inventory/scriptret viaMCP. LoginCabang sekali berhasil; wait#signOut awalhidden diperbaiki viewport1440, bukan credentialretry. Tidak membuat/menyimpan draft, mengirim pengajuanfinal, approvalPusat, jadwal/booking atau transaksi. Monitorrequestbisniswritekosong; formunsaved dibuangmelaluinavigasiaboutblank. Sesuaiaturanexecutor, screenshotpassedtidakdiambil. JSON/evidence/triage/Excel suffix20261015-141825 tersimpan, workbook4barisDetail danmetadataID/judul/kategori/priority/requirements cocok sumber.
+
+
+## 2026-10-15 — Retest popup Isi Data Order batas tercapai, 20261015-143654
+
+User meminta lanjut cek tampilanpopup sesuai GambarB Training27, kemudian memberikanpathgambar.4skenario terfokus pada scenario/ro320-retest-popup-batas dijalankan planner/executor/triager berurutan agentutama;4passed. Tidakretenseluruh157skenarioRO320. LoginUserenv6/Pusatenv2 satu kali masingmasing pada contextterpisah. Attemptawal membukauserlogin dalam sesiCabang diarahkanprofilCabang, tidaksubmitkredensial dan bukanlogingagal.
+
+Fixtureminimum sendiri: Kuota2369/DetailJadwal2343 AUTOTEST-20261015-POPUP-B, PAREPARE-BALIKPAPAN/KM.SWARNA BAHTERA,9Oktober2035,kuotapublik3; crewmasterNAHKODA7 hanya dipilih, mastertidakdiubah. Jadwal2030existing internal1/eksternal0 tidakmunculpublik, tidakdimutasi. Satu formstandby dan satu bookingpending sendiri128122/P9205010 dibuattepat1savebooking. Batasbaseline13 sementara1 membuatserverORDER_LIMIT/used1/sisa0 pada LanjutkanPembayaranformstandby. Responsserveraktual, tanpamock/clockmanipulation. TetapIsiData tanpaordertambahan. PopupjudulBATAS PEMBELIAN TERCAPAI, pesanrute, dua cardKOTA ASAL/TUJUAN, headerabu, WAhijau danTutupmerah sesuaiB. Kontak/kedua hrefWhatsApp cocok sumber, tanpamengirimWA;Tutup menjagaURLdan15isian.
+
+Satu assertionwarnaawal TESTISSUE mengunciRGB239,102,97 tanpa persyaratan; aktual231,102,92 adalahmerah. Screenshotdiagnosis+computedstyle dikaji danassertiondikoreksi sesuaioraclered/posisi, hasilakhirpassed. Screenshotdiagnosis tetap artifacts/screenshots/20261015-143654/SCN-0002.png; tidakmengambil screenshotpassedbaru. Timeoutnetworkidle/datepicker/getByRole/Simpanendpoint diselesaikan melaluidiagnosisDOM danstate, tidakmengulangsimpanbisnissecara buta.
+
+Cleanup: batas/status/pesankembaliidentik13/Aktif/pesanbaseline; kontakcabangtidakdiubah. POSTexpiredxenditown200/body1 awal belumlangsungmengubahstatus, recheckdetailakhir128122 membuktikan OrderExpired danquotaused0/sisa13. Tidakmemilihgateway/melunasi/paymentreal. Jadwalown2369ditutup lewat editresmi simpanEditJadwal,statusTutupterverifikasi dan absenpencarianpublik;record/auditdipertahankan. DraftstandbyditinggalkanmelaluiBatal, rowtmpDBdeletionbelumdiverifikasi. Semua contextbrowserrun ditutup. JSONhasil/journalfixture/evidence/triage/Excel suffix20261015-143654. Workbook4barisDetail danmetadatahasilcocoksumber, parenttidakditimpa. Tidakmembuat subagent.

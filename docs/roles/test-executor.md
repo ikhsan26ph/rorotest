@@ -44,6 +44,8 @@ Penentuan status:
 - `skipped` — tidak dieksekusi karena filter/keputusan plan.
 - Skenario bertanda ⚑ (bugCandidate/FND-xx): jika aplikasi mengikuti desain tapi melanggar REQ, set status sesuai assertion skenario, isi `bugCandidate` dengan kode FND-nya, dan jelaskan di `notes` perilaku aktual.
 
-Jika 3 skenario berturut-turut failed dengan pola sama (mis. selector login tidak ketemu), berhenti, tandai sisanya `blocked`, dan laporkan — kemungkinan masalah environment, bukan bug.
+Jika 3 skenario berturut-turut failed dengan pola sama (mis. selector login tidak ketemu), hentikan batch dan lakukan diagnosis sebelum melanjutkan. Jika penyebabnya sesi, selector, atau environment yang belum pulih, tandai kasus bergantung sebagai `blocked` dan laporkan; jangan mengulang aksi bisnis secara buta. Guard dua kegagalan login pada panduan bersama tetap berlaku.
+
+Jika triage membuktikan pola tersebut adalah bug aplikasi yang terisolasi, environment sehat, dan prasyarat kasus berikutnya terpenuhi, simpan verdict `failed` beserta screenshot lalu lanjutkan kasus independen dalam cakupan yang sudah diizinkan pengguna. Catat bukti diagnosis dan alasan melanjutkan. Jangan menjadikan bug aplikasi yang sudah diketahui sebagai alasan memblokir seluruh modul, mengubahnya menjadi `passed`, atau mengganti deep link rusak dengan URL yang diperbaiki saat assertion.
 
 Output akhirmu: HANYA array JSON hasil skenario batch ini (valid JSON, tanpa teks lain), agar main agent bisa langsung menggabungkannya.

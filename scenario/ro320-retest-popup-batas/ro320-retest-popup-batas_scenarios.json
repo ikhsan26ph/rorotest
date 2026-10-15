@@ -1,0 +1,78 @@
+{
+  "source": {
+    "request": "Retest popup Isi Data Order saat batas pembelian habis; tampilan Gambar B",
+    "reference": "/home/icun/Produk/RORO/Training/27. Isi Data Order - Batas Tercapai - Informasi Popup.png",
+    "parentModule": "ro320-pembatasan-order-untuk-user-umum"
+  },
+  "scenarios": [
+    {
+      "id": "SCN-0001",
+      "title": "Lanjutkan Pembayaran menolak kuota terbaru yang habis dan membuka popup",
+      "category": "negative",
+      "priority": "high",
+      "screen": "SCR-01",
+      "requirements": [
+        "REQ-012"
+      ],
+      "steps": [
+        "Siapkan satu form Isi Data valid saat masih tersedia",
+        "Habiskan kuota melalui satu pending sendiri dan batas sementara1",
+        "Klik Lanjutkan Pembayaran"
+      ],
+      "expected": [
+        "Backend ORDER_LIMIT, tidak terbentuk order tambahan dan tetap di Isi Data; popup terlihat"
+      ]
+    },
+    {
+      "id": "SCN-0002",
+      "title": "Popup batas pembelian mengikuti judul dan susunan Gambar B",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-02",
+      "requirements": [
+        "BUG-POPUP-B"
+      ],
+      "steps": [
+        "Periksa popup penolakan dari SCN-0001"
+      ],
+      "expected": [
+        "Judul BATAS PEMBELIAN TERCAPAI, info rute, dua card KOTA ASAL/KOTA TUJUAN, header gelap, tombol WhatsApp hijau dan Tutup merah"
+      ]
+    },
+    {
+      "id": "SCN-0003",
+      "title": "Kontak dan tautan WhatsApp popup sesuai asal dan tujuan rute",
+      "category": "positive",
+      "priority": "high",
+      "screen": "SCR-02",
+      "requirements": [
+        "REQ-015",
+        "REQ-031"
+      ],
+      "steps": [
+        "Cocokkan setiap card dengan quota.contacts aktual",
+        "Periksa href WhatsApp tanpa menghubungi cabang"
+      ],
+      "expected": [
+        "Nama, alamat, nomor, email, jam dan zona sesuai sumber per cabang; href62 sesuai nomor08"
+      ]
+    },
+    {
+      "id": "SCN-0004",
+      "title": "Tutup popup mempertahankan halaman dan isian order",
+      "category": "edge",
+      "priority": "high",
+      "screen": "SCR-01",
+      "requirements": [
+        "REQ-031"
+      ],
+      "steps": [
+        "Simpan snapshot URL dan isian",
+        "Klik Tutup"
+      ],
+      "expected": [
+        "Popup hilang, tetap di Isi Data, isian tidak berubah"
+      ]
+    }
+  ]
+}
