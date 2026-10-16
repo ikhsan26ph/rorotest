@@ -65,14 +65,21 @@ function normal(value) {
 function oracle(values, direction, column = {}) {
   if (/status|s&k|^reward$/i.test(column.label || '')) return { verifiable: false, reason: 'Urutan enum/status backend belum diverifikasi; label tampilan bukan oracle alfabetis', rows: values.length, distinct: new Set(values).size };
   const identifier = /whatsapp|\bWA\b|\bHP\b|telp|telepon|phone|rekening/i.test(column.label || '');
-  const parsed = identifier ? values.map(v => ({ type: 'text', value: String(v).trim().toLowerCase() })) : values.map(v => {
+  // Placeholder tambahan harus opt-in pada kolom setelah diagnosis tampilan.
+  // Tidak mengasumsikan kata "null" sebagai kosong pada semua jenis kolom.
+  const emptyPlaceholders = new Set((column.emptyPlaceholders || []).map(v => String(v).trim().toLowerCase()));
+  const ignoredPlaceholderRows = values.flatMap((v, i) => emptyPlaceholders.has(String(v).trim().toLowerCase()) ? [i + 1] : []);
+  const normalization = ignoredPlaceholderRows.length ? { emptyPlaceholders: [...emptyPlaceholders], ignoredPlaceholderRows } : {};
+  const parsed = values.map(v => {
+    if (emptyPlaceholders.has(String(v).trim().toLowerCase())) return { type: 'empty', value: '' };
+    if (identifier) return { type: 'text', value: String(v).trim().toLowerCase() };
     const age = /^(umur|usia)$/i.test(column.label || '') && String(v).trim().match(/^(\d+)\s*Th\s*\/\s*(?:Bayi|Anak|Dewasa)$/i);
     return age ? { type: 'number', value: Number(age[1]) } : normal(v);
   });
   const types = [...new Set(parsed.filter(p => p.type !== 'empty').map(p => p.type))];
   const distinct = new Set(parsed.filter(p => p.type !== 'empty').map(p => p.value)).size;
-  if (values.length < 2 || distinct < 2) return { verifiable: false, reason: 'Kurang dari dua nilai berbeda pada data yang tampil', rows: values.length, distinct };
-  if (types.length !== 1 || types.includes('composite')) return { verifiable: false, reason: 'Kolom gabungan/tipe campuran membutuhkan oracle field backend', rows: values.length, distinct, types };
+  if (values.length < 2 || distinct < 2) return { verifiable: false, reason: 'Kurang dari dua nilai berbeda pada data yang tampil', rows: values.length, distinct, ...normalization };
+  if (types.length !== 1 || types.includes('composite')) return { verifiable: false, reason: 'Kolom gabungan/tipe campuran membutuhkan oracle field backend', rows: values.length, distinct, types, ...normalization };
   const violations = [];
   // Empty values can sort as SQL NULL or empty string; do not assume their placement.
   const entries = parsed.map((p, i) => ({ ...p, i })).filter(p => p.type !== 'empty');
@@ -83,9 +90,9 @@ function oracle(values, direction, column = {}) {
   }
   if (types[0] === 'text' && violations.length) {
     const binaryOrdered = entries.every((p, i) => i === 0 || (direction === 'ASC' ? entries[i - 1].value <= p.value : entries[i - 1].value >= p.value));
-    if (binaryOrdered) return { verifiable: true, type: 'text', rows: values.length, distinct, ordered: true, violations: [], collation: 'Kode karakter; urutan punctuation berbeda dari Intl id' };
+    if (binaryOrdered) return { verifiable: true, type: 'text', rows: values.length, distinct, ordered: true, violations: [], collation: 'Kode karakter; urutan punctuation berbeda dari Intl id', ...normalization };
   }
-  return { verifiable: true, type: types[0], rows: values.length, distinct, ordered: violations.length === 0, violations };
+  return { verifiable: true, type: types[0], rows: values.length, distinct, ordered: violations.length === 0, violations, ...normalization };
 }
 async function settle(page) {
   await page.waitForLoadState('domcontentloaded');

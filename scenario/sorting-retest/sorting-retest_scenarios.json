@@ -1,0 +1,1340 @@
+{
+  "module": "sorting-retest",
+  "source": "results/sorting-icons__20261015-033838.json",
+  "scope": "43 failed sebelumnya, bukan audit ulang semua kolom atau seluruh blocked",
+  "scenarios": [
+    {
+      "id": "SCN-0001",
+      "title": "Admin Pusat: /adminprahu/laporanpenjualanharian — Total Tiket (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-01",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 0,
+      "route": "/adminprahu/laporanpenjualanharian",
+      "column": {
+        "label": "Total Tiket",
+        "group": "total_tiket",
+        "cellIndex": 5
+      },
+      "originalId": "SORT-A1-3ff812b58b21-5",
+      "previousError": "Klik posisi ikon Total Tiket menyortir Total Penjualan; expected field total_tiket, actual total_penjualan2",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Total Tiket dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0002",
+      "title": "Admin Pusat: /adminprahu/laporanpendapatanpertrip — Kota Asal Berangkat (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-02",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 0,
+      "route": "/adminprahu/laporanpendapatanpertrip",
+      "column": {
+        "label": "Kota Asal Berangkat",
+        "group": "pol",
+        "cellIndex": 2
+      },
+      "originalId": "SORT-A1-9d10026b0b85-2",
+      "previousError": "Klik sortir memunculkan dialog aplikasi: !\nMaaf, Koneksi internetmu Terganggu\nPastikan internetmu lancar dengan cek ulang paket data, WIFI atau jaringan di tempatmu. Silahkan hubungi Customer Service untuk pertanyaan lebih lanjut.\n Hubungi Customer Service\nTutup",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Kota Asal Berangkat dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0003",
+      "title": "Admin Pusat: /adminprahu/masterpelabuhan — UN Code (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-03",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 0,
+      "route": "/adminprahu/masterpelabuhan",
+      "column": {
+        "label": "UN Code",
+        "group": "singkatan",
+        "cellIndex": 1
+      },
+      "originalId": "SORT-A1-c36718796d1f-1",
+      "previousError": "Klik posisi ikon UN Code menyortir Nama Pelabuhan; expected field singkatan, actual port",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir UN Code dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0004",
+      "title": "Admin Pusat: /adminprahu/syaratdanketentuan — No (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-04",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 0,
+      "route": "/adminprahu/syaratdanketentuan",
+      "column": {
+        "label": "No",
+        "group": "nomer",
+        "cellIndex": 0
+      },
+      "originalId": "SORT-A1-952b6f9de070-0",
+      "previousError": "Urutan data ASC salah (1 pasangan terbalik)",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir No dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0005",
+      "title": "Admin Pusat: /adminprahu/syaratdanketentuan — Nama Perusahaan (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-04",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 0,
+      "route": "/adminprahu/syaratdanketentuan",
+      "column": {
+        "label": "Nama Perusahaan",
+        "group": "nama",
+        "cellIndex": 1
+      },
+      "originalId": "SORT-A1-952b6f9de070-1",
+      "previousError": "Urutan data DESC salah (1 pasangan terbalik)",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Nama Perusahaan dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0006",
+      "title": "Admin Pusat: /adminprahu/userumum — Nama Lengkap (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-05",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 0,
+      "route": "/adminprahu/userumum",
+      "column": {
+        "label": "Nama Lengkap",
+        "group": "nama",
+        "cellIndex": 1
+      },
+      "originalId": "SORT-A1-4dd7bf5e0ebe-1",
+      "previousError": "Urutan data ASC salah (2 pasangan terbalik)",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Nama Lengkap dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0007",
+      "title": "Admin Pusat: /adminprahu/manifestkapal — Operator (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-06",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 0,
+      "route": "/adminprahu/manifestkapal",
+      "column": {
+        "label": "Operator",
+        "group": "operator",
+        "cellIndex": 0
+      },
+      "originalId": "SORT-A1-f8bc6ee4a0e1-0",
+      "previousError": "Klik posisi ikon Operator menyortir Nama Kapal; expected field operator, actual nama_kapal",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Operator dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0008",
+      "title": "Admin Pusat: /adminprahu/data_kendaraan_show — Nama Operator (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-07",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 0,
+      "route": "/adminprahu/data_kendaraan_show",
+      "column": {
+        "label": "Nama Operator",
+        "group": "nama_operator",
+        "cellIndex": 0
+      },
+      "originalId": "SORT-A1-118a21fe9935-0",
+      "previousError": "Urutan data DESC salah (1 pasangan terbalik)",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Nama Operator dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0009",
+      "title": "Admin Pusat: /adminprahu/daftarpiutang — Operator (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-08",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 0,
+      "route": "/adminprahu/daftarpiutang",
+      "column": {
+        "label": "Operator",
+        "group": "operator",
+        "cellIndex": 0
+      },
+      "originalId": "SORT-A1-fdc2adc28cb2-0",
+      "previousError": "Klik sortir memunculkan dialog aplikasi: !\nMaaf, Koneksi internetmu Terganggu\nPastikan internetmu lancar dengan cek ulang paket data, WIFI atau jaringan di tempatmu. Silahkan hubungi Customer Service untuk pertanyaan lebih lanjut.\n Hubungi Customer Service\nTutup",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Operator dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0010",
+      "title": "Admin Pusat: /adminprahu/persetujuantiket — Operator (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-09",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 0,
+      "route": "/adminprahu/persetujuantiket",
+      "column": {
+        "label": "Operator",
+        "group": "operator",
+        "cellIndex": 0
+      },
+      "originalId": "SORT-A1-b0636e6be77a-0",
+      "previousError": "Klik sortir memunculkan dialog aplikasi: !\nMaaf, Koneksi internetmu Terganggu\nPastikan internetmu lancar dengan cek ulang paket data, WIFI atau jaringan di tempatmu. Silahkan hubungi Customer Service untuk pertanyaan lebih lanjut.\n Hubungi Customer Service\nTutup",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Operator dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0011",
+      "title": "Admin Pusat: /adminprahu/pelanggan — Operator (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-10",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 0,
+      "route": "/adminprahu/pelanggan",
+      "column": {
+        "label": "Operator",
+        "group": "op_pt",
+        "cellIndex": 1
+      },
+      "originalId": "SORT-A1-33297b6857a8-1",
+      "previousError": "Klik posisi ikon Operator menyortir Nama Perusahaan; expected field op_pt, actual nama_perusahaan",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Operator dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0012",
+      "title": "Admin Pusat: /adminprahu/agen — Operator (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-11",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 0,
+      "route": "/adminprahu/agen",
+      "column": {
+        "label": "Operator",
+        "group": "operator",
+        "cellIndex": 1
+      },
+      "originalId": "SORT-A1-9944e36e4164-1",
+      "previousError": "Klik posisi ikon Operator menyortir Nama Perusahaan Agen; expected field operator, actual nama",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Operator dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0013",
+      "title": "Admin Pusat: /adminprahu/agen — Telepon / WA (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-11",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 0,
+      "route": "/adminprahu/agen",
+      "column": {
+        "label": "Telepon / WA",
+        "group": "telp",
+        "cellIndex": 4
+      },
+      "originalId": "SORT-A1-9944e36e4164-4",
+      "previousError": "Urutan data DESC salah (1 pasangan terbalik); Urutan data ASC salah (1 pasangan terbalik)",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Telepon / WA dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0014",
+      "title": "Admin Pusat: /adminprahu/petugasscan — Operator (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-12",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 0,
+      "route": "/adminprahu/petugasscan",
+      "column": {
+        "label": "Operator",
+        "group": "operator",
+        "cellIndex": 1
+      },
+      "originalId": "SORT-A1-e5aba51bbd4d-1",
+      "previousError": "Klik sortir memunculkan dialog aplikasi: !\nMaaf, Koneksi internetmu Terganggu\nPastikan internetmu lancar dengan cek ulang paket data, WIFI atau jaringan di tempatmu. Silahkan hubungi Customer Service untuk pertanyaan lebih lanjut.\n Hubungi Customer Service\nTutup",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Operator dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0015",
+      "title": "Admin Pusat: /adminprahu/hakAksesagen — Nama Agen (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-13",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 0,
+      "route": "/adminprahu/hakAksesagen",
+      "column": {
+        "label": "Nama Agen",
+        "group": "operator",
+        "cellIndex": 2
+      },
+      "originalId": "SORT-A1-85e0ae0b3569-2",
+      "previousError": "Urutan data DESC salah (2 pasangan terbalik); Urutan data ASC salah (1 pasangan terbalik)",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Nama Agen dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0016",
+      "title": "Admin Pusat: /adminprahu/mastergolongan — Operator (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-14",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 0,
+      "route": "/adminprahu/mastergolongan",
+      "column": {
+        "label": "Operator",
+        "group": "operator",
+        "cellIndex": 1
+      },
+      "originalId": "SORT-A1-d08449a4bce0-1",
+      "previousError": "Klik sortir memunculkan dialog aplikasi: !\nMaaf, Koneksi internetmu Terganggu\nPastikan internetmu lancar dengan cek ulang paket data, WIFI atau jaringan di tempatmu. Silahkan hubungi Customer Service untuk pertanyaan lebih lanjut.\n Hubungi Customer Service\nTutup",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Operator dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0017",
+      "title": "Admin Pusat: /adminprahu/MasterCrew — Jabatan (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-15",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 0,
+      "route": "/adminprahu/MasterCrew",
+      "column": {
+        "label": "Jabatan",
+        "group": "jabatan",
+        "cellIndex": 6
+      },
+      "originalId": "SORT-A1-2a7f1d178c38-6",
+      "previousError": "Klik posisi ikon Jabatan menyortir Kode Pelaut; expected field jabatan, actual kode_pelaut",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Jabatan dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0018",
+      "title": "Admin Pusat: /adminprahu/agen_riwayat_topup/R24wWEVIYmM1dk1jTWZUYXZzR2I2Zz09 — Nominal (Rp.) (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-16",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 0,
+      "route": "/adminprahu/agen_riwayat_topup/R24wWEVIYmM1dk1jTWZUYXZzR2I2Zz09",
+      "column": {
+        "label": "Nominal (Rp.)",
+        "group": "nominal",
+        "cellIndex": 4
+      },
+      "originalId": "SORT-A1-6a88a71a72e8-4",
+      "previousError": "Klik posisi ikon Nominal (Rp.) tertutup header Dokumen; handler sortir tidak berjalan (field/direction/indikator tidak berubah)",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Nominal (Rp.) dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0019",
+      "title": "Admin Pusat: /adminprahu/detailasuransi/71 — Tiket Penumpang (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-17",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 0,
+      "route": "/adminprahu/detailasuransi/71",
+      "column": {
+        "label": "Tiket Penumpang",
+        "group": "nama_trayek",
+        "cellIndex": 0
+      },
+      "originalId": "SORT-A1-cb8e5eb4dbb4-0",
+      "previousError": "Urutan data ASC salah (1 pasangan terbalik); Urutan data DESC salah (1 pasangan terbalik)",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Tiket Penumpang dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0020",
+      "title": "Operator Pusat: /partner/laporanpenjualanharian — Total Tiket (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-18",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 1,
+      "route": "/partner/laporanpenjualanharian",
+      "column": {
+        "label": "Total Tiket",
+        "group": "total_tiket",
+        "cellIndex": 4
+      },
+      "originalId": "SORT-A2-c7b574032be6-4",
+      "previousError": "Klik posisi ikon Total Tiket menyortir Total Penjualan; expected field total_tiket, actual total_penjualan2",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Total Tiket dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0021",
+      "title": "Operator Pusat: /partner/laporanpendapatanpertrip — Kota Asal Berangkat (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-19",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 1,
+      "route": "/partner/laporanpendapatanpertrip",
+      "column": {
+        "label": "Kota Asal Berangkat",
+        "group": "pol",
+        "cellIndex": 1
+      },
+      "originalId": "SORT-A2-a7ae6e27131b-1",
+      "previousError": "Klik sortir memunculkan dialog aplikasi: !\nMaaf, Koneksi internetmu Terganggu\nPastikan internetmu lancar dengan cek ulang paket data, WIFI atau jaringan di tempatmu. Silahkan hubungi Customer Service untuk pertanyaan lebih lanjut.\n Hubungi Customer Service\nTutup",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Kota Asal Berangkat dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0022",
+      "title": "Operator Pusat: /partner/laporanpendapatanpertrip — Kota Tujuan Tiba (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-19",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 1,
+      "route": "/partner/laporanpendapatanpertrip",
+      "column": {
+        "label": "Kota Tujuan Tiba",
+        "group": "pod",
+        "cellIndex": 3
+      },
+      "originalId": "SORT-A2-a7ae6e27131b-3",
+      "previousError": "Klik sortir memunculkan dialog aplikasi: !\nMaaf, Koneksi internetmu Terganggu\nPastikan internetmu lancar dengan cek ulang paket data, WIFI atau jaringan di tempatmu. Silahkan hubungi Customer Service untuk pertanyaan lebih lanjut.\n Hubungi Customer Service\nTutup",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Kota Tujuan Tiba dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0023",
+      "title": "Operator Pusat: /partner/daftarpiutang — ID Pesan (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-20",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 1,
+      "route": "/partner/daftarpiutang",
+      "column": {
+        "label": "ID Pesan",
+        "group": "nomor_booking",
+        "cellIndex": 1
+      },
+      "originalId": "SORT-A2-bda9f6b0dfbf-1",
+      "previousError": "Klik posisi ikon ID Pesan menyortir Nama Pelanggan; expected field nomor_booking, actual nama_pelanggan",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir ID Pesan dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0024",
+      "title": "Operator Pusat: /partner/persetujuantiket — ID Pesan (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-21",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 1,
+      "route": "/partner/persetujuantiket",
+      "column": {
+        "label": "ID Pesan",
+        "group": "nomor_booking",
+        "cellIndex": 1
+      },
+      "originalId": "SORT-A2-4a8acf4989ec-1",
+      "previousError": "Klik posisi ikon ID Pesan menyortir Nama Instansi; expected field nomor_booking, actual nama_instansi",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir ID Pesan dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0025",
+      "title": "Operator Pusat: /home/directprint — ID Order (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-22",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 1,
+      "route": "/home/directprint",
+      "column": {
+        "label": "ID Order",
+        "group": "nomor_booking",
+        "cellIndex": 0
+      },
+      "originalId": "SORT-A2-a9631901d036-0",
+      "previousError": "Urutan data DESC salah (19 pasangan terbalik); Arah sortir tidak berganti pada klik kedua",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir ID Order dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0026",
+      "title": "Operator Pusat: /home/directprint — Nama Pembeli (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-22",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 1,
+      "route": "/home/directprint",
+      "column": {
+        "label": "Nama Pembeli",
+        "group": "nama_pemesan",
+        "cellIndex": 1
+      },
+      "originalId": "SORT-A2-a9631901d036-1",
+      "previousError": "Arah sortir tidak berganti pada klik kedua",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Nama Pembeli dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0027",
+      "title": "Operator Pusat: /home/directprint — Rute (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-22",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 1,
+      "route": "/home/directprint",
+      "column": {
+        "label": "Rute",
+        "group": "rute",
+        "cellIndex": 2
+      },
+      "originalId": "SORT-A2-a9631901d036-2",
+      "previousError": "Arah sortir tidak berganti pada klik kedua",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Rute dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0028",
+      "title": "Operator Pusat: /home/directprint — Kapal (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-22",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 1,
+      "route": "/home/directprint",
+      "column": {
+        "label": "Kapal",
+        "group": "kapal",
+        "cellIndex": 3
+      },
+      "originalId": "SORT-A2-a9631901d036-3",
+      "previousError": "Arah sortir tidak berganti pada klik kedua",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Kapal dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0029",
+      "title": "Operator Cabang Pare-Pare: /partner/laporanpenjualanharian — Total Tiket (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-18",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 2,
+      "route": "/partner/laporanpenjualanharian",
+      "column": {
+        "label": "Total Tiket",
+        "group": "total_tiket",
+        "cellIndex": 4
+      },
+      "originalId": "SORT-A3-c7b574032be6-4",
+      "previousError": "Klik posisi ikon Total Tiket menyortir Total Penjualan; expected field total_tiket, actual total_penjualan2",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Total Tiket dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0030",
+      "title": "Operator Cabang Pare-Pare: /partner/laporanPendapatanPenumpang — Qty Tiket (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-23",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 2,
+      "route": "/partner/laporanPendapatanPenumpang",
+      "column": {
+        "label": "Qty Tiket",
+        "group": "jum2",
+        "cellIndex": 4
+      },
+      "originalId": "SORT-A3-d7ca057aac67-4",
+      "previousError": "Urutan data DESC salah (9 pasangan terbalik)",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Qty Tiket dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0031",
+      "title": "Operator Cabang Pare-Pare: /partner/laporanPendapatanPenumpang — Total (Rp.) Pendapatan (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-23",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 2,
+      "route": "/partner/laporanPendapatanPenumpang",
+      "column": {
+        "label": "Total (Rp.) Pendapatan",
+        "group": "pendapatan2",
+        "cellIndex": 5
+      },
+      "originalId": "SORT-A3-d7ca057aac67-5",
+      "previousError": "Urutan data DESC salah (9 pasangan terbalik)",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Total (Rp.) Pendapatan dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0032",
+      "title": "Operator Cabang Pare-Pare: /partner/laporanpendapatanpertrip — Kota Asal Berangkat (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-19",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 2,
+      "route": "/partner/laporanpendapatanpertrip",
+      "column": {
+        "label": "Kota Asal Berangkat",
+        "group": "pol",
+        "cellIndex": 1
+      },
+      "originalId": "SORT-A3-a7ae6e27131b-1",
+      "previousError": "Klik sortir memunculkan dialog aplikasi: !\nMaaf, Koneksi internetmu Terganggu\nPastikan internetmu lancar dengan cek ulang paket data, WIFI atau jaringan di tempatmu. Silahkan hubungi Customer Service untuk pertanyaan lebih lanjut.\n Hubungi Customer Service\nTutup",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Kota Asal Berangkat dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0033",
+      "title": "Operator Cabang Pare-Pare: /partner/laporanpendapatanpertrip — Kota Tujuan Tiba (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-19",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 2,
+      "route": "/partner/laporanpendapatanpertrip",
+      "column": {
+        "label": "Kota Tujuan Tiba",
+        "group": "pod",
+        "cellIndex": 3
+      },
+      "originalId": "SORT-A3-a7ae6e27131b-3",
+      "previousError": "Klik sortir memunculkan dialog aplikasi: !\nMaaf, Koneksi internetmu Terganggu\nPastikan internetmu lancar dengan cek ulang paket data, WIFI atau jaringan di tempatmu. Silahkan hubungi Customer Service untuk pertanyaan lebih lanjut.\n Hubungi Customer Service\nTutup",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Kota Tujuan Tiba dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0034",
+      "title": "Operator Cabang Pare-Pare: /partner/daftarpiutang — ID Pesan (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-20",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 2,
+      "route": "/partner/daftarpiutang",
+      "column": {
+        "label": "ID Pesan",
+        "group": "nomor_booking",
+        "cellIndex": 1
+      },
+      "originalId": "SORT-A3-bda9f6b0dfbf-1",
+      "previousError": "Klik posisi ikon ID Pesan menyortir Nama Pelanggan; expected field nomor_booking, actual nama_pelanggan",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir ID Pesan dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0035",
+      "title": "Operator Cabang Pare-Pare: /partner/persetujuantiket — ID Pesan (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-21",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 2,
+      "route": "/partner/persetujuantiket",
+      "column": {
+        "label": "ID Pesan",
+        "group": "nomor_booking",
+        "cellIndex": 1
+      },
+      "originalId": "SORT-A3-4a8acf4989ec-1",
+      "previousError": "Klik posisi ikon ID Pesan menyortir Nama Instansi; expected field nomor_booking, actual nama_instansi",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir ID Pesan dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0036",
+      "title": "Operator Cabang Pare-Pare: /home/directprint — ID Order (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-22",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 2,
+      "route": "/home/directprint",
+      "column": {
+        "label": "ID Order",
+        "group": "nomor_booking",
+        "cellIndex": 0
+      },
+      "originalId": "SORT-A3-a9631901d036-0",
+      "previousError": "Arah sortir tidak berganti pada klik kedua",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir ID Order dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0037",
+      "title": "Operator Cabang Pare-Pare: /home/directprint — Nama Pembeli (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-22",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 2,
+      "route": "/home/directprint",
+      "column": {
+        "label": "Nama Pembeli",
+        "group": "nama_pemesan",
+        "cellIndex": 1
+      },
+      "originalId": "SORT-A3-a9631901d036-1",
+      "previousError": "Urutan data DESC salah (12 pasangan terbalik); Arah sortir tidak berganti pada klik kedua",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Nama Pembeli dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0038",
+      "title": "Operator Cabang Pare-Pare: /home/directprint — Rute (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-22",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 2,
+      "route": "/home/directprint",
+      "column": {
+        "label": "Rute",
+        "group": "rute",
+        "cellIndex": 2
+      },
+      "originalId": "SORT-A3-a9631901d036-2",
+      "previousError": "Arah sortir tidak berganti pada klik kedua",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Rute dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0039",
+      "title": "Operator Cabang Pare-Pare: /home/directprint — Kapal (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-22",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 2,
+      "route": "/home/directprint",
+      "column": {
+        "label": "Kapal",
+        "group": "kapal",
+        "cellIndex": 3
+      },
+      "originalId": "SORT-A3-a9631901d036-3",
+      "previousError": "Arah sortir tidak berganti pada klik kedua",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Kapal dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0040",
+      "title": "Operator Cabang Pare-Pare: /home/directprint — Berangkat (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-22",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 2,
+      "route": "/home/directprint",
+      "column": {
+        "label": "Berangkat",
+        "group": "tgl_berangkat",
+        "cellIndex": 4
+      },
+      "originalId": "SORT-A3-a9631901d036-4",
+      "previousError": "Urutan data DESC salah (1 pasangan terbalik); Arah sortir tidak berganti pada klik kedua",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Berangkat dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0041",
+      "title": "Operator Cabang Pare-Pare: /home/directprint — Jml Tiket (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-22",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 2,
+      "route": "/home/directprint",
+      "column": {
+        "label": "Jml Tiket",
+        "group": "jum_tiket",
+        "cellIndex": 5
+      },
+      "originalId": "SORT-A3-a9631901d036-5",
+      "previousError": "Arah sortir tidak berganti pada klik kedua",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Jml Tiket dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0042",
+      "title": "Operator Cabang Pare-Pare: /home/directprint — Total (Rp) (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-22",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 2,
+      "route": "/home/directprint",
+      "column": {
+        "label": "Total (Rp)",
+        "group": "total_bayar",
+        "cellIndex": 6
+      },
+      "originalId": "SORT-A3-a9631901d036-6",
+      "previousError": "Arah sortir tidak berganti pada klik kedua",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir Total (Rp) dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    },
+    {
+      "id": "SCN-0043",
+      "title": "Admin Finance: /admin/Finance/ — JUMLAH (ASC/DESC)",
+      "category": "positive",
+      "priority": "medium",
+      "screen": "SCR-24",
+      "requirements": [
+        "SORT-ASC-DESC",
+        "SORT-INDICATOR-DATA"
+      ],
+      "accountIndex": 6,
+      "route": "/admin/Finance/",
+      "column": {
+        "label": "JUMLAH",
+        "group": null,
+        "cellIndex": 1
+      },
+      "originalId": "SORT-A7-2c9d2d2c4d4d-2",
+      "previousError": "Urutan data ASC salah (1 pasangan terbalik); Urutan data DESC salah (1 pasangan terbalik)",
+      "steps": [
+        "Login dengan peran sumber pada context terpisah.",
+        "Buka halaman sumber dan tunggu data selesai dirender.",
+        "Klik ikon sortir JUMLAH dua kali dengan klik pengguna biasa.",
+        "Periksa request, indikator dan urutan nilai pada kedua arah."
+      ],
+      "expected": [
+        "Ikon menyortir kolom yang dimaksud, tanpa error aplikasi.",
+        "Klik berganti antara ASC dan DESC; satu klik tidak memicu dua arah.",
+        "Indikator dan urutan data yang dapat diverifikasi sesuai arah."
+      ]
+    }
+  ]
+}
